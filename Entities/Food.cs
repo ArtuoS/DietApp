@@ -10,7 +10,6 @@ namespace Entities
 		public int ID { get; set; }
 		public virtual Food_Category Category { get; set; }
 		public int Food_CategoryID{ get; set; }
-
 		public string Food_Name { get; set; }
 		public double Calories { get; set; }
 		public double Alcohol { get; set; }
@@ -32,5 +31,7 @@ namespace Entities
 		public double Vitamin_B12 { get; set; }
 		public double Zinc { get; set; }
 		public bool Status { get; set; }
+		public ICollection<Meal> Meals{ get; set; }
+		public ICollection<Restriction> Restrictions { get; set; }
 	}
 }

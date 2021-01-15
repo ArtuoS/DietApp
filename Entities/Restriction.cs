@@ -11,8 +11,7 @@ namespace Entities
 
         public string Name { get; set; }
 
-        public virtual Food Food { get; set; }
+        public ICollection<Food> Foods{ get; set; }
 
-        public int IDFood { get; set; }
     }
 }

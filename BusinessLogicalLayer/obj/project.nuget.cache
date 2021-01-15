@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "D8VvHySKDTITNBO347+82eSq/lNgez9OIwRyer0QO2xjtS+0XUM8jEESx/tVkxyDLFYYdZS60E1Fiqtzjtkbrg==",
+  "dgSpecHash": "EQgByD3HDfmAUVOiW7/kfV4nubP8zY+Eegg0cWs+wiLXIlD8pNcBDrVjfOoodId2pq10jd2OZ86+vPxSaosRHg==",
   "success": true,
   "projectFilePath": "C:\\Users\\entra21\\source\\repos\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\entra21\\.nuget\\packages\\fluentvalidation\\9.4.0\\fluentvalidation.9.4.0.nupkg.sha512",
+    "C:\\Users\\entra21\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.4.0\\fluentvalidation.aspnetcore.9.4.0.nupkg.sha512",
+    "C:\\Users\\entra21\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.4.0\\fluentvalidation.dependencyinjectionextensions.9.4.0.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\entra21\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

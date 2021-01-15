@@ -17,11 +17,8 @@ namespace Entities
         public double Weigth { get; set; }
         public double Heigth { get; set; }
         public double BodyFat { get; set; }
-        public virtual Diet Diets { get; set; }
-        public int DietID { get; set; }
-        public virtual Restriction Restrictions { get; set; }
-        public int RestrictionID { get; set; }
+        public ICollection<Diet> Diets { get; set; }
+        public ICollection<Restriction> Restrictions { get; set; }
         public bool Status { get; set; }
-
     }
 }
