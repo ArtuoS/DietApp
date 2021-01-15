@@ -5749,25 +5749,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Entra21\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\arthu\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj",
+      "projectUniqueName": "D:\\C#\\DietSystem\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj",
-      "packagesPath": "C:\\Users\\Entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\DietSystem\\DietSoftware\\Common\\obj\\",
+      "projectPath": "D:\\C#\\DietSystem\\Common\\Common.csproj",
+      "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+      "outputPath": "D:\\C#\\DietSystem\\Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5826,7 +5824,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -5788,25 +5788,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Entra21\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\arthu\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DietSystem\\DietSoftware\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
+      "projectUniqueName": "D:\\C#\\DietSystem\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
       "projectName": "BusinessLogicalLayer",
-      "projectPath": "C:\\DietSystem\\DietSoftware\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
-      "packagesPath": "C:\\Users\\Entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\DietSystem\\DietSoftware\\BusinessLogicalLayer\\obj\\",
+      "projectPath": "D:\\C#\\DietSystem\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
+      "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+      "outputPath": "D:\\C#\\DietSystem\\BusinessLogicalLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\Entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -5821,11 +5819,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj": {
-              "projectPath": "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj"
+            "D:\\C#\\DietSystem\\Common\\Common.csproj": {
+              "projectPath": "D:\\C#\\DietSystem\\Common\\Common.csproj"
             },
-            "C:\\DietSystem\\DietSoftware\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\DietSystem\\DietSoftware\\Entities\\Entities.csproj"
+            "D:\\C#\\DietSystem\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\C#\\DietSystem\\Entities\\Entities.csproj"
             }
           }
         }
@@ -5872,7 +5870,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DietSystem\\DietSoftware\\MVCPresentationLayer\\MVCPresentationLayer.csproj": {}
+    "D:\\C#\\DietSystem\\MVCPresentationLayer\\MVCPresentationLayer.csproj": {}
   },
   "projects": {
-    "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj": {
+    "D:\\C#\\DietSystem\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj",
+        "projectUniqueName": "D:\\C#\\DietSystem\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\Entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\DietSystem\\DietSoftware\\Common\\obj\\",
+        "projectPath": "D:\\C#\\DietSystem\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\DietSystem\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -77,25 +76,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\DietSystem\\DietSoftware\\DataAcessLayer\\DataAcessLayer.csproj": {
+    "D:\\C#\\DietSystem\\DataAcessLayer\\DataAcessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DietSystem\\DietSoftware\\DataAcessLayer\\DataAcessLayer.csproj",
+        "projectUniqueName": "D:\\C#\\DietSystem\\DataAcessLayer\\DataAcessLayer.csproj",
         "projectName": "DataAcessLayer",
-        "projectPath": "C:\\DietSystem\\DietSoftware\\DataAcessLayer\\DataAcessLayer.csproj",
-        "packagesPath": "C:\\Users\\Entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\DietSystem\\DietSoftware\\DataAcessLayer\\obj\\",
+        "projectPath": "D:\\C#\\DietSystem\\DataAcessLayer\\DataAcessLayer.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\DietSystem\\DataAcessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -110,8 +108,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\DietSystem\\DietSoftware\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\DietSystem\\DietSoftware\\Entities\\Entities.csproj"
+              "D:\\C#\\DietSystem\\Entities\\Entities.csproj": {
+                "projectPath": "D:\\C#\\DietSystem\\Entities\\Entities.csproj"
               }
             }
           }
@@ -158,25 +156,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\DietSystem\\DietSoftware\\Entities\\Entities.csproj": {
+    "D:\\C#\\DietSystem\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DietSystem\\DietSoftware\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\C#\\DietSystem\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\DietSystem\\DietSoftware\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\Entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\DietSystem\\DietSoftware\\Entities\\obj\\",
+        "projectPath": "D:\\C#\\DietSystem\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\DietSystem\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -191,8 +188,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj": {
-                "projectPath": "C:\\DietSystem\\DietSoftware\\Common\\Common.csproj"
+              "D:\\C#\\DietSystem\\Common\\Common.csproj": {
+                "projectPath": "D:\\C#\\DietSystem\\Common\\Common.csproj"
               }
             }
           }
@@ -239,25 +236,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\DietSystem\\DietSoftware\\MVCPresentationLayer\\MVCPresentationLayer.csproj": {
+    "D:\\C#\\DietSystem\\MVCPresentationLayer\\MVCPresentationLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DietSystem\\DietSoftware\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+        "projectUniqueName": "D:\\C#\\DietSystem\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
         "projectName": "MVCPresentationLayer",
-        "projectPath": "C:\\DietSystem\\DietSoftware\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
-        "packagesPath": "C:\\Users\\Entra21\\.nuget\\packages\\",
-        "outputPath": "C:\\DietSystem\\DietSoftware\\MVCPresentationLayer\\obj\\",
+        "projectPath": "D:\\C#\\DietSystem\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "D:\\C#\\DietSystem\\MVCPresentationLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -272,8 +268,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\DietSystem\\DietSoftware\\DataAcessLayer\\DataAcessLayer.csproj": {
-                "projectPath": "C:\\DietSystem\\DietSoftware\\DataAcessLayer\\DataAcessLayer.csproj"
+              "D:\\C#\\DietSystem\\DataAcessLayer\\DataAcessLayer.csproj": {
+                "projectPath": "D:\\C#\\DietSystem\\DataAcessLayer\\DataAcessLayer.csproj"
               }
             }
           }
@@ -303,6 +299,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             }
           },
           "imports": [
@@ -323,7 +323,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
