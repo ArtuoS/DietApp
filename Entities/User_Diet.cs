@@ -6,7 +6,9 @@ namespace Entities
 {
     public class User_Diet
     {
-        public User User { get; set; }
-        public Diet Diet { get; set; }
+        public int UserID { get; set; }
+        public virtual User User { get; set; }
+        public int DietID { get; set; }
+        public virtual Diet Diet { get; set; }
     }
 }

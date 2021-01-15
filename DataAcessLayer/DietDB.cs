@@ -29,33 +29,11 @@ namespace Common
             modelBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=C:\Users\Entra21\Documents\DietDB.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
-        //protected internal virtual void OnModelCreating(DBModelBuilder modelBuilder)
-        //{
-        //    //Criação de uma CONFIGURAÇÃO que diz que a partir de agoraz
-        //    //o EF mapeará strings utilizando NOT NULL e VARCHAR.
-        //    modelBuilder..Properties.ContextType.Assembly.Where(c => c.PropertyType == typeof(string)).Configure(c => c.IsRequired().IsUnicode(false));
-        //
-        //    modelBuilder.Properties().Where(c => c.PropertyType == typeof(string)).Configure(c => c.HasColumnType("DATETIME2"));
-        //
-        //    //Adiciona todas as configurações existentes no projeto DAL
-        //    modelBuilder.Configurations.AddFromAssembly(Assembly.GetExecutingAssembly());
-        //
-        //    //Adiciona todas as convenções existentes no projeto DAL
-        //    modelBuilder.Conventions.AddFromAssembly(Assembly.GetExecutingAssembly());
-        //
-        //    base.OnModelCreating(modelBuilder);
-        //}
-
-
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
+        }
     }
-
-    //class CPFConvention : Convention
-    //{
-    //    public CPFConvention()
-    //    {
-    //        this.Properties().Where(C => C.PropertyType == typeof(string) && C.Name == "CPF").Configure(c => c.IsFixedLength().HasMaxLength(11));
-    //    }
-    //}
 
 }

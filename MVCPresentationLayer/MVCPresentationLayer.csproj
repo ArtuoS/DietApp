@@ -21,4 +21,9 @@
     <ProjectReference Include="..\DataAcessLayer\DataAcessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\QueryModels\" />
+    <Folder Include="Views\Food\" />
+  </ItemGroup>
+
 </Project>

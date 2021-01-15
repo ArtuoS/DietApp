@@ -7,11 +7,9 @@ namespace Entities
 {
     public class Meal
     {
-        [Key]
         public int ID { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
         public DateTime Time { get; set; }
+        public bool Status { get; set; }
     }
 }

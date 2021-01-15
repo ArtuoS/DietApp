@@ -6,8 +6,10 @@ namespace Entities
 {
     public class Meal_Food
     {
-        public Meal Meal { get; set; }
-        public Food Food { get; set; }
+        public int MealID { get; set; }
+        public virtual Meal Meal { get; set; }
+        public int FoodID{ get; set; }
+        public virtual Food Food { get; set; }
 
     }
 }

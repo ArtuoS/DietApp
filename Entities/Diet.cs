@@ -7,10 +7,11 @@ namespace Entities
 {
     public class Diet
     {
-        [Key]
         public int ID { get; set; }
-        [Required]
+        public string Name { get; set; }
         public DateTime Date { get; set; }
-        public List<Food> Foods { get; set; }
+        public int FoodID { get; set; }
+        public virtual Food Foods { get; set; }
+        public bool Status { get; set; }
     }
 }

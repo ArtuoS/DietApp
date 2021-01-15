@@ -7,15 +7,11 @@ namespace Entities
 {
     public class Food
     {
-		[Key]
 		public int ID { get; set; }
+		public virtual Food_Category Category { get; set; }
+		public int Food_CategoryID{ get; set; }
 
-		[Required]
-		public Food_Category Category { get; set; }
-
-		[Required]
 		public string Food_Name { get; set; }
-
 		public double Calories { get; set; }
 		public double Alcohol { get; set; }
 		public double Carbohydrate { get; set; }
@@ -35,5 +31,6 @@ namespace Entities
 		public double Vitamin_B6 { get; set; }
 		public double Vitamin_B12 { get; set; }
 		public double Zinc { get; set; }
+		public bool Status { get; set; }
 	}
 }

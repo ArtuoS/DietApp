@@ -7,12 +7,12 @@ namespace Entities
 {
     public class Restriction
     {
-        [Key]
         public int ID { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        public List<Food> Foods { get; set; }
+        public virtual Food Food { get; set; }
+
+        public int IDFood { get; set; }
     }
 }

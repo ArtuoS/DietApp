@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <Compile Include="Migrations\20210114195857_InitialMigration.cs" />
-    <Compile Include="Migrations\20210114195857_InitialMigration.Designer.cs" />
     <Compile Include="Migrations\DietDBModelSnapshot.cs" />
   </ItemGroup>
 

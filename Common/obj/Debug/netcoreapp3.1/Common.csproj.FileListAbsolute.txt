@@ -33,3 +33,15 @@ D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.
 D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.dll
 D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.pdb
 D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache
+C:\Users\entra21\source\repos\DietApp\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+C:\Users\entra21\source\repos\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.json
+C:\Users\entra21\source\repos\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.dev.json
+C:\Users\entra21\source\repos\DietApp\Common\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\entra21\source\repos\DietApp\Common\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
+C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.dll
+C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.pdb
+C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache

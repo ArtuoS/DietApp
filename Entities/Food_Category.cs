@@ -7,9 +7,9 @@ namespace Entities
 {
     public class Food_Category
     {
-        [Key]
+        
         public int ID { get; set; }
-        [Required]
         public string Name { get; set; }
+        public bool Status { get; set; }
     }
 }

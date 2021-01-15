@@ -6,7 +6,9 @@ namespace Entities
 {
     public class User_Restriction
     {
-        public User User { get; set; }
-        public Restriction Restriction { get; set; }
+        public int UserID { get; set; }
+        public virtual User User { get; set; }
+        public int RestrictionID { get; set; }
+        public virtual Restriction Restriction { get; set; }
     }
 }
