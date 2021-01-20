@@ -13,13 +13,14 @@ namespace MVCPresentationLayer.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Insert()
+
+        public IActionResult Insert()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Insert(FoodInsertViewModel model)
+        public IActionResult Insert(FoodInsertViewModel model)
         {
             return View();
         }

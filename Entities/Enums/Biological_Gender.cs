@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common
+namespace Entities.Enums
 {
     public enum Biological_Gender
     {

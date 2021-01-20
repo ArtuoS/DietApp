@@ -1,11 +1,11 @@
-﻿using BusinessLogicalLayer.Interfaces;
-using Common;
+﻿using Common;
+using Common.Interfaces;
 using Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLogicalLayer
+namespace Common
 {
     interface IRestrictionService : IEntityCRUD<Restriction>
     {

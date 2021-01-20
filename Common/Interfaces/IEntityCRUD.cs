@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLogicalLayer.Interfaces
+namespace Common.Interfaces
 {
     public interface IEntityCRUD<T>
     {

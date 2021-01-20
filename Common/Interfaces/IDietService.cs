@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BusinessLogicalLayer.Interfaces
+namespace Common.Interfaces
 {
     interface IDietService : IEntityCRUD<Diet>
     {
