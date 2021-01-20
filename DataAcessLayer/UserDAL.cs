@@ -36,9 +36,14 @@ namespace DataAcessLayer
             }
         }
 
-        public Task<Response> Update(User item)
+        public async Task<Response> Update(User item)
         {
-            throw new NotImplementedException();
+            using (DietDB db = new DietDB())
+            {
+                db.Users.Update(item);
+                await db.SaveChangesAsync();
+                return ResponseFactory.ResponseSuccessModel();
+            }
         }
     }
 }

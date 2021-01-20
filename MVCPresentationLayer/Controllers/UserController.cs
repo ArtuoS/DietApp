@@ -42,6 +42,20 @@ namespace MVCPresentationLayer.Controllers
             user.SetStatus(true);
             Response response = await userBLL.Insert(user);
 
+
+
+            return View();
+        }
+
+        public async Task<IActionResult> Update(UserInsertViewModel model)
+        {
+            UserBLL userBLL = new UserBLL();
+
+            User user = mapper.Map<User>(model);
+
+            user.SetStatus(true);
+            Response response = await userBLL.Update(user);
+
             return View();
         }
     }

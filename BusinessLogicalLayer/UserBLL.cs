@@ -40,9 +40,24 @@ namespace BusinessLogicalLayer
             }
         }
 
-        public Task<Response> Update(User item)
+        public async Task<Response> Update(User item)
         {
-            throw new NotImplementedException();
+            ValidationResult results = this.Validate(item);
+            try
+            {
+                if (!results.IsValid)
+                {
+                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                }
+                else
+                {
+                    return await userDAL.Update(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
         public Task<Response> Delete(int id)
