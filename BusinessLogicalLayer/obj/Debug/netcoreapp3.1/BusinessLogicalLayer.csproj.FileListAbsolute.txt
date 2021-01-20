@@ -60,3 +60,5 @@ D:\C#\DietSystem\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLay
 D:\C#\DietSystem\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.dll
 D:\C#\DietSystem\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.pdb
 D:\C#\DietSystem\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.genruntimeconfig.cache
+C:\Users\entra21\source\repos\DietApp\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.dll
+C:\Users\entra21\source\repos\DietApp\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.pdb

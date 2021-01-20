@@ -20,5 +20,11 @@ namespace Entities
         public ICollection<Diet> Diets { get; set; }
         public ICollection<Restriction> Restrictions { get; set; }
         public bool Status { get; set; }
+
+        public bool SetStatus(bool status)
+        {
+            return this.Status = status;
+        }
     }
+
 }

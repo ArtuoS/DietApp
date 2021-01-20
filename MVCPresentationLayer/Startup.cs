@@ -1,3 +1,4 @@
+using AutoMapper;
 using Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -8,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVCPresentationLayer.Models.InsertModels;
-using MVCPresentationLayer.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +31,12 @@ namespace MVCPresentationLayer
             services.AddControllersWithViews()
                 .AddFluentValidation();
 
-            //services.AddTransient<IValidator<User>, UserValidator>()
-            services.AddTransient<IValidator<UserInsertViewModel>, UserValidator>();
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<UserInsertViewModel, User>();
+            });
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

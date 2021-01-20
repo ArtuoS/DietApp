@@ -14,6 +14,13 @@ namespace MVCPresentationLayer.Controllers
     public class UserController : Controller
     {
 
+        private readonly IMapper mapper;
+
+        public UserController(IMapper mapper)
+        {
+            this.mapper = mapper;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -28,24 +35,12 @@ namespace MVCPresentationLayer.Controllers
         [HttpPost]
         public IActionResult Insert(UserInsertViewModel model)
         {
-            if (!ModelState.IsValid)
-            {
+            UserBLL userBLL = new UserBLL();
 
-            }
-            else
-            {
-                UserBLL userBLL = new UserBLL();
+            User user = mapper.Map<User>(model);
 
-                var configuration = new MapperConfiguration(cfg =>
-                {
-                    cfg.CreateMap<UserInsertViewModel, User>();
-                });
-
-                var mapper = configuration.CreateMapper();
-                User user = mapper.Map<User>(model);
-
-                Response response = userBLL.Insert(user);
-            }
+            user.SetStatus(true);
+            Response response = userBLL.Insert(user);
 
             return View();
         }

@@ -319,7 +319,6 @@ C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.dll
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.pdb
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.genruntimeconfig.cache
-C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Insert.cshtml.g.cs
 D:\C#\DietSystem\MVCPresentationLayer\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\C#\DietSystem\MVCPresentationLayer\bin\Debug\netcoreapp3.1\appsettings.json
 D:\C#\DietSystem\MVCPresentationLayer\bin\Debug\netcoreapp3.1\MVCPresentationLayer.exe
@@ -486,3 +485,12 @@ D:\C#\DietSystem\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLay
 D:\C#\DietSystem\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.pdb
 D:\C#\DietSystem\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.genruntimeconfig.cache
 D:\C#\DietSystem\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Insert.cshtml.g.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\bin\Debug\netcoreapp3.1\FluentValidation.dll
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\bin\Debug\netcoreapp3.1\BusinessLogicalLayer.dll
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\bin\Debug\netcoreapp3.1\BusinessLogicalLayer.pdb
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Food\Insert.cshtml.g.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Insert.cshtml.g.cs
