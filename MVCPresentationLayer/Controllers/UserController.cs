@@ -33,14 +33,14 @@ namespace MVCPresentationLayer.Controllers
         }
 
         [HttpPost]
-        public IActionResult Insert(UserInsertViewModel model)
+        public async Task<IActionResult> Insert(UserInsertViewModel model)
         {
             UserBLL userBLL = new UserBLL();
 
             User user = mapper.Map<User>(model);
 
             user.SetStatus(true);
-            Response response = userBLL.Insert(user);
+            Response response = await userBLL.Insert(user);
 
             return View();
         }

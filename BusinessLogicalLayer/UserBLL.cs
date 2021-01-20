@@ -6,6 +6,7 @@ using FluentValidation.Results;
 using Common.Factory;
 using Common.Interfaces;
 using DataAcessLayer;
+using System.Threading.Tasks;
 
 namespace BusinessLogicalLayer
 {
@@ -19,22 +20,7 @@ namespace BusinessLogicalLayer
 
         UserDAL userDAL = new UserDAL();
 
-        public Response Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public QueryResponse<User> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public SingleResponse<User> GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Response Insert(User item)
+        public async Task<Response> Insert(User item)
         {
             ValidationResult results = this.Validate(item);
             try
@@ -45,7 +31,7 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
-                    return userDAL.Insert(item);
+                    return await userDAL.Insert(item);
                 }
             }
             catch (Exception ex)
@@ -54,7 +40,22 @@ namespace BusinessLogicalLayer
             }
         }
 
-        public Response Update(User item)
+        public Task<Response> Update(User item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Response> Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<QueryResponse<User>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<SingleResponse<User>> GetById(int id)
         {
             throw new NotImplementedException();
         }
