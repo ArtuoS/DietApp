@@ -1558,23 +1558,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Entities/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "FluentValidation.AspNetCore": "9.4.0",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
-        },
-        "compile": {
-          "bin/placeholder/Entities.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Entities.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
       }
     }
   },
@@ -5844,16 +5827,10 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "Entities/1.0.0": {
-      "type": "project",
-      "path": "../Entities/Entities.csproj",
-      "msbuildProject": "../Entities/Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "Entities >= 1.0.0",
       "FluentValidation.AspNetCore >= 9.4.0",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.2",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.2",
@@ -5861,19 +5838,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Joana.DESKTOP-1T5I4G0\\.nuget\\packages\\": {}
+    "C:\\Users\\entra21\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Common\\Common.csproj",
+      "projectUniqueName": "P:\\Arthur M\\DietApp\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Common\\Common.csproj",
-      "packagesPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Common\\obj\\",
+      "projectPath": "P:\\Arthur M\\DietApp\\Common\\Common.csproj",
+      "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+      "outputPath": "P:\\Arthur M\\DietApp\\Common\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Joana.DESKTOP-1T5I4G0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5885,11 +5866,8 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {
-            "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Entities\\Entities.csproj"
-            }
-          }
+          "targetAlias": "netcoreapp3.1",
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -5900,6 +5878,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "FluentValidation.AspNetCore": {
             "target": "Package",
@@ -5940,7 +5919,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

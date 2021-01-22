@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVCPresentationLayer.Models.InsertModels;
+using MVCPresentationLayer.Models.QueryModels;
+using MVCPresentationLayer.Models.UpdateModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +36,8 @@ namespace MVCPresentationLayer
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<UserInsertViewModel, User>();
+                cfg.CreateMap<UserUpdateViewModel, User>();
+                cfg.CreateMap<User, UserQueryViewModel>();
             });
             IMapper mapper = config.CreateMapper();
             services.AddSingleton(mapper);

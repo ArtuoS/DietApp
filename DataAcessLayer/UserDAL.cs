@@ -1,29 +1,75 @@
-﻿using Common;
-using Common.Factory;
-using Common.Interfaces;
-using Entities;
+﻿using Entities;
+using Entities.Factory;
+using Entities.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace DataAcessLayer
 {
     public class UserDAL : IUserService
     {
-        public Task<Response> Delete(int id)
+        public async Task<Response> Delete(int id)
         {
-            throw new NotImplementedException();
+            User user = new User();
+            user.ID = id;
+
+            using (DietDB db = new DietDB())
+            {
+                db.Entry(user).State = EntityState.Deleted;
+                await db.SaveChangesAsync();
+            }
+
+            return ResponseFactory.ResponseSuccessModel();
         }
 
-        public Task<QueryResponse<User>> GetAll()
+        public async Task<Response> Disable(int id)
         {
-            throw new NotImplementedException();
+            using (DietDB db = new DietDB())
+            {
+                User user = await db.Users.FirstOrDefaultAsync(u => u.ID == id);
+                if (user != null)
+                {
+                    user.Status = false;
+                    await db.SaveChangesAsync();
+                    return ResponseFactory.ResponseSuccessModel();
+                }
+                return ResponseFactory.ResponseNotFoundException();
+            }
+
         }
 
-        public Task<SingleResponse<User>> GetById(int id)
+        public async Task<QueryResponse<User>> GetAll()
         {
-            throw new NotImplementedException();
+            QueryResponse<User> response = new QueryResponse<User>();
+
+            using (DietDB db = new DietDB())
+            {
+                /*
+                List<User> users = await db.Users.Where(w => w.Status).ToListAsync();
+                */
+                List<User> users = await db.Users.ToListAsync();
+                response.Data = users;
+            }
+
+            return response;
+        }
+
+        public async Task<SingleResponse<User>> GetById(int id)
+        {
+            SingleResponse<User> response = new SingleResponse<User>();
+
+            using (DietDB db = new DietDB())
+            {
+                User user = await db.Users.FirstOrDefaultAsync(w => w.ID == id);
+                response.Data = user;
+            }
+
+            return response;
         }
 
         public async Task<Response> Insert(User item)
@@ -32,18 +78,20 @@ namespace DataAcessLayer
             {
                 db.Users.Add(item);
                 await db.SaveChangesAsync();
-                return ResponseFactory.ResponseSuccessModel();
             }
+
+            return ResponseFactory.ResponseSuccessModel();
         }
 
         public async Task<Response> Update(User item)
         {
             using (DietDB db = new DietDB())
             {
-                db.Users.Update(item);
+                db.Entry(item).State = EntityState.Modified;
                 await db.SaveChangesAsync();
-                return ResponseFactory.ResponseSuccessModel();
             }
+
+            return ResponseFactory.ResponseSuccessModel();
         }
     }
 }

@@ -66,3 +66,30 @@ C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Common\obj\Debug\netco
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Common\obj\Debug\netcoreapp3.1\Common.dll
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Common\obj\Debug\netcoreapp3.1\Common.pdb
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.dev.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csproj.CopyComplete
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache
+P:\Arthur M\DietApp\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+P:\Arthur M\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.json
+P:\Arthur M\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.dev.json
+P:\Arthur M\DietApp\Common\bin\Debug\netcoreapp3.1\Common.dll
+P:\Arthur M\DietApp\Common\bin\Debug\netcoreapp3.1\Common.pdb
+P:\Arthur M\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
+P:\Arthur M\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+P:\Arthur M\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+P:\Arthur M\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+P:\Arthur M\DietApp\Common\obj\Debug\netcoreapp3.1\Common.dll
+P:\Arthur M\DietApp\Common\obj\Debug\netcoreapp3.1\Common.pdb
+P:\Arthur M\DietApp\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache

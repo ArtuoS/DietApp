@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,13 @@ namespace MVCPresentationLayer.Controllers
 {
     public class FoodController : Controller
     {
+        private readonly IMapper mapper;
+
+        public FoodController(IMapper mapper)
+        {
+            this.mapper = mapper;
+        }
+
         public IActionResult Index()
         {
             return View();

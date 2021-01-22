@@ -4,6 +4,7 @@ using Common;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
+using MVCPresentationLayer.Models.UpdateModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,13 @@ namespace MVCPresentationLayer.Controllers
             this.mapper = mapper;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
         }
 
 
-        public IActionResult Insert()
+        public async Task<IActionResult> Insert()
         {
             return View();
         }
@@ -38,25 +39,40 @@ namespace MVCPresentationLayer.Controllers
             UserBLL userBLL = new UserBLL();
 
             User user = mapper.Map<User>(model);
-
             user.SetStatus(true);
+
             Response response = await userBLL.Insert(user);
-
-
 
             return View();
         }
 
-        public async Task<IActionResult> Update(UserInsertViewModel model)
+        public IActionResult Update()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(UserUpdateViewModel model)
         {
             UserBLL userBLL = new UserBLL();
 
             User user = mapper.Map<User>(model);
 
-            user.SetStatus(true);
             Response response = await userBLL.Update(user);
 
             return View();
         }
+
+        /*
+        public IActionResult Users()
+        {
+            return View();
+        }
+
+        public IActionResult Users()
+        {
+            QueryResponse<User> users = new QueryResponse<User>();
+        }
+        */
     }
 }

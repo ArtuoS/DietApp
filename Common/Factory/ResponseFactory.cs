@@ -1,10 +1,11 @@
 ﻿using Common;
+using Entities;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Common.Factory
+namespace Entities.Factory
 {
     public static class ResponseFactory
     {
@@ -34,6 +35,24 @@ namespace Common.Factory
             Response response = new Response();
             response.Success = false;
             response.Message = ex.ToString();
+            return response;
+        }
+
+        public static Response ResponseNotFoundException()
+        {
+            Response response = new Response();
+            response.Success = false;
+            response.Message = "Registro não encontrado.";
+            return response;
+        }
+
+
+        public static QueryResponse<T> QueryResponseSucessModel<T>(List<T> item)
+        {
+            QueryResponse<T> response = new QueryResponse<T>();
+            response.Success = true;
+            response.Data = item;
+            response.Message = "Sucesso.";
             return response;
         }
     }

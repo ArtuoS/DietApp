@@ -1,12 +1,12 @@
 ﻿using Entities;
 using System;
 using FluentValidation;
-using Common;
 using FluentValidation.Results;
-using Common.Factory;
-using Common.Interfaces;
+using Entities.Factory;
+using Entities.Interfaces;
 using DataAcessLayer;
 using System.Threading.Tasks;
+using Common;
 
 namespace BusinessLogicalLayer
 {
@@ -60,9 +60,9 @@ namespace BusinessLogicalLayer
             }
         }
 
-        public Task<Response> Delete(int id)
+        public async Task<Response> Delete(int id)
         {
-            throw new NotImplementedException();
+            return await userDAL.Delete(id);
         }
 
         public Task<QueryResponse<User>> GetAll()
@@ -74,5 +74,11 @@ namespace BusinessLogicalLayer
         {
             throw new NotImplementedException();
         }
+
+        public Task<Response> Disable(int id)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

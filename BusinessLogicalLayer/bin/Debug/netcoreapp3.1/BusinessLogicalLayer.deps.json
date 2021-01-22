@@ -1066,7 +1066,6 @@
       },
       "Common/1.0.0": {
         "dependencies": {
-          "Entities": "1.0.0",
           "FluentValidation.AspNetCore": "9.4.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
         },
@@ -1087,6 +1086,7 @@
       },
       "Entities/1.0.0": {
         "dependencies": {
+          "Common": "1.0.0",
           "FluentValidation.AspNetCore": "9.4.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.2"
         },

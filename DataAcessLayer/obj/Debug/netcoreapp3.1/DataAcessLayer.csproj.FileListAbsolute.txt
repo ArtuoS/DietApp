@@ -81,3 +81,37 @@ C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\DataAcessLayer\obj\Deb
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.dll
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.pdb
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.genruntimeconfig.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.deps.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.runtimeconfig.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.runtimeconfig.dev.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.csprojAssemblyReference.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.AssemblyInfoInputs.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.AssemblyInfo.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.csproj.CopyComplete
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.genruntimeconfig.cache
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.deps.json
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.runtimeconfig.json
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.runtimeconfig.dev.json
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.dll
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.pdb
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Common.dll
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Entities.dll
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Common.pdb
+P:\Arthur M\DietApp\DataAcessLayer\bin\Debug\netcoreapp3.1\Entities.pdb
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.csprojAssemblyReference.cache
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.AssemblyInfoInputs.cache
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.AssemblyInfo.cs
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.csproj.CoreCompileInputs.cache
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.csproj.CopyComplete
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.dll
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.pdb
+P:\Arthur M\DietApp\DataAcessLayer\obj\Debug\netcoreapp3.1\DataAcessLayer.genruntimeconfig.cache
