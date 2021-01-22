@@ -4,6 +4,7 @@ using Common;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
+using MVCPresentationLayer.Models.QueryModels;
 using MVCPresentationLayer.Models.UpdateModels;
 using System;
 using System.Collections.Generic;
@@ -63,16 +64,21 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
-        /*
-        public IActionResult Users()
+        [HttpGet]
+        public async Task<IActionResult> Users()
         {
-            return View();
-        }
+            UserBLL userBLL = new UserBLL();
 
-        public IActionResult Users()
-        {
-            QueryResponse<User> users = new QueryResponse<User>();
+            QueryResponse<User> response = await userBLL.GetAll();
+
+            if (!response.Success)
+            {
+                return View();
+            }
+
+            List<UserQueryViewModel> data = mapper.Map<List<UserQueryViewModel>>(response.Data);
+
+            return View(data);
         }
-        */
     }
 }

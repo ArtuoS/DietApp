@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAcessLayer
 {
-    public class MealDAL : IFoodService
+    public class MealDAL : IMealService
     {
         public async Task<Response> Delete(int id)
         {
@@ -28,35 +28,72 @@ namespace DataAcessLayer
 
         public async Task<Response> Disable(int id)
         {
-            throw new NotImplementedException();
+            using (DietDB db = new DietDB())
+            {
+                Meal meal = await db.Meals.FirstOrDefaultAsync(u => u.ID == id);
+                if (meal != null)
+                {
+                    meal.Status = false;
+                    await db.SaveChangesAsync();
+                    return ResponseFactory.ResponseSuccessModel();
+                }
+                return ResponseFactory.ResponseNotFoundException();
+            }
+        }
+        public async Task<QueryResponse<Meal>> GetAll()
+        {
+            QueryResponse<Meal> response = new QueryResponse<Meal>();
+
+            using (DietDB db = new DietDB())
+            {
+                List<Meal> meals = await db.Meals.ToListAsync();
+                response.Data = meals;
+            }
+
+            return response;
         }
 
-        public async Task<QueryResponse<Food>> GetAll()
+        public async Task<SingleResponse<Meal>> GetById(int id)
+        {
+            SingleResponse<Meal> response = new SingleResponse<Meal>();
+
+            using (DietDB db = new DietDB())
+            {
+                Meal meal = await db.Meals.FirstOrDefaultAsync(w => w.ID == id);
+                response.Data = meal;
+            }
+
+            return response;
+        }
+
+        public async Task<SingleResponse<Food>> GetByName(Meal item)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<SingleResponse<Food>> GetById(int id)
+        public async Task<Response> Insert(Meal item)
         {
-            throw new NotImplementedException();
+            using (DietDB db = new DietDB())
+            {
+                db.Meals.Add(item);
+                await db.SaveChangesAsync();
+            }
+
+            return ResponseFactory.ResponseSuccessModel();
         }
 
-        public async Task<SingleResponse<Food>> GetByName(Food item)
+        public async Task<Response> Update(Meal item)
         {
-            throw new NotImplementedException();
+            using (DietDB db = new DietDB())
+            {
+                db.Entry(item).State = EntityState.Modified;
+                await db.SaveChangesAsync();
+            }
+
+            return ResponseFactory.ResponseSuccessModel();
         }
 
-        public async Task<Response> Insert(Food item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<Response> Update(Food item)
-        {
-            throw new NotImplementedException();
-        }
-
-        SingleResponse<Food> IFoodService.GetByName(Food item)
+        SingleResponse<Meal> IMealService.GetByName(Meal item)
         {
             throw new NotImplementedException();
         }

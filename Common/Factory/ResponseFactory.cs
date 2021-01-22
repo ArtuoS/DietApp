@@ -46,13 +46,20 @@ namespace Entities.Factory
             return response;
         }
 
-
         public static QueryResponse<T> QueryResponseSucessModel<T>(List<T> item)
         {
             QueryResponse<T> response = new QueryResponse<T>();
             response.Success = true;
             response.Data = item;
             response.Message = "Sucesso.";
+            return response;
+        }
+
+        public static QueryResponse<T> QueryExceptionModel<T>(Exception ex)
+        {
+            QueryResponse<T> response = new QueryResponse<T>();
+            response.Success = false;
+            response.Message = ex.ToString();
             return response;
         }
     }

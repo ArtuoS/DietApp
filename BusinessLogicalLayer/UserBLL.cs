@@ -65,9 +65,16 @@ namespace BusinessLogicalLayer
             return await userDAL.Delete(id);
         }
 
-        public Task<QueryResponse<User>> GetAll()
+        public async Task<QueryResponse<User>> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await userDAL.GetAll();
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.QueryExceptionModel<User>(ex);
+            }
         }
 
         public Task<SingleResponse<User>> GetById(int id)

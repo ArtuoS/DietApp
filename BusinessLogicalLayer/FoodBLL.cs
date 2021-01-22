@@ -6,39 +6,54 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Common;
+using DataAcessLayer;
+using Entities.Factory;
+using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLogicalLayer
 {
-    class FoodBLL : AbstractValidator<Food>, IFoodService
+   public class FoodBLL : AbstractValidator<Food>, IFoodService
     {
         public FoodBLL()
         {
             RuleFor(a => a.Food_Name).NotNull().Length(3, 40).WithMessage("O nome deve conter entre 3 e 40 caracteres");
-            //  RuleFor(a => a.).NotNull().Length(3, 40).WithMessage("O nome deve conter entre 3 e 40 caracteres");
-
         }
 
-        public Task<Response> Delete(int id)
+        FoodDAL foodDAL = new FoodDAL();
+
+        public async Task<Response> Delete(int id)
         {
-            throw new NotImplementedException();
+            return await foodDAL.Delete(id);
         }
 
-        public Task<Response> Disable(int id)
+        public async Task<Response> Disable(int id)
         {
-            throw new NotImplementedException();
+            return await foodDAL.Disable(id);
         }
 
-        public Task<QueryResponse<Food>> GetAll()
+        public async Task<QueryResponse<Food>> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+               return await foodDAL.GetAll();
+            }
+            catch(Exception ex)
+            {
+                return ResponseFactory.QueryExceptionModel<Food>(ex);
+            }
         }
 
-        public Task<SingleResponse<Food>> GetById(int id)
+        public async Task<SingleResponse<Food>> GetById(int id)
         {
-            throw new NotImplementedException();
+            return await foodDAL.GetById(id);
         }
 
-        public SingleResponse<Food> GetByName(Food item)
+        public async Task<SingleResponse<Food>> GetByName(Food item)
+        {
+            return await foodDAL.GetByName(item);
+        }
+
+        public Task<Response> Update(Food item)
         {
             throw new NotImplementedException();
         }
@@ -48,7 +63,7 @@ namespace BusinessLogicalLayer
             throw new NotImplementedException();
         }
 
-        public Task<Response> Update(Food item)
+        SingleResponse<Food> IFoodService.GetByName(Food item)
         {
             throw new NotImplementedException();
         }

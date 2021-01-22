@@ -1,7 +1,10 @@
 ﻿using Common;
+using DataAcessLayer;
 using Entities;
+using Entities.Factory;
 using Entities.Interfaces;
 using FluentValidation;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,26 +12,81 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicalLayer
 {
-    class MealBLL : AbstractValidator<Meal>, IMealService
+   public class MealBLL : AbstractValidator<Meal>, IMealService
     {
-        public Task<Response> Delete(int id)
+        public MealBLL()
         {
-            throw new NotImplementedException();
+            RuleFor(a => a.Name).NotNull().Length(3, 50).WithMessage("O nome deve ter entre 3 e 50 caractéres.");
         }
 
-        public Task<Response> Disable(int id)
+        MealDAL mealDAL = new MealDAL();
+
+        public async Task<Response> Insert(Meal item)
         {
-            throw new NotImplementedException();
+            ValidationResult results = this.Validate(item);
+            try
+            {
+                if (!results.IsValid)
+                {
+                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                }
+                else
+                {
+                    return await mealDAL.Insert(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
-        public Task<QueryResponse<Meal>> GetAll()
+        public async Task<Response> Disable(int id)
         {
-            throw new NotImplementedException();
+            return await mealDAL.Disable(id);
         }
 
-        public Task<SingleResponse<Meal>> GetById(int id)
+        public async Task<QueryResponse<Meal>> GetAll()
+        {
+            try
+            {
+                return await mealDAL.GetAll();
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.QueryExceptionModel<Meal>(ex);
+            }
+        }
+
+        public async Task<SingleResponse<Meal>> GetById(int id)
+        {
+            return await mealDAL.GetById(id);
+        }
+
+        public async Task<Response> Delet(Meal id)
         {
             throw new NotImplementedException();
+            //return await mealDAL.Delete(id);
+        }
+
+        public async Task<Response> Update(Meal item)
+        {
+            ValidationResult results = this.Validate(item);
+            try
+            {
+                if (!results.IsValid)
+                {
+                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                }
+                else
+                {
+                    return await mealDAL.Update(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
         public SingleResponse<Meal> GetByName(Meal item)
@@ -36,12 +94,7 @@ namespace BusinessLogicalLayer
             throw new NotImplementedException();
         }
 
-        public Task<Response> Insert(Meal item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response> Update(Meal item)
+        public Task<Response> Delete(int id)
         {
             throw new NotImplementedException();
         }
