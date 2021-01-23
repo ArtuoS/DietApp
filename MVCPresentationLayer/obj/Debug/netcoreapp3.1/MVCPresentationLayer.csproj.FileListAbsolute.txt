@@ -999,3 +999,7 @@ P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentation
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.pdb
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.genruntimeconfig.cache
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Update.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Navigation.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TopNavbar.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Update.cshtml.g.cs

@@ -3,6 +3,7 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element">
+                    <img alt="image" class="rounded-circle" src="~/Images/profile_small.png" />
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="block m-t-xs font-bold">Nome do Usuario</span>
                         <span class="text-muted text-xs block">Perfil <b class="caret"></b></span>
@@ -16,10 +17,10 @@
                 </div>
             </li>
             <li class="@Html.IsSelected(controller: "Home", action: "Main")">
-                <a href="@Url.Action("Main", "Home")"><i class="fa fa-diamond"></i> <span class="nav-label">Início</span> <span class="label label-primary float-right">Principal</span></a>
+                <a href="@Url.Action("Main", "Home")"><i class="fa fa-pagelines"></i> <span class="nav-label">Início</span> <span class="label label-primary float-right">Principal</span></a>
             </li>
             <li class="@Html.IsSelected(controller: "Home", action: "Minor")">
-                <a href="@Url.Action("Minor", "Home")"><i class="fa fa-server"></i> <span class="nav-label">Dietas</span></a>
+                <a href="@Url.Action("Minor", "Home")"><i class="fa fa-lemon-o"></i> <span class="nav-label">Dietas</span></a>
             </li>
         </ul>
     </div>

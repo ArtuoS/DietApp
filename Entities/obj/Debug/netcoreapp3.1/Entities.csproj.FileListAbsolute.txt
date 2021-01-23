@@ -88,3 +88,6 @@ P:\Arthur M\DietApp\Entities\obj\Debug\netcoreapp3.1\Entities.genruntimeconfig.c
 P:\Arthur M\DietApp\Entities\bin\Debug\netcoreapp3.1\Common.dll
 P:\Arthur M\DietApp\Entities\bin\Debug\netcoreapp3.1\Common.pdb
 P:\Arthur M\DietApp\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CopyComplete
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Entities\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Entities\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Entities\obj\Debug\netcoreapp3.1\Entities.csproj.CopyComplete
