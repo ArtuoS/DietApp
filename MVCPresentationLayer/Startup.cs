@@ -1,4 +1,5 @@
 using AutoMapper;
+using BusinessLogicalLayer;
 using Entities;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -40,7 +41,11 @@ namespace MVCPresentationLayer
                 cfg.CreateMap<User, UserQueryViewModel>();
             });
             IMapper mapper = config.CreateMapper();
+
+            UserBLL userBLL = new UserBLL();
+
             services.AddSingleton(mapper);
+            services.AddSingleton(userBLL);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

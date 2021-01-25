@@ -15,6 +15,7 @@ namespace BusinessLogicalLayer
         public UserBLL()
         {
             RuleFor(a => a.First_Name).NotNull().Length(3, 40).WithMessage("O nome deve ter entre 3 e 40 caractéres.");
+            RuleFor(a => a.Last_Name).NotNull().Length(3, 40).WithMessage("O sobrenome deve ter entre 3 e 40 caractéres.");
             RuleFor(b => b.Email).EmailAddress().WithMessage("O e-mail inserido é inválido.");
         }
 
@@ -62,7 +63,14 @@ namespace BusinessLogicalLayer
 
         public async Task<Response> Delete(int id)
         {
-            return await userDAL.Delete(id);
+            try
+            {
+                return await userDAL.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
         public async Task<QueryResponse<User>> GetAll()
@@ -73,18 +81,32 @@ namespace BusinessLogicalLayer
             }
             catch (Exception ex)
             {
-                return ResponseFactory.QueryExceptionModel<User>(ex);
+                return ResponseFactory.QueryResponseExceptionModel<User>(ex);
             }
         }
 
-        public Task<SingleResponse<User>> GetById(int id)
+        public async Task<SingleResponse<User>> GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await userDAL.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SingleResponseExceptionModel<User>(ex);
+            }
         }
 
-        public Task<Response> Disable(int id)
+        public async Task<Response> Disable(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await userDAL.Disable(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
     }

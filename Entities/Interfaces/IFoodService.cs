@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
     public interface IFoodService : IEntityCRUD<Food>
     {
-        SingleResponse<Food> GetByName(Food item);
+        Task<SingleResponse<Food>> GetByName(Food name);
     }
 }

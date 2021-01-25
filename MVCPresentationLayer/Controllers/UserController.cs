@@ -17,19 +17,21 @@ namespace MVCPresentationLayer.Controllers
     {
 
         private readonly IMapper mapper;
+        private readonly UserBLL userBLL;
 
-        public UserController(IMapper mapper)
+        public UserController(IMapper mapper, UserBLL userBLL)
         {
             this.mapper = mapper;
+            this.userBLL = userBLL;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
             return View();
         }
 
 
-        public async Task<IActionResult> Insert()
+        public IActionResult Insert()
         {
             return View();
         }
@@ -37,8 +39,6 @@ namespace MVCPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Insert(UserInsertViewModel model)
         {
-            UserBLL userBLL = new UserBLL();
-
             User user = mapper.Map<User>(model);
             user.SetStatus(true);
 
@@ -55,8 +55,6 @@ namespace MVCPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(UserUpdateViewModel model)
         {
-            UserBLL userBLL = new UserBLL();
-
             User user = mapper.Map<User>(model);
 
             Response response = await userBLL.Update(user);
@@ -64,11 +62,8 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
-        [HttpGet]
         public async Task<IActionResult> Users()
         {
-            UserBLL userBLL = new UserBLL();
-
             QueryResponse<User> response = await userBLL.GetAll();
 
             if (!response.Success)
@@ -77,7 +72,6 @@ namespace MVCPresentationLayer.Controllers
             }
 
             List<UserQueryViewModel> data = mapper.Map<List<UserQueryViewModel>>(response.Data);
-
             return View(data);
         }
     }

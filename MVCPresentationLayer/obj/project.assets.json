@@ -2668,7 +2668,10 @@
         },
         "runtime": {
           "bin/placeholder/BusinessLogicalLayer.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Common/1.0.0": {
         "type": "project",
@@ -2682,7 +2685,10 @@
         },
         "runtime": {
           "bin/placeholder/Common.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "DataAcessLayer/1.0.0": {
         "type": "project",
@@ -2698,7 +2704,10 @@
         },
         "runtime": {
           "bin/placeholder/DataAcessLayer.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Entities/1.0.0": {
         "type": "project",
@@ -2713,7 +2722,10 @@
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -8768,20 +8780,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Joana.DESKTOP-1T5I4G0\\.nuget\\packages\\": {}
+    "C:\\Users\\arthu\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+      "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
       "projectName": "MVCPresentationLayer",
-      "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
-      "packagesPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\obj\\",
+      "projectPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+      "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\MVCPresentationLayer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Joana.DESKTOP-1T5I4G0\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -8792,12 +8809,13 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj": {
-              "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj"
+            "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj": {
+              "projectPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj"
             },
-            "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
-              "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
+            "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\DataAcessLayer\\DataAcessLayer.csproj": {
+              "projectPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\DataAcessLayer\\DataAcessLayer.csproj"
             }
           }
         }
@@ -8810,6 +8828,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -8858,7 +8877,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

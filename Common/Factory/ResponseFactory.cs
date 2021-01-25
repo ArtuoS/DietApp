@@ -62,5 +62,21 @@ namespace Entities.Factory
             response.Message = ex.ToString();
             return response;
         }
+
+        public static QueryResponse<T> QueryResponseExceptionModel<T>(Exception ex)
+        {
+            QueryResponse<T> response = new QueryResponse<T>();
+            response.Success = false;
+            response.Message = ex.ToString();
+            return response;
+        }
+
+        public static SingleResponse<T> SingleResponseExceptionModel<T>(Exception ex)
+        {
+            SingleResponse<T> response = new SingleResponse<T>();
+            response.Success = false;
+            response.Message = ex.ToString();
+            return response;
+        }
     }
 }

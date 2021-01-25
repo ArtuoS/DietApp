@@ -119,3 +119,22 @@ P:\Arthur M\DietApp\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogical
 P:\Arthur M\DietApp\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.dll
 P:\Arthur M\DietApp\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.pdb
 P:\Arthur M\DietApp\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.genruntimeconfig.cache
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\BusinessLogicalLayer.deps.json
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\BusinessLogicalLayer.runtimeconfig.json
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\BusinessLogicalLayer.runtimeconfig.dev.json
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\BusinessLogicalLayer.dll
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\BusinessLogicalLayer.pdb
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.dll
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\Entities.dll
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\DataAcessLayer.pdb
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\bin\Debug\netcoreapp3.1\Entities.pdb
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.csprojAssemblyReference.cache
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.AssemblyInfoInputs.cache
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.AssemblyInfo.cs
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.csproj.CoreCompileInputs.cache
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.csproj.CopyComplete
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.dll
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.pdb
+C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\BusinessLogicalLayer\obj\Debug\netcoreapp3.1\BusinessLogicalLayer.genruntimeconfig.cache

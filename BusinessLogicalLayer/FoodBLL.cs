@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 using Common;
 using DataAcessLayer;
 using Entities.Factory;
-using System.ComponentModel.DataAnnotations;
+using FluentValidation.Results;
 
 namespace BusinessLogicalLayer
 {
-   public class FoodBLL : AbstractValidator<Food>, IFoodService
+    public class FoodBLL : AbstractValidator<Food>, IFoodService
     {
         public FoodBLL()
         {
@@ -21,51 +21,104 @@ namespace BusinessLogicalLayer
 
         FoodDAL foodDAL = new FoodDAL();
 
+        public async Task<Response> Insert(Food item)
+        {
+            ValidationResult results = this.Validate(item);
+            try
+            {
+                if (!results.IsValid)
+                {
+                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                }
+                else
+                {
+                    return await foodDAL.Insert(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
+        }
+
+        public async Task<Response> Update(Food item)
+        {
+            ValidationResult results = this.Validate(item);
+            try
+            {
+                if (!results.IsValid)
+                {
+                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                }
+                else
+                {
+                    return await foodDAL.Update(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
+        }
+
         public async Task<Response> Delete(int id)
         {
-            return await foodDAL.Delete(id);
+            try
+            {
+                return await foodDAL.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
         public async Task<Response> Disable(int id)
         {
-            return await foodDAL.Disable(id);
+            try
+            {
+                return await foodDAL.Disable(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
         public async Task<QueryResponse<Food>> GetAll()
         {
             try
             {
-               return await foodDAL.GetAll();
+                return await foodDAL.GetAll();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return ResponseFactory.QueryExceptionModel<Food>(ex);
+                return ResponseFactory.QueryResponseExceptionModel<Food>(ex);
             }
         }
 
         public async Task<SingleResponse<Food>> GetById(int id)
         {
-            return await foodDAL.GetById(id);
+            try
+            {
+                return await foodDAL.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SingleResponseExceptionModel<Food>(ex);
+            }
         }
 
-        public async Task<SingleResponse<Food>> GetByName(Food item)
+        public async Task<SingleResponse<Food>> GetByName(Food name)
         {
-            return await foodDAL.GetByName(item);
-        }
-
-        public Task<Response> Update(Food item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Response> Insert(Food item)
-        {
-            throw new NotImplementedException();
-        }
-
-        SingleResponse<Food> IFoodService.GetByName(Food item)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                return await foodDAL.GetByName(name);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SingleResponseExceptionModel<Food>(ex);
+            }
         }
     }
 }
