@@ -23,17 +23,17 @@
                                 <div class="col-lg-8">
                                     <div class="form-group">
                                         <label asp-for="First_Name"></label>
-                                        <input asp-for="First_Name" id="userName" name="userName" type="text" class="form-control required">
+                                        <input asp-for="First_Name" type="text" class="form-control required">
                                         <span asp-validation-for="First_Name" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Last_Name"></label>
-                                        <input asp-for="Last_Name" id="userLastName" name="userLastName" type="text" class="form-control required">
+                                        <input asp-for="Last_Name" type="text" class="form-control required">
                                         <span asp-validation-for="Last_Name" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Email"></label>
-                                        <input asp-for="Email" type="email" id="email" name="email" class="form-control required">
+                                        <input asp-for="Email" type="email" name="email" class="form-control required">
                                         <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
@@ -60,34 +60,32 @@
                                     <div class="form-group" id="data_3">
                                         <label asp-for="Date_Of_Birthday" class="font-normal"></label>
                                         <div class="input-group date">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" class="form-control" value="">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" class="form-control">
                                             <span asp-validation-for="Date_Of_Birthday" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Heigth"></label>
-                                        <input asp-for="Heigth" class="touchspin2" type="text" value="" name="demo2">
+                                        <input asp-for="Heigth" class="touchspin2" type="text" value="" >
                                         <span asp-validation-for="Heigth" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Weigth"></label>
-                                        <input asp-for="Weigth" class="touchspin2" type="text" value="" name="demo2">
+                                        <input asp-for="Weigth" class="touchspin2" type="text" value="">
                                         <span asp-validation-for="Weigth" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label></label>
-                                        <div class="radio radio-danger">
-                                            <input type="radio" name="radio2" id="radio3" value="0">
-                                            <label for="radio3">
-                                                Feminino
-                                            </label>
-                                        </div>
-                                        <div class="radio radio-danger">
-                                            <input type="radio" name="radio2" id="radio4" value="1" checked="">
-                                            <label for="radio4">
-                                                Masculino
-                                            </label>
-                                        </div>
+                                        @{
+                                            string[] biological_gender = Enum.GetNames(typeof(Entities.Enums.Biological_Gender));
+                                        }
+
+                                        <select class="form-control" name="Biological_Gender" id="Biological_Gender">
+                                            <option value="2">Selecione o gênero</option>
+                                            @for (int i = 0; i < biological_gender.Length; i++)
+                                            {
+                                                <option value="@i">@biological_gender[i]</option>
+                                            }
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -95,6 +93,35 @@
 
                         <h1>Preferencias</h1>
                         <fieldset>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="ibox">
+                                        <div class="ibox-content">
+                                            <p>
+                                                Bootstrap Dual Listbox is a responsive dual listbox widget optimized for Twitter Bootstrap. It works on all modern browsers and on touch devices.
+                                            </p>
+
+                                            <form id="form" action="#" class="wizard-big">
+                                                <select class="form-control dual_select" multiple>
+                                                    <option value="United States">United States</option>
+                                                    <option value="United Kingdom">United Kingdom</option>
+                                                    <option value="Australia">Australia</option>
+                                                    <option selected value="Austria">Austria</option>
+                                                    <option value="Bahamas">Bahamas</option>
+                                                    <option value="Barbados">Barbados</option>
+                                                    <option value="Belgium">Belgium</option>
+                                                    <option value="Bermuda">Bermuda</option>
+                                                    <option value="Brazil">Brazil</option>
+                                                    <option value="Bulgaria">Bulgaria</option>
+                                                    <option value="Cameroon">Cameroon</option>
+                                                    <option value="Canada">Canada</option>
+                                                </select>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </fieldset>
 
                         <h1>Restrições</h1>
@@ -115,6 +142,10 @@
         <link rel="stylesheet" href="~/lib/daterangepicker/daterangepicker-bs3.css" />
         <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
         <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" />
+        <link rel="stylesheet" href="~/lib/select2/dist/css/select2.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" />
+        <link rel="stylesheet" href="~/lib/select2/dist/css/select2.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     </environment>
 }
 
@@ -133,6 +164,9 @@
         <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
         <script src="~/lib/cropper/dist/cropper.min.js"></script>
         <script src="~/lib/select2/dist/js/select2.min.js"></script>
+        <script src="~/lib/nouslider/jquery.nouislider.min.js"></script>
+        <script src="~/lib/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+        <script src="~/lib/dualListbox/jquery.bootstrap-duallistbox.js"></script>
     </environment>
 
 

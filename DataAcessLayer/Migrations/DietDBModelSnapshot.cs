@@ -71,7 +71,9 @@ namespace DataAcessLayer.Migrations
                         .UseIdentityColumn();
 
                     b.Property<double>("Alcohol")
-                        .HasColumnType("float");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(0.0);
 
                     b.Property<double>("Calories")
                         .HasColumnType("float");
@@ -250,7 +252,7 @@ namespace DataAcessLayer.Migrations
                         .IsUnicode(true)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<string>("Senha")
+                    b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")

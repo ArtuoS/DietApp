@@ -49,9 +49,9 @@ namespace DataAcessLayer
             {
                 List<Food> foods = await db.Foods.ToListAsync();
                 response.Data = foods;
+                return ResponseFactory.QueryResponseSuccessModel<Food>(foods);
             }
-
-            return response;
+            return ResponseFactory.QueryResponseNotFoundException<Food>();
         }
 
         public async Task<SingleResponse<Food>> GetById(int id)
@@ -70,7 +70,20 @@ namespace DataAcessLayer
 
         public async Task<SingleResponse<Food>> GetByName(Food item)
         {
-            throw new NotImplementedException();
+            SingleResponse<Food> response = new SingleResponse<Food>();
+
+            string name = item.Food_Name;
+
+            using (DietDB db = new DietDB())
+            {
+                Food food = await db.Foods.FirstOrDefaultAsync(w => w.Food_Name == name);
+                if (food != null)
+                {
+                    response.Data = food;
+                    return ResponseFactory.SingleResponseSuccessModel<Food>(food);
+                }
+                return ResponseFactory.SingleResponseNotFoundException<Food>();
+            }
         }
 
         public async Task<Response> Insert(Food item)
@@ -93,11 +106,6 @@ namespace DataAcessLayer
             }
 
             return ResponseFactory.ResponseSuccessModel();
-        }
-
-        SingleResponse<Food> IFoodService.GetByName(Food item)
-        {
-            throw new NotImplementedException();
         }
     }
 }

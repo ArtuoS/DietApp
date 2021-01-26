@@ -20,11 +20,14 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                db.Entry(user).State = EntityState.Deleted;
-                await db.SaveChangesAsync();
+                if (user != null)
+                {
+                    db.Entry(user).State = EntityState.Deleted;
+                    await db.SaveChangesAsync();
+                    return ResponseFactory.ResponseSuccessModel();
+                }
+                return ResponseFactory.SingleResponseNotFoundException<User>();
             }
-
-            return ResponseFactory.ResponseSuccessModel();
         }
 
         public async Task<Response> Disable(int id)
@@ -34,13 +37,12 @@ namespace DataAcessLayer
                 User user = await db.Users.FirstOrDefaultAsync(u => u.ID == id);
                 if (user != null)
                 {
-                    user.Status = false;
+                    user.SetStatus(false);
                     await db.SaveChangesAsync();
                     return ResponseFactory.ResponseSuccessModel();
                 }
                 return ResponseFactory.ResponseNotFoundException();
             }
-
         }
 
         public async Task<QueryResponse<User>> GetAll()
@@ -49,14 +51,14 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                /*
-                List<User> users = await db.Users.Where(w => w.Status).ToListAsync();
-                */
-                List<User> users = await db.Users.ToListAsync();
-                response.Data = users;
+                List<User> users = await db.Users.Where(a => a.Status).ToListAsync();
+                if (users != null)
+                {
+                    response.Data = users;
+                    return ResponseFactory.QueryResponseSuccessModel(users);
+                }
+                return ResponseFactory.QueryResponseNotFoundException<User>();
             }
-
-            return response;
         }
 
         public async Task<SingleResponse<User>> GetById(int id)
@@ -66,32 +68,41 @@ namespace DataAcessLayer
             using (DietDB db = new DietDB())
             {
                 User user = await db.Users.FirstOrDefaultAsync(w => w.ID == id);
-                response.Data = user;
+                if (user != null)
+                {
+                    response.Data = user;
+                    return ResponseFactory.SingleResponseSuccessModel<User>(user);
+                }
+                return ResponseFactory.SingleResponseNotFoundException<User>();
             }
-
-            return response;
         }
 
         public async Task<Response> Insert(User item)
         {
             using (DietDB db = new DietDB())
             {
-                db.Users.Add(item);
-                await db.SaveChangesAsync();
+                if (item != null)
+                {
+                    db.Users.Add(item);
+                    await db.SaveChangesAsync();
+                    ResponseFactory.ResponseSuccessModel();
+                }
+                return ResponseFactory.SingleResponseNotFoundException<User>();
             }
-
-            return ResponseFactory.ResponseSuccessModel();
         }
 
         public async Task<Response> Update(User item)
         {
             using (DietDB db = new DietDB())
             {
-                db.Entry(item).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                if (item != null)
+                {
+                    db.Entry(item).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    return ResponseFactory.ResponseSuccessModel();
+                }
+                return ResponseFactory.ResponseNotFoundException();
             }
-
-            return ResponseFactory.ResponseSuccessModel();
         }
     }
 }

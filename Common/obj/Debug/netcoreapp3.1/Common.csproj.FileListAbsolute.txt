@@ -47,10 +47,7 @@ D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.csproj.CopyComplete
 D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.dll
 D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.pdb
 D:\C#\DietSystem\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache
-C:\Users\entra21\source\repos\DietApp\Common\bin\Debug\netcoreapp3.1\Entities.dll
-C:\Users\entra21\source\repos\DietApp\Common\bin\Debug\netcoreapp3.1\Entities.pdb
 C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
-C:\Users\entra21\source\repos\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csproj.CopyComplete
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Common\bin\Debug\netcoreapp3.1\Common.deps.json
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.json
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.dev.json

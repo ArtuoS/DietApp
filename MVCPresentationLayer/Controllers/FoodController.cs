@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BusinessLogicalLayer;
 using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
 using System;
@@ -11,10 +12,12 @@ namespace MVCPresentationLayer.Controllers
     public class FoodController : Controller
     {
         private readonly IMapper mapper;
+        private readonly FoodBLL foodBLL;
 
-        public FoodController(IMapper mapper)
+        public FoodController(IMapper mapper, FoodBLL foodBLL)
         {
             this.mapper = mapper;
+            this.foodBLL = foodBLL;
         }
 
         public IActionResult Index()

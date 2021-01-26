@@ -12,48 +12,116 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicalLayer
 {
-   public class MealBLL : AbstractValidator<Meal>, IMealService
+    public class MealBLL : AbstractValidator<Meal>, IMealService
     {
         public MealBLL()
         {
             RuleFor(a => a.Name).NotNull().Length(3, 50).WithMessage("O nome deve ter entre 3 e 50 caractéres.");
+            RuleFor(a => a.Time).NotNull().WithMessage("A data dever ser válida.");
         }
 
         MealDAL mealDAL = new MealDAL();
 
-        public SingleResponse<Meal> GetByName(Meal item)
+        public async Task<SingleResponse<Meal>> GetByName(Meal name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await mealDAL.GetByName(name);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SingleResponseExceptionModel<Meal>(ex);
+            }
         }
 
-        public Task<Response> Insert(Meal item)
+        public async Task<Response> Insert(Meal item)
         {
-            throw new NotImplementedException();
+            ValidationResult results = this.Validate(item);
+            try
+            {
+                if (!results.IsValid)
+                {
+                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                }
+                else
+                {
+                    return await mealDAL.Insert(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
-        public Task<Response> Update(Meal item)
+        public async Task<Response> Update(Meal item)
         {
-            throw new NotImplementedException();
+            ValidationResult results = this.Validate(item);
+            try
+            {
+                if (!results.IsValid)
+                {
+                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                }
+                else
+                {
+                    return await mealDAL.Update(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
-        public Task<Response> Delete(int id)
+        public async Task<Response> Delete(int id)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                return await mealDAL.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
-        public Task<Response> Disable(int id)
+        public async Task<Response> Disable(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await mealDAL.Disable(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.ResponseExceptionModel(ex);
+            }
         }
 
-        public Task<QueryResponse<Meal>> GetAll()
+        public async Task<QueryResponse<Meal>> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await mealDAL.GetAll();
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.QueryResponseExceptionModel<Meal>(ex);
+            }
         }
 
-        public Task<SingleResponse<Meal>> GetById(int id)
+        public async Task<SingleResponse<Meal>> GetById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await mealDAL.GetById(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SingleResponseExceptionModel<Meal>(ex);
+            }
         }
+
     }
 }

@@ -19,12 +19,20 @@ namespace Entities
         public double BodyFat { get; set; }
         public ICollection<Diet> Diets { get; set; }
         public ICollection<Restriction> Restrictions { get; set; }
-        //public bool IsAdm { get; set; }
         public bool Status { get; private set; }
 
         public bool SetStatus(bool status)
         {
             return this.Status = status;
+        }
+
+        public int ReplaceGenderWithNumber(Biological_Gender gender)
+        {
+            if (gender == Biological_Gender.Female)
+            {
+                return 0;
+            }
+            return 1;
         }
     }
 

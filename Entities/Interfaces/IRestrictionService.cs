@@ -3,11 +3,12 @@ using Entities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
-    interface IRestrictionService : IEntityCRUD<Restriction>
+    public interface IRestrictionService : IEntityCRUD<Restriction>
     {
-        SingleResponse<Restriction> GetByName(Restriction item);
+        Task<SingleResponse<Restriction>> GetByName(Restriction item);
     }
 }

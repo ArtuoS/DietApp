@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Entities\\Entities.csproj": {}
+    "C:\\Users\\entra21\\source\\repos\\DietApp\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Common\\Common.csproj": {
+    "C:\\Users\\entra21\\source\\repos\\DietApp\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\source\\repos\\DietApp\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Common\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\source\\repos\\DietApp\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\source\\repos\\DietApp\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -83,26 +82,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Entities\\Entities.csproj": {
+    "C:\\Users\\entra21\\source\\repos\\DietApp\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\entra21\\source\\repos\\DietApp\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\entra21\\source\\repos\\DietApp\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\entra21\\source\\repos\\DietApp\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -115,8 +113,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\arthu\\source\\repos\\2bd7763109062d863af0b27cbd11d7766947fcb1\\Common\\Common.csproj"
+              "C:\\Users\\entra21\\source\\repos\\DietApp\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\entra21\\source\\repos\\DietApp\\Common\\Common.csproj"
               }
             }
           }
@@ -170,7 +168,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

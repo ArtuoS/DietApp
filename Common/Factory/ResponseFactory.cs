@@ -9,6 +9,7 @@ namespace Entities.Factory
 {
     public static class ResponseFactory
     {
+        // =========== Response ===============
         public static Response ResponseErrorModel(IList<ValidationFailure> errors)
         {
             Response response = new Response();
@@ -46,7 +47,9 @@ namespace Entities.Factory
             return response;
         }
 
-        public static QueryResponse<T> QueryResponseSucessModel<T>(List<T> item)
+        // // =========== QueryResponse ===============
+
+        public static QueryResponse<T> QueryResponseSuccessModel<T>(List<T> item)
         {
             QueryResponse<T> response = new QueryResponse<T>();
             response.Success = true;
@@ -71,11 +74,46 @@ namespace Entities.Factory
             return response;
         }
 
+        public static QueryResponse<T> QueryResponseNotFoundException<T>()
+        {
+            QueryResponse<T> response = new QueryResponse<T>();
+            response.Success = false;
+            response.Message = "Registro não encontrado.";
+            return response;
+        }
+
+        // =========== SingleResponse ===============
+
+        public static SingleResponse<T> SingleResponseSuccessModel<T>(T item)
+        {
+            SingleResponse<T> response = new SingleResponse<T>();
+            response.Success = true;
+            response.Data = item;
+            response.Message = "Sucesso.";
+            return response;
+        }
+
+        public static SingleResponse<T> SingleExceptionModel<T>(Exception ex)
+        {
+            SingleResponse<T> response = new SingleResponse<T>();
+            response.Success = false;
+            response.Message = ex.ToString();
+            return response;
+        }
+
         public static SingleResponse<T> SingleResponseExceptionModel<T>(Exception ex)
         {
             SingleResponse<T> response = new SingleResponse<T>();
             response.Success = false;
             response.Message = ex.ToString();
+            return response;
+        }
+
+        public static SingleResponse<T> SingleResponseNotFoundException<T>()
+        {
+            SingleResponse<T> response = new SingleResponse<T>();
+            response.Success = false;
+            response.Message = "Registro não encontrado.";
             return response;
         }
     }

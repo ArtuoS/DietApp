@@ -1174,3 +1174,8 @@ C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\MVCPresenta
 C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.pdb
 C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.genruntimeconfig.cache
 C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Users.cshtml.g.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Navigation.cshtml.g.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_TopNavbar.cshtml.g.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Update.cshtml.g.cs
+C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Users.cshtml.g.cs

@@ -13,5 +13,10 @@ namespace Entities
         public ICollection<Meal> Meals { get; set; }
         
         public bool Status { get; set; }
+
+        public bool SetStatus(bool status)
+        {
+            return this.Status = status;
+        }
     }
 }
