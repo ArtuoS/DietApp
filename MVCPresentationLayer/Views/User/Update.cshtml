@@ -2,100 +2,273 @@
 
 @{
     ViewData["Title"] = "Update";
+
 }
 
-<div class="row">
-    <div class="col-lg-12">
-        <div class="ibox ">
-            <div class="ibox-title">
-                <h5>All form elements <small>With custom checbox and radion elements.</small></h5>
-            </div>
-            <div class="ibox-content">
-                <form asp-action="Update">
-                    <div class="form-group  row">
-                        <label asp-for="First_Name" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-10">
-                            <input asp-for="First_Name" type="text" class="form-control">
-                            <span asp-validation-for="First_Name" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label asp-for="Last_Name" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-10">
-                            <input asp-for="Last_Name" type="text" class="form-control">
-                            <span asp-validation-for="Last_Name" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label asp-for="Email" class="col-sm-2 col-form-label"></label>
-                        <input asp-for="Email" type="email" class="form-control">
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label asp-for="Password" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-10">
-                            <input asp-for="Password" type="password" class="form-control">
-                            <span asp-validation-for="Password" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label asp-for="Date_Of_Birthday" class="font-normal"></label>
-                        <div class="input-group date">
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" class="form-control">
-                            <span asp-validation-for="Date_Of_Birthday" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label asp-for="Weigth" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-10">
-                            <input asp-for="Heigth" class="touchspin2" type="text" value="">
-                            <span asp-validation-for="Weigth" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label asp-for="Heigth" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-10">
-                            <input asp-for="Weigth" class="touchspin2" type="text" value="">
-                            <span asp-validation-for="Heigth" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <label asp-for="Body-Fat" class="col-sm-2 col-form-label"></label>
-                        <div class="col-sm-10">
-                            <input asp-for="Body-Fat"type="text" value="">
-                            <span asp-validation-for="Body-Fat" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        @{
-                            string[] biological_gender = Enum.GetNames(typeof(Entities.Enums.Biological_Gender));
-                        }
+        <div class="text-center">
+            <a data-toggle="modal" class="btn btn-primary" href="#modal-form">Editar</a>
+        </div>
+        <div id="modal-form" class="modal fade" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form role="form">
+                            <h3>Editar Usuario <small> ID: </small></h3>
+                            <div class="row">
+                                <div class="col-sm-6 b-r">
 
-                        <select class="form-control" name="Biological_Gender" id="Biological_Gender">
-                            <option value="2">Selecione o gênero</option>
-                            @for (int i = 0; i < biological_gender.Length; i++)
-                            {
-                                <option value="@i">@biological_gender[i]</option>
-                            }
-                        </select>
+                                    <div class="form-group"><label asp-for="First_Name" class="col-sm-2 col-form-label"></label> <input asp-for="First_Name" type="text" value="" class="form-control"></div>
+                                    <span asp-validation-for="First_Name" class="text-danger"></span>
+                                    <div class="form-group"><label asp-for="Last_Name" class="col-sm-2 col-form-label"></label> <input asp-for="Last_Name" type="text" value="" class="form-control"></div>
+                                    <span asp-validation-for="Last_Name" class="text-danger"></span>
+                                    <div class="form-group"><label asp-for="Email" class="col-sm-2 col-form-label"></label><input asp-for="Email" type="email" class="form-control"></div>
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                    <div class="form-group"><label asp-for="Password" class="col-sm-2 col-form-label"></label><input asp-for="Password" type="password" class="form-control"></div>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <div class="form-group" id="data_3">
+                                        <label asp-for="Date_Of_Birthday" class="col-lg-9 col-form-label"></label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" class="form-control">
+                                            <span asp-validation-for="Date_Of_Birthday" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="Gender" class="col-sm-2 col-form-label"></label>
+                                        @{
+                                            string[] biological_gender = Enum.GetNames(typeof(Entities.Enums.Biological_Gender));
+                                        }
+
+                                        <select class="form-control" name="Biological_Gender" id="Biological_Gender">
+                                            @for (int i = 0; i < biological_gender.Length; i++)
+                                            {
+                                                <option value="@i">@biological_gender[i]</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group"><label asp-for="Weigth" class="col-sm-2 col-form-label"></label><input asp-for="Weigth" type="text" class="form-control"></div>
+                                    <span asp-validation-for="Weigth" class="text-danger"></span>
+                                    <div class="form-group"><label asp-for="Heigth" class="col-sm-2 col-form-label"></label><input asp-for="Heigth" type="text" class="form-control"></div>
+                                    <span asp-validation-for="Heigth" class="text-danger"></span>
+                                    <div class="form-group"><label asp-for="BodyFat" class="col-lg-9 col-form-label"></label><input asp-for="BodyFat" type="text" class="form-control"></div>
+                                    <span asp-validation-for="BodyFat" class="text-danger"></span>
+                                    <div class="form-group"><button class="btn btn-sm-10 btn-primary" type="submit"><strong>Atualizar</strong></button></div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="hr-line-dashed"></div>
-                    <div class="form-group row">
-                        <input type="submit" value="Save" class="btn btn-primary" />
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+
+
+@section Styles {
+    <environment names="Development,Staging,Production">
+        <link rel="stylesheet" href="~/lib/iCheck/custom.css" />
+        <link rel="stylesheet" href="~/lib/steps/jquery.steps.css" />
+        <link rel="stylesheet" href="~/lib/daterangepicker/daterangepicker-bs3.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" />
+        <link rel="stylesheet" href="~/lib/select2/dist/css/select2.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" />
+        <link rel="stylesheet" href="~/lib/select2/dist/css/select2.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
+    </environment>
+}
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <environment names="Development,Staging,Production">
+        <script src="~/lib/iCheck/icheck.min.js"></script>
+        <script src="~/lib/steps/jquery.steps.min.js"></script>
+        <script src="~/lib/validate/jquery.validate.min.js"></script>
+        <script src="~/lib/daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+        <script src="~/lib/cropper/dist/cropper.js"></script>
+        <script src="~/lib/select2/dist/js/select2.js"></script>
+        <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+        <script src="~/lib/dualListbox/jquery.bootstrap-duallistbox.js"></script>
+        <script src="~/lib/daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/lib/cropper/dist/cropper.min.js"></script>
+        <script src="~/lib/select2/dist/js/select2.min.js"></script>
+        <script src="~/lib/nouslider/jquery.nouislider.min.js"></script>
+        <script src="~/lib/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+        <script src="~/lib/dualListbox/jquery.bootstrap-duallistbox.js"></script>
+    </environment>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    // Forbid suppressing "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age").val()) < 18) {
+                        return false;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
+
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex) {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                        $(this).steps("next");
+                    }
+
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3) {
+                        $(this).steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
+
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+
+                    // Submit form input
+                    form.submit().val;
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    }
+                }
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.tagsinput').tagsinput({
+                tagClass: 'label label-primary'
+            });
+
+            $('.dual_select').bootstrapDualListbox({
+                selectorMinimalHeight: 160
+            });
+
+            $('#data_3 .input-group.date').datepicker({
+                startView: 2,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('input[name="daterange"]').daterangepicker();
+
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+            $('#reportrange').daterangepicker({
+                format: 'MM/DD/YYYY',
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/2012',
+                maxDate: '12/31/2015',
+                dateLimit: { days: 60 },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                opens: 'right',
+                drops: 'down',
+                buttonClasses: ['btn', 'btn-sm'],
+                applyClass: 'btn-primary',
+                cancelClass: 'btn-default',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Cancel',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            });
+
+
+            $(".select2_demo_1").select2();
+            $(".select2_demo_2").select2();
+            $(".select2_demo_3").select2({
+                placeholder: "Select a state",
+                allowClear: true
+            });
+
+            $(".touchspin1").TouchSpin({
+                buttondown_class: 'btn btn-white',
+                buttonup_class: 'btn btn-white'
+            });
+
+            $(".touchspin2").TouchSpin({
+                min: 0,
+                max: 100,
+                step: 0.1,
+                decimals: 2,
+                boostat: 5,
+                maxboostedstep: 10,
+                postfix: '%',
+                buttondown_class: 'btn btn-white',
+                buttonup_class: 'btn btn-white'
+            });
+
+            $(".touchspin3").TouchSpin({
+                verticalbuttons: true,
+                buttondown_class: 'btn btn-white',
+                buttonup_class: 'btn btn-white'
+            });
+
+        });
+
+
+
+    </script>
 }

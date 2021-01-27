@@ -99,3 +99,15 @@ C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\Common\obj\
 C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\Common\obj\Debug\netcoreapp3.1\Common.dll
 C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\Common\obj\Debug\netcoreapp3.1\Common.pdb
 C:\Users\arthu\source\repos\2bd7763109062d863af0b27cbd11d7766947fcb1\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.dev.json
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\bin\Debug\netcoreapp3.1\Common.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\bin\Debug\netcoreapp3.1\Common.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\obj\Debug\netcoreapp3.1\Common.dll
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\obj\Debug\netcoreapp3.1\Common.pdb
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache

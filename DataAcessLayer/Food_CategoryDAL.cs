@@ -50,7 +50,7 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                List<Food_Category> food_Categories = await db.Categories.Where(a => a.Status).ToListAsync();
+                List<Food_Category> food_Categories = await db.Categories.ToListAsync();
                 if (food_Categories != null)
                 {
                     response.Data = food_Categories;
@@ -65,7 +65,7 @@ namespace DataAcessLayer
             throw new NotImplementedException();
         }
 
-        public SingleResponse<Food_Category> GetByName(Food_Category item)
+        public Task<SingleResponse<Food_Category>> GetByName(string nome)
         {
             throw new NotImplementedException();
         }

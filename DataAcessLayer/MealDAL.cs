@@ -14,7 +14,7 @@ namespace DataAcessLayer
     {
         public async Task<Response> Delete(int id)
         {
-            Meal user = new User();
+            Meal user = new Meal();
             user.ID = id;
 
             using (DietDB db = new DietDB())

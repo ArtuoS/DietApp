@@ -68,7 +68,7 @@ namespace BusinessLogicalLayer
             }
         }
 
-        public async Task<SingleResponse<Food_Category>> GetByName(Food_Category name)
+        public async Task<SingleResponse<Food_Category>> GetByName(string name)
         {
             try
             {

@@ -8,6 +8,6 @@ namespace Entities.Interfaces
 {
    public interface IFood_CategoryService : IEntityCRUD<Food_Category>
     {
-        Task<SingleResponse<Food_Category>> GetByName(Food_Category item);
+        Task<SingleResponse<Food_Category>> GetByName(string nome);
     }
 }
