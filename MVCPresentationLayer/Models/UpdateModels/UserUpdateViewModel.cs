@@ -9,7 +9,7 @@ namespace MVCPresentationLayer.Models.UpdateModels
 {
     public class UserUpdateViewModel
     {
-        [Display(Name = "Nome")]
+        [Display(Name = "First_Name")]
         public string First_Name { get; set; }
         [Display(Name = "Sobrenome")]
         public string Last_Name { get; set; }

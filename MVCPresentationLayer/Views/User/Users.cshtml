@@ -34,7 +34,9 @@
                     <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
                         <thead>
                             <tr>
-                                <th data-toggle="true">@Html.DisplayNameFor(model => model.First_Name) @Html.DisplayNameFor(model => model.Last_Name)</th>
+                                <th data-toggle="true"></th>
+                                <th>@Html.DisplayNameFor(model => model.First_Name)</th>
+                                <th>@Html.DisplayNameFor(model => model.Last_Name)</th>
                                 <th>@Html.DisplayNameFor(model => model.ID)</th>
                                 <th>@Html.DisplayNameFor(model => model.Email)</th>
                                 <th data-hide="all">@Html.DisplayNameFor(model => model.Date_Of_Birthday)</th>
@@ -49,7 +51,9 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(modelItem => item.First_Name) @Html.DisplayFor(modelItem => item.Last_Name)</td>
+                                    <td></td>
+                                    <td>@Html.DisplayFor(modelItem => item.First_Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Last_Name)</td>
                                     <td>@Html.DisplayFor(modelItem => item.ID)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Email)</td>
                                     <td>@Html.DisplayFor(modelItem => item.Date_Of_Birthday)</td>
@@ -58,7 +62,12 @@
                                     <td>@Html.DisplayFor(modelItem => item.Heigth)</td>
                                     <td>@Html.DisplayFor(modelItem => item.BodyFat)</td>
                                     <td></td>
-                                    <td>@Html.ActionLink("Editar", "Update", new { id = item.ID }) <i class="fa fa-check text-navy"></i> @Html.ActionLink("Deletar", "Delete", new { id = item.ID })<i class="fa fa-times text-navy"></i></td>
+                                    <td>
+
+                                        <a data-toggle="modal" class="btn btn-primary" id="vtnc" href="#modal-form">Editar</a>
+
+                                        @Html.ActionLink("Editar", "Update", new { id = item.ID }) <i class="fa fa-check text-navy"></i> @Html.ActionLink("Deletar", "Delete", new { id = item.ID })<i class="fa fa-times text-navy"></i>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -70,6 +79,62 @@
                             </tr>
                         </tfoot>
                     </table>
+
+
+                    <div id="modal-form" class="modal fade" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <form role="form">
+                                        <h3>Editar Usuario ID:<small name="IDUser" id="IDUser">  </small></h3>
+                                        <div class="row">
+                                            <div class="col-sm-6 b-r">
+
+                                                <div class="form-group"><label name="First_Name" class="col-sm-2 col-form-label">Nome</label> <input name="First_Name" id="First_Name" type="text" value="" class="form-control"></div>
+                                                <span class="text-danger"></span>
+                                                <div class="form-group"><label name="Last_Name" class="col-sm-2 col-form-label">Sobrenome</label> <input name="Last_Name" id="Last_Name" type="text" value="" class="form-control"></div>
+                                                <span class="text-danger"></span>
+                                                <div class="form-group"><label name="Email" class="col-sm-2 col-form-label">Email</label><input name="Email" type="email" id="Email" class="form-control"></div>
+                                                <span class="text-danger"></span>
+                                                <div class="form-group" id="data_3">
+                                                    <label name="Date_Of_Birthday" class="col-lg-9 col-form-label">Data de Nascimento</label>
+                                                    <div class="input-group date">
+                                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input name="Date_Of_Birthday" id="Date_Of_Birthday" type="text" class="form-control">
+                                                        <span class="text-danger"></span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label name="Gender" class="col-sm-2 col-form-label">Gênero</label>
+                                                    @{
+                                                        string[] biological_gender = Enum.GetNames(typeof(Entities.Enums.Biological_Gender));
+                                                    }
+
+                                                    <select class="form-control" name="Biological_Gender" id="Biological_Gender">
+                                                        @for (int i = 0; i < biological_gender.Length; i++)
+                                                        {
+                                                            <option id="Gender" value="@i">@biological_gender[i]</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                                <div class="form-group"><label name="Weigth" class="col-sm-2 col-form-label">Peso</label><input name="Weight" id="Weight" type="text" class="form-control"></div>
+                                                <span class="text-danger"></span>
+                                                <div class="form-group"><label name="Heigth" class="col-sm-2 col-form-label">Altura</label><input name="Height" id="Height" type="text" class="form-control"></div>
+                                                <span class="text-danger"></span>
+                                                <div class="form-group"><label name="BodyFat" class="col-lg-9 col-form-label">% Gordura</label><input name="BodyFat" id="BodyFat" type="text" class="form-control"></div>
+                                                <span class="text-danger"></span>
+                                                <div class="form-group"><button id="btnEditar" class="btn btn-sm-10 btn-primary" type="submit"><strong>Atualizar</strong></button></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
 
                 </div>
             </div>
@@ -87,6 +152,11 @@
 }
 
 @section Scripts {
+
+    <script>
+        var tr;
+    </script>
+
     <environment names="Development,Staging,Production">
         <script src="~/lib/footable/dist/footable.all.min.js"></script>
     </environment>
@@ -99,4 +169,72 @@
 
 
         });</script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $("#vtnc").click(function (e) {
+
+                tr = $(this).parent().parent();
+
+                $("#First_Name").val($(tr).find("td:eq( 1 )").html());
+                $("#Last_Name").val($(tr).find("td:eq( 2 )").html());
+                $("#IDUser").val($(tr).find("td:eq( 3 )").html());
+                $("#Email").val($(tr).find("td:eq( 4 )").html());
+                $("#Date_Of_Birthday").val($(tr).find("td:eq( 5 )").html());
+                $("#Gender").val($(tr).find("td:eq( 6 )").html());
+                $("#Weight").val($(tr).find("td:eq( 7 )").html());
+                $("#Height").val($(tr).find("td:eq( 8 )").html());
+                $("#BodyFat").val($(tr).find("td:eq( 9 )").html());
+            });
+
+            $("#btnEditar").click(function (e) {
+
+
+                var usuario = new Object();
+                usuario.First_Name = $("#First_Name").val();
+
+
+                //$("#First_Name").val($(tr).find("td:eq( 1 )").html());
+                //$("#Last_Name").val($(tr).find("td:eq( 2 )").html());
+                //$("#IDUser").val($(tr).find("td:eq( 3 )").html());
+                //$("#Email").val($(tr).find("td:eq( 4 )").html());
+                //$("#Date_Of_Birthday").val($(tr).find("td:eq( 5 )").html());
+                //$("#Gender").val($(tr).find("td:eq( 6 )").html());
+                //$("#Weight").val($(tr).find("td:eq( 7 )").html());
+                //$("#Height").val($(tr).find("td:eq( 8 )").html());
+                //$("#BodyFat").val($(tr).find("td:eq( 9 )").html());
+
+                $.ajax({
+                    method: "POST",
+                    url: "/User/Update/",
+                    data: JSON.stringify(usuario),
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (response) {
+                        if (response.DeuBoa) {
+                            $('#respostaServidor').html("Cadastro efetuado com sucesso!")
+                            $('#respostaServidor').css({ "color": "green" });
+                        }
+                        else {
+                            $('#respostaServidor').html(response.Erro);
+                            $('#respostaServidor').css({ "color": "red" });
+                        }
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+
+
+
+    </script>
+
+
 }

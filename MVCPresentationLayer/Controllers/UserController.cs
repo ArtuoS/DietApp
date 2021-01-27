@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
 using MVCPresentationLayer.Models.QueryModels;
 using MVCPresentationLayer.Models.UpdateModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,11 +54,17 @@ namespace MVCPresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Update(UserUpdateViewModel model)
+        public async Task<IActionResult> Update([FromBody]UserUpdateViewModel model)
         {
             User user = mapper.Map<User>(model);
 
             Response response = await userBLL.Update(user);
+
+            if (response.Success)
+            {
+                return Json(new { Sucesso = true });
+            }
+
 
             return View();
         }
