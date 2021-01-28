@@ -9,6 +9,8 @@ namespace MVCPresentationLayer.Models.UpdateModels
 {
     public class UserUpdateViewModel
     {
+        //Remover!
+        public int ID { get; set; }
         [Display(Name = "First_Name")]
         public string First_Name { get; set; }
         [Display(Name = "Sobrenome")]

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BusinessLogicalLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
 using System;
@@ -25,6 +26,7 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
+        [Authorize(Roles ="Adm,Doctor")]
         public IActionResult Insert()
         {
             return View();

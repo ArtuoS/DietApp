@@ -1,6 +1,7 @@
 using AutoMapper;
 using BusinessLogicalLayer;
 using Entities;
+using Entities.Interfaces;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +32,15 @@ namespace MVCPresentationLayer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("CookieAuthentication")
+      .AddCookie("CookieAuthentication", config =>
+      {
+          config.Cookie.Name = "UserLoginCookie";
+          config.LoginPath = "/Home/Index";
+          config.AccessDeniedPath = "/Home/Index";
+      });
+
+
             services.AddControllersWithViews()
                 .AddFluentValidation();
 
@@ -45,7 +55,7 @@ namespace MVCPresentationLayer
             UserBLL userBLL = new UserBLL();
 
             services.AddSingleton(mapper);
-            services.AddSingleton(userBLL);
+            services.AddTransient<IUserService, UserBLL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +76,8 @@ namespace MVCPresentationLayer
 
             app.UseRouting();
 
+            app.UseAuthentication();
+            
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

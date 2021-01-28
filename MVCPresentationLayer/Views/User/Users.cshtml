@@ -30,7 +30,6 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-
                     <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
                         <thead>
                             <tr>
@@ -52,21 +51,17 @@
                             {
                                 <tr>
                                     <td></td>
-                                    <td>@Html.DisplayFor(modelItem => item.First_Name)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Last_Name)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.ID)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Date_Of_Birthday)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Gender)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Weigth)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Heigth)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.BodyFat)</td>
-                                    <td></td>
-                                    <td>
-
-                                        <a data-toggle="modal" class="btn btn-primary" id="vtnc" href="#modal-form">Editar</a>
-
-                                        @Html.ActionLink("Editar", "Update", new { id = item.ID }) <i class="fa fa-check text-navy"></i> @Html.ActionLink("Deletar", "Delete", new { id = item.ID })<i class="fa fa-times text-navy"></i>
+                                    <td value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.First_Name)</td>
+                                    <td id="nome2" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Last_Name)</td>
+                                    <td id="ID" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.ID)</td>
+                                    <td id="email" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td id="datanasc" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Date_Of_Birthday)</td>
+                                    <td id="gender" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Gender)</td>
+                                    <td id="weight" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Weigth)</td>
+                                    <td id="height" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Heigth)</td>
+                                    <td id="bodyfat" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.BodyFat)</td>
+                                    <td class="userID">
+                                        <a data-toggle="modal" class="btn btn-primary" id="mod" href="#modal-form">Editar</a>
                                     </td>
                                 </tr>
                             }
@@ -89,7 +84,6 @@
                                         <h3>Editar Usuario ID:<small name="IDUser" id="IDUser">  </small></h3>
                                         <div class="row">
                                             <div class="col-sm-6 b-r">
-
                                                 <div class="form-group"><label name="First_Name" class="col-sm-2 col-form-label">Nome</label> <input name="First_Name" id="First_Name" type="text" value="" class="form-control"></div>
                                                 <span class="text-danger"></span>
                                                 <div class="form-group"><label name="Last_Name" class="col-sm-2 col-form-label">Sobrenome</label> <input name="Last_Name" id="Last_Name" type="text" value="" class="form-control"></div>
@@ -133,9 +127,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -154,29 +145,19 @@
 @section Scripts {
 
     <script>
-        var tr;
+        import { Modal } from "bootstrap";
     </script>
 
     <environment names="Development,Staging,Production">
         <script src="~/lib/footable/dist/footable.all.min.js"></script>
     </environment>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            $('.footable').footable();
-            $('.footable2').footable();
-
-
-        });</script>
-
+    <script type="text/javascript"></script>
 
     <script type="text/javascript">
         $(function () {
-            $("#vtnc").click(function (e) {
-
+            $(".btn btn-primary, #mod").click(function (e) {
                 tr = $(this).parent().parent();
-
                 $("#First_Name").val($(tr).find("td:eq( 1 )").html());
                 $("#Last_Name").val($(tr).find("td:eq( 2 )").html());
                 $("#IDUser").val($(tr).find("td:eq( 3 )").html());

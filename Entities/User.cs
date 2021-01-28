@@ -20,6 +20,12 @@ namespace Entities
         public ICollection<Diet> Diets { get; set; }
         public ICollection<Restriction> Restrictions { get; set; }
         public bool Status { get; private set; }
+        public string Role { get; set; }
+        public double Daily_Calories { get; set; }
+        public double Daily_Carbohydrates { get; set; }
+        public double Daily_Fats { get; set; }
+        public double Daily_Protein { get; set; }
+
 
         public bool SetStatus(bool status)
         {

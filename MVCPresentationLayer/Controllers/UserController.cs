@@ -2,6 +2,8 @@
 using BusinessLogicalLayer;
 using Common;
 using Entities;
+using Entities.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
 using MVCPresentationLayer.Models.QueryModels;
@@ -14,16 +16,17 @@ using System.Threading.Tasks;
 
 namespace MVCPresentationLayer.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
 
         private readonly IMapper mapper;
-        private readonly UserBLL userBLL;
+        private readonly IUserService userService;
 
-        public UserController(IMapper mapper, UserBLL userBLL)
+        public UserController(IMapper mapper, IUserService userService)
         {
             this.mapper = mapper;
-            this.userBLL = userBLL;
+            this.userService= userService;
         }
 
         public IActionResult Index()
@@ -31,19 +34,20 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
-
+        [AllowAnonymous]
         public IActionResult Insert()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Insert(UserInsertViewModel model)
         {
             User user = mapper.Map<User>(model);
             user.SetStatus(true);
 
-            Response response = await userBLL.Insert(user);
+            Response response = await userService.Insert(user);
 
             return View();
         }
@@ -53,25 +57,25 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
+       
         [HttpPost]
-        public async Task<IActionResult> Update([FromBody]UserUpdateViewModel model)
+        public async Task<IActionResult> Update([FromBody] UserUpdateViewModel model)
         {
             User user = mapper.Map<User>(model);
 
-            Response response = await userBLL.Update(user);
+            Response response = await userService.Update(user);
 
             if (response.Success)
             {
                 return Json(new { Sucesso = true });
             }
 
-
-            return View();
+            return View("Index");
         }
 
         public async Task<IActionResult> Users()
         {
-            QueryResponse<User> response = await userBLL.GetAll();
+            QueryResponse<User> response = await userService.GetAll();
 
             if (!response.Success)
             {

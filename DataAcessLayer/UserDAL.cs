@@ -13,6 +13,19 @@ namespace DataAcessLayer
 {
     public class UserDAL : IUserService
     {
+        public async Task<SingleResponse<User>> Authenticate(string email, string senha)
+        {
+            using (DietDB db = new DietDB())
+            {
+                User u = await db.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == senha);
+                if (u == null)
+                {
+                    return ResponseFactory.SingleResponseNotFoundException<User>();
+                }
+                return ResponseFactory.SingleResponseSuccessModel<User>(u);
+            }
+        }
+
         public async Task<Response> Delete(int id)
         {
             User user = new User();

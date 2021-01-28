@@ -112,5 +112,13 @@ namespace BusinessLogicalLayer
                 return ResponseFactory.ResponseExceptionModel(ex);
             }
         }
+
+        public async Task<SingleResponse<User>> Authenticate(string email, string senha)
+        {
+            //fazer hash e validar email e senha
+
+            return await userDAL.Authenticate(email, senha);
+
+        }
     }
 }
