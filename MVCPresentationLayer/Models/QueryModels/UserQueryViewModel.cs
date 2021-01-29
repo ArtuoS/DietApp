@@ -22,9 +22,9 @@ namespace MVCPresentationLayer.Models.QueryModels
         [Display(Name = "Senha")]
         public string Password { get; set; }
         [Display(Name = "Peso")]
-        public double Weigth { get; set; }
+        public double Weight { get; set; }
         [Display(Name = "Altura")]
-        public double Heigth { get; set; }
+        public double Height { get; set; }
         [Display(Name = "Gordura Corporal")]
         public double BodyFat { get; set; }
         public bool Status { get; set; }

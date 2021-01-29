@@ -17,8 +17,8 @@ namespace BusinessLogicalLayer
             RuleFor(a => a.First_Name).NotNull().Length(3, 40).WithMessage("O nome deve ter entre 3 e 40 caractéres.");
             RuleFor(a => a.Last_Name).NotNull().Length(3, 40).WithMessage("O sobrenome deve ter entre 3 e 40 caractéres.");
             RuleFor(b => b.Email).EmailAddress().WithMessage("O e-mail inserido é inválido.");
-            RuleFor(a => a.Weigth).NotNull().GreaterThan(1).WithMessage("O peso deve ser maior que 1.");
-            RuleFor(a => a.Heigth).NotNull().WithMessage("A altura deve ser entre 0.01m e 2.51m."); //.GreaterThan(0.01).LessThan(2.51)
+            RuleFor(a => a.Weight).NotNull().GreaterThan(1).WithMessage("O peso deve ser maior que 1.");
+            RuleFor(a => a.Height).NotNull().WithMessage("A altura deve ser entre 0.01m e 2.51m."); //.GreaterThan(0.01).LessThan(2.51)
             RuleFor(a => a.Password).NotNull().Length(3, 100).WithMessage("A senha deve ter entre 3 e 100 caractéres");
         }
 
@@ -47,9 +47,10 @@ namespace BusinessLogicalLayer
 
         public async Task<Response> Update(User item)
         {
-            ValidationResult results = this.Validate(item);
             try
             {
+                ValidationResult results = this.Validate(item);
+
                 if (!results.IsValid)
                 {
                     return ResponseFactory.ResponseErrorModel(results.Errors);

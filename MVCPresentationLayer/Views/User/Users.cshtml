@@ -40,8 +40,8 @@
                                 <th>@Html.DisplayNameFor(model => model.Email)</th>
                                 <th data-hide="all">@Html.DisplayNameFor(model => model.Date_Of_Birthday)</th>
                                 <th data-hide="all">@Html.DisplayNameFor(model => model.Gender)</th>
-                                <th data-hide="all">@Html.DisplayNameFor(model => model.Weigth)</th>
-                                <th data-hide="all">@Html.DisplayNameFor(model => model.Heigth)</th>
+                                <th data-hide="all">@Html.DisplayNameFor(model => model.Weight)</th>
+                                <th data-hide="all">@Html.DisplayNameFor(model => model.Height)</th>
                                 <th data-hide="all">@Html.DisplayNameFor(model => model.BodyFat)</th>
                                 <th>Action</th>
                             </tr>
@@ -57,11 +57,12 @@
                                     <td id="email" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Email)</td>
                                     <td id="datanasc" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Date_Of_Birthday)</td>
                                     <td id="gender" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Gender)</td>
-                                    <td id="weight" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Weigth)</td>
-                                    <td id="height" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Heigth)</td>
+                                    <td id="weight" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Weight)</td>
+                                    <td id="height" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.Height)</td>
                                     <td id="bodyfat" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.BodyFat)</td>
                                     <td class="userID">
                                         <a data-toggle="modal" class="btn btn-primary" id="mod" href="#modal-form">Editar</a>
+                                        <a data-toggle="modal" class="btn btn-danger" id="moddel" href="#modal-delete">Deletar</a>
                                     </td>
                                 </tr>
                             }
@@ -81,7 +82,7 @@
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <form role="form">
-                                        <h3>Editar Usuario ID:<small name="IDUser" id="IDUser">  </small></h3>
+                                        <h3>Editar Usuario ID:<label name="IDUser" id="IDUser">  </label></h3>
                                         <div class="row">
                                             <div class="col-sm-6 b-r">
                                                 <div class="form-group"><label name="First_Name" class="col-sm-2 col-form-label">Nome</label> <input name="First_Name" id="First_Name" type="text" value="" class="form-control"></div>
@@ -115,11 +116,11 @@
                                                 </div>
                                                 <div class="form-group"><label name="Weigth" class="col-sm-2 col-form-label">Peso</label><input name="Weight" id="Weight" type="text" class="form-control"></div>
                                                 <span class="text-danger"></span>
-                                                <div class="form-group"><label name="Heigth" class="col-sm-2 col-form-label">Altura</label><input name="Height" id="Height" type="text" class="form-control"></div>
+                                                <div class="form-group"><label name="Height" class="col-sm-2 col-form-label">Altura</label><input name="Height" id="Height" type="text" class="form-control"></div>
                                                 <span class="text-danger"></span>
                                                 <div class="form-group"><label name="BodyFat" class="col-lg-9 col-form-label">% Gordura</label><input name="BodyFat" id="BodyFat" type="text" class="form-control"></div>
                                                 <span class="text-danger"></span>
-                                                <div class="form-group"><button id="btnEditar" class="btn btn-sm-10 btn-primary" type="submit"><strong>Atualizar</strong></button></div>
+                                                <div class="form-group"><button id="btnUpdate" class="btn btn-sm-10 btn-primary" type="submit"><strong>Atualizar</strong></button></div>
                                             </div>
                                         </div>
                                     </form>
@@ -127,6 +128,27 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="modal-delete" class="modal fade" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <form role="form">
+                                        <h3>Deletar Usuário ID:<small>  </small></h3>
+                                        <div class="row">
+                                            <div class="col-sm-6 b-r">
+                                                <div class="form-group"><button id="btnAccept" class="btn btn-sm-10 btn-warning" type="submit"><strong>Deletar</strong></button></div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group"><button id="btnRefuse" class="btn btn-sm-10 btn-success" type="submit"><strong>Cancelar</strong></button></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -169,27 +191,24 @@
                 $("#BodyFat").val($(tr).find("td:eq( 9 )").html());
             });
 
-            $("#btnEditar").click(function (e) {
+            $("#btnUpdate").click(function (e) {
 
-
-                var usuario = new Object();
-                usuario.First_Name = $("#First_Name").val();
-
-
-                //$("#First_Name").val($(tr).find("td:eq( 1 )").html());
-                //$("#Last_Name").val($(tr).find("td:eq( 2 )").html());
-                //$("#IDUser").val($(tr).find("td:eq( 3 )").html());
-                //$("#Email").val($(tr).find("td:eq( 4 )").html());
-                //$("#Date_Of_Birthday").val($(tr).find("td:eq( 5 )").html());
-                //$("#Gender").val($(tr).find("td:eq( 6 )").html());
-                //$("#Weight").val($(tr).find("td:eq( 7 )").html());
-                //$("#Height").val($(tr).find("td:eq( 8 )").html());
-                //$("#BodyFat").val($(tr).find("td:eq( 9 )").html());
+                tr = $(this).parent().parent();
+                var user = new Object();
+                user.First_Name = $("#First_Name").val();
+                user.Last_Name = $("#Last_Name").val();
+                //user.ID = $("#IDUser").val();
+                //user.Email = $("#Email").val();
+                //user.Date_Of_Birthday = $("#Date_Of_Birthday").val();
+                //user.Gender = $("#Gender").val();
+                //user.Weight = $("#Weight").val();
+                //user.Height = $("#Height").val();
+                user.BodyFat = $("#BodyFat").val();
 
                 $.ajax({
                     method: "POST",
                     url: "/User/Update/",
-                    data: JSON.stringify(usuario),
+                    data: JSON.stringify(user),
                     contentType: "application/json",
                     dataType: "json",
                     traditional: true,

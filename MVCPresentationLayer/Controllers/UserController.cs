@@ -22,11 +22,12 @@ namespace MVCPresentationLayer.Controllers
 
         private readonly IMapper mapper;
         private readonly IUserService userService;
+        UserBLL userBLL = new UserBLL();
 
         public UserController(IMapper mapper, IUserService userService)
         {
             this.mapper = mapper;
-            this.userService= userService;
+            this.userService = userService;
         }
 
         public IActionResult Index()
@@ -57,7 +58,7 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
-       
+        //[FromBody] UserUpdateViewModel model
         [HttpPost]
         public async Task<IActionResult> Update([FromBody] UserUpdateViewModel model)
         {

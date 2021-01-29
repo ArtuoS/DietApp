@@ -14,8 +14,8 @@ namespace Entities
         public Biological_Gender Gender { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public double Weigth { get; set; }
-        public double Heigth { get; set; }
+        public double Weight { get; set; }
+        public double Height { get; set; }
         public double BodyFat { get; set; }
         public ICollection<Diet> Diets { get; set; }
         public ICollection<Restriction> Restrictions { get; set; }
