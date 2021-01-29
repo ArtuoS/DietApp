@@ -13,13 +13,13 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    D+
+                    <img alt="image" src="~/Images/logo_Icon_small.png" />
                 </div>
             </li>
-            <li class="@Html.IsSelected(controller: "Home", action: "Main")">
+            <li class="@Html.IsSelected(controller: "Home", action: "Index")">
                 <a href="@Url.Action("Main", "Home")"><i class="fa fa-pagelines"></i> <span class="nav-label">Início</span> <span class="label label-primary float-right">Principal</span></a>
             </li>
-            <li class="@Html.IsSelected(controller: "Home", action: "Minor")">
+            <li class="@Html.IsSelected(controller: "Diets", action: "Index")">
                 <a href="@Url.Action("Minor", "Home")"><i class="fa fa-lemon-o"></i> <span class="nav-label">Dietas</span></a>
             </li>
         </ul>

@@ -14,7 +14,7 @@
                     <div>
                         <h2 class="no-margins">
                            @User.Identity.Name
-                           @User.Claims.First(c=> c.)
+                           @User.FindFirst("Weight").Value;
                         </h2>
                         <small>
                             Perfil

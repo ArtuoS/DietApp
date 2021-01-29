@@ -1352,3 +1352,5 @@ C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\MVCPresentationLa
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\staticwebassets\MVCPresentationLayer.StaticWebAssets.xml
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\novorepositorio\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.genruntimeconfig.cache
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Users.cshtml.g.cs
