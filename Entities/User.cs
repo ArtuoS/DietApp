@@ -34,7 +34,7 @@ namespace Entities
 
         public int ReplaceGenderWithNumber(Biological_Gender gender)
         {
-            if (gender == Biological_Gender.Female)
+            if (gender == Biological_Gender.Feminino)
             {
                 return 0;
             }

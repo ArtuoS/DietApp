@@ -17,12 +17,12 @@ namespace DataAcessLayer
         {
             using (DietDB db = new DietDB())
             {
-                User u = await db.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == senha);
-                if (u == null)
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == senha);
+                if (user == null)
                 {
                     return ResponseFactory.SingleResponseNotFoundException<User>();
                 }
-                return ResponseFactory.SingleResponseSuccessModel<User>(u);
+                return ResponseFactory.SingleResponseSuccessModel<User>(user);
             }
         }
 

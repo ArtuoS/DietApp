@@ -49,6 +49,8 @@ namespace MVCPresentationLayer
                 cfg.CreateMap<UserInsertViewModel, User>();
                 cfg.CreateMap<UserUpdateViewModel, User>();
                 cfg.CreateMap<User, UserQueryViewModel>();
+                //cfg.CreateMap<Restriction, Res>
+                cfg.CreateMap<RestrictionInsertViewModel, Restriction>();
             });
             IMapper mapper = config.CreateMapper();
 
@@ -56,6 +58,7 @@ namespace MVCPresentationLayer
 
             services.AddSingleton(mapper);
             services.AddTransient<IUserService, UserBLL>();
+            services.AddTransient<IRestrictionService, RestrictionBLL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -77,7 +80,7 @@ namespace MVCPresentationLayer
             app.UseRouting();
 
             app.UseAuthentication();
-            
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

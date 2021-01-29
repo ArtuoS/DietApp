@@ -7,6 +7,7 @@ using Entities.Interfaces;
 using DataAcessLayer;
 using System.Threading.Tasks;
 using Common;
+using System.Text.RegularExpressions;
 
 namespace BusinessLogicalLayer
 {
@@ -116,10 +117,19 @@ namespace BusinessLogicalLayer
 
         public async Task<SingleResponse<User>> Authenticate(string email, string senha)
         {
-            //fazer hash e validar email e senha
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
 
-            return await userDAL.Authenticate(email, senha);
-
+            try
+            {
+                if (match.Success && (senha.Length > 3 && senha.Length < 100))
+                    return await userDAL.Authenticate(email, senha);
+                return ResponseFactory.SingleResponseNotFoundException<User>();
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.SingleResponseExceptionModel<User>(ex);
+            }
         }
     }
 }

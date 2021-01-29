@@ -6,7 +6,7 @@ namespace Entities.Enums
 {
     public enum Biological_Gender
     {
-        Male, 
-        Female
+        Masculino, 
+        Feminino
     }
 }

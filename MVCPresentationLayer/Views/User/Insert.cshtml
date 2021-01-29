@@ -1,4 +1,13 @@
 ﻿@model MVCPresentationLayer.Models.InsertModels.UserInsertViewModel
+@using MVCPresentationLayer.Models.QueryModels
+@using BusinessLogicalLayer
+@using Common
+@using Entities
+
+@{List<Food> example = new List<Food>();
+    FoodBLL foodBLL = new FoodBLL();
+    //QueryResponse<Food> listData = foodBLL.GetAll();
+}
 
 @{
     ViewData["Title"] = "Insert";
@@ -98,6 +107,10 @@
                             <h2>Informação Nutricional</h2>
                             <div class="row">
                                 <div class="col-lg-8">
+                                    <!--  CRIAR
+                                          BODYFAT = UNDER 14%
+                                                    BETWEEN 14% AND 22%
+                                                    MORE THAN 22%-->
                                 </div>
                             </div>
                         </fieldset>
@@ -113,18 +126,12 @@
                                             </p>
 
                                             <select class="form-control dual_select" multiple>
-                                                <option value="United States">United States</option>
-                                                <option value="United Kingdom">United Kingdom</option>
-                                                <option value="Australia">Australia</option>
-                                                <option value="Austria">Austria</option>
-                                                <option value="Bahamas">Bahamas</option>
-                                                <option value="Barbados">Barbados</option>
-                                                <option value="Belgium">Belgium</option>
-                                                <option value="Bermuda">Bermuda</option>
-                                                <option value="Brazil">Brazil</option>
-                                                <option value="Bulgaria">Bulgaria</option>
-                                                <option value="Cameroon">Cameroon</option>
-                                                <option value="Canada">Canada</option>
+                                                <!--
+        foreach (var item in listData)
+    {
+        <option value="Canada">Html.DisplayFor(modelItem => item.)</option>
+    }
+    -->
                                             </select>
                                         </div>
                                     </div>

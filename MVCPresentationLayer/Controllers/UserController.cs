@@ -22,7 +22,6 @@ namespace MVCPresentationLayer.Controllers
 
         private readonly IMapper mapper;
         private readonly IUserService userService;
-        UserBLL userBLL = new UserBLL();
 
         public UserController(IMapper mapper, IUserService userService)
         {
