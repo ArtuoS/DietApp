@@ -1530,3 +1530,5 @@ C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.dll
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.pdb
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.genruntimeconfig.cache
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Restriction\Index.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Restriction\Insert.cshtml.g.cs

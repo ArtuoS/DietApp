@@ -3,10 +3,10 @@
 @using BusinessLogicalLayer
 @using Common
 @using Entities
+@using Entities.Interfaces
 
 @{List<Food> example = new List<Food>();
-    FoodBLL foodBLL = new FoodBLL();
-    //QueryResponse<Food> listData = foodBLL.GetAll();
+    IFoodService foodService = new FoodBLL();
 }
 
 @{
@@ -107,10 +107,27 @@
                             <h2>Informação Nutricional</h2>
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <!--  CRIAR
-                                          BODYFAT = UNDER 14%
-                                                    BETWEEN 14% AND 22%
-                                                    MORE THAN 22%-->
+                                    <div class="form-group">
+                                        <label asp-for="Daily_Calories" class="text-success"></label>
+                                        <div id="ionrange_1"></div>
+                                        <span asp-validation-for="Daily_Calories" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Daily_Carbohydrates" class="text-info"></label>
+                                        <div id="ionrange_2"></div>
+                                        <span asp-validation-for="Daily_Carbohydrates" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Daily_Fats" class="text-warning"></label>
+                                        <div id="ionrange_3"></div>
+                                        <span asp-validation-for="Daily_Fats" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Daily_Protein" class="text-danger"></label>
+                                        <div id="ionrange_4"></div>
+                                        <span asp-validation-for="Daily_Protein" class="text-danger"></span>
+                                    </div>
+                                    <div id="ionrange_1"></div>
                                 </div>
                             </div>
                         </fieldset>
@@ -122,26 +139,33 @@
                                     <div class="ibox">
                                         <div class="ibox-content">
                                             <p>
-                                                Selecione alimentos de sua prefeência para a direita.
+                                                Selecione uma dieta pronta alimentos que não deseja ter em sua dieta.
                                             </p>
+                                            <select class="select2_demo_3 form-control">
+                                                <option></option>
+                                                <option value="Bahamas">Bahamas</option>
+                                                <option value="Bahrain">Bahrain</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="Barbados">Barbados</option>
+                                                <option value="Belarus">Belarus</option>
+                                                <option value="Belgium">Belgium</option>
+                                                <option value="Belize">Belize</option>
+                                                <option value="Benin">Benin</option>
+                                            </select>
 
                                             <select class="form-control dual_select" multiple>
-                                                <!--
-                                                    foreach (var item in listData)
+
+                                                @foreach (var item in foodService.GetAll().Result.Data)
                                                 {
                                                     <option value="Canada">Html.DisplayFor(modelItem => item.)</option>
                                                 }
-                                                -->
+
                                             </select>
                                         </div>
                                     </div>
                                 </div>
 
                             </div>
-                        </fieldset>
-
-                        <h1>Restrições</h1>
-                        <fieldset>
                         </fieldset>
                     </form>
                 </div>
@@ -164,6 +188,8 @@
         <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" />
         <link rel="stylesheet" href="~/lib/select2/dist/css/select2.min.css" />
         <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
+        <link rel="stylesheet" href="~/lib/ionRangeSlider/ion.rangeSlider.css" />
+        <link rel="stylesheet" href="~/lib/ionRangeSlider/ion.rangeSlider.skinFlat.css" />
     </environment>
 }
 
@@ -186,6 +212,9 @@
         <script src="~/lib/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
         <script src="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
         <script src="~/lib/dualListbox/jquery.bootstrap-duallistbox.js"></script>
+        <script src="~/lib/daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/ionRangeSlider/ion.rangeSlider.min.js"></script>
+
     </environment>
 
 
@@ -267,6 +296,39 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            $("#ionrange_1").ionRangeSlider({
+                min: 0,
+                max: 10000,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+            $("#ionrange_2").ionRangeSlider({
+                min: 0,
+                max: 10000,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+            $("#ionrange_3").ionRangeSlider({
+                min: 0,
+                max: 10000,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+            $("#ionrange_4").ionRangeSlider({
+                min: 0,
+                max: 10000,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+
             $('.tagsinput').tagsinput({
                 tagClass: 'label label-primary'
             });
@@ -339,8 +401,7 @@
             $("input[id='demo1']").TouchSpin({
                 min: 0,
                 max: 1000,
-                step: 0.1,
-                decimals: 2,
+                step: 10,
                 boostat: 5,
                 maxboostedstep: 10,
                 postfix: 'cm',
@@ -352,7 +413,6 @@
                 min: 0,
                 max: 1000,
                 step: 10,
-                decimals: 2,
                 boostat: 5,
                 maxboostedstep: 10,
                 postfix: 'kg',

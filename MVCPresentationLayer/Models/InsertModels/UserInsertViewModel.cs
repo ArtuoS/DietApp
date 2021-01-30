@@ -27,5 +27,15 @@ namespace MVCPresentationLayer.Models.InsertModels
         public double Heigth { get; set; }
         [Display(Name = "Gordura Corporal")]
         public double BodyFat { get; set; }
+        [Display(Name = "Cargo")]
+        public string Role { get; set; }
+        [Display(Name = "Calorias")]
+        public double Daily_Calories { get; set; }
+        [Display(Name = "Carboidratos")]
+        public double Daily_Carbohydrates { get; set; }
+        [Display(Name = "Gorduras")]
+        public double Daily_Fats { get; set; }
+        [Display(Name = "Proteínas")]
+        public double Daily_Protein { get; set; }
     }
 }
