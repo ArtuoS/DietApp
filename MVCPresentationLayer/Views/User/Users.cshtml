@@ -192,18 +192,17 @@
             });
 
             $("#btnUpdate").click(function (e) {
-
                 tr = $(this).parent().parent();
                 var user = new Object();
                 user.First_Name = $("#First_Name").val();
                 user.Last_Name = $("#Last_Name").val();
-                //user.ID = $("#IDUser").val();
-                //user.Email = $("#Email").val();
-                //user.Date_Of_Birthday = $("#Date_Of_Birthday").val();
+                user.ID = parseInt($("#IDUser").val());
+                user.Email = $("#Email").val();
+                //user.Date_Of_Birthday = Date.parse($("#Date_Of_Birthday").val());
                 //user.Gender = $("#Gender").val();
-                //user.Weight = $("#Weight").val();
-                //user.Height = $("#Height").val();
-                //user.BodyFat = $("#BodyFat").val();
+                user.Weight = parseFloat($("#Weight").val());
+                user.Height = parseFloat($("#Height").val());
+                user.BodyFat = parseFloat($("#BodyFat").val());
 
                 $.ajax({
                     method: "POST",
