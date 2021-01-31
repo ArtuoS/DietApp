@@ -9,5 +9,6 @@ namespace Entities.Interfaces
     public interface IFoodService : IEntityCRUD<Food>
     {
         Task<SingleResponse<Food>> GetByName(Food name);
+        Task<QueryResponse<Food>> GetByCategoryId(int id);
     }
 }

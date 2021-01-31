@@ -37,5 +37,6 @@ namespace MVCPresentationLayer.Models.InsertModels
         public double Daily_Fats { get; set; }
         [Display(Name = "Proteínas")]
         public double Daily_Protein { get; set; }
+
     }
 }

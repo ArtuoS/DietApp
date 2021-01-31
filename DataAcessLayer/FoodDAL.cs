@@ -86,6 +86,19 @@ namespace DataAcessLayer
             }
         }
 
+        public async Task<QueryResponse<Food>> GetByCategoryId(int id)
+        {
+            QueryResponse<Food> response = new QueryResponse<Food>();
+
+            using (DietDB db = new DietDB())
+            {
+                List<Food> foods = await db.Foods.Where(c => c.Category.ID == id).ToListAsync();
+                response.Data = foods;
+                return ResponseFactory.QueryResponseSuccessModel<Food>(foods);
+            }
+            
+        }
+
         public async Task<Response> Insert(Food item)
         {
             using (DietDB db = new DietDB())

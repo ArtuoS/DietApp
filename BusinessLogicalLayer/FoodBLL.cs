@@ -120,5 +120,17 @@ namespace BusinessLogicalLayer
                 return ResponseFactory.SingleResponseExceptionModel<Food>(ex);
             }
         }
+
+        public async Task<QueryResponse<Food>> GetByCategoryId(int id)
+        {
+            try
+            {
+                return await foodDAL.GetByCategoryId(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.QueryResponseExceptionModel<Food>(ex);
+            }
+        }
     }
 }
