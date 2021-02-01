@@ -12,170 +12,133 @@
             <div class="profile-info">
                 <div class="">
                     <div>
-                        <h2 class="no-margins">
+                        <h1 class="no-margins">
                             @User.Identity.Name
                             <!--User.FindFirst("Weight").Value;-->
-                        </h2>
-                        <small>
-                            Perfil
-                        </small>
+                        </h1>
+                        <p>
+                            Email do usuário
+                        </p>
+                        <table class="table small m-b-xs">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Peso: <strong>58kg</strong>
+                                    </td>
+                                    <td>
+                                        Altura: <strong>163cm</strong>
+                                    </td>
+                                    <td>
+                                        Gordura Corporal: <strong>%22</strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
+            <h3 class="no-margins">Meta diária de nutrientes:</h3>
             <table class="table small m-b-xs">
                 <tbody>
                     <tr>
-                        <td>
-                            <strong>142</strong> Projects
+                        <td class="text-success">
+                            <strong class="badge-success">' 77g </strong> de Calorias
                         </td>
-                        <td>
-                            <strong>22</strong> Followers
+                        <td class="text-info">
+                            <strong class="badge-info">' 22g </strong> de Carboidratos
                         </td>
 
                     </tr>
                     <tr>
-                        <td>
-                            <strong>61</strong> Comments
+                        <td class="text-warning">
+                            <strong class="badge-warning">' 61 </strong>g de Proteínas
                         </td>
-                        <td>
-                            <strong>54</strong> Articles
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <strong>154</strong> Tags
-                        </td>
-                        <td>
-                            <strong>32</strong> Friends
+                        <td class="text-danger">
+                            <strong class="badge-danger">' 54g </strong> de Gorduras
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div class="col-md-3">
-            <small>Sales in last 24h</small>
-            <h2 class="no-margins">206 480</h2>
+            <small>Progresso Kgs</small>
+            <h2 class="no-margins">58</h2>
             <div id="sparkline1"></div>
         </div>
-
-
     </div>
-    <div class="row">
+    <div class="wrapper wrapper-content">
 
-        <div class="col-lg-3">
-
-            <div class="ibox">
-                <div class="ibox-content">
-                    <h3>@User.Identity.Name</h3>
-
-                    <p class="small">
-                        There are many variations of passages of Lorem Ipsum available, but the majority have
-                        suffered alteration in some form, by injected humour, or randomised words which don't.
-                        <br />
-                        <br />
-                        If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                        anything embarrassing
-                    </p>
-
-                    <p class="small font-bold">
-                        <span><i class="fa fa-circle text-navy"></i> Online status</span>
-                    </p>
-
-                </div>
-            </div>
-
-        </div>
-        <div class="row justify-content-md-center">
-            <div class="col-lg-10 col-lg-offset-1">
-
-
-                <h4 class="text-center m">
-                    Multiple example with responsive breakpoints
-                </h4>
-
-
-
-                <div class="slick_demo_2">
-
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Slide 1</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Slide 2</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Slide 3</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Slide 4</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row justify-content-md-center">
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="ibox">
                     <h4 class="text-center m">
-                        Animation example with custom speed, ibox title and adoptive height
+                        
                     </h4>
-                    <div class="ibox-title">
-                        Example title
-                    </div>
-                    <div class="slick_demo_3">
+                    <div class="slick_demo_1">
                         <div>
                             <div class="ibox-content">
-                                <h2>Slide 1</h2>
+                                <h2>Hoje, @DateTime.Today.Day/@DateTime.Today.Month</h2>
+                                <div class="col-lg-8 m-b-lg">
+                                    <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon yellow-bg">
+                                                <i class="fa fa-coffee"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>Café da manhã</h2>
+                                                <p>
+                                                    Comida <a href="#" class="btn btn-sm btn-warning"> Visualizar</a>
+                                                </p>
+                                                
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon blue-bg">
+                                                <i class="fa fa-file-text"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>Almoço</h2>
+                                                <p>Comida <a href="#" class="btn btn-sm btn-success"> Mais Info</a></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon red-bg">
+                                                <i class="fa fa-coffee"></i>
+                                            </div>
+
+                                            <div class="vertical-timeline-content">
+                                                <h2>Janta</h2>
+                                                <p>
+                                                    Comida
+                                                    <a href="#" class="btn btn-sm btn-danger"> Mais Info</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Amanhã @DateTime.Today.AddDays(1).Day/@DateTime.Today.AddDays(1).Month</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
                                     book. It has survived not only five centuries, but also the leap.
                                 </p>
                             </div>
                         </div>
                         <div>
                             <div class="ibox-content">
-                                <h2>Slide 2</h2>
+                                <h2>Daqui a dois dias @DateTime.Today.AddDays(2).Day/@DateTime.Today.AddDays(2).Month</h2>
                                 <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. It has survived not only five centuries, but also the leap.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                                     unknown printer took a galley of type and scrambled it to make a type specimen
@@ -185,14 +148,45 @@
                         </div>
                         <div>
                             <div class="ibox-content">
-                                <h2>Slide 3</h2>
+                                <h2>Daqui a tres dias @DateTime.Today.AddDays(3).Day/@DateTime.Today.AddDays(3).Month</h2>
                                 <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                                     unknown printer took a galley of type and scrambled it to make a type specimen
                                     book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Daqui a quatro dias @DateTime.Today.AddDays(4).Day/@DateTime.Today.AddDays(4).Month</h2>
+                                <p>
                                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                                     Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Daqui a cinco dias @DateTime.Today.AddDays(5).Day/@DateTime.Today.AddDays(5).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ibox-content">
+                                <h2>daqui a seis dias</h2>
+                                <h2>@DateTime.Today.AddDays(6).Day/@DateTime.Today.AddDays(6).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
                                     book. It has survived not only five centuries, but also the leap.
                                 </p>
                             </div>
@@ -201,90 +195,21 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-lg-4 m-b-lg">
-            <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon navy-bg">
-                        <i class="fa fa-briefcase"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Meeting</h2>
-                        <p>
-                            Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products. Below please find the current status of the sale.
-                        </p>
-                        <a href="#" class="btn btn-sm btn-primary"> More info</a>
-                        <span class="vertical-date">
-                            Today <br>
-                            <small>Dec 24</small>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon blue-bg">
-                        <i class="fa fa-file-text"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Send documents to Mike</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-                        <a href="#" class="btn btn-sm btn-success"> Download document </a>
-                        <span class="vertical-date">
-                            Today <br>
-                            <small>Dec 24</small>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon lazur-bg">
-                        <i class="fa fa-coffee"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Coffee Break</h2>
-                        <p>Go to shop and find some products. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's. </p>
-                        <a href="#" class="btn btn-sm btn-info">Read more</a>
-                        <span class="vertical-date"> Yesterday <br><small>Dec 23</small></span>
-                    </div>
-                </div>
-
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon yellow-bg">
-                        <i class="fa fa-phone"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Phone with Jeronimo</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
-                        <span class="vertical-date">Yesterday <br><small>Dec 23</small></span>
-                    </div>
-                </div>
-
-                <div class="vertical-timeline-block">
-                    <div class="vertical-timeline-icon navy-bg">
-                        <i class="fa fa-comments"></i>
-                    </div>
-
-                    <div class="vertical-timeline-content">
-                        <h2>Chat with Monica and Sandra</h2>
-                        <p>Web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). </p>
-                        <span class="vertical-date">Yesterday <br><small>Dec 23</small></span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
-
 </div>
+
+@section Styles {
+    <environment names="Development,Staging,Production">
+        <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick.css" />
+        <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick-theme.css" />
+    </environment>
+}
 
 @section Scripts {
     <environment names="Development,Staging,Production">
         <script src="~/lib/sparkline/jquery.sparkline.min.js"></script>
+        <script src="~/lib/slick-carousel/slick/slick.js"></script>
+        <script src="~/lib/slick-carousel/slick/slick.min.js"></script>
     </environment>
 
     <script type="text/javascript">
@@ -296,6 +221,56 @@
                 height: '50',
                 lineColor: '#1ab394',
                 fillColor: "transparent"
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $('.slick_demo_1').slick({
+                dots: true
+            });
+
+            $('.slick_demo_2').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                centerMode: true,
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 3,
+                            infinite: true,
+                            dots: true
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            $('.slick_demo_3').slick({
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                adaptiveHeight: true
             });
 
         });

@@ -122,7 +122,7 @@ namespace BusinessLogicalLayer
 
             try
             {
-                if (match.Success && (senha.Length > 3 && senha.Length < 100))
+                if (match.Success && (senha.Length >= 3 && senha.Length < 100))
                     return await userDAL.Authenticate(email, senha);
                 return ResponseFactory.SingleResponseNotFoundException<User>();
             }

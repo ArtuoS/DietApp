@@ -17,10 +17,13 @@
                 </div>
             </li>
             <li class="@Html.IsSelected(controller: "Home", action: "Index")">
-                <a href="@Url.Action("Main", "Home")"><i class="fa fa-pagelines"></i> <span class="nav-label">Início</span> <span class="label label-primary float-right">Principal</span></a>
+                <a href="@Url.Action("Index", "Home")"><i class="fa fa-user"></i> <span class="nav-label"></span>Perfil<span class="label label-primary float-right">Início</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Meals", action: "Insert")">
+                <a href="@Url.Action("Inser", "Meals")"><i class="fa fa-clock-o"></i> <span class="nav-label">Refeições</span></a>
             </li>
             <li class="@Html.IsSelected(controller: "Diets", action: "Index")">
-                <a href="@Url.Action("Minor", "Home")"><i class="fa fa-lemon-o"></i> <span class="nav-label">Dietas</span></a>
+                <a href="@Url.Action("Index", "Diets")"><i class="fa fa-calendar"></i> <span class="nav-label">Cronograma</span></a>
             </li>
         </ul>
     </div>

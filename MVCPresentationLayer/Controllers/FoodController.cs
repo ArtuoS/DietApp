@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using BusinessLogicalLayer;
+using Common;
+using Entities;
+using Entities.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
@@ -10,12 +13,13 @@ using System.Threading.Tasks;
 
 namespace MVCPresentationLayer.Controllers
 {
+    [Authorize]
     public class FoodController : Controller
     {
         private readonly IMapper mapper;
-        private readonly FoodBLL foodBLL;
+        private readonly IFoodService foodBLL;
 
-        public FoodController(IMapper mapper, FoodBLL foodBLL)
+        public FoodController(IMapper mapper, IFoodService foodBLL)
         {
             this.mapper = mapper;
             this.foodBLL = foodBLL;
@@ -26,15 +30,19 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
-        [Authorize(Roles ="Adm,Doctor")]
+        [Authorize(Roles ="Admin,Doctor")]
         public IActionResult Insert()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Insert(FoodInsertViewModel model)
+        public async Task<IActionResult> Insert(FoodInsertViewModel model)
         {
+            Food food = mapper.Map<Food>(model);
+
+            Response response = await foodBLL.Insert(food);
+
             return View();
         }
     }

@@ -34,17 +34,17 @@
                                 <div class="col-lg-8">
                                     <div class="form-group">
                                         <label asp-for="First_Name"></label>
-                                        <input asp-for="First_Name" type="text" name="firstName" class="form-control required">
+                                        <input asp-for="First_Name" type="text" id="firstName" class="form-control required">
                                         <span asp-validation-for="First_Name" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Last_Name"></label>
-                                        <input asp-for="Last_Name" type="text" name="lastName" class="form-control required">
+                                        <input asp-for="Last_Name" type="text" id="lastName" class="form-control required">
                                         <span asp-validation-for="Last_Name" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Email"></label>
-                                        <input asp-for="Email" type="email" name="email" class="form-control required email">
+                                        <input asp-for="Email" type="email" id="email" class="form-control required email">
                                         <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
@@ -78,14 +78,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Heigth"></label>
-                                        <input asp-for="Heigth" type="text" class="touchspin2" id="demo1">
-                                        <span asp-validation-for="Heigth" class="text-danger"></span>
+                                        <label asp-for="Height"></label>
+                                        <input asp-for="Height" type="text" class="touchspin2" id="demo1">
+                                        <span asp-validation-for="Height" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Weigth"></label>
-                                        <input asp-for="Weigth" class="touchspin2" id="demo2" type="text">
-                                        <span asp-validation-for="Weigth" class="text-danger"></span>
+                                        <label asp-for="Weight"></label>
+                                        <input asp-for="Weight" class="touchspin2" id="demo2" type="text">
+                                        <span asp-validation-for="Weight" class="text-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Gender"></label>
@@ -122,12 +122,12 @@
                                     <div class="form-group">
                                         <label asp-for="Daily_Fats" class="text-warning"></label>
                                         <div asp-for="Daily_Fats" id="ionrange_3"></div>
-                                        <span asp-validation-for="Daily_Fats" class="text-danger"></span>
+                                        <span asp-validation-for="Daily_Fats" class="label-danger"></span>
                                     </div>
                                     <div class="form-group">
                                         <label asp-for="Daily_Protein" class="text-danger"></label>
                                         <div asp-for="Daily_Protein" id="ionrange_4"></div>
-                                        <span asp-validation-for="Daily_Protein" class="text-danger"></span>
+                                        <span asp-validation-for="Daily_Protein" class="label-danger"></span>
                                     </div>
                                     <div id="ionrange_1"></div>
                                 </div>
@@ -305,7 +305,10 @@
                     confirm: {
                         equalTo: "#password"
                     },
-                    firstName: {
+                    '#firstName': {
+                        minlength: 3
+                    },
+                    '#lasttName': {
                         minlength: 3
                     }
                 }
