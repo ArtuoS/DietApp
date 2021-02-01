@@ -98,7 +98,7 @@ namespace DataAcessLayer
                 {
                     db.Users.Add(item);
                     await db.SaveChangesAsync();
-                    ResponseFactory.ResponseSuccessModel();
+                    return ResponseFactory.ResponseSuccessModel();
                 }
                 return ResponseFactory.SingleResponseNotFoundException<User>();
             }
