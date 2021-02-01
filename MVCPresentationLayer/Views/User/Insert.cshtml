@@ -8,6 +8,7 @@
 @{
     List<Food> foods = new List<Food>();
     IFoodService foodService = new FoodBLL();
+    User user = new User();
     IFood_CategoryService food_CategoryService = new Food_CategoryBLL();
 }
 
@@ -73,7 +74,7 @@
                                     <div class="form-group" id="data_3">
                                         <label asp-for="Date_Of_Birthday" class="font-normal"></label>
                                         <div class="input-group date">
-                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" class="form-control date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" id="Date_Of_Birthday" class="form-control date">
                                             <span asp-validation-for="Date_Of_Birthday" class="text-danger"></span>
                                         </div>
                                     </div>
@@ -154,7 +155,7 @@
                                                     <option value="paleolitica">Paleolítica</option>
                                                 </select>
                                             </div>
-                                            
+
                                             <div class="col-md-4 b-r">
                                                 <select class="select2_demo_4 form-control">
 
@@ -162,7 +163,7 @@
                                                     {
                                                         <option value="@category.ID">@category.Name</option>
 
-                                                        foreach(var food in foodService.GetByCategoryId(category.ID).Result.Data)
+                                                        foreach (var food in foodService.GetByCategoryId(category.ID).Result.Data)
                                                         {
                                                             foods.Add(food);
                                                         }
@@ -180,8 +181,8 @@
                                                 }
 
                                             </select>
-                                            </div>
                                         </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -238,9 +239,35 @@
 
 
     <script type="text/javascript">
+        var caloria;
+        var idade;
+        var peso;
+        var altura;
+        var genero;
+        var carboidrato = caloria * 0.4;
+        var proteina = caloria * 0.4;
+        var gordura = caloria * 0.2;
 
         $(document).ready(function () {
+            idade = getElemntById("Date_Of_Birthday").value;
+            peso = getElemntById("demo1").value;
+            altura = getElemntById("demo2").value;
+            genero = getElemntById("Biological_Gender").value;
 
+            @user.Weight = getElemntById("demo1").value;
+            @user.Height = getElemntById("demo2").value;
+            @user.Gender = getElemntById("Biological_Gender").value;
+
+            if (genero == 0) {
+                caloria = (13.397 * peso) + (4.799 * altura) - (5.677 * idade) + 88.362;
+            }
+            else {
+                caloria = (9.247 * peso) + (3.098 * altura) - (4.330 * idade) + 447.593;
+            }
+        });
+
+
+        $(document).ready(function () {
             $("#wizard").steps();
             $("#form").steps({
                 bodyTag: "fieldset",
@@ -314,9 +341,10 @@
                 }
             });
 
-
             $("#ionrange_1").ionRangeSlider({
+
                 min: 0,
+                from: caloria,
                 max: 10000,
                 type: 'single',
                 step: 10,
@@ -326,6 +354,7 @@
             $("#ionrange_2").ionRangeSlider({
                 min: 0,
                 max: 10000,
+                from: carboidrato,
                 type: 'single',
                 step: 10,
                 postfix: " gramas",
@@ -334,6 +363,7 @@
             $("#ionrange_3").ionRangeSlider({
                 min: 0,
                 max: 10000,
+                from: gordura,
                 type: 'single',
                 step: 10,
                 postfix: " gramas",
@@ -342,6 +372,7 @@
             $("#ionrange_4").ionRangeSlider({
                 min: 0,
                 max: 10000,
+                from: proteina,
                 type: 'single',
                 step: 10,
                 postfix: " gramas",
@@ -437,5 +468,42 @@
             });
 
         });
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#ionrange_1").click(function (e) {
+                tr = $(this).parent().parent();
+                var user = new Object();
+
+                $.ajax({
+                    method: "POST",
+                    url: "/User/Update/",
+                    data: JSON.stringify(user),
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (response) {
+                        if (response.DeuBoa) {
+                            $('#respostaServidor').html("Cadastro efetuado com sucesso!")
+                            $('#respostaServidor').css({ "color": "green" });
+                        }
+                        else {
+                            $('#respostaServidor').html(response.Erro);
+                            $('#respostaServidor').css({ "color": "red" });
+                        }
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
+                e.preventDefault();
+            });
+        });
+
+
+
     </script>
 }

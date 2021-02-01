@@ -17,12 +17,12 @@ namespace MVCPresentationLayer.Controllers
     public class FoodController : Controller
     {
         private readonly IMapper mapper;
-        private readonly IFoodService foodBLL;
+        private readonly IFoodService foodService;
 
-        public FoodController(IMapper mapper, IFoodService foodBLL)
+        public FoodController(IMapper mapper, IFoodService foodService)
         {
             this.mapper = mapper;
-            this.foodBLL = foodBLL;
+            this.foodService = foodService;
         }
 
         public IActionResult Index()
@@ -30,7 +30,7 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
-        [Authorize(Roles ="Admin,Doctor")]
+        [Authorize(Roles = "Admin,Doctor")]
         public IActionResult Insert()
         {
             return View();
@@ -41,7 +41,7 @@ namespace MVCPresentationLayer.Controllers
         {
             Food food = mapper.Map<Food>(model);
 
-            Response response = await foodBLL.Insert(food);
+            Response response = await foodService.Insert(food);
 
             return View();
         }

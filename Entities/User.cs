@@ -17,7 +17,7 @@ namespace Entities
         public double Weight { get; set; }
         public double Height { get; set; }
         public double BodyFat { get; set; }
-        //public Exercise_Activity Activity { get; set; }
+        public Exercise_Activity Activity { get; set; }
         public double Daily_Calories { get; set; }
         public double Daily_Carbohydrates { get; set; }
         public double Daily_Fats { get; set; }
@@ -43,7 +43,7 @@ namespace Entities
 
         public int GetCurrentAge(DateTime birthday)
         {
-            return DateTime.Today.Year - birthday.Year;
+            return (DateTime.Today.Year - birthday.Year) - 1;
         }
 
         public double CalculateDailyCalories(int age, double height, double weight, Biological_Gender gender)
@@ -52,6 +52,13 @@ namespace Entities
             if (gender == Biological_Gender.Masculino)
                 return (13.397 * weight) + (4.799 * height) - (5.677 * age) + 88.362;
             return (9.247 * weight) + (3.098 * height) - (4.330 * age) + 447.593;
+        }
+
+        public void CalculateDailyCarbohydrateProteinFat(double calories)
+        {
+            this.Daily_Carbohydrates = calories * 0.4;
+            this.Daily_Protein = calories * 0.4;
+            this.Daily_Fats = calories * 0.2;
         }
     }
 

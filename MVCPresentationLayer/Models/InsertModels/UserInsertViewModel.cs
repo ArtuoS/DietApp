@@ -18,6 +18,8 @@ namespace MVCPresentationLayer.Models.InsertModels
         public DateTime Date_Of_Birthday { get; set; }
         [Display(Name = "Gênero")]
         public Biological_Gender Gender { get; set; }
+        [Display(Name = "Atividade Física")]
+        public Exercise_Activity Activity { get; set; }
         public string Email { get; set; }
         [Display(Name = "Senha")]
         public string Password { get; set; }
