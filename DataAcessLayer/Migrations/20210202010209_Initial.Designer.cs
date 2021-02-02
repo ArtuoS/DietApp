@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAcessLayer.Migrations
 {
     [DbContext(typeof(DietDB))]
-    [Migration("20210129162400_UserChangeColumnNames")]
-    partial class UserChangeColumnNames
+    [Migration("20210202010209_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -205,12 +205,7 @@ namespace DataAcessLayer.Migrations
                         .IsUnicode(true)
                         .HasColumnType("nvarchar(40)");
 
-                    b.Property<int?>("UserID")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
-
-                    b.HasIndex("UserID");
 
                     b.ToTable("Restrictions");
                 });
@@ -221,6 +216,9 @@ namespace DataAcessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<int>("Activity")
+                        .HasColumnType("int");
 
                     b.Property<double>("BodyFat")
                         .HasColumnType("float");
@@ -314,6 +312,21 @@ namespace DataAcessLayer.Migrations
                     b.ToTable("FoodRestriction");
                 });
 
+            modelBuilder.Entity("RestrictionUser", b =>
+                {
+                    b.Property<int>("RestrictionsID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersID")
+                        .HasColumnType("int");
+
+                    b.HasKey("RestrictionsID", "UsersID");
+
+                    b.HasIndex("UsersID");
+
+                    b.ToTable("RestrictionUser");
+                });
+
             modelBuilder.Entity("DietMeal", b =>
                 {
                     b.HasOne("Entities.Diet", null)
@@ -347,13 +360,6 @@ namespace DataAcessLayer.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Entities.Restriction", b =>
-                {
-                    b.HasOne("Entities.User", null)
-                        .WithMany("Restrictions")
-                        .HasForeignKey("UserID");
-                });
-
             modelBuilder.Entity("FoodMeal", b =>
                 {
                     b.HasOne("Entities.Food", null)
@@ -384,6 +390,21 @@ namespace DataAcessLayer.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("RestrictionUser", b =>
+                {
+                    b.HasOne("Entities.Restriction", null)
+                        .WithMany()
+                        .HasForeignKey("RestrictionsID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Entities.Food_Category", b =>
                 {
                     b.Navigation("Foods");
@@ -392,8 +413,6 @@ namespace DataAcessLayer.Migrations
             modelBuilder.Entity("Entities.User", b =>
                 {
                     b.Navigation("Diets");
-
-                    b.Navigation("Restrictions");
                 });
 #pragma warning restore 612, 618
         }

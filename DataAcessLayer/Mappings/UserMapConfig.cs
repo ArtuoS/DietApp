@@ -15,6 +15,8 @@ namespace DataAcessLayer.Mappings
             builder.Property(a => a.Last_Name).HasMaxLength(40).IsRequired().IsUnicode();
             builder.Property(a => a.Email).HasMaxLength(255).IsRequired().IsUnicode();
             builder.HasIndex(a => a.Email).IsUnique();
+            builder.Property(a => a.Activity).IsRequired();
+            builder.Property(a => a.Password).IsRequired();
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAcessLayer.Migrations
 {
-    public partial class initialDatabase : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -37,6 +37,19 @@ namespace DataAcessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Restrictions",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Restrictions", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -47,11 +60,17 @@ namespace DataAcessLayer.Migrations
                     Date_Of_Birthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<int>(type: "int", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Senha = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Weigth = table.Column<double>(type: "float", nullable: false),
-                    Heigth = table.Column<double>(type: "float", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Weight = table.Column<double>(type: "float", nullable: false),
+                    Height = table.Column<double>(type: "float", nullable: false),
                     BodyFat = table.Column<double>(type: "float", nullable: false),
-                    Status = table.Column<bool>(type: "bit", nullable: false)
+                    Activity = table.Column<int>(type: "int", nullable: false),
+                    Daily_Calories = table.Column<double>(type: "float", nullable: false),
+                    Daily_Carbohydrates = table.Column<double>(type: "float", nullable: false),
+                    Daily_Fats = table.Column<double>(type: "float", nullable: false),
+                    Daily_Protein = table.Column<double>(type: "float", nullable: false),
+                    Status = table.Column<bool>(type: "bit", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -121,23 +140,27 @@ namespace DataAcessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Restrictions",
+                name: "RestrictionUser",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: true)
+                    RestrictionsID = table.Column<int>(type: "int", nullable: false),
+                    UsersID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Restrictions", x => x.ID);
+                    table.PrimaryKey("PK_RestrictionUser", x => new { x.RestrictionsID, x.UsersID });
                     table.ForeignKey(
-                        name: "FK_Restrictions_Users_UserID",
-                        column: x => x.UserID,
+                        name: "FK_RestrictionUser_Restrictions_RestrictionsID",
+                        column: x => x.RestrictionsID,
+                        principalTable: "Restrictions",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RestrictionUser_Users_UsersID",
+                        column: x => x.UsersID,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -158,30 +181,6 @@ namespace DataAcessLayer.Migrations
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_FoodMeal_Meals_MealsID",
-                        column: x => x.MealsID,
-                        principalTable: "Meals",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "DietMeal",
-                columns: table => new
-                {
-                    DietsID = table.Column<int>(type: "int", nullable: false),
-                    MealsID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DietMeal", x => new { x.DietsID, x.MealsID });
-                    table.ForeignKey(
-                        name: "FK_DietMeal_Diets_DietsID",
-                        column: x => x.DietsID,
-                        principalTable: "Diets",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DietMeal_Meals_MealsID",
                         column: x => x.MealsID,
                         principalTable: "Meals",
                         principalColumn: "ID",
@@ -212,6 +211,30 @@ namespace DataAcessLayer.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "DietMeal",
+                columns: table => new
+                {
+                    DietsID = table.Column<int>(type: "int", nullable: false),
+                    MealsID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DietMeal", x => new { x.DietsID, x.MealsID });
+                    table.ForeignKey(
+                        name: "FK_DietMeal_Diets_DietsID",
+                        column: x => x.DietsID,
+                        principalTable: "Diets",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DietMeal_Meals_MealsID",
+                        column: x => x.MealsID,
+                        principalTable: "Meals",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_DietMeal_MealsID",
                 table: "DietMeal",
@@ -238,9 +261,9 @@ namespace DataAcessLayer.Migrations
                 column: "Food_CategoryID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Restrictions_UserID",
-                table: "Restrictions",
-                column: "UserID");
+                name: "IX_RestrictionUser_UsersID",
+                table: "RestrictionUser",
+                column: "UsersID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_Email",
@@ -261,6 +284,9 @@ namespace DataAcessLayer.Migrations
                 name: "FoodRestriction");
 
             migrationBuilder.DropTable(
+                name: "RestrictionUser");
+
+            migrationBuilder.DropTable(
                 name: "Diets");
 
             migrationBuilder.DropTable(
@@ -273,10 +299,10 @@ namespace DataAcessLayer.Migrations
                 name: "Restrictions");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Categories");
         }
     }
 }

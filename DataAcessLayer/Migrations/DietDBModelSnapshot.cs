@@ -215,6 +215,9 @@ namespace DataAcessLayer.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("Activity")
+                        .HasColumnType("int");
+
                     b.Property<double>("BodyFat")
                         .HasColumnType("float");
 
