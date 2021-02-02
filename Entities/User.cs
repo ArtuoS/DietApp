@@ -18,6 +18,7 @@ namespace Entities
         public double Height { get; set; }
         public double BodyFat { get; set; }
         public Exercise_Activity Activity { get; set; }
+        public Objective Objective { get; set; }
         public double Daily_Calories { get; set; }
         public double Daily_Carbohydrates { get; set; }
         public double Daily_Fats { get; set; }
@@ -46,18 +47,83 @@ namespace Entities
             return (DateTime.Today.Year - birthday.Year) - 1;
         }
 
-        public void CalculateDailyNeeds(int age, double height, double weight, Biological_Gender gender)
+        public void CalculateDailyNeeds()
         {
             //Exercise_Activity? activity <- parameter
-            if (gender == Biological_Gender.Masculino)
-                this.Daily_Calories = (13.397 * weight) + (4.799 * height) - (5.677 * age) + 88.362;
+            if (this.Gender == Biological_Gender.Masculino)
+                this.Daily_Calories = (13.397 * this.Weight) + (4.799 * this.Height) - (5.677 * this.GetCurrentAge(this.Date_Of_Birthday)) + 88.362;
             else
-                this.Daily_Calories = (9.247 * weight) + (3.098 * height) - (4.330 * age) + 447.593;
+                this.Daily_Calories = (9.247 * this.Weight) + (3.098 * this.Height) - (4.330 * this.GetCurrentAge(this.Date_Of_Birthday)) + 447.593;
 
             this.Daily_Carbohydrates = this.Daily_Calories * 0.4;
             this.Daily_Protein = this.Daily_Calories * 0.4;
             this.Daily_Fats = this.Daily_Calories * 0.2;
+
+            switch (this.Objective)
+            {
+                case Objective.Weight_Loss:
+                    switch (this.Activity)
+                    {
+                        case Exercise_Activity.Sedentary:
+                            this.Daily_Carbohydrates *= 0.5;
+                            this.Daily_Protein *= 0.5;
+                            this.Daily_Fats *= 0.5;
+                            break;
+                        case Exercise_Activity.Light:
+                            this.Daily_Carbohydrates *= 0.6;
+                            this.Daily_Protein *= 0.6;
+                            this.Daily_Fats *= 0.6;
+                            break;
+                        case Exercise_Activity.Moderate:
+                            this.Daily_Carbohydrates *= 0.7;
+                            this.Daily_Protein *= 0.7;
+                            this.Daily_Fats *= 0.7;
+                            break;
+                        case Exercise_Activity.Active:
+                            this.Daily_Carbohydrates *= 0.8;
+                            this.Daily_Protein *= 0.8;
+                            this.Daily_Fats *= 0.8;
+                            break;
+                        case Exercise_Activity.VeryActive:
+                            this.Daily_Carbohydrates *= 0.9;
+                            this.Daily_Protein *= 0.9;
+                            this.Daily_Fats *= 0.9;
+                            break;
+                    }
+                    break;
+                case Objective.Maintenance:
+                    return;
+                case Objective.Mass_Gain:
+                    switch (this.Activity)
+                    {
+                        case Exercise_Activity.Sedentary:
+                            this.Daily_Carbohydrates *= 1.1;
+                            this.Daily_Protein *= 1.1;
+                            this.Daily_Fats *= 1.1;
+                            break;
+                        case Exercise_Activity.Light:
+                            this.Daily_Carbohydrates *= 1.2;
+                            this.Daily_Protein *= 1.2;
+                            this.Daily_Fats *= 1.2;
+                            break;
+                        case Exercise_Activity.Moderate:
+                            this.Daily_Carbohydrates *= 1.3;
+                            this.Daily_Protein *= 1.3;
+                            this.Daily_Fats *= 1.3;
+                            break;
+                        case Exercise_Activity.Active:
+                            this.Daily_Carbohydrates *= 1.4;
+                            this.Daily_Protein *= 1.4;
+                            this.Daily_Fats *= 1.4;
+                            break;
+                        case Exercise_Activity.VeryActive:
+                            this.Daily_Carbohydrates *= 1.5;
+                            this.Daily_Protein *= 1.5;
+                            this.Daily_Fats *= 1.5;
+                            break;
+                    }
+                    break;
+            }
         }
     }
-
 }

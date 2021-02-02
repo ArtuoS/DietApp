@@ -101,36 +101,32 @@
                                             }
                                         </select>
                                     </div>
-                                </div>
-                            </div>
-                        </fieldset>
+                                    <div class="form-group">
+                                        <label asp-for="Activity"></label>
+                                        @{
+                                            string[] Activity = Enum.GetNames(typeof(Entities.Enums.Exercise_Activity));
+                                        }
 
-                        <h1>Informação Nutricional</h1>
-                        <fieldset>
-                            <h2>Informação Nutricional</h2>
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="form-group">
-                                        <label asp-for="Daily_Calories" class="text-success"></label>
-                                        <div asp-for="Daily_Calories" id="ionrange_1"></div>
-                                        <span asp-validation-for="Daily_Calories" class="text-danger"></span>
+                                        <select asp-for="Activity" class="form-control" id="Activity">
+                                            @for (int i = 0; i < Activity.Length; i++)
+                                            {
+                                                <option value="@i">@Activity[i]</option>
+                                            }
+                                        </select>
                                     </div>
                                     <div class="form-group">
-                                        <label asp-for="Daily_Carbohydrates" class="text-info"></label>
-                                        <div asp-for="Daily_Carbohydrates" id="ionrange_2"></div>
-                                        <span asp-validation-for="Daily_Carbohydrates" class="text-danger"></span>
+                                        <label asp-for="Objective"></label>
+                                        @{
+                                            string[] Objective = Enum.GetNames(typeof(Entities.Enums.Objective));
+                                        }
+
+                                        <select asp-for="Objective" class="form-control" id="Objective">
+                                            @for (int i = 0; i < Objective.Length; i++)
+                                            {
+                                                <option value="@i">@Objective[i].Replace("_", " ")</option>
+                                            }
+                                        </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label asp-for="Daily_Fats" class="text-warning"></label>
-                                        <div asp-for="Daily_Fats" id="ionrange_3"></div>
-                                        <span asp-validation-for="Daily_Fats" class="label-danger"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label asp-for="Daily_Protein" class="text-danger"></label>
-                                        <div asp-for="Daily_Protein" id="ionrange_4"></div>
-                                        <span asp-validation-for="Daily_Protein" class="label-danger"></span>
-                                    </div>
-                                    <div id="ionrange_1"></div>
                                 </div>
                             </div>
                         </fieldset>
@@ -145,7 +141,7 @@
                                             <p>
                                                 Escolha uma dieta pronta ou selecione alimentos que *não* deseja ter em sua dieta.
                                             </p>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 b-r">
                                                 <select class="select2_demo_3 form-control">
                                                     <option value="tudo">De tudo</option>
                                                     <option value="lactose">Dieta para intolerantes à lactose</option>
@@ -239,239 +235,165 @@
 
 
     <script type="text/javascript">
-        //var caloria = 0;
-        //var idade = 0;
-        //var peso = 0;
-        //var altura = 0;
-        //var genero = 0;
-        //var carboidrato = caloria * 0.4;
-        //var proteina = caloria * 0.4;
-        //var gordura = caloria * 0.2;
-        //
-
-        $("#next").click(function () {
-            //idade = getElemntById("Date_Of_Birthday").value;
-            //peso = getElemntById("demo1").value;
-            //altura = getElemntById("demo2").value;
-            //genero = getElemntById("Biological_Gender").value;
-            //
-            //user.Weight = getElemntById("demo1").value;
-            //user.Height = getElemntById("demo2").value;
-            //user.Gender = getElemntById("Biological_Gender").value;
-            //
-            //if (genero == 0) {
-            //    caloria = (13.397 * peso) + (4.799 * altura) - (5.677 * idade) + 88.362;
-            //}
-            //else {
-            //    caloria = (9.247 * peso) + (3.098 * altura) - (4.330 * idade) + 447.593;
-            //}
-            // id = #next
-            //user.CalculateDailyNeeds(18, 180, 74, 0);
-        }),
-
-            $(document).ready(function () {
-                $("#wizard").steps();
-                $("#form").steps({
-                    bodyTag: "fieldset",
-                    onStepChanging: function (event, currentIndex, newIndex) {
-                        // Always allow going backward even if the current step contains invalid fields!
-                        if (currentIndex > newIndex) {
-                            return true;
-                        }
-
-                        // Forbid suppressing "Warning" step if the user is to young
-                        if (newIndex === 3 && Number($("#age").val()) < 18) {
-                            return false;
-                        }
-
-                        var form = $(this);
-
-                        // Clean up if user went backward before
-                        if (currentIndex < newIndex) {
-                            // To remove error styles
-                            $(".body:eq(" + newIndex + ") label.error", form).remove();
-                            $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
-                        }
-
-                        // Disable validation on fields that are disabled or hidden.
-                        form.validate().settings.ignore = ":disabled,:hidden";
-
-                        // Start validation; Prevent going forward if false
-                        return form.valid();
-                    },
-                    onStepChanged: function (event, currentIndex, priorIndex) {
-                        // Suppress (skip) "Warning" step if the user is old enough.
-                        if (currentIndex === 2 && Number($("#age").val()) >= 18) {
-                            $(this).steps("next");
-                        }
-
-                        // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
-                        if (currentIndex === 2 && priorIndex === 3) {
-                            $(this).steps("previous");
-                        }
-                    },
-                    onFinishing: function (event, currentIndex) {
-                        var form = $(this);
-
-                        // Disable validation on fields that are disabled.
-                        // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
-                        form.validate().settings.ignore = ":disabled";
-
-                        // Start validation; Prevent form submission if false
-                        return form.valid();
-                    },
-                    onFinished: function (event, currentIndex) {
-                        var form = $(this);
-
-                        // Submit form input
-                        form.submit().val;
+        $(document).ready(function () {
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
                     }
-                }).validate({
-                    errorPlacement: function (error, element) {
-                        element.before(error);
-                    },
-                    rules: {
-                        confirm: {
-                            equalTo: "#password"
-                        },
-                        '#firstName': {
-                            minlength: 3
-                        },
-                        '#lasttName': {
-                            minlength: 3
-                        }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
                     }
-                });
 
-                $("#ionrange_1").ionRangeSlider({
+                    // Disable validation on fields that are disabled or hidden.
+                    form.validate().settings.ignore = ":disabled,:hidden";
 
-                    min: 0,
-                    //from: caloria,
-                    max: 10000,
-                    type: 'single',
-                    step: 10,
-                    postfix: " gramas",
-                    prettify: true,
-                });
+                    // Start validation; Prevent going forward if false
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex) {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    // if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                    //     $(this).steps("next");
+                    // s}
 
-                $("#ionrange_2").ionRangeSlider({
-                    min: 0,
-                    max: 10000,
-                    //from: carboidrato,
-                    type: 'single',
-                    step: 10,
-                    postfix: " gramas",
-                    prettify: true,
-                });
-
-                $("#ionrange_3").ionRangeSlider({
-                    min: 0,
-                    max: 10000,
-                    //from: gordura,
-                    type: 'single',
-                    step: 10,
-                    postfix: " gramas",
-                    prettify: true,
-                });
-
-                $("#ionrange_4").ionRangeSlider({
-                    min: 0,
-                    max: 10000,
-                    //from: proteina,
-                    type: 'single',
-                    step: 10,
-                    postfix: " gramas",
-                    prettify: true,
-                });
-
-                $('.tagsinput').tagsinput({
-                    tagClass: 'label label-primary'
-                });
-
-                $('.dual_select').bootstrapDualListbox({
-                    selectorMinimalHeight: 160
-                });
-
-                $('#data_3 .input-group.date').datepicker({
-                    startView: 2,
-                    todayBtn: "linked",
-                    keyboardNavigation: false,
-                    forceParse: false,
-                    autoclose: true
-                });
-
-                $('input[name="daterange"]').daterangepicker();
-
-                $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-
-                $('#reportrange').daterangepicker({
-                    format: 'MM/DD/YYYY',
-                    startDate: moment().subtract(29, 'days'),
-                    endDate: moment(),
-                    minDate: '01/01/2012',
-                    maxDate: '12/31/2015',
-                    dateLimit: { days: 60 },
-                    showDropdowns: true,
-                    showWeekNumbers: true,
-                    timePicker: false,
-                    timePickerIncrement: 1,
-                    timePicker12Hour: true,
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                    },
-                    opens: 'right',
-                    drops: 'down',
-                    buttonClasses: ['btn', 'btn-sm'],
-                    applyClass: 'btn-primary',
-                    cancelClass: 'btn-default',
-                    separator: ' to ',
-                    locale: {
-                        applyLabel: 'Submit',
-                        cancelLabel: 'Cancel',
-                        fromLabel: 'From',
-                        toLabel: 'To',
-                        customRangeLabel: 'Custom',
-                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                        firstDay: 1
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3) {
+                        $(this).steps("previous");
                     }
-                }, function (start, end, label) {
-                    console.log(start.toISOString(), end.toISOString(), label);
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                });
+                },
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
 
-                $(".select2_demo_3").select2({
-                    placeholder: "Selecione uma dieta",
-                    allowClear: true
-                });
+                    // Disable validation on fields that are disabled.
+                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                    form.validate().settings.ignore = ":disabled";
 
-                $("input[id='demo1']").TouchSpin({
-                    min: 0,
-                    max: 1000,
-                    step: 10,
-                    boostat: 5,
-                    maxboostedstep: 10,
-                    postfix: 'cm',
-                    buttondown_class: 'btn btn-white',
-                    buttonup_class: 'btn btn-white'
-                });
+                    // Start validation; Prevent form submission if false
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
 
-                $("input[id='demo2']").TouchSpin({
-                    min: 0,
-                    max: 1000,
-                    step: 10,
-                    boostat: 5,
-                    maxboostedstep: 10,
-                    postfix: 'kg',
-                    buttondown_class: 'btn btn-white',
-                    buttonup_class: 'btn btn-white'
-                });
+                    // Submit form input
+                    form.submit().val;
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+                rules: {
+                    confirm: {
+                        equalTo: "#password"
+                    },
+                    '#firstName': {
+                        minlength: 3
+                    },
+                    '#lasttName': {
+                        minlength: 3
+                    }
+                }
             });
+
+            $("#ionrange_1").ionRangeSlider({
+
+                min: 0,
+                //from: caloria,
+                max: 10000,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+
+            $("#ionrange_2").ionRangeSlider({
+                min: 0,
+                max: 10000,
+                //from: carboidrato,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+
+            $("#ionrange_3").ionRangeSlider({
+                min: 0,
+                max: 10000,
+                //from: gordura,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+
+            $("#ionrange_4").ionRangeSlider({
+                min: 0,
+                max: 10000,
+                //from: proteina,
+                type: 'single',
+                step: 10,
+                postfix: " gramas",
+                prettify: true,
+            });
+
+            $('.tagsinput').tagsinput({
+                tagClass: 'label label-primary'
+            });
+
+            $('.dual_select').bootstrapDualListbox({
+                selectorMinimalHeight: 160
+            });
+
+            $('#data_3 .input-group.date').datepicker({
+                startView: 2,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
+
+            $('input[name="daterange"]').daterangepicker();
+
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+
+
+            $(".select2_demo_3").select2({
+                placeholder: "Selecione uma dieta",
+                allowClear: true
+            });
+
+            $("input[id='demo1']").TouchSpin({
+                min: 0,
+                max: 1000,
+                step: 10,
+                boostat: 5,
+                maxboostedstep: 10,
+                postfix: 'cm',
+                buttondown_class: 'btn btn-white',
+                buttonup_class: 'btn btn-white'
+            });
+
+            $("input[id='demo2']").TouchSpin({
+                min: 0,
+                max: 1000,
+                step: 10,
+                boostat: 5,
+                maxboostedstep: 10,
+                postfix: 'kg',
+                buttondown_class: 'btn btn-white',
+                buttonup_class: 'btn btn-white'
+            });
+        });
     </script>
 
     <script type="text/javascript">
@@ -506,8 +428,53 @@
                 e.preventDefault();
             });
         });
+    </script>
 
+    <script type="text/javascript">
+        $(function () {
+            $("#next").click(function (e) {
+                //tr = $(this).parent().parent();
+                //$("input #First_Name").val($(tr).find("td:eq( 1 )").html());
+                //$("#Last_Name").val($(tr).find("td:eq( 2 )").html());
+                //$("#IDUser").val($(tr).find("td:eq( 3 )").html());
+                //$("#Email").val($(tr).find("td:eq( 4 )").html());
+                //$("input #Date_Of_Birthday").val($(tr).find("td:eq( 5 )").html());
+                //$("input #Gender").val($(tr).find("td:eq( 6 )").html());
+                //$("input #Weight").val($(tr).find("td:eq( 7 )").html());
+                //$("input #Height").val($(tr).find("td:eq( 8 )").html());
+                //$("#BodyFat").val($(tr).find("td:eq( 9 )").html());
 
+                var user = new Object();
+                user.Date_Of_Birthday = Date.parse($("input #Date_Of_Birthday").val());
+                user.Gender = $("input #Gender").val();
+                user.Weight = parseFloat($("input #Weight").val());
+                user.Height = parseFloat($("input #Height").val());
 
+                $.ajax({
+                    method: "POST",
+                    url: "/User/Update/",
+                    data: JSON.stringify(user),
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (response) {
+                        if (response.DeuBoa) {
+                            $('#respostaServidor').html("Cadastro efetuado com sucesso!")
+                            $('#respostaServidor').css({ "color": "green" });
+                        }
+                        else {
+                            $('#respostaServidor').html(response.Erro);
+                            $('#respostaServidor').css({ "color": "red" });
+                        }
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
+                e.preventDefault();
+            });
+        });
     </script>
 }

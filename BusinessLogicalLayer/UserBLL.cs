@@ -8,6 +8,7 @@ using DataAcessLayer;
 using System.Threading.Tasks;
 using Common;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace BusinessLogicalLayer
 {
@@ -28,6 +29,9 @@ namespace BusinessLogicalLayer
         public async Task<Response> Insert(User item)
         {
             ValidationResult results = this.Validate(item);
+
+            //EncryptPassword(item.Password);
+
             try
             {
                 if (!results.IsValid)
@@ -36,7 +40,7 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
-                    item.CalculateDailyNeeds(item.GetCurrentAge(item.Date_Of_Birthday), item.Height, item.Weight, item.Gender);
+                    item.CalculateDailyNeeds();
                     item.ReplaceGenderWithNumber(item.Gender);
                     return await userDAL.Insert(item);
                 }
@@ -132,5 +136,40 @@ namespace BusinessLogicalLayer
                 return ResponseFactory.SingleResponseExceptionModel<User>(ex);
             }
         }
+
+        public string EncryptPassword(string password)
+        {
+            var encodedValue = Encoding.UTF8.GetBytes(password);
+            var encryptedPassword = System.Security.Cryptography.MD5.Create().ComputeHash(encodedValue);
+
+            var sb = new StringBuilder();
+            foreach (var caracter in encryptedPassword)
+            {
+                sb.Append(caracter.ToString("X2"));
+            }
+
+            return sb.ToString();
+        }
+
+        /*
+        public Task<SingleResponse<User>> CheckPassword(string email, string password)
+        {
+
+            //Task<SingleResponse<User>> response = userDAL.Authenticate(email, password);
+            //if (!response.Success)
+            //{
+            //    response.Message = "Email ou senha incorreta";
+            //    response.Success = false;
+            //}
+            //else
+            //{
+            //    SystemParameters.EmployeeName = response.Data.Name;
+            //    SystemParameters.EmployeeADM = response.Data.IsAdm;
+            //    response.Success = true;
+            //}
+            return response;
+
+        }
+        */
     }
 }

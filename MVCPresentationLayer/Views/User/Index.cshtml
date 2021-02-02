@@ -73,126 +73,155 @@
         <div class="row justify-content-md-center">
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="ibox">
-                    <h4 class="text-center m">
-                        
-                    </h4>
                     <div class="slick_demo_1">
-                        <div>
-                            <div class="ibox-content">
-                                <h2>Hoje, @DateTime.Today.Day/@DateTime.Today.Month</h2>
-                                <div class="col-lg-8 m-b-lg">
-                                    <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
-                                        <div class="vertical-timeline-block">
-                                            <div class="vertical-timeline-icon yellow-bg">
-                                                <i class="fa fa-coffee"></i>
-                                            </div>
-
-                                            <div class="vertical-timeline-content">
-                                                <h2>Café da manhã</h2>
-                                                <p>
-                                                    Comida <a href="#" class="btn btn-sm btn-warning"> Visualizar</a>
-                                                </p>
-                                                
-                                            </div>
+                        <div class="ibox-content">
+                            <h2>Hoje, @DateTime.Today.Day/@DateTime.Today.Month</h2>
+                            <div class="col-lg-8 m-b-lg">
+                                <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
+                                    <div class="vertical-timeline-block">
+                                        <div class="vertical-timeline-icon yellow-bg">
+                                            <i class="fa fa-coffee"></i>
                                         </div>
 
-                                        <div class="vertical-timeline-block">
-                                            <div class="vertical-timeline-icon blue-bg">
-                                                <i class="fa fa-file-text"></i>
-                                            </div>
+                                        <div class="vertical-timeline-content">
+                                            <h2>Café da manhã</h2>
+                                            <p>
+                                                Comida <a href="#" class="btn btn-sm btn-warning"> Visualizar</a>
+                                            </p>
 
-                                            <div class="vertical-timeline-content">
-                                                <h2>Almoço</h2>
-                                                <p>Comida <a href="#" class="btn btn-sm btn-success"> Mais Info</a></p>
-                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="vertical-timeline-block">
+                                        <div class="vertical-timeline-icon blue-bg">
+                                            <i class="fa fa-file-text"></i>
                                         </div>
 
-                                        <div class="vertical-timeline-block">
-                                            <div class="vertical-timeline-icon red-bg">
-                                                <i class="fa fa-coffee"></i>
-                                            </div>
+                                        <div class="vertical-timeline-content">
+                                            <h2>Almoço</h2>
+                                            <div class="table-responsive">
+                                                <table class="table shoping-cart-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="90">
+                                                                <div class="cart-product-imitation">
+                                                                </div>
+                                                            </td>
+                                                            <td class="desc">
+                                                                <h3>
+                                                                    <a href="#" class="text-navy">
+                                                                        Refeicao
+                                                                    </a>
+                                                                </h3>
+                                                                <dl class="small m-b-none">
+                                                                    <dt>Ingredientes</dt>
+                                                                    <dd>Comida1</dd>
+                                                                    <dd>Comida2</dd>
+                                                                    <dd>Comida2</dd>
+                                                                </dl>
+                                                            </td>
+                                                            <td>
+                                                                <h4>
+                                                                    Calorias:
+                                                                    Carboidratos:
+                                                                    Proteinas:
+                                                                    Gorduras:
+                                                                </h4>
+                                                            </td>
 
-                                            <div class="vertical-timeline-content">
-                                                <h2>Janta</h2>
-                                                <p>
-                                                    Comida
-                                                    <a href="#" class="btn btn-sm btn-danger"> Mais Info</a>
-                                                </p>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="vertical-timeline-block">
+                                        <div class="vertical-timeline-icon red-bg">
+                                            <i class="fa fa-coffee"></i>
+                                        </div>
+
+                                        <div class="vertical-timeline-content">
+                                            <h2>Janta</h2>
+                                            <p>
+                                                Comida
+                                                <a href="#" class="btn btn-sm btn-danger"> Mais Info</a>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div>
-                            <div class="ibox-content">
-                                <h2>Amanhã @DateTime.Today.AddDays(1).Day/@DateTime.Today.AddDays(1).Month</h2>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. It has survived not only five centuries, but also the leap.
-                                </p>
-                            </div>
+                    </div>
+                    <div>
+                        <div class="ibox-content">
+                            <h2>Amanhã @DateTime.Today.AddDays(1).Day/@DateTime.Today.AddDays(1).Month</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen
+                                book. It has survived not only five centuries, but also the leap.
+                            </p>
                         </div>
-                        <div>
-                            <div class="ibox-content">
-                                <h2>Daqui a dois dias @DateTime.Today.AddDays(2).Day/@DateTime.Today.AddDays(2).Month</h2>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. It has survived not only five centuries, but also the leap.
-                                </p>
-                            </div>
+                    </div>
+                    <div>
+                        <div class="ibox-content">
+                            <h2>Daqui a dois dias @DateTime.Today.AddDays(2).Day/@DateTime.Today.AddDays(2).Month</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen
+                                book. It has survived not only five centuries, but also the leap.
+                            </p>
                         </div>
-                        <div>
-                            <div class="ibox-content">
-                                <h2>Daqui a tres dias @DateTime.Today.AddDays(3).Day/@DateTime.Today.AddDays(3).Month</h2>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. It has survived not only five centuries, but also the leap.
-                                </p>
-                            </div>
+                    </div>
+                    <div>
+                        <div class="ibox-content">
+                            <h2>Daqui a tres dias @DateTime.Today.AddDays(3).Day/@DateTime.Today.AddDays(3).Month</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen
+                                book. It has survived not only five centuries, but also the leap.
+                            </p>
                         </div>
-                        <div>
-                            <div class="ibox-content">
-                                <h2>Daqui a quatro dias @DateTime.Today.AddDays(4).Day/@DateTime.Today.AddDays(4).Month</h2>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. It has survived not only five centuries, but also the leap.
-                                </p>
-                            </div>
+                    </div>
+                    <div>
+                        <div class="ibox-content">
+                            <h2>Daqui a quatro dias @DateTime.Today.AddDays(4).Day/@DateTime.Today.AddDays(4).Month</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen
+                                book. It has survived not only five centuries, but also the leap.
+                            </p>
                         </div>
-                        <div>
-                            <div class="ibox-content">
-                                <h2>Daqui a cinco dias @DateTime.Today.AddDays(5).Day/@DateTime.Today.AddDays(5).Month</h2>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. It has survived not only five centuries, but also the leap.
-                                </p>
-                            </div>
+                    </div>
+                    <div>
+                        <div class="ibox-content">
+                            <h2>Daqui a cinco dias @DateTime.Today.AddDays(5).Day/@DateTime.Today.AddDays(5).Month</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen
+                                book. It has survived not only five centuries, but also the leap.
+                            </p>
                         </div>
-                        <div>
-                            <div class="ibox-content">
-                                <h2>daqui a seis dias</h2>
-                                <h2>@DateTime.Today.AddDays(6).Day/@DateTime.Today.AddDays(6).Month</h2>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                    unknown printer took a galley of type and scrambled it to make a type specimen
-                                    book. It has survived not only five centuries, but also the leap.
-                                </p>
-                            </div>
+                    </div>
+                    <div>
+                        <div class="ibox-content">
+                            <h2>daqui a seis dias</h2>
+                            <h2>@DateTime.Today.AddDays(6).Day/@DateTime.Today.AddDays(6).Month</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer took a galley of type and scrambled it to make a type specimen
+                                book. It has survived not only five centuries, but also the leap.
+                            </p>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </div>

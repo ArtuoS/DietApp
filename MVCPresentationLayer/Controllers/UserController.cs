@@ -85,5 +85,12 @@ namespace MVCPresentationLayer.Controllers
             List<UserQueryViewModel> data = mapper.Map<List<UserQueryViewModel>>(response.Data);
             return View(data);
         }
+
+        public async Task<IActionResult> GetDailyNeeds(double calories, double proteins, double carbohydrates, double fats, DateTime age)
+        {
+            User user = new User();
+            user.CalculateDailyNeeds();
+            return View();
+        }
     }
 }
