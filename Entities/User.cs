@@ -46,19 +46,17 @@ namespace Entities
             return (DateTime.Today.Year - birthday.Year) - 1;
         }
 
-        public double CalculateDailyCalories(int age, double height, double weight, Biological_Gender gender)
+        public void CalculateDailyNeeds(int age, double height, double weight, Biological_Gender gender)
         {
             //Exercise_Activity? activity <- parameter
             if (gender == Biological_Gender.Masculino)
-                return (13.397 * weight) + (4.799 * height) - (5.677 * age) + 88.362;
-            return (9.247 * weight) + (3.098 * height) - (4.330 * age) + 447.593;
-        }
+                this.Daily_Calories = (13.397 * weight) + (4.799 * height) - (5.677 * age) + 88.362;
+            else
+                this.Daily_Calories = (9.247 * weight) + (3.098 * height) - (4.330 * age) + 447.593;
 
-        public void CalculateDailyCarbohydrateProteinFat(double calories)
-        {
-            this.Daily_Carbohydrates = calories * 0.4;
-            this.Daily_Protein = calories * 0.4;
-            this.Daily_Fats = calories * 0.2;
+            this.Daily_Carbohydrates = this.Daily_Calories * 0.4;
+            this.Daily_Protein = this.Daily_Calories * 0.4;
+            this.Daily_Fats = this.Daily_Calories * 0.2;
         }
     }
 

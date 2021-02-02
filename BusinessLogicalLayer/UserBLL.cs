@@ -36,7 +36,7 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
-                    item.Daily_Calories = item.CalculateDailyCalories(item.GetCurrentAge(item.Date_Of_Birthday), item.Height, item.Weight, item.Gender);
+                    item.CalculateDailyNeeds(item.GetCurrentAge(item.Date_Of_Birthday), item.Height, item.Weight, item.Gender);
                     item.ReplaceGenderWithNumber(item.Gender);
                     return await userDAL.Insert(item);
                 }
