@@ -69,159 +69,220 @@
         </div>
     </div>
     <div class="wrapper wrapper-content">
-
         <div class="row justify-content-md-center">
             <div class="col-lg-10 col-lg-offset-1">
                 <div class="ibox">
+                    <h4 class="text-center m">
+                        Dieta da semana @DateTime.Today.Day/@DateTime.Today.Month - @DateTime.Today.AddDays(6).Day/@DateTime.Today.AddDays(6).Month
+                    </h4>
                     <div class="slick_demo_1">
-                        <div class="ibox-content">
-                            <h2>Hoje, @DateTime.Today.Day/@DateTime.Today.Month</h2>
-                            <div class="col-lg-8 m-b-lg">
-                                <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
-                                    <div class="vertical-timeline-block">
-                                        <div class="vertical-timeline-icon yellow-bg">
-                                            <i class="fa fa-coffee"></i>
-                                        </div>
-
-                                        <div class="vertical-timeline-content">
-                                            <h2>Café da manhã</h2>
-                                            <p>
-                                                Comida <a href="#" class="btn btn-sm btn-warning"> Visualizar</a>
-                                            </p>
-
-                                        </div>
-                                    </div>
-
-                                    <div class="vertical-timeline-block">
-                                        <div class="vertical-timeline-icon blue-bg">
-                                            <i class="fa fa-file-text"></i>
-                                        </div>
-
-                                        <div class="vertical-timeline-content">
-                                            <h2>Almoço</h2>
-                                            <div class="table-responsive">
-                                                <table class="table shoping-cart-table">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td width="90">
-                                                                <div class="cart-product-imitation">
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Hoje, @DateTime.Today.Day/@DateTime.Today.Month</h2>
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                    <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon blue-bg">
+                                                <i class="fa fa-coffee"></i>
+                                            </div>
+                                            <div class="vertical-timeline-content">
+                                                <h2>Café da manhã</h2>
+                                                <div class="dd-nodrag" id="nestable">
+                                                    <ol class="dd-list">
+                                                        <li class="dd-item" data-id="1">
+                                                            <div class="dd-handle">
+                                                                <div class="tooltip-demo">
+                                                                    <a class="text-info">Nome da refeição</a><button class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
                                                                 </div>
-                                                            </td>
-                                                            <td class="desc">
-                                                                <h3>
-                                                                    <a href="#" class="text-navy">
-                                                                        Refeicao
-                                                                    </a>
-                                                                </h3>
-                                                                <dl class="small m-b-none">
-                                                                    <dt>Ingredientes</dt>
-                                                                    <dd>Comida1</dd>
-                                                                    <dd>Comida2</dd>
-                                                                    <dd>Comida2</dd>
-                                                                </dl>
-                                                            </td>
-                                                            <td>
-                                                                <h4>
-                                                                    Calorias:
-                                                                    Carboidratos:
-                                                                    Proteinas:
-                                                                    Gorduras:
-                                                                </h4>
-                                                            </td>
-
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                            </div>
+                                                            <ol class="dd-list">
+                                                                <li class="dd-item" data-id="2">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (10g) </span>
+                                                                        <span class="label label-info"></span> Comida1
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dd-item" data-id="3">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (50g) </span>
+                                                                        <span class="label label-info"></span> Comida2
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dd-item" data-id="4">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (100g) </span>
+                                                                        <span class="label label-info"></span> Comida3
+                                                                    </div>
+                                                                </li>
+                                                            </ol>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon red-bg">
+                                                <i class="fa fa-cutlery"></i>
+                                            </div>
+                                            <div class="vertical-timeline-content">
+                                                <h2>Almoço</h2>
+                                                <div class="dd-nodrag" id="nestable">
+                                                    <ol class="dd-list">
+                                                        <li class="dd-item" data-id="1">
+                                                            <div class="dd-handle">
+                                                                <div class="tooltip-demo">
+                                                                    <a class="text-danger">Nome da refeição</a><button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                </div>
+                                                            </div>
+                                                            <ol class="dd-list">
+                                                                <li class="dd-item" data-id="2">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (10g) </span>
+                                                                        <span class="label label-danger"></span> Comida1
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dd-item" data-id="3">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (50g) </span>
+                                                                        <span class="label label-danger"></span> Comida2
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dd-item" data-id="4">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (100g) </span>
+                                                                        <span class="label label-danger"></span> Comida3
+                                                                    </div>
+                                                                </li>
+                                                            </ol>
+                                                        </li>
+                                                    </ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vertical-timeline-block">
+                                            <div class="vertical-timeline-icon yellow-bg">
+                                                <i class="fa fa-glass"></i>
+                                            </div>
+                                            <div class="vertical-timeline-content">
+                                                <h2>Janta</h2>
+                                                <div class="dd-nodrag" id="nestable">
+                                                    <ol class="dd-list">
+                                                        <li class="dd-item" data-id="1">
+                                                            <div class="dd-handle">
+                                                                <div class="tooltip-demo">
+                                                                    <a class="text-warning">Nome da refeição</a><button class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                </div>
+                                                            </div>
+                                                            <ol class="dd-list">
+                                                                <li class="dd-item" data-id="2">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (10g) </span>
+                                                                        <span class="label label-warning"></span> Comida1
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dd-item" data-id="3">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (50g) </span>
+                                                                        <span class="label label-warning"></span> Comida2
+                                                                    </div>
+                                                                </li>
+                                                                <li class="dd-item" data-id="4">
+                                                                    <div class="dd-handle">
+                                                                        <span class="float-right"> (100g) </span>
+                                                                        <span class="label label-warning"></span> Comida3
+                                                                    </div>
+                                                                </li>
+                                                            </ol>
+                                                        </li>
+                                                    </ol>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="vertical-timeline-block">
-                                        <div class="vertical-timeline-icon red-bg">
-                                            <i class="fa fa-coffee"></i>
-                                        </div>
-
-                                        <div class="vertical-timeline-content">
-                                            <h2>Janta</h2>
-                                            <p>
-                                                Comida
-                                                <a href="#" class="btn btn-sm btn-danger"> Mais Info</a>
-                                            </p>
-                                        </div>
+                                </div>
+                                    <div class="col-lg-3">
+                                        <div id="pie"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Amanhã @DateTime.Today.AddDays(1).Day/@DateTime.Today.AddDays(1).Month</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
+
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Amanhã @DateTime.Today.AddDays(1).Day/@DateTime.Today.AddDays(1).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Daqui a dois dias @DateTime.Today.AddDays(2).Day/@DateTime.Today.AddDays(2).Month</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
+
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Daqui a dois dias @DateTime.Today.AddDays(2).Day/@DateTime.Today.AddDays(2).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Daqui a tres dias @DateTime.Today.AddDays(3).Day/@DateTime.Today.AddDays(3).Month</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
+
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Daqui a tres dias @DateTime.Today.AddDays(3).Day/@DateTime.Today.AddDays(3).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Daqui a quatro dias @DateTime.Today.AddDays(4).Day/@DateTime.Today.AddDays(4).Month</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
+
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Daqui a quatro dias @DateTime.Today.AddDays(4).Day/@DateTime.Today.AddDays(4).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>Daqui a cinco dias @DateTime.Today.AddDays(5).Day/@DateTime.Today.AddDays(5).Month</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
+
+                        <div>
+                            <div class="ibox-content">
+                                <h2>Daqui a cinco dias @DateTime.Today.AddDays(5).Day/@DateTime.Today.AddDays(5).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div class="ibox-content">
-                            <h2>daqui a seis dias</h2>
-                            <h2>@DateTime.Today.AddDays(6).Day/@DateTime.Today.AddDays(6).Month</h2>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                                unknown printer took a galley of type and scrambled it to make a type specimen
-                                book. It has survived not only five centuries, but also the leap.
-                            </p>
+
+                        <div>
+                            <div class="ibox-content">
+                                <h2>daqui a seis dias</h2>
+                                <h2>@DateTime.Today.AddDays(6).Day/@DateTime.Today.AddDays(6).Month</h2>
+                                <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a type specimen
+                                    book. It has survived not only five centuries, but also the leap.
+                                </p>
+                            </div>
                         </div>
+
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -231,6 +292,7 @@
     <environment names="Development,Staging,Production">
         <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick.css" />
         <link rel="stylesheet" href="~/lib/slick-carousel/slick/slick-theme.css" />
+        <link rel="stylesheet" href="~/lib/c3/c3.min.css" />
     </environment>
 }
 
@@ -239,7 +301,52 @@
         <script src="~/lib/sparkline/jquery.sparkline.min.js"></script>
         <script src="~/lib/slick-carousel/slick/slick.js"></script>
         <script src="~/lib/slick-carousel/slick/slick.min.js"></script>
+        <script src="~/lib/nestable/jquery.nestable.js"></script>
+        <script src="~/lib/c3/c3.js"></script>
+        <script src="~/lib/d3/d3.min.js"></script>
+
+
     </environment>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            c3.generate({
+                bindto: '#pie',
+                data: {
+                    columns: [
+                        ['Calorias', 30],
+                        ['Carboidratos', 120],
+                        ['Proteínas', 120],
+                        ['Gorduras', 120]
+                    ],
+                    colors: {
+                        data1: '#0000FF',
+                        data2: '#42ccce',
+                        data3: '#f0d500',
+                        data4: '#eed202'
+                    },
+                    type: 'pie'
+                }
+            });
+
+            var updateOutput = function (e) {
+                var list = e.length ? e : $(e.target),
+                    output = list.data('output');
+                if (window.JSON) {
+                    output.val(window.JSON.stringify(list.nestable('serialize')));//, null, 2));
+                } else {
+                    output.val('JSON browser support required for this demo.');
+                }
+            };
+
+            // activate Nestable for list 2
+            $('.dd-nodrag').nestable({
+                group: 1
+            }).on('change', updateOutput);
+
+        });
+    </script>
 
     <script type="text/javascript">
         $(document).ready(function () {
