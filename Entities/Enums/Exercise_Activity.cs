@@ -10,6 +10,6 @@ namespace Entities.Enums
         Light,
         Moderate,
         Active,
-        VeryActive
+        Very_Active
     }
 }

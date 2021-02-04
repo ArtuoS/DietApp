@@ -4,6 +4,7 @@ using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Entities.Factory
 {
@@ -89,6 +90,14 @@ namespace Entities.Factory
             SingleResponse<T> response = new SingleResponse<T>();
             response.Success = true;
             response.Data = item;
+            response.Message = "Sucesso.";
+            return response;
+        }
+
+        public static SingleResponse<T> SingleResponseSuccessModelWithoutParameter<T>()
+        {
+            SingleResponse<T> response = new SingleResponse<T>();
+            response.Success = true;
             response.Message = "Sucesso.";
             return response;
         }

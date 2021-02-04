@@ -49,14 +49,16 @@ namespace MVCPresentationLayer
                 cfg.CreateMap<UserInsertViewModel, User>();
                 cfg.CreateMap<UserUpdateViewModel, User>();
                 cfg.CreateMap<User, UserQueryViewModel>();
-                //cfg.CreateMap<Restriction, Res>
                 cfg.CreateMap<RestrictionInsertViewModel, Restriction>();
+                cfg.CreateMap<MealInsertViewModel, Meal>();
+
             });
             IMapper mapper = config.CreateMapper();
 
             UserBLL userBLL = new UserBLL();
 
             services.AddSingleton(mapper);
+            services.AddTransient<IMealService, MealBLL>();
             services.AddTransient<IUserService, UserBLL>();
             services.AddTransient<IRestrictionService, RestrictionBLL>();
             services.AddTransient<IFoodService, FoodBLL>();

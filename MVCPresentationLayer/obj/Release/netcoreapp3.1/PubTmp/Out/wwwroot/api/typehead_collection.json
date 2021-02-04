@@ -1,0 +1,7 @@
+{
+  "vegetariana": [ "Carne", "Peixe", "Frango", "Fruto do mar", "Carne de porco", "Lacticíneo", "Derivado de animal" ],
+  "ovolactovegetariana": [ "Carne", "Peixe", "Frango", "Fruto do mar", "Carne de porco" ],
+  "lactose": [ "Lacticíneo" ],
+  "gluten": [ "Cevada", "Centeio", "Cereal", "Amido", "proteína vegetal", "Malte" ],
+  "paleolitica": [ "Industrializado" ]
+}

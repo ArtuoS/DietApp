@@ -34,6 +34,7 @@ namespace MVCPresentationLayer.Controllers
         public async Task<IActionResult> Index(string email, string senha)
         {
             SingleResponse<User> response = await _userService.Authenticate(email, senha);
+
             if (!response.Success)
             {
                 ViewBag.Erros = "Usuario e/ou senha inválidos.";
@@ -49,11 +50,10 @@ namespace MVCPresentationLayer.Controllers
 
             var minhaIdentity = new ClaimsIdentity(userClaims, "Usuario");
             var userPrincipal = new ClaimsPrincipal(new[] { minhaIdentity });
-            
+
             await HttpContext.SignInAsync(userPrincipal);
 
             return RedirectToAction("Index", "User");
-
         }
 
 

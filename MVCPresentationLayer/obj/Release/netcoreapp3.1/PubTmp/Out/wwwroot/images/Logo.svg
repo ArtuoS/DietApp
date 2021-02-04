@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="Logo.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:export-filename="C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\wwwroot\images\logo_Icon_small.png"
+   inkscape:export-xdpi="9.8751698"
+   inkscape:export-ydpi="9.8751698">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.62"
+     inkscape:cx="209.87876"
+     inkscape:cy="625.89878"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:pagecheckerboard="true"
+     inkscape:window-width="716"
+     inkscape:window-height="450"
+     inkscape:window-x="620"
+     inkscape:window-y="161"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="opacity:0;fill:#1ab394;fill-opacity:1;stroke-width:0.26458332"
+       id="path4621"
+       cx="57.452377"
+       cy="216.1131"
+       rx="28.726189"
+       ry="19.654762" />
+    <text
+       inkscape:export-xdpi="9.8751698"
+       inkscape:export-ydpi="9.8751698"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:73.75042725px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.84376061"
+       x="23.940344"
+       y="146.10419"
+       id="text12"
+       transform="scale(1.0101121,0.98998912)"
+       inkscape:export-filename="C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\wwwroot\images\logo_Icon_small.png"><tspan
+         sodipodi:role="line"
+         id="tspan10"
+         x="23.940344"
+         y="146.10419"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Lucida Handwriting';-inkscape-font-specification:'Lucida Handwriting';fill:#ffffff;fill-opacity:1;stroke-width:1.84376061">D</tspan></text>
+    <g
+       id="g4607"
+       transform="matrix(0.11186826,-0.02073612,-0.00517955,0.135949,56.318343,178.18694)"
+       style="fill:#ff8080"
+       inkscape:export-filename="C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\wwwroot\images\logo_Icon_small.png"
+       inkscape:export-xdpi="9.8751698"
+       inkscape:export-ydpi="9.8751698">
+      <g
+         id="g4605"
+         style="fill:#ff8080"
+         transform="matrix(0.33452275,-0.01362089,-0.07173314,0.26083921,495.17561,-567.46241)">
+        <path
+           id="path4603"
+           d="m -1724.0138,1038.4079 c 0,0 -524.9588,-560.94257 823.66319,-706.33357 0,0 -160.42399,154.702 -175.11199,385.151 0,0 -0.056,545.62597 -550.547,433.82497 v 0 c 0,0 -120.022,-213.56697 445.372,-625.30697 0,-10e-4 -358.8322,98.92463 -543.3762,512.66457 z"
+           inkscape:connector-curvature="0"
+           style="fill:#1ab394;fill-opacity:1"
+           sodipodi:nodetypes="ccccccc" />
+      </g>
+    </g>
+  </g>
+</svg>

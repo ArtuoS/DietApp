@@ -1,0 +1,12 @@
+P:\Arthur M\DietApp\Common\bin\Release\netcoreapp3.1\Common.deps.json
+P:\Arthur M\DietApp\Common\bin\Release\netcoreapp3.1\Common.runtimeconfig.json
+P:\Arthur M\DietApp\Common\bin\Release\netcoreapp3.1\Common.runtimeconfig.dev.json
+P:\Arthur M\DietApp\Common\bin\Release\netcoreapp3.1\Common.dll
+P:\Arthur M\DietApp\Common\bin\Release\netcoreapp3.1\Common.pdb
+P:\Arthur M\DietApp\Common\obj\Release\netcoreapp3.1\Common.csprojAssemblyReference.cache
+P:\Arthur M\DietApp\Common\obj\Release\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+P:\Arthur M\DietApp\Common\obj\Release\netcoreapp3.1\Common.AssemblyInfo.cs
+P:\Arthur M\DietApp\Common\obj\Release\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+P:\Arthur M\DietApp\Common\obj\Release\netcoreapp3.1\Common.dll
+P:\Arthur M\DietApp\Common\obj\Release\netcoreapp3.1\Common.pdb
+P:\Arthur M\DietApp\Common\obj\Release\netcoreapp3.1\Common.genruntimeconfig.cache

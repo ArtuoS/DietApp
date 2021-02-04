@@ -89,7 +89,7 @@ namespace MVCPresentationLayer.Controllers
         public async Task<IActionResult> GetDailyNeeds(double calories, double proteins, double carbohydrates, double fats, DateTime age)
         {
             User user = new User();
-            user.CalculateDailyNeeds();
+            //user.CalculateDailyNeeds();
             return View();
         }
     }

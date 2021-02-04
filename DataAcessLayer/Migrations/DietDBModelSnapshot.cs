@@ -171,6 +171,9 @@ namespace DataAcessLayer.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("Categoria")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(40)
@@ -236,6 +239,9 @@ namespace DataAcessLayer.Migrations
                     b.Property<DateTime>("Date_Of_Birthday")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Days_To_Reach_Goal")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -252,6 +258,9 @@ namespace DataAcessLayer.Migrations
                         .HasColumnType("int");
 
                     b.Property<double>("Height")
+                        .HasColumnType("float");
+
+                    b.Property<double>("IMC")
                         .HasColumnType("float");
 
                     b.Property<string>("Last_Name")
@@ -275,6 +284,9 @@ namespace DataAcessLayer.Migrations
 
                     b.Property<double>("Weight")
                         .HasColumnType("float");
+
+                    b.Property<int>("Weight_Objective")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 

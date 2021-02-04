@@ -30,7 +30,7 @@ namespace BusinessLogicalLayer
         {
             ValidationResult results = this.Validate(item);
 
-            //EncryptPassword(item.Password);
+            item.Password = EncryptPassword(item.Password);
 
             try
             {
@@ -40,7 +40,7 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
-                    item.CalculateDailyNeeds();
+                    //item.CalculateDailyNeeds();
                     item.ReplaceGenderWithNumber(item.Gender);
                     return await userDAL.Insert(item);
                 }
@@ -124,6 +124,7 @@ namespace BusinessLogicalLayer
         {
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(email);
+            senha = this.EncryptPassword(senha);
 
             try
             {
@@ -150,26 +151,5 @@ namespace BusinessLogicalLayer
 
             return sb.ToString();
         }
-
-        /*
-        public Task<SingleResponse<User>> CheckPassword(string email, string password)
-        {
-
-            //Task<SingleResponse<User>> response = userDAL.Authenticate(email, password);
-            //if (!response.Success)
-            //{
-            //    response.Message = "Email ou senha incorreta";
-            //    response.Success = false;
-            //}
-            //else
-            //{
-            //    SystemParameters.EmployeeName = response.Data.Name;
-            //    SystemParameters.EmployeeADM = response.Data.IsAdm;
-            //    response.Success = true;
-            //}
-            return response;
-
-        }
-        */
     }
 }

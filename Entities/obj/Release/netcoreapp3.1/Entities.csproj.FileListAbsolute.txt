@@ -1,0 +1,15 @@
+P:\Arthur M\DietApp\Entities\bin\Release\netcoreapp3.1\Entities.deps.json
+P:\Arthur M\DietApp\Entities\bin\Release\netcoreapp3.1\Entities.runtimeconfig.json
+P:\Arthur M\DietApp\Entities\bin\Release\netcoreapp3.1\Entities.runtimeconfig.dev.json
+P:\Arthur M\DietApp\Entities\bin\Release\netcoreapp3.1\Entities.dll
+P:\Arthur M\DietApp\Entities\bin\Release\netcoreapp3.1\Entities.pdb
+P:\Arthur M\DietApp\Entities\bin\Release\netcoreapp3.1\Common.dll
+P:\Arthur M\DietApp\Entities\bin\Release\netcoreapp3.1\Common.pdb
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.csprojAssemblyReference.cache
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.AssemblyInfoInputs.cache
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.AssemblyInfo.cs
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.csproj.CoreCompileInputs.cache
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.csproj.CopyComplete
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.dll
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.pdb
+P:\Arthur M\DietApp\Entities\obj\Release\netcoreapp3.1\Entities.genruntimeconfig.cache
