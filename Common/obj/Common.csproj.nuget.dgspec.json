@@ -1,24 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "P:\\Arthur M\\DietApp\\Common\\Common.csproj": {}
+    "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {}
   },
   "projects": {
-    "P:\\Arthur M\\DietApp\\Common\\Common.csproj": {
+    "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "P:\\Arthur M\\DietApp\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "P:\\Arthur M\\DietApp\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-        "outputPath": "P:\\Arthur M\\DietApp\\Common\\obj\\",
+        "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -82,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
