@@ -19,8 +19,10 @@ namespace Entities
 
         protected override void OnConfiguring(DbContextOptionsBuilder modelBuilder)
         {
-            modelBuilder.UseSqlServer(@"Server=tcp:dietplusdatabaseserver.database.windows.net,1433;Initial Catalog=DietPlusDatabase;Persist Security Info=False;User ID=dpdadm;Password=abcd1234!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
-                options => options.EnableRetryOnFailure());
+            //modelBuilder.UseSqlServer(@"Server=tcp:dietplusdatabaseserver.database.windows.net,1433;Initial Catalog=DietPlusDatabase;Persist Security Info=False;User ID=dpdadm;Password=abcd1234!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+
+            modelBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DietDB2.mdf;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                //options => options.EnableRetryOnFailure());
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

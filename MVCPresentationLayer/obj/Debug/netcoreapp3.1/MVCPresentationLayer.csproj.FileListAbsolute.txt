@@ -1542,3 +1542,5 @@ P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Use
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Users.cshtml.g.cs
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Insert.cshtml.g.cs
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Index.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Index.cshtml.g.cs
+C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Insert.cshtml.g.cs
