@@ -46,6 +46,7 @@ namespace MVCPresentationLayer.Controllers
         {
             User user = mapper.Map<User>(model);
             user.SetStatus(true);
+            user.SetRole();
 
             Response response = await userService.Insert(user);
 

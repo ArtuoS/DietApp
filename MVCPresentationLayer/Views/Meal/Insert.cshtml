@@ -5,6 +5,7 @@
 
 @{
     ViewData["Title"] = "Insert";
+    int id = 0;
     IMealService mealService = new MealBLL();
     IFoodService foodService = new FoodBLL();
 }
@@ -13,7 +14,7 @@
     <div class="row">
         <div class="col-sm-8">
             <div class="ibox">
-                <div class="ibox-content">
+                <div class="ibox-content">l
                     <h2>Refeições</h2>
                     <div class="input-group">
                         <input type="text" placeholder="Procure por uma refeição..." class="input form-control">
@@ -37,8 +38,8 @@
                                                 {
                                                     foreach (Meal item in mealService.GetAll().Result.Data)
                                                     {
-                                                        <tr id="@item.ID">
-                                                            <td class="client-avatar"><img alt="image" src="~/Images/Meals/@item.Image"> </td>
+                                                        <tr id="meal">
+                                                            <td class="client-avatar"><img alt="image" src="~/Images/Meals/@item.Image">@item.ID</td>
                                                             <td><a href="#contact-1" class="client-link">@item.Name</a></td>
                                                             <td>@item.Categoria</td>
                                                             <td>@item.Total_Calories</td>
@@ -101,7 +102,7 @@
                                     <strong>Ingredientes</strong>
 
                                     <ul class="list-group clear-list">
-                                        @foreach (FoodAmountPerMeal item in mealService.GetById(1).Result.Data.Foods)
+                                        @foreach (FoodAmountPerMeal item in mealService.GetById(id).Result.Data.Foods)
                                         {
                                             <li class="list-group-item fist-item">
                                                 <span class="float-right"> @item.Quantity </span>
@@ -211,17 +212,10 @@
 
     <script type="text/javascript">
         $(function () {
-            $(".btn btn-primary, #mod").click(function (e) {
+            $("#meal").click(function (e) {
                 tr = $(this).parent().parent();
-                $("#First_Name").val($(tr).find("td:eq( 1 )").html());
-                $("#Last_Name").val($(tr).find("td:eq( 2 )").html());
-                $("#IDUser").val($(tr).find("td:eq( 3 )").html());
-                $("#Email").val($(tr).find("td:eq( 4 )").html());
-                $("#Date_Of_Birthday").val($(tr).find("td:eq( 5 )").html());
-                $("#Gender").val($(tr).find("td:eq( 6 )").html());
-                $("#Weight").val($(tr).find("td:eq( 7 )").html());
-                $("#Height").val($(tr).find("td:eq( 8 )").html());
-                $("#BodyFat").val($(tr).find("td:eq( 9 )").html());
+                @id = $(tr).find("td:eq( 1 )").html();
+
             });
 
             $("#btnUpdate").click(function (e) {

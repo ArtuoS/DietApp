@@ -3,10 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Entities
-{
-    public class User
-    {
+namespace Entities {
+    public class User {
         public int ID { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
@@ -31,49 +29,48 @@ namespace Entities
         public ICollection<Diet> Diets { get; set; }
         public ICollection<Restriction> Restrictions { get; set; }
 
-        public bool SetStatus(bool status)
-        {
+        public bool SetStatus(bool status) {
             return this.Status = status;
         }
 
-        public int ReplaceGenderWithNumber(Biological_Gender gender)
-        {
-            if (gender == Biological_Gender.Feminino)
-            {
+        public string SetRole() {
+            return this.Role = "Usuario";
+        }
+
+        public int ReplaceGenderWithNumber(Biological_Gender gender) {
+            if (gender == Biological_Gender.Feminino) {
                 return 0;
             }
             return 1;
         }
 
-        public double CalculateVENTA()
-        {
-            double VENTA = (7700 * (this.Weight - this.Weight_Objective)) / 30;
-            return VENTA;
+        public void CalculateDailyNeeds() {
+            this.Daily_Carbohydrates = (this.Daily_Calories * 40) / 100;
+            this.Daily_Protein = (this.Daily_Calories * 40) / 100;
+            this.Daily_Fats = (this.Daily_Calories * 20) / 100;
         }
 
-        public void CalculateIMC()
-        {
+        public double CalculateVENTA() {
+            double VENTA = 0;
+            if (this.Weight > this.Weight_Objective) {
+                return VENTA = (7700 * (this.Weight - this.Weight_Objective)) / 30;
+            }
+            return VENTA = (7700 * (this.Weight_Objective - this.Weight)) / 30;
+        }
+
+        public void CalculateIMC() {
             this.IMC = this.Weight / (this.Height * this.Height);
         }
 
-        public string IMCSituation()
-        {
-            if (this.IMC > 0)
-            {
-                if (this.IMC < 18.5)
-                {
+        public string IMCSituation() {
+            if (this.IMC > 0) {
+                if (this.IMC < 18.5) {
                     return "Underweight";
-                }
-                else if (this.IMC >= 18.5 && this.IMC <= 24.99)
-                {
+                } else if (this.IMC >= 18.5 && this.IMC <= 24.99) {
                     return "Normal";
-                }
-                else if (this.IMC >= 25 && this.IMC <= 29.99)
-                {
+                } else if (this.IMC >= 25 && this.IMC <= 29.99) {
                     return "Overweight";
-                }
-                else if (this.IMC >= 30 && this.IMC <= 34.99)
-                {
+                } else if (this.IMC >= 30 && this.IMC <= 34.99) {
                     return "Obese";
                 }
                 return "Extremely Obese";
@@ -81,49 +78,52 @@ namespace Entities
             return "ERROR IN IMC SITUATION!";
         }
 
-        public int GetCurrentAge()
-        {
+        public int GetCurrentAge() {
             return (DateTime.Today.Year - this.Date_Of_Birthday.Year) - 1;
         }
 
-        public void CalculateTMB()
-        {
-            double TMB = 0;
-            switch (this.Gender)
-            {
+        public void CalculateGET() {
+            switch (this.Gender) {
                 case Biological_Gender.Masculino:
-                    TMB = 66.5 + (13.75 * this.Weight) + (5.003 * this.Height) - (6.755 * this.GetCurrentAge());
+                    this.Daily_Calories = 66.5 + (13.75 * this.Weight) + (5.003 * this.Height) - (6.755 * this.GetCurrentAge());
                     break;
                 case Biological_Gender.Feminino:
-                    TMB = 665.1 + (9.563 * this.Weight) + (1.850 * this.Height) - (4.676 * this.GetCurrentAge());
+                    this.Daily_Calories = 665.1 + (9.563 * this.Weight) + (1.850 * this.Height) - (4.676 * this.GetCurrentAge());
                     break;
             }
 
-            switch (this.Activity)
-            {
+            switch (this.Activity) {
                 case Exercise_Activity.Sedentary:
-                    TMB *= 1.2;
+                    this.Daily_Calories *= 1.2;
                     break;
                 case Exercise_Activity.Light:
-                    TMB *= 1.375;
+                    this.Daily_Calories *= 1.375;
                     break;
                 case Exercise_Activity.Moderate:
-                    TMB *= 1.55;
+                    this.Daily_Calories *= 1.55;
                     break;
                 case Exercise_Activity.Active:
-                    TMB *= 1.725;
+                    this.Daily_Calories *= 1.725;
                     break;
                 case Exercise_Activity.Very_Active:
-                    TMB *= 1.9;
+                    this.Daily_Calories *= 1.9;
                     break;
             }
 
-            if ((this.Weight_Objective != 0) && (this.Days_To_Reach_Goal != 0))
-            {
-                // FAZER UNS CALCULOS AQUI!
+            if ((this.Weight_Objective != 0) && (this.Days_To_Reach_Goal != 0)) {
+                switch (this.Objective) {
+                    case Objective.Weight_Loss:
+                        this.Daily_Calories -= this.CalculateVENTA();
+                        break;
+                    case Objective.Maintenance:
+                        break;
+                    case Objective.Mass_Gain:
+                        this.Daily_Calories += this.CalculateVENTA();
+                        break;
+                }
             }
 
-            this.Daily_Calories = TMB;
+            this.CalculateDailyNeeds();
         }
     }
 }

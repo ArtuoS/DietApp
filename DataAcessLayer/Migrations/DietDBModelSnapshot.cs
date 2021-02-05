@@ -146,6 +146,29 @@ namespace DataAcessLayer.Migrations
                     b.ToTable("Foods");
                 });
 
+            modelBuilder.Entity("Entities.FoodAmountPerMeal", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("FoodID")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Quantity")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Unit")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("FoodID");
+
+                    b.ToTable("FoodAmountPerMeal");
+                });
+
             modelBuilder.Entity("Entities.Food_Category", b =>
                 {
                     b.Property<int>("ID")
@@ -174,6 +197,15 @@ namespace DataAcessLayer.Migrations
                     b.Property<int>("Categoria")
                         .HasColumnType("int");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("FoodID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(40)
@@ -188,7 +220,21 @@ namespace DataAcessLayer.Migrations
                         .IsUnicode(true)
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("Total_Calories")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Total_Carbohydrates")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Total_Lipids")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Total_Proteins")
+                        .HasColumnType("float");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("FoodID");
 
                     b.ToTable("Meals");
                 });
@@ -296,7 +342,7 @@ namespace DataAcessLayer.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FoodMeal", b =>
+            modelBuilder.Entity("FoodAmountPerMealMeal", b =>
                 {
                     b.Property<int>("FoodsID")
                         .HasColumnType("int");
@@ -308,7 +354,7 @@ namespace DataAcessLayer.Migrations
 
                     b.HasIndex("MealsID");
 
-                    b.ToTable("FoodMeal");
+                    b.ToTable("FoodAmountPerMealMeal");
                 });
 
             modelBuilder.Entity("FoodRestriction", b =>
@@ -374,9 +420,27 @@ namespace DataAcessLayer.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("FoodMeal", b =>
+            modelBuilder.Entity("Entities.FoodAmountPerMeal", b =>
+                {
+                    b.HasOne("Entities.Food", "Food")
+                        .WithMany()
+                        .HasForeignKey("FoodID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Food");
+                });
+
+            modelBuilder.Entity("Entities.Meal", b =>
                 {
                     b.HasOne("Entities.Food", null)
+                        .WithMany("Meals")
+                        .HasForeignKey("FoodID");
+                });
+
+            modelBuilder.Entity("FoodAmountPerMealMeal", b =>
+                {
+                    b.HasOne("Entities.FoodAmountPerMeal", null)
                         .WithMany()
                         .HasForeignKey("FoodsID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -417,6 +481,11 @@ namespace DataAcessLayer.Migrations
                         .HasForeignKey("UsersID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Food", b =>
+                {
+                    b.Navigation("Meals");
                 });
 
             modelBuilder.Entity("Entities.Food_Category", b =>
