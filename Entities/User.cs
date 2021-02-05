@@ -47,56 +47,7 @@ namespace Entities
 
         public double CalculateVENTA()
         {
-            double VENTA = 0;
-
-            if (this.GetCurrentAge() >= 14 && this.GetCurrentAge() <= 18)
-            {
-                switch (this.Gender)
-                {
-                    case Biological_Gender.Masculino:
-                        VENTA = (59.512 * this.Weight) - 30.4;
-                        break;
-                    case Biological_Gender.Feminino:
-                        VENTA = (58.31 * this.Weight) - 31.1;
-                        break;
-                }
-            }
-            else if (this.GetCurrentAge() >= 19 && this.GetCurrentAge() <= 30)
-            {
-                switch (this.Gender)
-                {
-                    case Biological_Gender.Masculino:
-                        VENTA = (14.818 * this.Weight) + 486.6;
-                        break;
-                    case Biological_Gender.Feminino:
-                        VENTA = (15.057 * this.Weight) + 692.2;
-                        break;
-                }
-            }
-            else if (this.GetCurrentAge() >= 31 && this.GetCurrentAge() <= 60)
-            {
-                switch (this.Gender)
-                {
-                    case Biological_Gender.Masculino:
-                        VENTA = (8.126 * this.Weight) + 845.6;
-                        break;
-                    case Biological_Gender.Feminino:
-                        VENTA = (11.472 * this.Weight) + 873.1;
-                        break;
-                }
-            }
-            else
-            {
-                switch (this.Gender)
-                {
-                    case Biological_Gender.Masculino:
-                        VENTA = (9.082 * this.Weight) + 658.5;
-                        break;
-                    case Biological_Gender.Feminino:
-                        VENTA = (11.711 * this.Weight) + 587.7;
-                        break;
-                }
-            }
+            double VENTA = (7700 * (this.Weight - this.Weight_Objective)) / 30;
             return VENTA;
         }
 
@@ -135,100 +86,44 @@ namespace Entities
             return (DateTime.Today.Year - this.Date_Of_Birthday.Year) - 1;
         }
 
-        public void CalculateGETForLossAndGain()
+        public void CalculateTMB()
         {
+            double TMB = 0;
             switch (this.Gender)
             {
                 case Biological_Gender.Masculino:
-                    this.Daily_Calories = (13.397 * this.Weight) + (4.799 * this.Height) - (5.677 * this.GetCurrentAge()) + 88.362;
+                    TMB = 66.5 + (13.75 * this.Weight) + (5.003 * this.Height) - (6.755 * this.GetCurrentAge());
                     break;
                 case Biological_Gender.Feminino:
-                    this.Daily_Calories = (9.247 * this.Weight) + (3.098 * this.Height) - (4.330 * this.GetCurrentAge()) + 447.593;
+                    TMB = 665.1 + (9.563 * this.Weight) + (1.850 * this.Height) - (4.676 * this.GetCurrentAge());
                     break;
             }
-        }
 
-        public void CalculateGETForMaintenance()
-        {
-            switch (this.Gender)
+            switch (this.Activity)
             {
-                case Biological_Gender.Masculino:
-                    if ((this.GetCurrentAge() >= 9) && (this.GetCurrentAge() <= 18))
-                    {
-                        switch (this.Activity)
-                        {
-                            case Exercise_Activity.Sedentary:
-                                this.Daily_Calories = 88.6 - (61.9 * this.GetCurrentAge()) + (1 * (26.7 * this.Weight + 903 * this.Height)) + 25;
-                                break;
-                            case Exercise_Activity.Light:
-                                this.Daily_Calories = 88.6 - (61.9 * this.GetCurrentAge()) + (1.13 * (26.7 * this.Weight + 903 * this.Height)) + 25;
-                                break;
-                            case Exercise_Activity.Active:
-                                this.Daily_Calories = 88.6 - (61.9 * this.GetCurrentAge()) + (1.26 * (26.7 * this.Weight + 903 * this.Height)) + 25;
-                                break;
-                            case Exercise_Activity.Very_Active:
-                                this.Daily_Calories = 88.6 - (61.9 * this.GetCurrentAge()) + (1.42 * (26.7 * this.Weight + 903 * this.Height)) + 25;
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        switch (this.Activity)
-                        {
-                            case Exercise_Activity.Sedentary:
-                                this.Daily_Calories = 662 - (9.53 * this.GetCurrentAge()) + (1 * (15.91 * this.Weight + 539.6 * this.Height));
-                                break;
-                            case Exercise_Activity.Light:
-                                this.Daily_Calories = 662 - (9.53 * this.GetCurrentAge()) + (1.11 * (15.91 * this.Weight + 539.6 * this.Height));
-                                break;
-                            case Exercise_Activity.Active:
-                                this.Daily_Calories = 662 - (9.53 * this.GetCurrentAge()) + (1.25 * (15.91 * this.Weight + 539.6 * this.Height));
-                                break;
-                            case Exercise_Activity.Very_Active:
-                                this.Daily_Calories = 662 - (9.53 * this.GetCurrentAge()) + (1.48 * (15.91 * this.Weight + 539.6 * this.Height));
-                                break;
-                        }
-                    }
+                case Exercise_Activity.Sedentary:
+                    TMB *= 1.2;
                     break;
-                case Biological_Gender.Feminino:
-                    if ((this.GetCurrentAge() >= 9) && (this.GetCurrentAge() <= 18))
-                    {
-                        switch (this.Activity)
-                        {
-                            case Exercise_Activity.Sedentary:
-                                this.Daily_Calories = 135.3 - (30.8 * this.GetCurrentAge()) + (1 * (10.0 * this.Weight + 934 * this.Height)) + 25;
-                                break;
-                            case Exercise_Activity.Light:
-                                this.Daily_Calories = 135.3 - (30.8 * this.GetCurrentAge()) + (1.16 * (10.0 * this.Weight + 934 * this.Height)) + 25;
-                                break;
-                            case Exercise_Activity.Active:
-                                this.Daily_Calories = 135.3 - (30.8 * this.GetCurrentAge()) + (1.31 * (10.0 * this.Weight + 934 * this.Height)) + 25;
-                                break;
-                            case Exercise_Activity.Very_Active:
-                                this.Daily_Calories = 135.3 - (30.8 * this.GetCurrentAge()) + (1.56 * (10.0 * this.Weight + 934 * this.Height)) + 25;
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        switch (this.Activity)
-                        {
-                            case Exercise_Activity.Sedentary:
-                                this.Daily_Calories = 354 - (6.91 * this.GetCurrentAge()) + (1 * (9.36 * this.Weight + 726 * this.Height));
-                                break;
-                            case Exercise_Activity.Light:
-                                this.Daily_Calories = 354 - (6.91 * this.GetCurrentAge()) + (1.12 * (9.36 * this.Weight + 726 * this.Height));
-                                break;
-                            case Exercise_Activity.Active:
-                                this.Daily_Calories = 354 - (6.91 * this.GetCurrentAge()) + (1.27 * (9.36 * this.Weight + 726 * this.Height));
-                                break;
-                            case Exercise_Activity.Very_Active:
-                                this.Daily_Calories = 354 - (6.91 * this.GetCurrentAge()) + (1.45 * (9.36 * this.Weight + 726 * this.Height));
-                                break;
-                        }
-                    }
+                case Exercise_Activity.Light:
+                    TMB *= 1.375;
+                    break;
+                case Exercise_Activity.Moderate:
+                    TMB *= 1.55;
+                    break;
+                case Exercise_Activity.Active:
+                    TMB *= 1.725;
+                    break;
+                case Exercise_Activity.Very_Active:
+                    TMB *= 1.9;
                     break;
             }
+
+            if ((this.Weight_Objective != 0) && (this.Days_To_Reach_Goal != 0))
+            {
+                // FAZER UNS CALCULOS AQUI!
+            }
+
+            this.Daily_Calories = TMB;
         }
     }
 }

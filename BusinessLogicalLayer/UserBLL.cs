@@ -40,7 +40,8 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
-                    //item.CalculateDailyNeeds();
+                    item.CalculateTMB();
+                    item.CalculateVENTA();
                     item.ReplaceGenderWithNumber(item.Gender);
                     return await userDAL.Insert(item);
                 }
