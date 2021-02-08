@@ -147,11 +147,24 @@
                                             <span asp-validation-for="BodyFat" class="text-danger"></span>
                                         </div>
                                     </div>
+<<<<<<< HEAD
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label asp-for="Activity"></label>
                                             @{
                                                 string[] Activity = Enum.GetNames(typeof(Entities.Enums.Exercise_Activity));
+=======
+                                    <div class="form-group">
+                                        <label asp-for="Activity"></label>
+                                        @{
+                                            string[] Activity = Enum.GetNames(typeof(Entities.Enums.Exercise_Activity));
+                                        }
+
+                                        <select asp-for="Activity" class="form-control" id="Activity">
+                                            @for (int i = 0; i < Activity.Length; i++)
+                                            {
+                                                <option value="@i">@Activity[i].Replace("_", " ")</option>
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
                                             }
 
                                             <select asp-for="Activity" class="form-control" id="Activity">
@@ -422,6 +435,8 @@
 
             $('#data_3 .input-group.date').datepicker({
                 startView: 2,
+                format: 'dd/mm/yyyy',
+                language: 'pt-BR',
                 todayBtn: "linked",
                 keyboardNavigation: false,
                 forceParse: false,
@@ -430,6 +445,13 @@
 
             $('input[name="daterange"]').daterangepicker();
 
+<<<<<<< HEAD
+=======
+            $('#reportrange span').html(moment().subtract(29, 'days').format('dd MMMM yyyy') + ' - ' + moment().format('dd MMMM yyyy'));
+
+
+
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
             $(".select2_demo_3").select2({
                 placeholder: "Selecione uma dieta",
                 allowClear: true
@@ -438,7 +460,13 @@
             $("input[id='demo1']").TouchSpin({
                 min: 0,
                 max: 1000,
+<<<<<<< HEAD
                 step: 10,
+=======
+                //step: 10,
+                boostat: 5,
+                maxboostedstep: 10,
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
                 postfix: 'cm',
                 buttondown_class: 'btn btn-white',
                 buttonup_class: 'btn btn-white'
@@ -447,7 +475,13 @@
             $("input[id='demo2']").TouchSpin({
                 min: 0,
                 max: 1000,
+<<<<<<< HEAD
                 step: 10,
+=======
+                //step: 10,
+                boostat: 5,
+                maxboostedstep: 10,
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
                 postfix: 'kg',
                 buttondown_class: 'btn btn-white',
                 buttonup_class: 'btn btn-white'

@@ -5901,11 +5901,17 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Joana.DESKTOP-1T5I4G0\\.nuget\\packages\\": {}
+=======
+    "C:\\Users\\arthu\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
       "projectName": "BusinessLogicalLayer",
       "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
@@ -5915,6 +5921,21 @@
       "configFilePaths": [
         "C:\\Users\\Joana.DESKTOP-1T5I4G0\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+      "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
+      "projectName": "BusinessLogicalLayer",
+      "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
+      "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -5926,6 +5947,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Common\\Common.csproj": {
               "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Common\\Common.csproj"
             },
@@ -5934,6 +5956,16 @@
             },
             "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Entities\\Entities.csproj": {
               "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\Entities\\Entities.csproj"
+=======
+            "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {
+              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj"
+            },
+            "C:\\Users\\arthu\\source\\repos\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
+              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
+            },
+            "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj"
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
             }
           }
         }
@@ -5986,7 +6018,11 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+>>>>>>> 234f5eb27cf473c42f8cd3c6c84aead7c3b64b7c
       }
     }
   }
