@@ -12,10 +12,10 @@
         defaults = {
             bootstrap2Compatible: false,
             filterTextClear: 'Mostrar Tudo',
-            filterPlaceHolder: 'Buscar por um aliemnto',
-            moveSelectedLabel: 'Move selected',
+            filterPlaceHolder: 'Buscar por um aliemento',
+            moveSelectedLabel: 'Mover item selecionado',
             moveAllLabel: 'Mover todos',
-            removeSelectedLabel: 'Remove selected',
+            removeSelectedLabel: 'Remover item selecionado',
             removeAllLabel: 'Remover Todos',
             moveOnSelect: true,                                                                 // true/false (forced true on androids, see the comment later)
             preserveSelectionOnMove: false,                                                     // 'all' / 'moved' / false
@@ -28,7 +28,7 @@
             selectedFilter: '',                                                                 // string, filter the selected options
             infoText: 'Mostrando Todos {0}',                                                        // text when all options are visible / false for no info text
             infoTextFiltered: '<span class="label label-warning">Filtered</span> {0} from {1}', // when not all of the options are visible due to the filter
-            infoTextEmpty: 'Esvaziar lista',                                                        // when there are no options present in the list
+            infoTextEmpty: 'Lista vazia',                                                        // when there are no options present in the list
             filterOnValues: false,                                                              // filter by selector's values, boolean
             sortByInputOrder: false
         },
@@ -352,29 +352,19 @@
             this.container = $('' +
                 '<div class="bootstrap-duallistbox-container">' +
                 ' <div class="box1">' +
-                '   <label></label>' +
-                '   <span class="info-container">' +
-                '     <span class="info"></span>' +
-                '     <button type="button" class="btn clear1 pull-right"></button>' +
-                '   </span>' +
                 '   <input class="filter" type="text">' +
                 '   <div class="btn-group buttons">' +
-                '     <button type="button" class="btn moveall">' +
-                '       <i></i>' +
+                '     <button type="button" class="btn move">' +
                 '       <i></i>' +
                 '     </button>' +
-                '     <button type="button" class="btn move">' +
+                '     <button type="button" class="btn moveall">' +
+                '       <i></i>' +
                 '       <i></i>' +
                 '     </button>' +
                 '   </div>' +
                 '   <select multiple="multiple"></select>' +
                 ' </div>' +
                 ' <div class="box2">' +
-                '   <label></label>' +
-                '   <span class="info-container">' +
-                '     <span class="info"></span>' +
-                '     <button type="button" class="btn clear2 pull-right"></button>' +
-                '   </span>' +
                 '   <input class="filter" type="text">' +
                 '   <div class="btn-group buttons">' +
                 '     <button type="button" class="btn remove">' +

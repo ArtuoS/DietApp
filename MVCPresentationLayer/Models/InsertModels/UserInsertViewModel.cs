@@ -40,6 +40,10 @@ namespace MVCPresentationLayer.Models.InsertModels
         public double Daily_Fats { get; set; }
         [Display(Name = "Proteínas")]
         public double Daily_Protein { get; set; }
+        [Display(Name = "Peso ideal")]
+        public int Weight_Objective { get; set; }
+        [Display(Name = "Dias para alcançar objetivo")]
+        public int Days_To_Reach_Goal { get; set; }
 
     }
 }

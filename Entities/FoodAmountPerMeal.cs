@@ -6,7 +6,6 @@ using System.Text;
 
 namespace Entities {
     public class FoodAmountPerMeal {
-        public int ID { get; set; }
         public int FoodID { get; set; }
         public Food Food { get; set; }
         public double Quantity { get; set; }
