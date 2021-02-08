@@ -110,7 +110,7 @@
                                         <select asp-for="Activity" class="form-control" id="Activity">
                                             @for (int i = 0; i < Activity.Length; i++)
                                             {
-                                                <option value="@i">@Activity[i]</option>
+                                                <option value="@i">@Activity[i].Replace("_", " ")</option>
                                             }
                                         </select>
                                     </div>
@@ -355,6 +355,8 @@
 
             $('#data_3 .input-group.date').datepicker({
                 startView: 2,
+                format: 'dd/mm/yyyy',
+                language: 'pt-BR',
                 todayBtn: "linked",
                 keyboardNavigation: false,
                 forceParse: false,
@@ -363,7 +365,7 @@
 
             $('input[name="daterange"]').daterangepicker();
 
-            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+            $('#reportrange span').html(moment().subtract(29, 'days').format('dd MMMM yyyy') + ' - ' + moment().format('dd MMMM yyyy'));
 
 
 
@@ -375,7 +377,7 @@
             $("input[id='demo1']").TouchSpin({
                 min: 0,
                 max: 1000,
-                step: 10,
+                //step: 10,
                 boostat: 5,
                 maxboostedstep: 10,
                 postfix: 'cm',
@@ -386,7 +388,7 @@
             $("input[id='demo2']").TouchSpin({
                 min: 0,
                 max: 1000,
-                step: 10,
+                //step: 10,
                 boostat: 5,
                 maxboostedstep: 10,
                 postfix: 'kg',
