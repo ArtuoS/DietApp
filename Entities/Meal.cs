@@ -8,11 +8,10 @@ namespace Entities {
     public class Meal {
         public int ID { get; set; }
         public string Name { get; set; }
-        public Categoria_Refeicao Categoria { get; set; }
+        public Categoria_Refeicao Category { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
         public bool Status { get; set; }
-        public DateTime Time { get; set; }
         public double Total_Calories { get; set; }
         public double Total_Carbohydrates { get; set; }
         public double Total_Proteins { get; set; }

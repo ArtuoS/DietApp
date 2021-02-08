@@ -17,7 +17,6 @@ namespace BusinessLogicalLayer
         public MealBLL()
         {
             RuleFor(a => a.Name).NotNull().Length(3, 50).WithMessage("O nome deve ter entre 3 e 50 caractéres.");
-            RuleFor(a => a.Time).NotNull().WithMessage("A data dever ser válida.");
         }
 
         MealDAL mealDAL = new MealDAL();

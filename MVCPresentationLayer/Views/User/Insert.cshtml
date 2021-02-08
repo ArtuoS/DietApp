@@ -58,149 +58,146 @@
 </head>
 <body class="login-bg">
 
-        <div class="row justify-content-md-center">
-            <div class="col-lg-6">
-                <div class="ibox">
-                    <div class="ibox-content">
-                        <h2>
-                            Cadastro
-                        </h2>
-                        <p>
-                            Siga os passos para o cadastro no sistema.
-                        </p>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-6">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <h2>
+                        Cadastro
+                    </h2>
+                    <p>
+                        Siga os passos para o cadastro no sistema.
+                    </p>
 
-                        <form asp-action="Insert" id="form" class="wizard-big">
-                            <h1>Conta</h1>
-                            <fieldset>
-                                <h2>Informação de perfil</h2>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label asp-for="First_Name"></label>
-                                            <input asp-for="First_Name" type="text" id="firstName" class="form-control required">
-                                            <span asp-validation-for="First_Name" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Last_Name"></label>
-                                            <input asp-for="Last_Name" type="text" id="lastName" class="form-control required">
-                                            <span asp-validation-for="Last_Name" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Email"></label>
-                                            <input asp-for="Email" type="email" id="email" class="form-control required email">
-                                            <span asp-validation-for="Email" class="text-danger"></span>
-                                        </div>
+                    <form asp-action="Insert" id="form" class="wizard-big">
+                        <h1>Conta</h1>
+                        <fieldset>
+                            <h2>Informação de perfil</h2>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label asp-for="First_Name"></label>
+                                        <input asp-for="First_Name" type="text" id="firstName" class="form-control required">
+                                        <span asp-validation-for="First_Name" class="text-danger"></span>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group" id="data_3">
-                                            <label asp-for="Date_Of_Birthday" class="font-normal"></label>
-                                            <div class="input-group date">
-                                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" id="Date_Of_Birthday" class="form-control date">
-                                                <span asp-validation-for="Date_Of_Birthday" class="text-danger"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Password"></label>
-                                            <input asp-for="Password" type="password" id="password" name="password" class="form-control required">
-                                            <span asp-validation-for="Password" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Confirmar senha</label>
-                                            <input id="confirm" name="confirm" type="password" class="form-control required">
-                                        </div>
+                                    <div class="form-group">
+                                        <label asp-for="Last_Name"></label>
+                                        <input asp-for="Last_Name" type="text" id="lastName" class="form-control required">
+                                        <span asp-validation-for="Last_Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Email"></label>
+                                        <input asp-for="Email" type="email" id="email" class="form-control required email">
+                                        <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                 </div>
-
-                            </fieldset>
-                            <h1>Dados</h1>
-                            <fieldset>
-                                <h2>Dados pessoais</h2>
-                                <div class="row">
-                                    <div class="col-lg-6">
-
-                                        <div class="form-group">
-                                            <label asp-for="Height"></label>
-                                            <input asp-for="Height" type="text" class="touchspin2" id="demo1">
-                                            <span asp-validation-for="Height" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Weight"></label>
-                                            <input asp-for="Weight" class="touchspin2" id="demo2" type="text">
-                                            <span asp-validation-for="Weight" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Gender"></label>
-                                            @{
-                                                string[] biological_gender = Enum.GetNames(typeof(Entities.Enums.Biological_Gender));
-                                            }
-
-                                            <select asp-for="Gender" class="form-control" id="Biological_Gender">
-                                                @for (int i = 0; i < biological_gender.Length; i++)
-                                                {
-                                                    <option value="@i">@biological_gender[i]</option>
-                                                }
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="BodyFat"></label>
-                                            <input asp-for="BodyFat" class="touchspin2" id="demo5" type="text">
-                                            <span asp-validation-for="BodyFat" class="text-danger"></span>
+                                <div class="col-lg-6">
+                                    <div class="form-group" id="data_3">
+                                        <label asp-for="Date_Of_Birthday" class="font-normal"></label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input asp-for="Date_Of_Birthday" type="text" id="Date_Of_Birthday" class="form-control date">
+                                            <span asp-validation-for="Date_Of_Birthday" class="text-danger"></span>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label asp-for="Activity"></label>
-                                            @{
-                                                string[] Activity = Enum.GetNames(typeof(Entities.Enums.Exercise_Activity));
-                                            }
-
-                                            <select asp-for="Activity" class="form-control" id="Activity">
-                                                @for (int i = 0; i < Activity.Length; i++)
-                                                {
-                                                    <option value="@i">@Activity[i].Replace("_", " ")</option>
-                                                }
-
-                                            </select>
-
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Objective"></label>
-                                            @{
-                                                string[] Objective = Enum.GetNames(typeof(Entities.Enums.Objective));
-                                            }
-
-                                            <select asp-for="Objective" class="form-control" id="Objective">
-                                                @for (int i = 0; i < Objective.Length; i++)
-                                                {
-                                                    <option value="@i">@Objective[i].Replace("_", " ")</option>
-                                                }
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Weight_Objective"></label>
-                                            <input asp-for="Weight_Objective" type="text" class="touchspin2" id="demo3">
-                                            <span asp-validation-for="Weight_Objective" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-                                            <label asp-for="Days_To_Reach_Goal"></label>
-                                            <input asp-for="Days_To_Reach_Goal" class="touchspin2" id="demo4" type="text">
-                                            <span asp-validation-for="Days_To_Reach_Goal" class="text-danger"></span>
-                                        </div>
+                                    <div class="form-group">
+                                        <label asp-for="Password"></label>
+                                        <input asp-for="Password" type="password" id="password" name="password" class="form-control required">
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Confirmar senha</label>
+                                        <input id="confirm" name="confirm" type="password" class="form-control required">
                                     </div>
                                 </div>
-                            </fieldset>
+                            </div>
 
-                            <h1>Restrições</h1>
-                            <fieldset>
-                                <h2>Alergias, intolerâncias e restrições alimentares</h2>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="ibox">
-                                            <div class="ibox-content">
-                                                <p>
-                                                    Escolha uma dieta pronta ou selecione alimentos que *não* deseja.
-                                                </p>
-                                                <div class="row">
+                        </fieldset>
+                        <h1>Dados</h1>
+                        <fieldset>
+                            <h2>Dados pessoais</h2>
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label asp-for="Height"></label>
+                                        <input asp-for="Height" type="text" class="touchspin2" id="demo1">
+                                        <span asp-validation-for="Height" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Weight"></label>
+                                        <input asp-for="Weight" class="touchspin2" id="demo2" type="text">
+                                        <span asp-validation-for="Weight" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Gender"></label>
+                                        @{
+                                            string[] biological_gender = Enum.GetNames(typeof(Entities.Enums.Biological_Gender));
+                                        }
+
+                                        <select asp-for="Gender" class="form-control" id="Biological_Gender">
+                                            @for (int i = 0; i < biological_gender.Length; i++) {
+                                                <option value="@i">@biological_gender[i]</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="BodyFat"></label>
+                                        <input asp-for="BodyFat" class="touchspin2" id="demo5" type="text">
+                                        <span asp-validation-for="BodyFat" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label asp-for="Activity"></label>
+                                        @{
+                                            string[] Activity = Enum.GetNames(typeof(Entities.Enums.Exercise_Activity));
+                                        }
+
+                                        <select asp-for="Activity" class="form-control" id="Activity">
+                                            @for (int i = 0; i < Activity.Length; i++) {
+                                                <option value="@i">@Activity[i].Replace("_", " ")</option>
+                                            }
+
+                                        </select>
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Objective"></label>
+                                        @{
+                                            string[] Objective = Enum.GetNames(typeof(Entities.Enums.Objective));
+                                        }
+
+                                        <select asp-for="Objective" class="form-control" id="Objective">
+                                            @for (int i = 0; i < Objective.Length; i++) {
+                                                <option value="@i">@Objective[i].Replace("_", " ")</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Weight_Objective"></label>
+                                        <input asp-for="Weight_Objective" type="text" class="touchspin2" id="demo3">
+                                        <span asp-validation-for="Weight_Objective" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Days_To_Reach_Goal"></label>
+                                        <input asp-for="Days_To_Reach_Goal" class="touchspin2" id="demo4" type="text">
+                                        <span asp-validation-for="Days_To_Reach_Goal" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <h1>Restrições</h1>
+                        <fieldset>
+                            <h2>Alergias, intolerâncias e restrições alimentares</h2>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="ibox">
+                                        <div class="ibox-content">
+                                            <p>
+                                                Escolha uma dieta pronta ou selecione alimentos que *não* deseja.
+                                            </p>
+                                            <div class="row">
                                                 <div class="col-md-6">
                                                     <select class="select2_demo_4 form-control">
                                                         <option value="tudo">Dieta customizada</option>
@@ -215,15 +212,12 @@
                                                 <div class="col-md-6">
                                                     <select class="select2_demo_4 form-control">
 
-                                                        @if (food_CategoryService.GetAll().Result.Data != null)
-                                                        {
+                                                        @if (food_CategoryService.GetAll().Result.Data != null) {
                                                             <option value="tudo">Todas as categorias</option>
-                                                            foreach (Food_Category category in food_CategoryService.GetAll().Result.Data)
-                                                            {
+                                                            foreach (FoodCategory category in food_CategoryService.GetAll().Result.Data) {
                                                                 <option value="@category.ID">@category.Name</option>
 
-                                                                foreach (var food in foodService.GetByCategoryId(category.ID).Result.Data)
-                                                                {
+                                                                foreach (var food in foodService.GetByCategoryId(category.ID).Result.Data) {
                                                                     foods.Add(food);
                                                                 }
                                                             }
@@ -231,29 +225,27 @@
 
                                                     </select>
                                                 </div>
-                                                    </div>
-                                                <select class="form-control dual_select" multiple>
-
-                                                    @if (foods != null)
-                                                    {
-                                                        foreach (Food food in foods)
-                                                        {
-                                                            <option value="@food.ID">@food.Food_Name</option>
-                                                        }
-                                                    }
-                                                </select>
                                             </div>
+                                            <select class="form-control dual_select" multiple>
+
+                                                @if (foods != null) {
+                                                    foreach (Food food in foods) {
+                                                        <option value="@food.ID">@food.Food_Name</option>
+                                                    }
+                                                }
+                                            </select>
                                         </div>
                                     </div>
-
                                 </div>
-                            </fieldset>
-                        </form>
-                    </div>
+
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
 
     <environment names="Development">
@@ -454,7 +446,7 @@
             $("input[id='demo2']").TouchSpin({
                 min: 0,
                 max: 1000,
-                step: 10,
+                //step: 10,
                 boostat: 5,
                 maxboostedstep: 10,
                 postfix: 'kg',
@@ -464,7 +456,7 @@
             $("input[id='demo3']").TouchSpin({
                 min: 0,
                 max: 1000,
-                step: 10,
+                //step: 10,
                 postfix: 'kg',
                 buttondown_class: 'btn btn-white',
                 buttonup_class: 'btn btn-white'
@@ -472,7 +464,7 @@
             $("input[id='demo4']").TouchSpin({
                 min: 0,
                 max: 1000,
-                step: 10,
+                //step: 10,
                 postfix: 'dias',
                 buttondown_class: 'btn btn-white',
                 buttonup_class: 'btn btn-white'
@@ -480,7 +472,7 @@
             $("input[id='demo5']").TouchSpin({
                 min: 0,
                 max: 1000,
-                step: 10,
+                //step: 10,
                 prefix: '%',
                 buttondown_class: 'btn btn-white',
                 buttonup_class: 'btn btn-white'

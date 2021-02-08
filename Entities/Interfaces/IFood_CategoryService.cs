@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
-   public interface IFood_CategoryService : IEntityCRUD<Food_Category>
+   public interface IFood_CategoryService : IEntityCRUD<FoodCategory>
     {
-        Task<SingleResponse<Food_Category>> GetByName(string nome);
+        Task<SingleResponse<FoodCategory>> GetByName(string nome);
     }
 }

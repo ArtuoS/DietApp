@@ -10,7 +10,7 @@ namespace MVCPresentationLayer.Models.UpdateModels
     public class FoodUpdateViewModel
     {
 		[Display(Name = "Categoria")]
-		public Food_Category Category { get; set; }
+		public FoodCategory Category { get; set; }
 		[Display(Name = "Nome do Alimento")]
 		public string Food_Name { get; set; }
 		[Display(Name = "Calorias")]

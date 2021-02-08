@@ -8,7 +8,7 @@ namespace Entities
     public class Food
     {
 		public int ID { get; set; }
-		public virtual Food_Category Category { get; set; }
+		public virtual FoodCategory Category { get; set; }
 		public int Food_CategoryID{ get; set; }
 		public string Food_Name { get; set; }
 		public double Calories { get; set; }

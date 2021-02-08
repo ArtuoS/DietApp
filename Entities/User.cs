@@ -3,10 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Entities
-{
-    public class User
-    {
+namespace Entities {
+    public class User {
         public int ID { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
@@ -31,65 +29,48 @@ namespace Entities
         public ICollection<Diet> Diets { get; set; }
         public ICollection<Restriction> Restrictions { get; set; }
 
-        public bool SetStatus(bool status)
-        {
+        public bool SetStatus(bool status) {
             return this.Status = status;
         }
 
-        public string SetRole()
-        {
+        public string SetRole() {
             return this.Role = "User";
         }
 
-        public int ReplaceGenderWithNumber(Biological_Gender gender)
-        {
-            if (gender == Biological_Gender.Feminino)
-            {
+        public int ReplaceGenderWithNumber(Biological_Gender gender) {
+            if (gender == Biological_Gender.Feminino) {
                 return 0;
             }
             return 1;
         }
 
-        public void CalculateDailyNeeds()
-        {
+        public void CalculateDailyNeeds() {
             this.Daily_Carbohydrates = (this.Daily_Calories * 40) / 100;
             this.Daily_Protein = (this.Daily_Calories * 40) / 100;
             this.Daily_Fats = (this.Daily_Calories * 20) / 100;
         }
 
-        public double CalculateVENTA()
-        {
+        public double CalculateVENTA() {
             double VENTA = 0;
-            if (this.Weight > this.Weight_Objective)
-            {
-                return VENTA = (7700 * (this.Weight - this.Weight_Objective)) / 30;
+            if (this.Weight > this.Weight_Objective) {
+                return VENTA = (7700 * (this.Weight - this.Weight_Objective)) / this.Days_To_Reach_Goal;
             }
-            return VENTA = (7700 * (this.Weight_Objective - this.Weight)) / 30;
+            return VENTA = (7700 * (this.Weight_Objective - this.Weight)) / this.Days_To_Reach_Goal;
         }
 
-        public void CalculateIMC()
-        {
+        public void CalculateIMC() {
             this.IMC = this.Weight / (this.Height * this.Height);
         }
 
-        public string IMCSituation()
-        {
-            if (this.IMC > 0)
-            {
-                if (this.IMC < 18.5)
-                {
+        public string IMCSituation() {
+            if (this.IMC > 0) {
+                if (this.IMC < 18.5) {
                     return "Underweight";
-                }
-                else if (this.IMC >= 18.5 && this.IMC <= 24.99)
-                {
+                } else if (this.IMC >= 18.5 && this.IMC <= 24.99) {
                     return "Normal";
-                }
-                else if (this.IMC >= 25 && this.IMC <= 29.99)
-                {
+                } else if (this.IMC >= 25 && this.IMC <= 29.99) {
                     return "Overweight";
-                }
-                else if (this.IMC >= 30 && this.IMC <= 34.99)
-                {
+                } else if (this.IMC >= 30 && this.IMC <= 34.99) {
                     return "Obese";
                 }
                 return "Extremely Obese";
@@ -97,15 +78,12 @@ namespace Entities
             return "ERROR IN IMC SITUATION!";
         }
 
-        public int GetCurrentAge()
-        {
+        public int GetCurrentAge() {
             return (DateTime.Today.Year - this.Date_Of_Birthday.Year) - 1;
         }
 
-        public void CalculateGET()
-        {
-            switch (this.Gender)
-            {
+        public void CalculateGET() {
+            switch (this.Gender) {
                 case Biological_Gender.Masculino:
                     this.Daily_Calories = 66.5 + (13.75 * this.Weight) + (5.003 * this.Height) - (6.755 * this.GetCurrentAge());
                     break;
@@ -114,8 +92,7 @@ namespace Entities
                     break;
             }
 
-            switch (this.Activity)
-            {
+            switch (this.Activity) {
                 case Exercise_Activity.Sedentary:
                     this.Daily_Calories *= 1.2;
                     break;
@@ -133,10 +110,8 @@ namespace Entities
                     break;
             }
 
-            if ((this.Weight_Objective != 0) && (this.Days_To_Reach_Goal != 0))
-            {
-                switch (this.Objective)
-                {
+            if ((this.Weight_Objective != 0) && (this.Days_To_Reach_Goal != 0)) {
+                switch (this.Objective) {
                     case Objective.Weight_Loss:
                         this.Daily_Calories -= this.CalculateVENTA();
                         break;

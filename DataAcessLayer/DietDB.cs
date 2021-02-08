@@ -10,11 +10,11 @@ namespace Entities {
     public class DietDB : DbContext {
         public DbSet<Food> Foods { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Food_Category> Categories { get; set; }
+        public DbSet<FoodCategory> Categories { get; set; }
         public DbSet<Diet> Diets { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Restriction> Restrictions { get; set; }
-        //public DbSet<FoodAmountPerMeal> FoodAmountPerMeals { get; set; }
+        public DbSet<FoodAmountPerMeal> FoodAmountPerMeals { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder modelBuilder) {
             //modelBuilder.UseSqlServer(@"Server=tcp:dietplusdatabaseserver.database.windows.net,1433;Initial Catalog=DietPlusDatabase;Persist Security Info=False;User ID=dpdadm;Password=abcd1234!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",

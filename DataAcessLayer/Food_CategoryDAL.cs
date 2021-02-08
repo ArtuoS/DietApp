@@ -14,7 +14,7 @@ namespace DataAcessLayer
     {
         public async Task<Response> Delete(int id)
         {
-            Food_Category food_Category = new Food_Category();
+            FoodCategory food_Category = new FoodCategory();
             food_Category.ID = id;
 
             using (DietDB db = new DietDB())
@@ -25,7 +25,7 @@ namespace DataAcessLayer
                     await db.SaveChangesAsync();
                     return ResponseFactory.ResponseSuccessModel();
                 }
-                return ResponseFactory.SingleResponseNotFoundException<Food_Category>();
+                return ResponseFactory.SingleResponseNotFoundException<FoodCategory>();
             }
         }
 
@@ -33,7 +33,7 @@ namespace DataAcessLayer
         {
             using (DietDB db = new DietDB())
             {
-                Food_Category food_Category = await db.Categories.FirstOrDefaultAsync(u => u.ID == id);
+                FoodCategory food_Category = await db.Categories.FirstOrDefaultAsync(u => u.ID == id);
                 if (food_Category != null)
                 {
                     //food_Category.SetStatus(false);
@@ -44,38 +44,38 @@ namespace DataAcessLayer
             }
         }
 
-        public async Task<QueryResponse<Food_Category>> GetAll()
+        public async Task<QueryResponse<FoodCategory>> GetAll()
         {
-            QueryResponse<Food_Category> response = new QueryResponse<Food_Category>();
+            QueryResponse<FoodCategory> response = new QueryResponse<FoodCategory>();
 
             using (DietDB db = new DietDB())
             {
-                List<Food_Category> food_Categories = await db.Categories.ToListAsync();
+                List<FoodCategory> food_Categories = await db.Categories.ToListAsync();
                 if (food_Categories != null)
                 {
                     response.Data = food_Categories;
                     return ResponseFactory.QueryResponseSuccessModel(food_Categories);
                 }
-                return ResponseFactory.QueryResponseNotFoundException<Food_Category>();
+                return ResponseFactory.QueryResponseNotFoundException<FoodCategory>();
             }
         }
 
-        public Task<SingleResponse<Food_Category>> GetById(int id)
+        public Task<SingleResponse<FoodCategory>> GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<SingleResponse<Food_Category>> GetByName(string nome)
+        public Task<SingleResponse<FoodCategory>> GetByName(string nome)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response> Insert(Food_Category item)
+        public Task<Response> Insert(FoodCategory item)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Response> Update(Food_Category item)
+        public Task<Response> Update(FoodCategory item)
         {
             throw new NotImplementedException();
         }

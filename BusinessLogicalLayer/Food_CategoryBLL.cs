@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicalLayer
 {
-    public class Food_CategoryBLL : AbstractValidator<Food_Category>, IFood_CategoryService
+    public class Food_CategoryBLL : AbstractValidator<FoodCategory>, IFood_CategoryService
     {
         public Food_CategoryBLL()
         {
@@ -44,7 +44,7 @@ namespace BusinessLogicalLayer
             }
         }
 
-        public async Task<QueryResponse<Food_Category>> GetAll()
+        public async Task<QueryResponse<FoodCategory>> GetAll()
         {
             try
             {
@@ -52,11 +52,11 @@ namespace BusinessLogicalLayer
             }
             catch (Exception ex)
             {
-                return ResponseFactory.QueryResponseExceptionModel<Food_Category>(ex);
+                return ResponseFactory.QueryResponseExceptionModel<FoodCategory>(ex);
             }
         }
 
-        public async Task<SingleResponse<Food_Category>> GetById(int id)
+        public async Task<SingleResponse<FoodCategory>> GetById(int id)
         {
             try
             {
@@ -64,11 +64,11 @@ namespace BusinessLogicalLayer
             }
             catch (Exception ex)
             {
-                return ResponseFactory.SingleResponseExceptionModel<Food_Category>(ex);
+                return ResponseFactory.SingleResponseExceptionModel<FoodCategory>(ex);
             }
         }
 
-        public async Task<SingleResponse<Food_Category>> GetByName(string name)
+        public async Task<SingleResponse<FoodCategory>> GetByName(string name)
         {
             try
             {
@@ -76,11 +76,11 @@ namespace BusinessLogicalLayer
             }
             catch (Exception ex)
             {
-                return ResponseFactory.SingleResponseExceptionModel<Food_Category>(ex);
+                return ResponseFactory.SingleResponseExceptionModel<FoodCategory>(ex);
             }
         }
 
-        public async Task<Response> Insert(Food_Category item)
+        public async Task<Response> Insert(FoodCategory item)
         {
             ValidationResult results = this.Validate(item);
             try
@@ -100,7 +100,7 @@ namespace BusinessLogicalLayer
             }
         }
 
-        public async Task<Response> Update(Food_Category item)
+        public async Task<Response> Update(FoodCategory item)
         {
             ValidationResult results = this.Validate(item);
             try

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entities
 {
-    public class Food_Category
+    public class FoodCategory
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -13,3 +13,4 @@ namespace Entities
         public ICollection<Food> Foods { get; set; }
     }
 }
+//negativa, interrogativa e passado
