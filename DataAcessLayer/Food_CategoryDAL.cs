@@ -33,13 +33,13 @@ namespace DataAcessLayer
         {
             using (DietDB db = new DietDB())
             {
-                /*Food_Category food_Category = await db.Categories.FirstOrDefaultAsync(u => u.ID == id);
+                Food_Category food_Category = await db.Categories.FirstOrDefaultAsync(u => u.ID == id);
                 if (food_Category != null)
                 {
-                    food_Category.SetStatus(false);
+                    //food_Category.SetStatus(false);
                     await db.SaveChangesAsync();
                     return ResponseFactory.ResponseSuccessModel();
-                }*/
+                }
                 return ResponseFactory.ResponseNotFoundException();
             }
         }

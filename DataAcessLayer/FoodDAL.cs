@@ -51,7 +51,7 @@ namespace DataAcessLayer
                 response.Data = foods;
                 return ResponseFactory.QueryResponseSuccessModel<Food>(foods);
             }
-            return ResponseFactory.QueryResponseNotFoundException<Food>();
+             //return ResponseFactory.QueryResponseNotFoundException<Food>();
         }
 
         public async Task<SingleResponse<Food>> GetById(int id)
