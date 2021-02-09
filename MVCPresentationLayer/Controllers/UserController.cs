@@ -22,11 +22,16 @@ namespace MVCPresentationLayer.Controllers
 
         private readonly IMapper mapper;
         private readonly IUserService userService;
+        private readonly IFoodService foodService;
+        private readonly IFood_CategoryService foodCategoryService;
 
-        public UserController(IMapper mapper, IUserService userService)
+
+        public UserController(IMapper mapper, IUserService userService, IFoodService foodService, IFood_CategoryService categoryService)
         {
             this.mapper = mapper;
             this.userService = userService;
+            this.foodService = foodService;
+            this.foodCategoryService = categoryService;
         }
 
         public IActionResult Index()
@@ -35,8 +40,10 @@ namespace MVCPresentationLayer.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Insert()
+        public async Task<IActionResult> Insert()
         {
+            QueryResponse<FoodCategory> queryFoodCategory = await foodCategoryService.GetAll();
+            ViewBag.Categories = queryFoodCategory.Data;
             return View();
         }
 
@@ -92,6 +99,14 @@ namespace MVCPresentationLayer.Controllers
             User user = new User();
             //user.CalculateDailyNeeds();
             return View();
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> GetFoodOfCategory(int id)
+        {
+            QueryResponse<Food> queryFood = await foodService.GetByCategoryId(id);
+            return Json(queryFood.Data.ToList());
         }
     }
 }

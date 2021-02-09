@@ -6,13 +6,6 @@
 @using Entities.Interfaces
 
 @{
-    List<Food> foods = new List<Food>();
-    IFoodService foodService = new FoodBLL();
-    User user = new User();
-    IFood_CategoryService food_CategoryService = new Food_CategoryBLL();
-}
-
-@{
     ViewData["Title"] = "Insert";
 }
 @{ Layout = null; }
@@ -136,7 +129,8 @@
                                         }
 
                                         <select asp-for="Gender" class="form-control" id="Biological_Gender">
-                                            @for (int i = 0; i < biological_gender.Length; i++) {
+                                            @for (int i = 0; i < biological_gender.Length; i++)
+                                            {
                                                 <option value="@i">@biological_gender[i]</option>
                                             }
                                         </select>
@@ -155,7 +149,8 @@
                                         }
 
                                         <select asp-for="Activity" class="form-control" id="Activity">
-                                            @for (int i = 0; i < Activity.Length; i++) {
+                                            @for (int i = 0; i < Activity.Length; i++)
+                                            {
                                                 <option value="@i">@Activity[i].Replace("_", " ")</option>
                                             }
 
@@ -169,7 +164,8 @@
                                         }
 
                                         <select asp-for="Objective" class="form-control" id="Objective">
-                                            @for (int i = 0; i < Objective.Length; i++) {
+                                            @for (int i = 0; i < Objective.Length; i++)
+                                            {
                                                 <option value="@i">@Objective[i].Replace("_", " ")</option>
                                             }
                                         </select>
@@ -211,29 +207,21 @@
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <select class="select2_demo_4 form-control">
+                                                    <select id="CategorySelect" class="select2_demo_4 form-control">
 
-                                                        @if (food_CategoryService.GetAll().Result.Data != null) {
+                                                        @if (ViewBag.Categories != null)
+                                                        {
                                                             <option value="tudo">Todas as categorias</option>
-                                                            foreach (FoodCategory category in food_CategoryService.GetAll().Result.Data) {
+                                                            foreach (FoodCategory category in ViewBag.Categories)
+                                                            {
                                                                 <option value="@category.ID">@category.Name</option>
-
-                                                                foreach (var food in foodService.GetByCategoryId(category.ID).Result.Data) {
-                                                                    foods.Add(food);
-                                                                }
                                                             }
                                                         }
 
                                                     </select>
                                                 </div>
                                             </div>
-                                            <select class="form-control dual_select" multiple>
-
-                                                @if (foods != null) {
-                                                    foreach (Food food in foods) {
-                                                        <option value="@food.ID">@food.Food_Name</option>
-                                                    }
-                                                }
+                                            <select id="FoodSelect" class="form-control dual_select" multiple>
                                             </select>
                                         </div>
                                     </div>
@@ -297,187 +285,186 @@
 
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("#wizard").steps();
-            $("#form").steps({
-                bodyTag: "fieldset",
-                onStepChanging: function (event, currentIndex, newIndex) {
-                    // Always allow going backward even if the current step contains invalid fields!
-                    if (currentIndex > newIndex) {
-                        return true;
-                    }
 
-                    var form = $(this);
-
-                    // Clean up if user went backward before
-                    if (currentIndex < newIndex) {
-                        // To remove error styles
-                        $(".body:eq(" + newIndex + ") label.error", form).remove();
-                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
-                    }
-
-                    // Disable validation on fields that are disabled or hidden.
-                    form.validate().settings.ignore = ":disabled,:hidden";
-
-                    // Start validation; Prevent going forward if false
-                    return form.valid();
-                },
-                onStepChanged: function (event, currentIndex, priorIndex) {
-                    // Suppress (skip) "Warning" step if the user is old enough.
-                    // if (currentIndex === 2 && Number($("#age").val()) >= 18) {
-                    //     $(this).steps("next");
-                    // s}
-
-                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
-                    if (currentIndex === 2 && priorIndex === 3) {
-                        $(this).steps("previous");
-                    }
-                },
-                onFinishing: function (event, currentIndex) {
-                    var form = $(this);
-
-                    // Disable validation on fields that are disabled.
-                    // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
-                    form.validate().settings.ignore = ":disabled";
-
-                    // Start validation; Prevent form submission if false
-                    return form.valid();
-                },
-                onFinished: function (event, currentIndex) {
-                    var form = $(this);
-
-                    // Submit form input
-                    form.submit().val;
+        $("#wizard").steps();
+        $("#form").steps({
+            bodyTag: "fieldset",
+            onStepChanging: function (event, currentIndex, newIndex) {
+                // Always allow going backward even if the current step contains invalid fields!
+                if (currentIndex > newIndex) {
+                    return true;
                 }
-            }).validate({
-                errorPlacement: function (error, element) {
-                    element.before(error);
-                },
-                rules: {
-                    confirm: {
-                        equalTo: "#password"
-                    },
-                    '#firstName': {
-                        minlength: 3
-                    },
-                    '#lasttName': {
-                        minlength: 3
-                    }
+
+                var form = $(this);
+
+                // Clean up if user went backward before
+                if (currentIndex < newIndex) {
+                    // To remove error styles
+                    $(".body:eq(" + newIndex + ") label.error", form).remove();
+                    $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
                 }
-            });
 
-            $("#ionrange_1").ionRangeSlider({
+                // Disable validation on fields that are disabled or hidden.
+                form.validate().settings.ignore = ":disabled,:hidden";
 
-                min: 0,
-                //from: caloria,
-                max: 10000,
-                type: 'single',
-                step: 10,
-                postfix: " gramas",
-                prettify: true,
-            });
+                // Start validation; Prevent going forward if false
+                return form.valid();
+            },
+            onStepChanged: function (event, currentIndex, priorIndex) {
+                // Suppress (skip) "Warning" step if the user is old enough.
+                // if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                //     $(this).steps("next");
+                // s}
 
-            $("#ionrange_2").ionRangeSlider({
-                min: 0,
-                max: 10000,
-                //from: carboidrato,
-                type: 'single',
-                step: 10,
-                postfix: " gramas",
-                prettify: true,
-            });
+                // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                if (currentIndex === 2 && priorIndex === 3) {
+                    $(this).steps("previous");
+                }
+            },
+            onFinishing: function (event, currentIndex) {
+                var form = $(this);
 
-            $("#ionrange_3").ionRangeSlider({
-                min: 0,
-                max: 10000,
-                //from: gordura,
-                type: 'single',
-                step: 10,
-                postfix: " gramas",
-                prettify: true,
-            });
+                // Disable validation on fields that are disabled.
+                // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
+                form.validate().settings.ignore = ":disabled";
 
-            $("#ionrange_4").ionRangeSlider({
-                min: 0,
-                max: 10000,
-                //from: proteina,
-                type: 'single',
-                step: 10,
-                postfix: " gramas",
-                prettify: true,
-            });
+                // Start validation; Prevent form submission if false
+                return form.valid();
+            },
+            onFinished: function (event, currentIndex) {
+                var form = $(this);
 
-            $('.tagsinput').tagsinput({
-                tagClass: 'label label-primary'
-            });
+                // Submit form input
+                form.submit().val;
+            }
+        }).validate({
+            errorPlacement: function (error, element) {
+                element.before(error);
+            },
+            rules: {
+                confirm: {
+                    equalTo: "#password"
+                },
+                '#firstName': {
+                    minlength: 3
+                },
+                '#lasttName': {
+                    minlength: 3
+                }
+            }
+        });
 
-            $('.dual_select').bootstrapDualListbox({
-                selectorMinimalHeight: 160
-            });
+        $("#ionrange_1").ionRangeSlider({
 
-            $('#data_3 .input-group.date').datepicker({
-                startView: 2,
-                format: 'dd/mm/yyyy',
-                language: 'pt-BR',
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                autoclose: true
-            });
+            min: 0,
+            //from: caloria,
+            max: 10000,
+            type: 'single',
+            step: 10,
+            postfix: " gramas",
+            prettify: true,
+        });
 
-            $('input[name="daterange"]').daterangepicker();
+        $("#ionrange_2").ionRangeSlider({
+            min: 0,
+            max: 10000,
+            //from: carboidrato,
+            type: 'single',
+            step: 10,
+            postfix: " gramas",
+            prettify: true,
+        });
 
-            $('#reportrange span').html(moment().subtract(29, 'days').format('dd MMMM yyyy') + ' - ' + moment().format('dd MMMM yyyy'));
+        $("#ionrange_3").ionRangeSlider({
+            min: 0,
+            max: 10000,
+            //from: gordura,
+            type: 'single',
+            step: 10,
+            postfix: " gramas",
+            prettify: true,
+        });
 
-            $(".select2_demo_3").select2({
-                placeholder: "Selecione uma dieta",
-                allowClear: true
-            });
+        $("#ionrange_4").ionRangeSlider({
+            min: 0,
+            max: 10000,
+            //from: proteina,
+            type: 'single',
+            step: 10,
+            postfix: " gramas",
+            prettify: true,
+        });
 
-            $("input[id='demo1']").TouchSpin({
-                min: 0,
-                max: 1000,
-                boostat: 5,
-                maxboostedstep: 10,
-                postfix: 'cm',
-                buttondown_class: 'btn btn-white',
-                buttonup_class: 'btn btn-white'
-            });
+        $('.tagsinput').tagsinput({
+            tagClass: 'label label-primary'
+        });
 
-            $("input[id='demo2']").TouchSpin({
-                min: 0,
-                max: 1000,
-                //step: 10,
-                boostat: 5,
-                maxboostedstep: 10,
-                postfix: 'kg',
-                buttondown_class: 'btn btn-white',
-                buttonup_class: 'btn btn-white'
-            });
-            $("input[id='demo3']").TouchSpin({
-                min: 0,
-                max: 1000,
-                //step: 10,
-                postfix: 'kg',
-                buttondown_class: 'btn btn-white',
-                buttonup_class: 'btn btn-white'
-            });
-            $("input[id='demo4']").TouchSpin({
-                min: 0,
-                max: 1000,
-                //step: 10,
-                postfix: 'dias',
-                buttondown_class: 'btn btn-white',
-                buttonup_class: 'btn btn-white'
-            });
-            $("input[id='demo5']").TouchSpin({
-                min: 0,
-                max: 1000,
-                //step: 10,
-                prefix: '%',
-                buttondown_class: 'btn btn-white',
-                buttonup_class: 'btn btn-white'
-            });
+        $('.dual_select').bootstrapDualListbox({
+            selectorMinimalHeight: 160
+        });
+
+        $('#data_3 .input-group.date').datepicker({
+            startView: 2,
+            format: 'dd/mm/yyyy',
+            language: 'pt-BR',
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            autoclose: true
+        });
+
+        $('input[name="daterange"]').daterangepicker();
+
+        $('#reportrange span').html(moment().subtract(29, 'days').format('dd MMMM yyyy') + ' - ' + moment().format('dd MMMM yyyy'));
+
+        $(".select2_demo_3").select2({
+            placeholder: "Selecione uma dieta",
+            allowClear: true
+        });
+
+        $("input[id='demo1']").TouchSpin({
+            min: 0,
+            max: 1000,
+            boostat: 5,
+            maxboostedstep: 10,
+            postfix: 'cm',
+            buttondown_class: 'btn btn-white',
+            buttonup_class: 'btn btn-white'
+        });
+
+        $("input[id='demo2']").TouchSpin({
+            min: 0,
+            max: 1000,
+            //step: 10,
+            boostat: 5,
+            maxboostedstep: 10,
+            postfix: 'kg',
+            buttondown_class: 'btn btn-white',
+            buttonup_class: 'btn btn-white'
+        });
+        $("input[id='demo3']").TouchSpin({
+            min: 0,
+            max: 1000,
+            //step: 10,
+            postfix: 'kg',
+            buttondown_class: 'btn btn-white',
+            buttonup_class: 'btn btn-white'
+        });
+        $("input[id='demo4']").TouchSpin({
+            min: 0,
+            max: 1000,
+            //step: 10,
+            postfix: 'dias',
+            buttondown_class: 'btn btn-white',
+            buttonup_class: 'btn btn-white'
+        });
+        $("input[id='demo5']").TouchSpin({
+            min: 0,
+            max: 1000,
+            //step: 10,
+            prefix: '%',
+            buttondown_class: 'btn btn-white',
+            buttonup_class: 'btn btn-white'
         });
     </script>
 
@@ -559,6 +546,32 @@
                     }
                 });
                 e.preventDefault();
+            });
+        });
+
+
+        $("#CategorySelect").change(function () {
+
+            var id = $("#CategorySelect").val();
+
+            $.ajax({
+                method: "GET",
+                url: "/User/GetFoodOfCategory/" + id,
+                contentType: "application/json",
+                dataType: "json",
+                traditional: true,
+                success: function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var s = '<option value="' + data[i].id + '">' + data[i].food_Name + '</option>';
+                        $("#FoodSelect").append(s);
+                        $("#FoodSelect").bootstrapDualListbox("refresh", true);
+                    }
+                },
+                failure: function (response) {
+                    alert("Falha na comunicação com o servidor.");
+                },
+                error: function (response) {
+                }
             });
         });
     </script>

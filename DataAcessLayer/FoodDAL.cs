@@ -92,11 +92,10 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                List<Food> foods = await db.Foods.Where(c => c.Category.ID == id).ToListAsync();
+                List<Food> foods = await db.Foods.Where(c => c.CategoryID == id).ToListAsync();
                 response.Data = foods;
                 return ResponseFactory.QueryResponseSuccessModel<Food>(foods);
             }
-            
         }
 
         public async Task<Response> Insert(Food item)

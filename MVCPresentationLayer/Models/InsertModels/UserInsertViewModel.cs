@@ -45,5 +45,7 @@ namespace MVCPresentationLayer.Models.InsertModels
         [Display(Name = "Dias para alcançar objetivo")]
         public int Days_To_Reach_Goal { get; set; }
 
+        List<int> Foods = new List<int>();
+
     }
 }

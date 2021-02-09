@@ -9,7 +9,7 @@ namespace Entities
     {
 		public int ID { get; set; }
 		public virtual FoodCategory Category { get; set; }
-		public int Food_CategoryID{ get; set; }
+		public int CategoryID{ get; set; }
 		public string Food_Name { get; set; }
 		public double Calories { get; set; }
 		public double Alcohol { get; set; }

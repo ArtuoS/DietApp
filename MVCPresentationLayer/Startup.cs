@@ -71,6 +71,7 @@ namespace MVCPresentationLayer
             services.AddTransient<IRestrictionService, RestrictionBLL>();
             services.AddTransient<IFoodService, FoodBLL>();
             services.AddTransient<IRestrictionService, RestrictionBLL>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

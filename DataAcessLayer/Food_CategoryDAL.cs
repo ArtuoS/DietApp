@@ -50,7 +50,7 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                List<FoodCategory> food_Categories = await db.Categories.ToListAsync();
+                List<FoodCategory> food_Categories = await db.Categories.Include(c=> c.Foods).ToListAsync();
                 if (food_Categories != null)
                 {
                     response.Data = food_Categories;

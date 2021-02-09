@@ -13,7 +13,7 @@
     List<Food> foods = foodService.GetAll().Result.Data;
     List<FoodCategory> foodCategories = categoryService.GetAll().Result.Data;
     List<FoodAmountPerMeal> foodAmout = new List<FoodAmountPerMeal>();
-    string a = "rand";
+    string a;
 }
 
 <div class="wrapper wrapper-content  animated fadeInRight">
@@ -253,13 +253,13 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label class="form-label">Categoria</label>
-                                <select class="chosen-select" name="account">
+                                <select id="FoodCategory" class="chosen-select" name="account">
                                     @if (foodCategories != null)
                                     {
                                         foreach (FoodCategory item in foodCategories)
                                         {
 
-                                            <option id="FoodCategory" value="@item.ID"> @item.Name</option>
+                                            <option value="@item.ID"> @item.Name</option>
 
                                         }
                                     }
@@ -503,10 +503,10 @@
                 @foreach (FoodCategory category in foodCategories)
                 {
 
-                    @if(category.Name == )
-                    {
-
-                    }
+                    //if(category.Name == )
+                    //{
+                    //
+                    //}
                 }
                 food.Calories = parseFloat($("#Calories").val());
                 food.Alcohol = parseFloat($("#Alcohol").val());
