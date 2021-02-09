@@ -13,7 +13,7 @@ namespace MVCPresentationLayer.Models.InsertModels
         [Display(Name = "Nome")]
         public string Name { get; set; }
         [Display(Name = "Categoria")]
-        public Categoria_Refeicao Categoria { get; set; }
+        public Categoria_Refeicao Category { get; set; }
         [Display(Name = "Descrição")]
         public string Description { get; set; }
         [Display(Name = "Imagem")]

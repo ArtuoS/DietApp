@@ -15,175 +15,240 @@
     IFood_CategoryService food_CategoryService = new Food_CategoryBLL();
     List<FoodCategory> foods = food_CategoryService.GetAll().Result.Data;
 }
-<div class="row">
-    <div class="col-lg-10">
-        <div class="ibox ">
-            <div class="ibox-title">
-                <h5>Cadastro de comida</h5>
+
+<div class="wrapper wrapper-content animated fadeInRight ecommerce">
+
+
+    <div class="ibox-content m-b-sm border-bottom">
+        <form asp-action="Insert" class="form">
+            <div class="row">
+                <div class="form-group">
+                    <select class="chosen-select" name="account">
+                        Selecione uma categoria
+                        @if (foods != null)
+                        {
+                            foreach (FoodCategory item in foods)
+                            {
+
+                                <option value="@item.ID"> @item.Name</option>
+
+                            }
+                        }
+                    </select>
+                    <a data-toggle="modal" class="btn btn-primary" href="#modal-form">Cadastrar nova categoria</a>
+                </div>
+                <div class="form-group">
+
+                </div>
             </div>
-            <div class="ibox-content">
-                <form asp-action="Insert" class="form">
-                    <div class="row">
-                        <div class="form-group">
-                            <select class="form-control m-b" name="account">
-                                Selecione uma categoria
-                                @if (foods != null) {
-                                    foreach (FoodCategory item in foods) {
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="Food_Name" class="form-label"></label>
+                    <input asp-for="Food_Name" class="form-control" />
+                    <span asp-validation-for="Food_Name" class="text-danger"></span>
+                </div>
 
-                                        <option value="@item.ID"> @item.Name</option>
+                <div class="form-group">
+                    <label asp-for="Calories" class="form-label"></label>
+                    <input asp-for="Calories" class="form-control" />
+                    <span asp-validation-for="Calories" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Alcohol" class="form-label"></label>
+                    <input asp-for="Alcohol" class="form-control" />
+                    <span asp-validation-for="Alcohol" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Carbohydrate" class="form-label"></label>
+                    <input asp-for="Carbohydrate" class="form-control" />
+                    <span asp-validation-for="Carbohydrate" class="text-danger"></span>
+                </div>
 
-                                    }
-                                }
-                            </select>
-                            <a data-toggle="modal" class="btn btn-primary" href="#modal-form">Cadastrar nova categoria</a>
-                        </div>
-                        <div class="form-group">
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="Copper" class="form-label"></label>
+                    <input asp-for="Copper" class="form-control" />
+                    <span asp-validation-for="Copper" class="text-danger"></span>
+                </div>
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label asp-for="Food_Name" class="form-label"></label>
-                            <input asp-for="Food_Name" class="form-control" />
-                            <span asp-validation-for="Food_Name" class="text-danger"></span>
-                        </div>
+                <div class="form-group">
+                    <label asp-for="Fiber" class="form-label"></label>
+                    <input asp-for="Fiber" class="form-control" />
+                    <span asp-validation-for="Fiber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Lipid" class="form-label"></label>
+                    <input asp-for="Lipid" class="form-control" />
+                    <span asp-validation-for="Lipid" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Magnesium" class="form-label"></label>
+                    <input asp-for="Magnesium" class="form-control" />
+                    <span asp-validation-for="Magnesium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="Phosphor" class="form-label"></label>
+                    <input asp-for="Phosphor" class="form-control" />
+                    <span asp-validation-for="Phosphor" class="text-danger"></span>
+                </div>
 
-                        <div class="form-group">
-                            <label asp-for="Calories" class="form-label"></label>
-                            <input asp-for="Calories" class="form-control" />
-                            <span asp-validation-for="Calories" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Alcohol" class="form-label"></label>
-                            <input asp-for="Alcohol" class="form-control" />
-                            <span asp-validation-for="Alcohol" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Carbohydrate" class="form-label"></label>
-                            <input asp-for="Carbohydrate" class="form-control" />
-                            <span asp-validation-for="Carbohydrate" class="text-danger"></span>
-                        </div>
+                <div class="form-group">
+                    <label asp-for="Potassium" class="form-label"></label>
+                    <input asp-for="Potassium" class="form-control" />
+                    <span asp-validation-for="Potassium" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Protein" class="form-label"></label>
+                    <input asp-for="Protein" class="form-control" />
+                    <span asp-validation-for="Protein" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Sodium" class="form-label"></label>
+                    <input asp-for="Sodium" class="form-control" />
+                    <span asp-validation-for="Sodium" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="Selenium" class="form-label"></label>
+                    <input asp-for="Selenium" class="form-control" />
+                    <span asp-validation-for="Selenium" class="text-danger"></span>
+                </div>
 
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label asp-for="Copper" class="form-label"></label>
-                            <input asp-for="Copper" class="form-control" />
-                            <span asp-validation-for="Copper" class="text-danger"></span>
-                        </div>
+                <div class="form-group">
+                    <label asp-for="Vitamin_A" class="form-label"></label>
+                    <input asp-for="Vitamin_A" class="form-control" />
+                    <span asp-validation-for="Vitamin_A" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vitamin_C" class="form-label"></label>
+                    <input asp-for="Vitamin_C" class="form-control" />
+                    <span asp-validation-for="Vitamin_C" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vitamin_D" class="form-label"></label>
+                    <input asp-for="Vitamin_D" class="form-control" />
+                    <span asp-validation-for="Vitamin_D" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="Vitamin_E" class="form-label"></label>
+                    <input asp-for="Vitamin_E" class="form-control" />
+                    <span asp-validation-for="Vitamin_E" class="text-danger"></span>
+                </div>
 
-                        <div class="form-group">
-                            <label asp-for="Fiber" class="form-label"></label>
-                            <input asp-for="Fiber" class="form-control" />
-                            <span asp-validation-for="Fiber" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Lipid" class="form-label"></label>
-                            <input asp-for="Lipid" class="form-control" />
-                            <span asp-validation-for="Lipid" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Magnesium" class="form-label"></label>
-                            <input asp-for="Magnesium" class="form-control" />
-                            <span asp-validation-for="Magnesium" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label asp-for="Phosphor" class="form-label"></label>
-                            <input asp-for="Phosphor" class="form-control" />
-                            <span asp-validation-for="Phosphor" class="text-danger"></span>
-                        </div>
+                <div class="form-group">
+                    <label asp-for="Vitamin_B6" class="control-label"></label>
+                    <input asp-for="Vitamin_B6" class="form-control" />
+                    <span asp-validation-for="Vitamin_B6" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Vitamin_B12" class="form-control" />
+                    <span asp-validation-for="Vitamin_B12" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Zinc" class="orm-label"></label>
+                    <input asp-for="Zinc" class="form-control" />
+                    <span asp-validation-for="Zinc" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-white" type="submit" value="Create">Cadastrar</button>
+            </div>
+        </form>
+    </div>
 
-                        <div class="form-group">
-                            <label asp-for="Potassium" class="form-label"></label>
-                            <input asp-for="Potassium" class="form-control" />
-                            <span asp-validation-for="Potassium" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Protein" class="form-label"></label>
-                            <input asp-for="Protein" class="form-control" />
-                            <span asp-validation-for="Protein" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Sodium" class="form-label"></label>
-                            <input asp-for="Sodium" class="form-control" />
-                            <span asp-validation-for="Sodium" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label asp-for="Selenium" class="form-label"></label>
-                            <input asp-for="Selenium" class="form-control" />
-                            <span asp-validation-for="Selenium" class="text-danger"></span>
-                        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
 
-                        <div class="form-group">
-                            <label asp-for="Vitamin_A" class="form-label"></label>
-                            <input asp-for="Vitamin_A" class="form-control" />
-                            <span asp-validation-for="Vitamin_A" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Vitamin_C" class="form-label"></label>
-                            <input asp-for="Vitamin_C" class="form-control" />
-                            <span asp-validation-for="Vitamin_C" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Vitamin_D" class="form-label"></label>
-                            <input asp-for="Vitamin_D" class="form-control" />
-                            <span asp-validation-for="Vitamin_D" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <label asp-for="Vitamin_E" class="form-label"></label>
-                            <input asp-for="Vitamin_E" class="form-control" />
-                            <span asp-validation-for="Vitamin_E" class="text-danger"></span>
-                        </div>
+                    <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="15">
+                        <thead>
+                            <tr>
 
-                        <div class="form-group">
-                            <label asp-for="Vitamin_B6" class="control-label"></label>
-                            <input asp-for="Vitamin_B6" class="form-control" />
-                            <span asp-validation-for="Vitamin_B6" class="text-danger"></span>
+                                <th>Order ID</th>
+                                <th data-hide="phone">Customer</th>
+                                <th data-hide="phone">Amount</th>
+                                <th data-hide="phone">Date added</th>
+                                <th data-hide="phone,tablet">Date modified</th>
+                                <th data-hide="phone">Status</th>
+                                <th class="text-right">Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    3214
+                                </td>
+                                <td>
+                                    Customer example
+                                </td>
+                                <td>
+                                    $500.00
+                                </td>
+                                <td>
+                                    03/04/2015
+                                </td>
+                                <td>
+                                    03/05/2015
+                                </td>
+                                <td>
+                                    <span class="label label-primary">Pending</span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="btn-group">
+                                        <button class="btn-white btn btn-xs">View</button>
+                                        <button class="btn-white btn btn-xs">Edit</button>
+                                        <button class="btn-white btn btn-xs">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7">
+                                    <ul class="pagination float-right"></ul>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="modal-form" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <h3 class="m-t-none m-b">Cadastrar nova categoria</h3>
+                    <form role="form">
+                        <div class="form-group"><label>Nome da categoria</label> <input type="text" id="Nome" class="form-control"></div>
+                        <div>
+                            <button id="insertCategoria" class="btn btn-sm btn-primary float-right m-t-n-xs" type="submit"><strong>Cadastrar</strong></button>
                         </div>
-                        <div class="form-group">
-                            <input asp-for="Vitamin_B12" class="form-control" />
-                            <span asp-validation-for="Vitamin_B12" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Zinc" class="orm-label"></label>
-                            <input asp-for="Zinc" class="form-control" />
-                            <span asp-validation-for="Zinc" class="text-danger"></span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-white" type="submit" value="Create">Cadastrar</button>
-                    </div>
-                </form>
-                <div id="modal-form" class="modal fade" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="row">
-                                    <h3 class="m-t-none m-b">Cadastrar nova categoria</h3>
-                                    <form role="form">
-                                        <div class="form-group"><label>Nome da categoria</label> <input type="text" id="Nome" class="form-control"></div>
-                                        <div>
-                                            <button id="insertCategoria" class="btn btn-sm btn-primary float-right m-t-n-xs" type="submit"><strong>Cadastrar</strong></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<link rel="stylesheet" href="~/lib/chosen/bootstrap-chosen.css" />
 
 
 @section Scripts {
+    <script src="~/lib/chosen/chosen.jquery.js"></script>
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script type="text/javascript">
         $(function () {
