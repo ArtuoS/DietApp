@@ -1,10 +1,12 @@
 ﻿using Entities.Enums;
+using Entities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Entities {
-    public class User {
+    public class User : IStatusService
+        {
         public int ID { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }

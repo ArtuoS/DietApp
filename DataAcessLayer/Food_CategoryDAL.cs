@@ -70,9 +70,18 @@ namespace DataAcessLayer
             throw new NotImplementedException();
         }
 
-        public Task<Response> Insert(FoodCategory item)
+        public async Task<Response> Insert(FoodCategory item)
         {
-            throw new NotImplementedException();
+            using (DietDB db = new DietDB())
+            {
+                if (item != null)
+                {
+                    db.Categories.Add(item);
+                    await db.SaveChangesAsync();
+                    return ResponseFactory.ResponseSuccessModel();
+                }
+                return ResponseFactory.SingleResponseNotFoundException<User>();
+            }
         }
 
         public Task<Response> Update(FoodCategory item)

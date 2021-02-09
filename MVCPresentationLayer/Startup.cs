@@ -46,22 +46,31 @@ namespace MVCPresentationLayer
 
             var config = new AutoMapper.MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<UserInsertViewModel, User>();
-                cfg.CreateMap<UserUpdateViewModel, User>();
                 cfg.CreateMap<User, UserQueryViewModel>();
-                cfg.CreateMap<RestrictionInsertViewModel, Restriction>();
-                cfg.CreateMap<MealInsertViewModel, Meal>();
+                cfg.CreateMap<Food, FoodQueryViewModel>();
+                cfg.CreateMap<Meal, MealQueryViewModel>();
+                cfg.CreateMap<Restriction, RestrictionQueryViewModel>();
 
+                cfg.CreateMap<RestrictionInsertViewModel, Restriction>();
+                cfg.CreateMap<FoodCategoryInsertViewModel, FoodCategory>();
+                cfg.CreateMap<UserInsertViewModel, User>();
+                cfg.CreateMap<MealInsertViewModel, Meal>();
+                cfg.CreateMap<FoodInsertViewModel, Food>();
+
+                cfg.CreateMap<UserUpdateViewModel, User>();
             });
+
             IMapper mapper = config.CreateMapper();
 
             UserBLL userBLL = new UserBLL();
 
             services.AddSingleton(mapper);
+            services.AddTransient<IFood_CategoryService, Food_CategoryBLL>();
             services.AddTransient<IMealService, MealBLL>();
             services.AddTransient<IUserService, UserBLL>();
             services.AddTransient<IRestrictionService, RestrictionBLL>();
             services.AddTransient<IFoodService, FoodBLL>();
+            services.AddTransient<IRestrictionService, RestrictionBLL>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -91,6 +91,7 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
+                    item.SetStatus(true);
                     return await food_categoryDAL.Insert(item);
                 }
             }

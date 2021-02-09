@@ -13,7 +13,7 @@
     List<Food> foods = foodService.GetAll().Result.Data;
     List<FoodCategory> foodCategories = categoryService.GetAll().Result.Data;
     List<FoodAmountPerMeal> foodAmout = new List<FoodAmountPerMeal>();
-
+    string a = "rand";
 }
 
 <div class="wrapper wrapper-content  animated fadeInRight">
@@ -259,7 +259,7 @@
                                         foreach (FoodCategory item in foodCategories)
                                         {
 
-                                            <option value="@item.ID"> @item.Name</option>
+                                            <option id="FoodCategory" value="@item.ID"> @item.Name</option>
 
                                         }
                                     }
@@ -285,7 +285,7 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="form-label">Calorias</label>
-                                <input id="calorias" class="form-control" />
+                                <input id="Calories" class="form-control" />
                             </div>
                         </div>
                         <div class="col-sm-2">
@@ -449,8 +449,6 @@
 
             $('.footable').footable();
             $('.footable2').footable();
-
-
         });
     </script>
 
@@ -501,30 +499,38 @@
             $("#FoodInsert").click(function (e) {
                 var food = new Object();
                 food.Food_Name = $("#Food_Name").val();
-                food.Category = $("#Category").val();
-                food.Calories = parseInt($("#Calories").val());
-                food.Alcohol = $("#Alcohol").val();
-                food.Carbohydrate = $("#Carbohydrate").val();
-                food.Copper = $("#Copper").val();
-                food.Fiber = $("#Fiber").val();
-                food.Lipid = $("#Lipid").val();
-                food.Magnesium = $("#Magnesium").val();
-                food.Phosphor = $("#Phosphor").val();
-                food.Potassium = $("#Potassium").val();
-                food.Protein = $("#Protein").val();
-                food.Sodium = $("#Sodium").val();
-                food.Selenium = $("#Selenium").val();
-                food.Vitamin_A = $("#Vitamin_A").val();
-                food.Vitamin_C = $("#Vitamin_C").val();
-                food.Vitamin_D = $("#Vitamin_D").val();
-                food.Vitamin_E = $("#Vitamin_E").val();
-                food.Vitamin_B6 = $("#Vitamin_B6").val();
-                food.Vitamin_B12 = $("#Vitamin_B12").val();
-                food.Zinc = $("#Zinc").val();
+                food.Category = $("#FoodCategory").val();
+                @foreach (FoodCategory category in foodCategories)
+                {
+
+                    @if(category.Name == )
+                    {
+
+                    }
+                }
+                food.Calories = parseFloat($("#Calories").val());
+                food.Alcohol = parseFloat($("#Alcohol").val());
+                food.Carbohydrate = parseFloat($("#Carbohydrate").val());
+                food.Copper = parseFloat($("#Copper").val());
+                food.Fiber = parseFloat($("#Fiber").val());
+                food.Lipid = parseFloat($("#Lipid").val());
+                food.Magnesium = parseFloat($("#Magnesium").val());
+                food.Phosphor = parseFloat($("#Phosphor").val());
+                food.Potassium = parseFloat($("#Potassium").val());
+                food.Protein = parseFloat($("#Protein").val());
+                food.Sodium = parseFloat($("#Sodium").val());
+                food.Selenium = parseFloat($("#Selenium").val());
+                food.Vitamin_A = parseFloat($("#Vitamin_A").val());
+                food.Vitamin_C = parseFloat($("#Vitamin_C").val());
+                food.Vitamin_D = parseFloat($("#Vitamin_D").val());
+                food.Vitamin_E = parseFloat($("#Vitamin_E").val());
+                food.Vitamin_B6 = parseFloat($("#Vitamin_B6").val());
+                food.Vitamin_B12 = parseFloat($("#Vitamin_B12").val());
+                food.Zinc = parseFloat($("#Zinc").val());
 
                 $.ajax({
                     method: "POST",
-                    url: "Food/Insert/",
+                    url: "/Food/Insert/",
                     data: JSON.stringify(food),
                     contentType: "application/json",
                     dataType: "json",
