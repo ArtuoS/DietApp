@@ -5,6 +5,7 @@ using Entities.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -89,9 +90,22 @@ namespace DataAcessLayer
             return response;
         }
 
+        public async Task<QueryResponse<Meal>> GetByCategory(Entities.Enums.Meal_Category category)
+        {
+            QueryResponse<Meal> response = new QueryResponse<Meal>();
+
+            using (DietDB db = new DietDB())
+            {
+                List<Meal> meal = await db.Meals.Where(w => w.Category == category).ToListAsync();
+                response.Data = meal;
+            }
+
+            return response;
+        }
+
         public async Task<Response> Insert(Meal item)
         {
-            using(DietDB db = new DietDB())
+            using (DietDB db = new DietDB())
             {
                 db.Meals.Add(item);
                 await db.SaveChangesAsync();

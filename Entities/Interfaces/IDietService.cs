@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
-   public interface IDietService : IEntityCRUD<Diet>
+    public interface IDietService : IEntityCRUD<Diet>
     {
         Task<SingleResponse<Diet>> GetByName(Diet item);
+        Task<SingleResponse<Diet>> GetByDate(DateTime date);
     }
 }

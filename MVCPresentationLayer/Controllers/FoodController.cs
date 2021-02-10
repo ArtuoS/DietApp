@@ -18,11 +18,13 @@ namespace MVCPresentationLayer.Controllers
     {
         private readonly IMapper mapper;
         private readonly IFoodService foodService;
+        private readonly IFood_CategoryService foodCategoryService;
 
-        public FoodController(IMapper mapper, IFoodService foodService)
+        public FoodController(IMapper mapper, IFoodService foodService, IFood_CategoryService foodCategoryService)
         {
             this.mapper = mapper;
             this.foodService = foodService;
+            this.foodCategoryService = foodCategoryService;
         }
 
         public IActionResult Index()
@@ -37,9 +39,15 @@ namespace MVCPresentationLayer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Insert(FoodInsertViewModel model)
+        public async Task<IActionResult> Insert([FromBody] FoodInsertViewModel model)
         {
-            Food food = mapper.Map<Food>(model);
+            Food food = new Food();
+            SingleResponse<FoodCategory> category = await foodCategoryService.GetByName(model.Category);
+
+            food.Category = category.Data;
+            food = mapper.Map<Food>(model);
+            //food.CategoryID= category.Data.ID;
+
 
             Response response = await foodService.Insert(food);
 

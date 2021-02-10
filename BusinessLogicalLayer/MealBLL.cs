@@ -1,6 +1,7 @@
 ﻿using Common;
 using DataAcessLayer;
 using Entities;
+using Entities.Enums;
 using Entities.Factory;
 using Entities.Interfaces;
 using FluentValidation;
@@ -119,6 +120,18 @@ namespace BusinessLogicalLayer
             catch (Exception ex)
             {
                 return ResponseFactory.SingleResponseExceptionModel<Meal>(ex);
+            }
+        }
+
+        public async Task<QueryResponse<Meal>> GetByCategory(Meal_Category category)
+        {
+            try
+            {
+                return await mealDAL.GetByCategory(category);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.QueryResponseExceptionModel<Meal>(ex);
             }
         }
 

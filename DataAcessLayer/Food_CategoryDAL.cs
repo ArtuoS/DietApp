@@ -65,9 +65,20 @@ namespace DataAcessLayer
             throw new NotImplementedException();
         }
 
-        public Task<SingleResponse<FoodCategory>> GetByName(string nome)
+        public async Task<SingleResponse<FoodCategory>> GetByName(string nome)
         {
-            throw new NotImplementedException();
+            SingleResponse<FoodCategory> response = new SingleResponse<FoodCategory>();
+
+            using (DietDB db = new DietDB())
+            {
+                FoodCategory category = await db.Categories.FirstOrDefaultAsync(w => w.Name == nome);
+                if (category != null)
+                {
+                    response.Data = category;
+                    return ResponseFactory.SingleResponseSuccessModel<FoodCategory>(category);
+                }
+                return ResponseFactory.SingleResponseNotFoundException<FoodCategory>();
+            }
         }
 
         public async Task<Response> Insert(FoodCategory item)

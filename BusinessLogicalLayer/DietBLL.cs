@@ -118,5 +118,10 @@ namespace BusinessLogicalLayer
                 return ResponseFactory.SingleResponseExceptionModel<Diet>(ex);
             }
         }
+
+        public Task<SingleResponse<Diet>> GetByDate(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

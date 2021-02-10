@@ -61,6 +61,11 @@ namespace DataAcessLayer
             }
         }
 
+        public Task<SingleResponse<Diet>> GetByDate(DateTime date)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<SingleResponse<Diet>> GetById(int id)
         {
             SingleResponse<Diet> response = new SingleResponse<Diet>();
