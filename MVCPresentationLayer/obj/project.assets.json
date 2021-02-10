@@ -2677,7 +2677,10 @@
         },
         "runtime": {
           "bin/placeholder/BusinessLogicalLayer.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Common/1.0.0": {
         "type": "project",
@@ -2691,7 +2694,10 @@
         },
         "runtime": {
           "bin/placeholder/Common.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "DataAcessLayer/1.0.0": {
         "type": "project",
@@ -2707,7 +2713,10 @@
         },
         "runtime": {
           "bin/placeholder/DataAcessLayer.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Entities/1.0.0": {
         "type": "project",
@@ -2722,7 +2731,10 @@
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -8953,5 +8965,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

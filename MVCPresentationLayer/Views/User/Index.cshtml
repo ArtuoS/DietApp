@@ -17,19 +17,19 @@
                             <!--User.FindFirst("Weight").Value;-->
                         </h1>
                         <p>
-                            Email do usuário
+                            @User.FindFirst("Email").Value
                         </p>
                         <table class="table small m-b-xs">
                             <tbody>
                                 <tr>
                                     <td>
-                                        Peso: <strong>58kg</strong>
+                                        Peso: <strong>@User.FindFirst("Weight").Value<strong>kg</strong></strong>
                                     </td>
                                     <td>
-                                        Altura: <strong>163cm</strong>
+                                        Altura: <strong>@User.FindFirst("Height").Value<strong>cm</strong></strong>
                                     </td>
                                     <td>
-                                        Gordura Corporal: <strong>%22</strong>
+                                        Gordura Corporal: <strong>@User.FindFirst("BodyFat").Value<strong>%</strong></strong>
                                     </td>
                                 </tr>
                             </tbody>
@@ -44,19 +44,27 @@
                 <tbody>
                     <tr>
                         <td class="text-success">
-                            <strong class="badge-success">' 77g </strong> de Calorias
+                            <strong class="badge-success">
+                                @User.FindFirst("Daily_Calories").Value
+                            </strong> de Calorias
                         </td>
                         <td class="text-info">
-                            <strong class="badge-info">' 22g </strong> de Carboidratos
+                            <strong class="badge-info">
+                                @User.FindFirst("Daily_Carbohydrates").Value
+                            </strong> de Carboidratos
                         </td>
 
                     </tr>
                     <tr>
                         <td class="text-warning">
-                            <strong class="badge-warning">' 61 </strong>g de Proteínas
+                            <strong class="badge-warning">
+                                @User.FindFirst("Daily_Protein").Value
+                            </strong>g de Proteínas
                         </td>
                         <td class="text-danger">
-                            <strong class="badge-danger">' 54g </strong> de Gorduras
+                            <strong class="badge-danger">
+                                @User.FindFirst("Daily_Fats").Value
+                            </strong> de Gorduras
                         </td>
                     </tr>
                 </tbody>
@@ -64,7 +72,7 @@
         </div>
         <div class="col-md-3">
             <small>Progresso Kgs</small>
-            <h2 class="no-margins">58</h2>
+            <h2 class="no-margins">@User.FindFirst("User_Weight_Progress").Value</h2>
             <div id="sparkline1"></div>
         </div>
     </div>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAcessLayer.Migrations
 {
-    public partial class initialmigration : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,7 +72,7 @@ namespace DataAcessLayer.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Food_CategoryID = table.Column<int>(type: "int", nullable: false),
+                    CategoryID = table.Column<int>(type: "int", nullable: false),
                     Food_Name = table.Column<string>(type: "varchar(40)", unicode: false, maxLength: 40, nullable: false),
                     Calories = table.Column<double>(type: "float", nullable: false),
                     Alcohol = table.Column<double>(type: "float", nullable: false),
@@ -99,8 +99,8 @@ namespace DataAcessLayer.Migrations
                 {
                     table.PrimaryKey("PK_Foods", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Foods_Categories_Food_CategoryID",
-                        column: x => x.Food_CategoryID,
+                        name: "FK_Foods_Categories_CategoryID",
+                        column: x => x.CategoryID,
                         principalTable: "Categories",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -153,27 +153,6 @@ namespace DataAcessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FoodAmountPerMeal",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FoodID = table.Column<int>(type: "int", nullable: false),
-                    Quantity = table.Column<double>(type: "float", nullable: false),
-                    Unit = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FoodAmountPerMeal", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_FoodAmountPerMeal_Foods_FoodID",
-                        column: x => x.FoodID,
-                        principalTable: "Foods",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "FoodRestriction",
                 columns: table => new
                 {
@@ -204,11 +183,10 @@ namespace DataAcessLayer.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
-                    Categoria = table.Column<int>(type: "int", nullable: false),
+                    Category = table.Column<int>(type: "int", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Status = table.Column<bool>(type: "bit", nullable: false),
-                    Time = table.Column<DateTime>(type: "datetime2", maxLength: 40, nullable: false),
                     Total_Calories = table.Column<double>(type: "float", nullable: false),
                     Total_Carbohydrates = table.Column<double>(type: "float", nullable: false),
                     Total_Proteins = table.Column<double>(type: "float", nullable: false),
@@ -251,27 +229,31 @@ namespace DataAcessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FoodAmountPerMealMeal",
+                name: "FoodAmountPerMeals",
                 columns: table => new
                 {
-                    FoodsID = table.Column<int>(type: "int", nullable: false),
-                    MealsID = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FoodID = table.Column<int>(type: "int", nullable: true),
+                    Quantity = table.Column<double>(type: "float", nullable: false),
+                    Unit = table.Column<int>(type: "int", nullable: false),
+                    MealID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FoodAmountPerMealMeal", x => new { x.FoodsID, x.MealsID });
+                    table.PrimaryKey("PK_FoodAmountPerMeals", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_FoodAmountPerMealMeal_FoodAmountPerMeal_FoodsID",
-                        column: x => x.FoodsID,
-                        principalTable: "FoodAmountPerMeal",
+                        name: "FK_FoodAmountPerMeals_Foods_FoodID",
+                        column: x => x.FoodID,
+                        principalTable: "Foods",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_FoodAmountPerMealMeal_Meals_MealsID",
-                        column: x => x.MealsID,
+                        name: "FK_FoodAmountPerMeals_Meals_MealID",
+                        column: x => x.MealID,
                         principalTable: "Meals",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -285,14 +267,14 @@ namespace DataAcessLayer.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FoodAmountPerMeal_FoodID",
-                table: "FoodAmountPerMeal",
+                name: "IX_FoodAmountPerMeals_FoodID",
+                table: "FoodAmountPerMeals",
                 column: "FoodID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FoodAmountPerMealMeal_MealsID",
-                table: "FoodAmountPerMealMeal",
-                column: "MealsID");
+                name: "IX_FoodAmountPerMeals_MealID",
+                table: "FoodAmountPerMeals",
+                column: "MealID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FoodRestriction_RestrictionsID",
@@ -300,9 +282,9 @@ namespace DataAcessLayer.Migrations
                 column: "RestrictionsID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Foods_Food_CategoryID",
+                name: "IX_Foods_CategoryID",
                 table: "Foods",
-                column: "Food_CategoryID");
+                column: "CategoryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Meals_FoodID",
@@ -327,7 +309,7 @@ namespace DataAcessLayer.Migrations
                 name: "DietMeal");
 
             migrationBuilder.DropTable(
-                name: "FoodAmountPerMealMeal");
+                name: "FoodAmountPerMeals");
 
             migrationBuilder.DropTable(
                 name: "FoodRestriction");
@@ -337,9 +319,6 @@ namespace DataAcessLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "Diets");
-
-            migrationBuilder.DropTable(
-                name: "FoodAmountPerMeal");
 
             migrationBuilder.DropTable(
                 name: "Meals");
