@@ -17,6 +17,8 @@ namespace DataAcessLayer.Mappings
             builder.HasIndex(a => a.Email).IsUnique();
             builder.Property(a => a.Activity).IsRequired();
             builder.Property(a => a.Password).IsRequired();
+            builder.Property(a => a.Weight_Objective).IsRequired(false);
+            builder.Property(a => a.Days_To_Reach_Goal).IsRequired(false);
         }
     }
 }

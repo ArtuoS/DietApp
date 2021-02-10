@@ -1550,3 +1550,4 @@ C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Insert.cshtml.g.cs
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\FoodCategory\Insert.cshtml.g.cs
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\FoodCategory\Insert.cshtml.g.cs
+C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\FoodCategory\Insert.cshtml.g.cs

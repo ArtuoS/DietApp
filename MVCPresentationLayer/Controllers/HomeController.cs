@@ -45,11 +45,20 @@ namespace MVCPresentationLayer.Controllers
                 {
                     new Claim(ClaimTypes.Name, response.Data.First_Name),
                     new Claim(ClaimTypes.Email, email),
-                    new Claim(ClaimTypes.Role, response.Data.Role)
+                    new Claim(ClaimTypes.Role, response.Data.Role),
+                    new Claim(type: "Daily_Calories", value: response.Data.Daily_Calories.ToString()),
+                    new Claim(type: "Daily_Carbohydrates", value: response.Data.Daily_Carbohydrates.ToString()),
+                    new Claim(type: "Daily_Fats", value: response.Data.Daily_Fats.ToString()),
+                    new Claim(type: "Daily_Protein", value: response.Data.Daily_Protein.ToString()),
+                    new Claim(type: "User_Weight_Progress", value: (response.Data.Weight - response.Data.Weight_Objective).ToString()),
+                    new Claim(type: "Weight", value: response.Data.Weight.ToString()),
+                    new Claim(type: "BodyFat", value: response.Data.BodyFat.ToString()),
+                    new Claim(type: "Height", value: response.Data.Height.ToString()),
+                    new Claim(type: "Email", value: response.Data.Email.ToString())
                 };
 
-            var minhaIdentity = new ClaimsIdentity(userClaims, "Usuario");
-            var userPrincipal = new ClaimsPrincipal(new[] { minhaIdentity });
+            var myIdentity = new ClaimsIdentity(userClaims, "Usuario");
+            var userPrincipal = new ClaimsPrincipal(new[] { myIdentity });
 
             await HttpContext.SignInAsync(userPrincipal);
 

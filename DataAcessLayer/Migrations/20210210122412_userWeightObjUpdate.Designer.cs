@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAcessLayer.Migrations
 {
     [DbContext(typeof(DietDB))]
-    [Migration("20210209004915_ColunaMeal")]
-    partial class ColunaMeal
+    [Migration("20210210122412_userWeightObjUpdate")]
+    partial class userWeightObjUpdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,7 +81,7 @@ namespace DataAcessLayer.Migrations
                     b.Property<double>("Carbohydrate")
                         .HasColumnType("float");
 
-                    b.Property<int?>("CategoryID")
+                    b.Property<int>("CategoryID")
                         .HasColumnType("int");
 
                     b.Property<double>("Copper")
@@ -89,9 +89,6 @@ namespace DataAcessLayer.Migrations
 
                     b.Property<double>("Fiber")
                         .HasColumnType("float");
-
-                    b.Property<int>("Food_CategoryID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Food_Name")
                         .IsRequired()
@@ -290,7 +287,7 @@ namespace DataAcessLayer.Migrations
                     b.Property<DateTime>("Date_Of_Birthday")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Days_To_Reach_Goal")
+                    b.Property<int?>("Days_To_Reach_Goal")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -336,7 +333,7 @@ namespace DataAcessLayer.Migrations
                     b.Property<double>("Weight")
                         .HasColumnType("float");
 
-                    b.Property<int>("Weight_Objective")
+                    b.Property<int?>("Weight_Objective")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -403,7 +400,9 @@ namespace DataAcessLayer.Migrations
                 {
                     b.HasOne("Entities.FoodCategory", "Category")
                         .WithMany("Foods")
-                        .HasForeignKey("CategoryID");
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Category");
                 });

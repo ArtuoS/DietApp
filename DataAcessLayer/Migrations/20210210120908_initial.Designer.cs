@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAcessLayer.Migrations
 {
     [DbContext(typeof(DietDB))]
-    [Migration("20210208174234_secondMigration")]
-    partial class secondMigration
+    [Migration("20210210120908_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -81,14 +81,14 @@ namespace DataAcessLayer.Migrations
                     b.Property<double>("Carbohydrate")
                         .HasColumnType("float");
 
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
                     b.Property<double>("Copper")
                         .HasColumnType("float");
 
                     b.Property<double>("Fiber")
                         .HasColumnType("float");
-
-                    b.Property<int>("Food_CategoryID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Food_Name")
                         .IsRequired()
@@ -143,7 +143,7 @@ namespace DataAcessLayer.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("Food_CategoryID");
+                    b.HasIndex("CategoryID");
 
                     b.ToTable("Foods");
                 });
@@ -176,7 +176,7 @@ namespace DataAcessLayer.Migrations
                     b.ToTable("FoodAmountPerMeals");
                 });
 
-            modelBuilder.Entity("Entities.Food_Category", b =>
+            modelBuilder.Entity("Entities.FoodCategory", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -201,7 +201,7 @@ namespace DataAcessLayer.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("Categoria")
+                    b.Property<int>("Category")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -221,11 +221,6 @@ namespace DataAcessLayer.Migrations
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("Time")
-                        .HasMaxLength(40)
-                        .IsUnicode(true)
-                        .HasColumnType("datetime2");
 
                     b.Property<double>("Total_Calories")
                         .HasColumnType("float");
@@ -403,9 +398,9 @@ namespace DataAcessLayer.Migrations
 
             modelBuilder.Entity("Entities.Food", b =>
                 {
-                    b.HasOne("Entities.Food_Category", "Category")
+                    b.HasOne("Entities.FoodCategory", "Category")
                         .WithMany("Foods")
-                        .HasForeignKey("Food_CategoryID")
+                        .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -467,7 +462,7 @@ namespace DataAcessLayer.Migrations
                     b.Navigation("Meals");
                 });
 
-            modelBuilder.Entity("Entities.Food_Category", b =>
+            modelBuilder.Entity("Entities.FoodCategory", b =>
                 {
                     b.Navigation("Foods");
                 });

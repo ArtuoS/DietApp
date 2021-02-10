@@ -269,7 +269,7 @@
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label class="form-label">Cadastrar nova categoria</label>
-                                <input type="text" class="form-control"> <span class="input-group-append">
+                                <input id="NameCategory"type="text" class="form-control"> <span class="input-group-append">
                                     <button type="submit" id="InsertCategory" class="btn btn-primary">Cadastrar categoria</button>
                                 </span>
                             </div>
@@ -500,14 +500,6 @@
                 var food = new Object();
                 food.Food_Name = $("#Food_Name").val();
                 food.Category = $("#FoodCategory").val();
-                @foreach (FoodCategory category in foodCategories)
-                {
-
-                    //if(category.Name == )
-                    //{
-                    //
-                    //}
-                }
                 food.Calories = parseFloat($("#Calories").val());
                 food.Alcohol = parseFloat($("#Alcohol").val());
                 food.Carbohydrate = parseFloat($("#Carbohydrate").val());
@@ -560,7 +552,7 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "FoodCategory/Insert/",
+                    url: "/FoodCategory/Insert/",
                     data: JSON.stringify(category),
                     contentType: "application/json",
                     dataType: "json",
@@ -584,9 +576,6 @@
                 e.preventDefault();
             });
         });
-
-
-
     </script>
 
 

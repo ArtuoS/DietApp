@@ -17,19 +17,19 @@
                             <!--User.FindFirst("Weight").Value;-->
                         </h1>
                         <p>
-                            Email do usuário
+                            @User.FindFirst("Email").Value
                         </p>
                         <table class="table small m-b-xs">
                             <tbody>
                                 <tr>
                                     <td>
-                                        Peso: <strong>58kg</strong>
+                                        Peso: <strong>@User.FindFirst("Weight").Value<strong>kg</strong></strong>
                                     </td>
                                     <td>
-                                        Altura: <strong>163cm</strong>
+                                        Altura: <strong>@User.FindFirst("Height").Value<strong>cm</strong></strong>
                                     </td>
                                     <td>
-                                        Gordura Corporal: <strong>%22</strong>
+                                        Gordura Corporal: <strong>@User.FindFirst("BodyFat").Value<strong>%</strong></strong>
                                     </td>
                                 </tr>
                             </tbody>
@@ -44,19 +44,27 @@
                 <tbody>
                     <tr>
                         <td class="text-success">
-                            <strong class="badge-success">' 77g </strong> de Calorias
+                            <strong class="badge-success">
+                                @User.FindFirst("Daily_Calories").Value
+                            </strong> de Calorias
                         </td>
                         <td class="text-info">
-                            <strong class="badge-info">' 22g </strong> de Carboidratos
+                            <strong class="badge-info">
+                                @User.FindFirst("Daily_Carbohydrates").Value
+                            </strong> de Carboidratos
                         </td>
 
                     </tr>
                     <tr>
                         <td class="text-warning">
-                            <strong class="badge-warning">' 61 </strong>g de Proteínas
+                            <strong class="badge-warning">
+                                @User.FindFirst("Daily_Protein").Value
+                            </strong>g de Proteínas
                         </td>
                         <td class="text-danger">
-                            <strong class="badge-danger">' 54g </strong> de Gorduras
+                            <strong class="badge-danger">
+                                @User.FindFirst("Daily_Fats").Value
+                            </strong> de Gorduras
                         </td>
                     </tr>
                 </tbody>
@@ -64,7 +72,7 @@
         </div>
         <div class="col-md-3">
             <small>Progresso Kgs</small>
-            <h2 class="no-margins">58</h2>
+            <h2 class="no-margins">@User.FindFirst("User_Weight_Progress").Value</h2>
             <div id="sparkline1"></div>
         </div>
     </div>
@@ -81,126 +89,126 @@
                                 <h2>Hoje, @DateTime.Today.Day/@DateTime.Today.Month</h2>
                                 <div class="row">
                                     <div class="col-lg-8">
-                                    <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
-                                        <div class="vertical-timeline-block">
-                                            <div class="vertical-timeline-icon blue-bg">
-                                                <i class="fa fa-coffee"></i>
-                                            </div>
-                                            <div class="vertical-timeline-content">
-                                                <h2>Café da manhã</h2>
-                                                <div class="dd-nodrag" id="nestable">
-                                                    <ol class="dd-list">
-                                                        <li class="dd-item" data-id="1">
-                                                            <div class="dd-handle">
-                                                                <div class="tooltip-demo">
-                                                                    <a class="text-info">Nome da refeição</a><button class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                        <div id="vertical-timeline" class="vertical-container light-timeline no-margins">
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon blue-bg">
+                                                    <i class="fa fa-coffee"></i>
+                                                </div>
+                                                <div class="vertical-timeline-content">
+                                                    <h2>Café da manhã</h2>
+                                                    <div class="dd-nodrag" id="nestable">
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item" data-id="1">
+                                                                <div class="dd-handle">
+                                                                    <div class="tooltip-demo">
+                                                                        <a class="text-info">Nome da refeição</a><button class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <ol class="dd-list">
-                                                                <li class="dd-item" data-id="2">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (10g) </span>
-                                                                        <span class="label label-info"></span> Comida1
-                                                                    </div>
-                                                                </li>
-                                                                <li class="dd-item" data-id="3">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (50g) </span>
-                                                                        <span class="label label-info"></span> Comida2
-                                                                    </div>
-                                                                </li>
-                                                                <li class="dd-item" data-id="4">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (100g) </span>
-                                                                        <span class="label label-info"></span> Comida3
-                                                                    </div>
-                                                                </li>
-                                                            </ol>
-                                                        </li>
-                                                    </ol>
+                                                                <ol class="dd-list">
+                                                                    <li class="dd-item" data-id="2">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (10g) </span>
+                                                                            <span class="label label-info"></span> Comida1
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="dd-item" data-id="3">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (50g) </span>
+                                                                            <span class="label label-info"></span> Comida2
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="dd-item" data-id="4">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (100g) </span>
+                                                                            <span class="label label-info"></span> Comida3
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </li>
+                                                        </ol>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="vertical-timeline-block">
-                                            <div class="vertical-timeline-icon red-bg">
-                                                <i class="fa fa-cutlery"></i>
-                                            </div>
-                                            <div class="vertical-timeline-content">
-                                                <h2>Almoço</h2>
-                                                <div class="dd-nodrag" id="nestable">
-                                                    <ol class="dd-list">
-                                                        <li class="dd-item" data-id="1">
-                                                            <div class="dd-handle">
-                                                                <div class="tooltip-demo">
-                                                                    <a class="text-danger">Nome da refeição</a><button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon red-bg">
+                                                    <i class="fa fa-cutlery"></i>
+                                                </div>
+                                                <div class="vertical-timeline-content">
+                                                    <h2>Almoço</h2>
+                                                    <div class="dd-nodrag" id="nestable">
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item" data-id="1">
+                                                                <div class="dd-handle">
+                                                                    <div class="tooltip-demo">
+                                                                        <a class="text-danger">Nome da refeição</a><button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <ol class="dd-list">
-                                                                <li class="dd-item" data-id="2">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (10g) </span>
-                                                                        <span class="label label-danger"></span> Comida1
-                                                                    </div>
-                                                                </li>
-                                                                <li class="dd-item" data-id="3">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (50g) </span>
-                                                                        <span class="label label-danger"></span> Comida2
-                                                                    </div>
-                                                                </li>
-                                                                <li class="dd-item" data-id="4">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (100g) </span>
-                                                                        <span class="label label-danger"></span> Comida3
-                                                                    </div>
-                                                                </li>
-                                                            </ol>
-                                                        </li>
-                                                    </ol>
+                                                                <ol class="dd-list">
+                                                                    <li class="dd-item" data-id="2">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (10g) </span>
+                                                                            <span class="label label-danger"></span> Comida1
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="dd-item" data-id="3">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (50g) </span>
+                                                                            <span class="label label-danger"></span> Comida2
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="dd-item" data-id="4">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (100g) </span>
+                                                                            <span class="label label-danger"></span> Comida3
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </li>
+                                                        </ol>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="vertical-timeline-block">
-                                            <div class="vertical-timeline-icon yellow-bg">
-                                                <i class="fa fa-glass"></i>
-                                            </div>
-                                            <div class="vertical-timeline-content">
-                                                <h2>Janta</h2>
-                                                <div class="dd-nodrag" id="nestable">
-                                                    <ol class="dd-list">
-                                                        <li class="dd-item" data-id="1">
-                                                            <div class="dd-handle">
-                                                                <div class="tooltip-demo">
-                                                                    <a class="text-warning">Nome da refeição</a><button class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                            <div class="vertical-timeline-block">
+                                                <div class="vertical-timeline-icon yellow-bg">
+                                                    <i class="fa fa-glass"></i>
+                                                </div>
+                                                <div class="vertical-timeline-content">
+                                                    <h2>Janta</h2>
+                                                    <div class="dd-nodrag" id="nestable">
+                                                        <ol class="dd-list">
+                                                            <li class="dd-item" data-id="1">
+                                                                <div class="dd-handle">
+                                                                    <div class="tooltip-demo">
+                                                                        <a class="text-warning">Nome da refeição</a><button class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <ol class="dd-list">
-                                                                <li class="dd-item" data-id="2">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (10g) </span>
-                                                                        <span class="label label-warning"></span> Comida1
-                                                                    </div>
-                                                                </li>
-                                                                <li class="dd-item" data-id="3">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (50g) </span>
-                                                                        <span class="label label-warning"></span> Comida2
-                                                                    </div>
-                                                                </li>
-                                                                <li class="dd-item" data-id="4">
-                                                                    <div class="dd-handle">
-                                                                        <span class="float-right"> (100g) </span>
-                                                                        <span class="label label-warning"></span> Comida3
-                                                                    </div>
-                                                                </li>
-                                                            </ol>
-                                                        </li>
-                                                    </ol>
+                                                                <ol class="dd-list">
+                                                                    <li class="dd-item" data-id="2">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (10g) </span>
+                                                                            <span class="label label-warning"></span> Comida1
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="dd-item" data-id="3">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (50g) </span>
+                                                                            <span class="label label-warning"></span> Comida2
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="dd-item" data-id="4">
+                                                                        <div class="dd-handle">
+                                                                            <span class="float-right"> (100g) </span>
+                                                                            <span class="label label-warning"></span> Comida3
+                                                                        </div>
+                                                                    </li>
+                                                                </ol>
+                                                            </li>
+                                                        </ol>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                     <div class="col-lg-3">
                                         <div id="pie"></div>
                                     </div>
