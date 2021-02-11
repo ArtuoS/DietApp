@@ -45,6 +45,11 @@ namespace DataAcessLayer
             }
         }
 
+        public Task<SingleResponse<Diet>> GenareteDiet(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<QueryResponse<Diet>> GetAll()
         {
             QueryResponse<Diet> response = new QueryResponse<Diet>();
@@ -61,9 +66,20 @@ namespace DataAcessLayer
             }
         }
 
-        public Task<SingleResponse<Diet>> GetByDate(DateTime date)
+        public async Task<SingleResponse<Diet>> GetByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            SingleResponse<Diet> response = new SingleResponse<Diet>();
+
+            using (DietDB db = new DietDB())
+            {
+                Diet diet = await db.Diets.FirstOrDefaultAsync(w => w.Date == date);
+                if (diet != null)
+                {
+                    response.Data = diet;
+                    return ResponseFactory.SingleResponseSuccessModel<Diet>(diet);
+                }
+                return ResponseFactory.SingleResponseNotFoundException<Diet>();
+            }
         }
 
         public async Task<SingleResponse<Diet>> GetById(int id)

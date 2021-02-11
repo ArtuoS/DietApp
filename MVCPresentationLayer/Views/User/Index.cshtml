@@ -74,13 +74,14 @@
     <div class="wrapper wrapper-content">
         <div class="row justify-content-md-center">
             <div class="col-lg-10 col-lg-offset-1">
-                <div class="ibox"><h1 class="text-center">Dieta do dia </h1>
-                        <div class="row justify-content-md-center">
-                            <div class="col-lg-3" id="data_3">
-                                <div class="input-group date">
-                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" id="Date_Of_Birthday" value="@DateTime.Today.Date.ToString("dd/MM/yyyy")" class="form-control date">
-                                </div>
+                <div class="ibox">
+                    <h1 class="text-center">Dieta do dia </h1>
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-3" id="data_3">
+                            <div class="input-group date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" id="Date_Of_Birthday" value="@DateTime.Today.Date.ToString("dd/MM/yyyy")" class="form-control date">
                             </div>
+                        </div>
                     </div>
                     <div class="ibox-content">
                         <div class="row">
@@ -248,13 +249,13 @@
                 bindto: '#pie',
                 data: {
                     columns: [
-                        ['Calorias', 30],
-                        ['Carboidratos', 120],
-                        ['Proteínas', 120],
-                        ['Gorduras', 120]
+                        //['Calorias', 200]],
+                        ['Carboidratos', @User.FindFirst("Daily_Carbohydrates").Value],
+                        ['Proteínas', @User.FindFirst("Daily_Protein").Value],
+                        ['Gorduras', @User.FindFirst("Daily_Fats").Value]
                     ],
                     colors: {
-                        data1: '#0000FF',
+                        //data1: '#0000FF',
                         data2: '#f0d500',
                         data3: '#42ccce',
                         data4: '#eed202'

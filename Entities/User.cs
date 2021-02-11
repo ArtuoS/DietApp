@@ -30,7 +30,8 @@ namespace Entities
         public bool Status { get; private set; }
         public string Role { get; set; }
         public ICollection<Diet> Diets { get; set; }
-        public ICollection<Restriction> Restrictions { get; set; }
+        public int RestrictionID { get; set; }  
+        public Restriction Restriction { get; set; }
 
         public bool SetStatus(bool status)
         {

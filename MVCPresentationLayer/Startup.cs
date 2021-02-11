@@ -68,9 +68,7 @@ namespace MVCPresentationLayer
             services.AddTransient<IFood_CategoryService, Food_CategoryBLL>();
             services.AddTransient<IMealService, MealBLL>();
             services.AddTransient<IUserService, UserBLL>();
-            services.AddTransient<IRestrictionService, RestrictionBLL>();
             services.AddTransient<IFoodService, FoodBLL>();
-            services.AddTransient<IRestrictionService, RestrictionBLL>();
 
         }
 

@@ -10,5 +10,6 @@ namespace Entities.Interfaces
     {
         Task<SingleResponse<Diet>> GetByName(Diet item);
         Task<SingleResponse<Diet>> GetByDate(DateTime date);
+        Task<SingleResponse<Diet>> GenareteDiet(User user);
     }
 }

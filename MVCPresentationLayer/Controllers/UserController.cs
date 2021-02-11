@@ -51,7 +51,20 @@ namespace MVCPresentationLayer.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Insert(UserInsertViewModel model)
         {
+            Restriction r = new Restriction();
+            List<Food> foodsRestriction = new List<Food>();
+           
+            model.FoodSelect.ForEach(c => foodsRestriction.Add(
+                new Food()
+                {
+                    ID = c
+                }));
+
+            r.Foods = foodsRestriction;
+
             User user = mapper.Map<User>(model);
+            user.Restriction = r;
+
             user.SetStatus(true);
             user.SetRole();
 

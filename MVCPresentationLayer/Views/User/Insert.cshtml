@@ -205,10 +205,8 @@
                                                         <option value="paleolitica">Paleolítica</option>
                                                     </select>
                                                 </div>
-
                                                 <div class="col-md-6">
-                                                    <select id="CategorySelect" class="select2_demo_4 form-control">
-
+                                                    <select multiple="multiple" id="Restrictions" name="Restrictions" class="select2_demo_4 form-control">
                                                         @if (ViewBag.Categories != null)
                                                         {
                                                             <option value="tudo">Todas as categorias</option>
@@ -217,11 +215,10 @@
                                                                 <option value="@category.ID">@category.Name</option>
                                                             }
                                                         }
-
                                                     </select>
                                                 </div>
                                             </div>
-                                            <select id="FoodSelect" class="form-control dual_select" multiple>
+                                            <select id="FoodSelect" asp-for="FoodSelect" class="form-control dual_select" multiple>
                                             </select>
                                         </div>
                                     </div>
@@ -550,9 +547,9 @@
         });
 
 
-        $("#CategorySelect").change(function () {
+        $("#Restrictions").change(function () {
 
-            var id = $("#CategorySelect").val();
+            var id = $("#Restrictions").val();
 
             $.ajax({
                 method: "GET",

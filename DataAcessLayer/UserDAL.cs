@@ -96,6 +96,12 @@ namespace DataAcessLayer
             {
                 if (item != null)
                 {
+                    //Informa o EF para não tentar cadastrar as comidas dentro da restrição
+                    db.Foods.AttachRange(item.Restriction.Foods);
+                    //Cadastra a restrição
+                    db.Restrictions.Add(item.Restriction);
+                    //cadastra o usuario
+                    item.RestrictionID = item.Restriction.ID;
                     db.Users.Add(item);
                     await db.SaveChangesAsync();
                     return ResponseFactory.ResponseSuccessModel();

@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Entities.Enums;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,7 +18,7 @@ namespace MVCPresentationLayer.Models.InsertModels
         [Display(Name = "Descrição")]
         public string Description { get; set; }
         [Display(Name = "Imagem")]
-        public string Image { get; set; }
+        public IFormFile Image { get; set; }
         public List<FoodAmountPerMeal> Foods { get; set; }
     }
 }

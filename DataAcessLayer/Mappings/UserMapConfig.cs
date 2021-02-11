@@ -19,6 +19,7 @@ namespace DataAcessLayer.Mappings
             builder.Property(a => a.Password).IsRequired();
             builder.Property(a => a.Weight_Objective).IsRequired(false);
             builder.Property(a => a.Days_To_Reach_Goal).IsRequired(false);
+            builder.HasOne(c => c.Restriction).WithOne(c => c.User).HasForeignKey<Restriction>(c => c.UserID);
         }
     }
 }

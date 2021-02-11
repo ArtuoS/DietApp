@@ -50,8 +50,7 @@ namespace MVCPresentationLayer.Controllers
 
             Response response = await foodService.Insert(food);
 
-            return View();
+            return Json(response);
         }
-
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Common;
 using Entities;
+using Entities.Enums;
 using Entities.Factory;
 using Entities.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -90,7 +91,7 @@ namespace DataAcessLayer
             return response;
         }
 
-        public async Task<QueryResponse<Meal>> GetByCategory(Entities.Enums.Meal_Category category)
+        public async Task<QueryResponse<Meal>> GetByCategory(Meal_Category category)
         {
             QueryResponse<Meal> response = new QueryResponse<Meal>();
 
