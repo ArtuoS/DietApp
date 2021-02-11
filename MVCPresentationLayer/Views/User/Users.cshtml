@@ -20,7 +20,8 @@
                                 <th data-hide="all">@Html.DisplayNameFor(model => model.Weight)</th>
                                 <th data-hide="all">@Html.DisplayNameFor(model => model.Height)</th>
                                 <th data-hide="all">@Html.DisplayNameFor(model => model.BodyFat)</th>
-                                <th>Action</th>
+                                <th>Editar</th>
+                                <th>Deletar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +40,8 @@
                                     <td id="bodyfat" value="@Html.DisplayFor(modelItem => item.ID)">@Html.DisplayFor(modelItem => item.BodyFat)</td>
                                     <td class="userID">
                                         <a data-toggle="modal" class="btn btn-primary" id="mod" href="#modal-form">Editar</a>
+                                    </td>
+                                    <td class="userID">
                                         <a data-toggle="modal" class="btn btn-danger" id="moddel" href="#modal-delete">Deletar</a>
                                     </td>
                                 </tr>
