@@ -12,6 +12,7 @@ namespace DataAcessLayer.Mappings
         public void Configure(EntityTypeBuilder<Food> builder)
         {
             builder.Property(a => a.Food_Name).IsRequired().HasMaxLength(40).IsUnicode(false);
+            builder.Property(a => a.CategoryID).IsRequired();
             builder.Property(a => a.Calories).IsRequired();
             builder.Property(a => a.Alcohol).IsRequired();
             builder.Property(a => a.Carbohydrate).IsRequired();

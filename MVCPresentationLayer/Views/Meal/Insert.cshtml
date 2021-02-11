@@ -267,7 +267,7 @@
                                             foreach (FoodCategory item in foodCategories)
                                             {
 
-                                                <option value="@item.ID"> @item.Name</option>
+                                                <option value="@item.ID">@item.Name</option>
 
                                             }
                                         }
@@ -500,10 +500,11 @@
             });
 
             $("#FoodInsert").click(function (e) {
+                var foodCategory = new Object();
+                foodCategory.Name = $("#FoodCategory").find('option:selected').text();
                 var food = new Object();
                 food.Food_Name = $("#Food_Name").val();
-                food.Category = $("#FoodCategory").find('option:selected').text();
-                console.log(food.Category);
+                food.Category = foodCategory;
                 food.Calories = parseFloat($("#Calories").val());
                 food.Alcohol = parseFloat($("#Alcohol").val());
                 food.Carbohydrate = parseFloat($("#Carbohydrate").val());

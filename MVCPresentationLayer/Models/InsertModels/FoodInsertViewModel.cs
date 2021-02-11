@@ -11,7 +11,8 @@ namespace MVCPresentationLayer.Models.InsertModels
     {
 
         [Display(Name = "Categoria")]
-        public string Category { get; set; }
+        public FoodCategory Category { get; set; }
+        public int CategoryID { get; set; }
         [Display(Name = "Nome do Alimento")]
         public string Food_Name { get; set; }
         [Display(Name = "Calorias")]

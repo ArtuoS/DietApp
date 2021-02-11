@@ -41,13 +41,12 @@ namespace MVCPresentationLayer.Controllers
         [HttpPost]
         public async Task<IActionResult> Insert([FromBody] FoodInsertViewModel model)
         {
-            Food food = new Food();
-            SingleResponse<FoodCategory> category = await foodCategoryService.GetByName(model.Category);
+            SingleResponse<FoodCategory> category = await foodCategoryService.GetByName(model.Category.Name);
 
-            food.Category = category.Data;
-            food = mapper.Map<Food>(model);
-            //food.CategoryID= category.Data.ID;
-
+            //food1.Category = category.Data;
+            model.CategoryID = category.Data.ID;
+            model.Category = null;
+            Food food = mapper.Map<Food>(model);
 
             Response response = await foodService.Insert(food);
 
