@@ -19,4 +19,3 @@ namespace Entities
         }
     }
 }
-//negativa, interrogativa e passado

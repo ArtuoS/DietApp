@@ -42,4 +42,9 @@
     <ProjectReference Include="..\DataAcessLayer\DataAcessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\refeicao\" />
+    <Folder Include="wwwroot\img\usuario\" />
+  </ItemGroup>
+
 </Project>

@@ -34,14 +34,14 @@ namespace BusinessLogicalLayer
             }
         }
 
-        public async Task<Response> Insert(Meal item)
+        public async Task<SingleResponse<int>> Insert(Meal item)
         {
             ValidationResult results = this.Validate(item);
             try
             {
                 if (!results.IsValid)
                 {
-                    return ResponseFactory.ResponseErrorModel(results.Errors);
+                    return ResponseFactory.SingleResponseNotFoundException<int>();
                 }
                 else
                 {
@@ -50,7 +50,7 @@ namespace BusinessLogicalLayer
             }
             catch (Exception ex)
             {
-                return ResponseFactory.ResponseExceptionModel(ex);
+                return ResponseFactory.SingleResponseExceptionModel<int>(ex);
             }
         }
 

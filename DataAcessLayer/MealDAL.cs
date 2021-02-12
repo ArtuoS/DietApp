@@ -104,7 +104,7 @@ namespace DataAcessLayer
             return response;
         }
 
-        public async Task<Response> Insert(Meal item)
+        public async Task<SingleResponse<int>> Insert(Meal item)
         {
             using (DietDB db = new DietDB())
             {
@@ -112,7 +112,7 @@ namespace DataAcessLayer
                 await db.SaveChangesAsync();
             }
 
-            return ResponseFactory.ResponseSuccessModel();
+            return ResponseFactory.SingleResponseSuccessModel<int>(item.ID);
         }
 
         public async Task<Response> Update(Meal item)

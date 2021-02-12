@@ -42,8 +42,9 @@ namespace MVCPresentationLayer.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Insert()
         {
-            QueryResponse<FoodCategory> queryFoodCategory = await foodCategoryService.GetAll();
-            ViewBag.Categories = queryFoodCategory.Data;
+            QueryResponse<FoodCategory> categories = await foodCategoryService.GetAll();
+
+            ViewBag.Categories = categories.Data;
             return View();
         }
 
@@ -53,7 +54,7 @@ namespace MVCPresentationLayer.Controllers
         {
             Restriction r = new Restriction();
             List<Food> foodsRestriction = new List<Food>();
-           
+
             model.FoodSelect.ForEach(c => foodsRestriction.Add(
                 new Food()
                 {

@@ -137,59 +137,84 @@ namespace BusinessLogicalLayer
         {
             try
             {
-                double daily_calories_breakfast = user.Daily_Calories / 0.3;
-                double daily_carbohydrates_breakfast = user.Daily_Carbohydrates / 0.3;
-                double daily_proteins_breakfast = user.Daily_Protein / 0.3;
-                double daily_lipids_breakfast = user.Daily_Fats / 0.3;
+                double breakfastCalories = user.Daily_Calories / 0.3;
+                double breakfastCarbohydrates = user.Daily_Carbohydrates / 0.3;
+                double breakfastProteins = user.Daily_Protein / 0.3;
+                double breakfastLipids = user.Daily_Fats / 0.3;
 
-                double daily_calories_lunch = user.Daily_Calories / 0.4;
-                double daily_carbohydrates_lunch = user.Daily_Carbohydrates / 0.4;
-                double daily_proteins_lunch = user.Daily_Protein / 0.4;
-                double daily_lipids_lunch = user.Daily_Fats / 0.4;
+                double lunchCalories = user.Daily_Calories / 0.4;
+                double lunchCarbohydrates = user.Daily_Carbohydrates / 0.4;
+                double lunchProteins = user.Daily_Protein / 0.4;
+                double lunchLipids = user.Daily_Fats / 0.4;
 
-                double daily_calories_dinner = user.Daily_Calories / 0.3;
-                double daily_carbohydrates_dinner = user.Daily_Carbohydrates / 0.3;
-                double daily_proteins_dinner = user.Daily_Protein / 0.3;
-                double daily_lipids_dinner = user.Daily_Fats / 0.3;
+                double dinnerCalories = user.Daily_Calories / 0.3;
+                double dinnerCarbohydrates = user.Daily_Carbohydrates / 0.3;
+                double dinnerProteins = user.Daily_Protein / 0.3;
+                double dinnerLipids = user.Daily_Fats / 0.3;
 
-                QueryResponse<Meal> response_meals_breakfast = await mealService.GetByCategory(Meal_Category.Café_da_manhã);
-                QueryResponse<Meal> response_meals_lunch = await mealService.GetByCategory(Meal_Category.Almoço);
-                QueryResponse<Meal> respnse_meals_dinner = await mealService.GetByCategory(Meal_Category.Jantar);
-
+                QueryResponse<Meal> breakfastMeals = await mealService.GetByCategory(Meal_Category.Café_da_manhã);
+                QueryResponse<Meal> lunchMeals = await mealService.GetByCategory(Meal_Category.Almoço);
+                QueryResponse<Meal> dinnerMeals = await mealService.GetByCategory(Meal_Category.Jantar);
 
                 Diet diet = new Diet();
 
-                List<Meal> naopode= new List<Meal>();
+                List<Meal> restrictedMeals = new List<Meal>();
 
-                List<Meal> breakfast_meals = new List<Meal>();
-                List<Meal> lunch_meals = new List<Meal>();
-                List<Meal> dinner_meals = new List<Meal>();
+                List<Meal> filteredBreakfastMeals = new List<Meal>();
+                List<Meal> filteredLunchMeals = new List<Meal>();
+                List<Meal> filteredDinnerMeals = new List<Meal>();
 
-                foreach (Meal meal in response_meals_breakfast.Data)
+                foreach (Meal meal in breakfastMeals.Data)
                 {
-                    foreach (FoodAmountPerMeal meal_food in meal.Foods)
+                    foreach (FoodAmountPerMeal foodAmount in meal.Foods)
                     {
-                        foreach (Food restriction_food in user.Restriction.Foods)
+                        foreach (Food food in user.Restriction.Foods)
                         {
-                            if (restriction_food == meal_food.Food)
+                            if (food == foodAmount.Food)
                             {
-                                naopode.Add(meal);
+                                restrictedMeals.Add(meal);
                             }
-                        
                         }
                     }
-                    
                 }
-                foreach (Meal meal_restriction in naopode)
+
+                foreach (Meal meal in restrictedMeals)
                 {
-                    foreach (Meal meal_breakfast_final in response_meals_breakfast.Data)
-                    { 
-                        breakfast_meals.Remove(meal_restriction);
+                    foreach (Meal breakfastMeal in breakfastMeals.Data)
+                    {
+                        filteredBreakfastMeals.Remove(breakfastMeal);
+                    }
+
+                    foreach (Meal lunchMeal in lunchMeals.Data)
+                    {
+                        filteredLunchMeals.Remove(lunchMeal);
+                    }
+
+                    foreach (Meal dinnerMeal in lunchMeals.Data)
+                    {
+                        filteredDinnerMeals.Remove(dinnerMeal);
                     }
                 }
-                foreach (Meal item in breakfast_meals)
+
+                foreach (Meal item in filteredBreakfastMeals)
                 {
-                    if (item.Total_Calories == daily_calories_breakfast || item.Total_Calories == (daily_calories_breakfast + 200) || item.Total_Calories == (daily_calories_breakfast - 200))
+                    if (item.Total_Calories == breakfastCalories || item.Total_Calories == (breakfastCalories + 200) || item.Total_Calories == (breakfastCalories - 200))
+                    {
+                        diet.Meals.Add(item);
+                    }
+                }
+
+                foreach (Meal item in filteredLunchMeals)
+                {
+                    if (item.Total_Calories == breakfastCalories || item.Total_Calories == (breakfastCalories + 200) || item.Total_Calories == (breakfastCalories - 200))
+                    {
+                        diet.Meals.Add(item);
+                    }
+                }
+
+                foreach (Meal item in filteredDinnerMeals)
+                {
+                    if (item.Total_Calories == breakfastCalories || item.Total_Calories == (breakfastCalories + 200) || item.Total_Calories == (breakfastCalories - 200))
                     {
                         diet.Meals.Add(item);
                     }
