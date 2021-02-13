@@ -66,7 +66,7 @@
                                             {
                                                 foreach (Meal item in ViewBag.Meals)
                                                 {
-                                                    <tr id="meal" name="@item.ID">
+                                                    <tr>
 
                                                         @{
                                                             //string caminhoArquivo = ViewBag.Path;
@@ -75,7 +75,7 @@
                                                         }
 
                                                         <td class="client-avatar"><img alt="image" width="30" src="@Url.Content(urlImagem)"></td>
-                                                        <td id="MealName"><a href="#MealColumn" class="client-link">@item.Name</a></td>
+                                                        <td><a id="meal" name="@item.ID" href="#MealColumn" class="client-link">@item.Name</a></td>
                                                         <td id="MealCategory">@item.Category</td>
                                                         <td id="MealCalories">@item.Total_Calories</td>
                                                         <td id="MealCarbohydrates">@item.Total_Carbohydrates</td>
@@ -333,21 +333,27 @@
                                 <div class="col-sm-10">
                                     <div class="form-group">
                                         <h3>Ingredientes</h3>
+                                        <label>Selecione um alimento, insira quantidade e unidade de medida para adiciona-lo a receita</label>
                                         <div class="row">
-                                            <div class="col-sm-3">
-                                                <label class="col-form-labe" id="FoodNameIntoMeal">Nome</label>
+                                            <div class="col-sm-2">
+                                                <h5>Nome do alimento</h5>
+                                                <label class="col-form-label" id="FoodNameIntoMeal">Nome</label>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <label class="col-form-labe" id="FoodCaloriesIntoMeal">Calorias</label>
+                                            <div class="col-sm-2">
+                                                <h5>Calorias</h5>
+                                                <label class="col-form-label" id="FoodCaloriesIntoMeal">Calorias</label>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <label class="col-form-labe" id="FoodCarbsIntoMeal">Carboidratos</label>
+                                            <div class="col-sm-2">
+                                                <h5>Carboidratos</h5>
+                                                <label class="col-form-label" id="FoodCarbsIntoMeal">Carboidratos</label>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <label class="col-form-labe" id="FoodProteinsIntoMeal">Proteínas</label>
+                                            <div class="col-sm-2">
+                                                <h5>Proteínas</h5>
+                                                <label class="col-form-label" id="FoodProteinsIntoMeal">Proteínas</label>
                                             </div>
-                                            <div class="col-sm-3">
-                                                <label class="col-form-labe" id="FoodLipidsIntoMeal">Gorduras</label>
+                                            <div class="col-sm-2">
+                                                <h5>Gorduras</h5>
+                                                <label class="col-form-label" id="FoodLipidsIntoMeal">Gorduras</label>
                                             </div>
                                         </div>
                                     </div>
@@ -357,7 +363,7 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <label class="control-label">Quantidade</label>
-                                        <input type="text" id="qnd" name="qtd" placeholder="Quantidade do alimento" class="form-control">
+                                        <input type="text" id="qnd" name="qnd" placeholder="Quantidade do alimento" class="touchspin2">
                                     </div>
                                     <div class="col-sm-4">
 
@@ -373,9 +379,10 @@
                                             }
                                         </select>
                                     </div>
-                                    <div class="col-sm-3">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
-                                            <button id="FoodInsertIntoMeal" class="btn btn-primary">Adicionar alimento</button>
+                                            <label class="control-label">Adicionar alimento a lista</label>
+                                            <button id="FoodInsertIntoMeal" class="btn btn-primary">Adicionar</button>
                                         </div>
                                     </div>
                                 </div>
@@ -384,14 +391,14 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-5">
-                                    <table class="table table-striped table-hover">
+                                    <table class="table table-striped table-hover" style="height:100px">
                                         <tbody>
                                             @if (ViewBag.Foods != null)
                                             {
                                                 foreach (Food item in ViewBag.Foods)
                                                 {
                                                     <tr>
-                                                        <td><a href="#contact-1" class="client-link">@item.Food_Name</a></td>
+                                                        <td><a id="foodSelect" name="@item.ID">@item.Food_Name</a></td>
                                                     </tr>
                                                 }
                                             }
@@ -589,15 +596,32 @@
 </div>
 
 @section Styles {
+
+    <environment names="Development,Staging,Production">
+        <link rel="stylesheet" href="~/lib/iCheck/custom.css" />
+        <link rel="stylesheet" href="~/lib/steps/jquery.steps.css" />
+        <link rel="stylesheet" href="~/lib/chosen/bootstrap-chosen.css" />
+        <link rel="stylesheet" href="~/lib/daterangepicker/daterangepicker-bs3.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" />
+        <link rel="stylesheet" href="~/lib/select2/dist/css/select2.css" />
+        <link rel="stylesheet" href="~/lib/switchery/switchery.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" />
+        <link rel="stylesheet" href="~/lib/select2/dist/css/select2.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
+        <link rel="stylesheet" href="~/lib/ionRangeSlider/ion.rangeSlider.css" />
+        <link rel="stylesheet" href="~/lib/ionRangeSlider/ion.rangeSlider.skinFlat.css" />
+    </environment>
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/footable/css/footable.core.css" />
         <link rel="stylesheet" href="~/lib/chosen/bootstrap-chosen.css" />
         <link rel="stylesheet" href="~/lib/sweetalert/dist/sweetalert.css" />
-
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="~/lib/chosen/bootstrap-chosen.css" />
         <link rel="stylesheet" href="~/lib/footable/css/footable.core.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     </environment>
 }
 
@@ -607,26 +631,58 @@
         import { Modal } from "bootstrap";
     </script>
 
+
+    <environment names="Development,Staging,Production">
+        <script src="~/lib/moment/moment.js"></script>
+        <script src="~/lib/iCheck/icheck.min.js"></script>
+        <script src="~/lib/steps/jquery.steps.min.js"></script>
+        <script src="~/lib/validate/jquery.validate.min.js"></script>
+        <script src="~/lib/daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+        <script src="~/lib/cropper/dist/cropper.js"></script>
+        <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+        <script src="~/lib/dualListbox/jquery.bootstrap-duallistbox.js"></script>
+        <script src="~/lib/daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/lib/cropper/dist/cropper.min.js"></script>
+        <script src="~/lib/select2/dist/js/select2.min.js"></script>
+        <script src="~/lib/nouslider/jquery.nouislider.min.js"></script>
+        <script src="~/lib/jasny-bootstrap/dist/js/jasny-bootstrap.js"></script>
+        <script src="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+        <script src="~/lib/dualListbox/jquery.bootstrap-duallistbox.js"></script>
+        <script src="~/lib/daterangepicker/daterangepicker.js"></script>
+        <script src="~/lib/ionRangeSlider/ion.rangeSlider.min.js"></script>
+
+    </environment>
+
     <environment names="Development,Staging,Production">
         <script src="~/lib/sweetalert/dist/sweetalert-dev.js"></script>
         <script src="~/lib/sweetalert/dist/sweetalert.min.js"></script>
         <script src="~/lib/chosen/chosen.jquery.js"></script>
         <script src="~/lib/footable/dist/footable.all.min.js"></script>
-
+        <script src="~/lib/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
     </environment>
 
     <script type="text/javascript">
         $(document).ready(function () {
-
-
             $('.custom-file-input').on('change', function () {
                 let fileName = $(this).val().split('\\').pop();
                 $(this).next('.custom-file-label').addClass("selected").html(fileName);
             });
-
             $('.footable').footable();
             $('.footable2').footable();
+
+            
         });
+        $("input[id='qnd']").TouchSpin({
+            min: 0,
+            max: 1000,
+            boostat: 5,
+            maxboostedstep: 10,
+            buttondown_class: 'btn btn-white',
+            buttonup_class: 'btn btn-white'
+        });
+        
 
         $.ajax({
             method: "GET",
@@ -652,39 +708,9 @@
             }
         });
 
-        $('#meal').click(function () {
-            var element = document.getElementById('meal');
-            var id = element.getAttribute('name');
-            $.ajax({
-                method: "GET",
-                url: "/Meal/GetById/" + id,
-                contentType: "application/json",
-                dataType: "json",
-                traditional: true,
-                success: function (data) {
-                    document.getElementById('MealNameColumn').innerHTML = data.name;
-                    document.getElementById('mealImage').src = "../img/refeicao/" + data.id + ".jpg";
-                    document.getElementById('MealCategoryColumn').innerHTML = data.category;
-                    document.getElementById('MealDescriptionColumn').innerHTML = data.description;
-                    document.getElementById('MealCaloriesColumn').innerHTML = data.total_Calories;
-                    document.getElementById('MealCarbohydratesColumn').innerHTML = data.total_Carbohydrates;
-                    document.getElementById('MealProteinsColumn').innerHTML = data.total_Proteins;
-                    document.getElementById('MealLipidsColumn').innerHTML = data.total_Lipids;
-                    
-                },
-                failure: function (response) {
-                    alert("Falha na comunicação com o servidor.");
-                },
-                error: function (response) {
-                }
-            });
-        });
+        $("#foodSelect").click(function (e) {
 
-        $('#food').click(function (e) {
-            
-            alert(this.getAttribute('name'));
             var id = e.target.getAttribute('name');
-            alert(e.target.getAttribute('name'));
             $.ajax({
                 method: "GET",
                 url: "/Meal/GetFoodById/" + id,
@@ -692,36 +718,89 @@
                 dataType: "json",
                 traditional: true,
                 success: function (data) {
-                    document.getElementById('FoodNameColumn').innerHTML = data.food_Name;
-                    document.getElementById('FoodCategoryColumn').innerHTML = data.category;
-                    document.getElementById('FoodCalories').innerHTML = data.caloryies;
-                    document.getElementById('FoodCarbs').innerHTML = data.carbohydrate;
-                    document.getElementById('FoodProteins').innerHTML = data.protein;
-                    document.getElementById('FoodLipids').innerHTML = data.lipid;
-                    document.getElementById('FoodAlcohol').innerHTML = data.alcohol;
-                    document.getElementById('FoodCooper').innerHTML = data.copper;
-                    document.getElementById('FoodFiber').innerHTML = data.fiber;
-                    document.getElementById('FoodMagnesium').innerHTML = data.magnesium;
-                    document.getElementById('FoodPhosphor').innerHTML = data.phosphor;
-                    document.getElementById('FoodPotasium').innerHTML = data.potassium;
-                    document.getElementById('FoodSodium').innerHTML = data.sodium;
-                    document.getElementById('FoodSelenium').innerHTML = data.selenium;
-                    document.getElementById('FoodVitaminA').innerHTML = data.vitamin_A;
-                    document.getElementById('FoodVitaminC').innerHTML = data.vitamin_C;
-                    document.getElementById('FoodVitaminD').innerHTML = data.vitamin_D;
-                    document.getElementById('FoodVitaminE').innerHTML = data.vitamin_E;
-                    document.getElementById('FoodVitaminB6').innerHTML = data.vitamin_B6;
-                    document.getElementById('FoodVitaminB12').innerHTML = data.vitamin_B12;
+                    document.getElementById('FoodNameIntoMeal').innerHTML = data.food_Name;
+                    document.getElementById('FoodCaloriesIntoMeal').innerHTML = data.calories;
+                    document.getElementById('FoodCarbsIntoMeal').innerHTML = data.carbohydrate;
+                    document.getElementById('FoodProteinsIntoMeal').innerHTML = data.protein;
+                    document.getElementById('FoodLipidsIntoMeal').innerHTML = data.lipid;
+
                 },
                 failure: function (response) {
                     alert("Falha na comunicação com o servidor.");
                 },
                 error: function (response) {
                 }
-
             });
-            e.preventDefault();
         });
+
+        $(document.body).on("click", ".client-link", function (e) {
+
+            if (this.getAttribute('id') == 'food') {
+                var id = e.target.getAttribute('name');
+                $.ajax({
+                    method: "GET",
+                    url: "/Meal/GetFoodById/" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (data) {
+                        document.getElementById('FoodNameColumn').innerHTML = data.food_Name;
+                        document.getElementById('FoodCategoryColumn').innerHTML = data.category;
+                        document.getElementById('FoodCalories').innerHTML = data.calories;
+                        document.getElementById('FoodCarbs').innerHTML = data.carbohydrate;
+                        document.getElementById('FoodProteins').innerHTML = data.protein;
+                        document.getElementById('FoodLipids').innerHTML = data.lipid;
+                        document.getElementById('FoodAlcohol').innerHTML = data.alcohol;
+                        document.getElementById('FoodCooper').innerHTML = data.copper;
+                        document.getElementById('FoodFiber').innerHTML = data.fiber;
+                        document.getElementById('FoodMagnesium').innerHTML = data.magnesium;
+                        document.getElementById('FoodPhosphor').innerHTML = data.phosphor;
+                        document.getElementById('FoodPotasium').innerHTML = data.potassium;
+                        document.getElementById('FoodSodium').innerHTML = data.sodium;
+                        document.getElementById('FoodSelenium').innerHTML = data.selenium;
+                        document.getElementById('FoodVitaminA').innerHTML = data.vitamin_A;
+                        document.getElementById('FoodVitaminC').innerHTML = data.vitamin_C;
+                        document.getElementById('FoodVitaminD').innerHTML = data.vitamin_D;
+                        document.getElementById('FoodVitaminE').innerHTML = data.vitamin_E;
+                        document.getElementById('FoodVitaminB6').innerHTML = data.vitamin_B6;
+                        document.getElementById('FoodVitaminB12').innerHTML = data.vitamin_B12;
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+
+                });
+                e.preventDefault();
+            } else {
+                var id = e.target.getAttribute('name');
+                $.ajax({
+                    method: "GET",
+                    url: "/Meal/GetById/" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (data) {
+                        document.getElementById('MealNameColumn').innerHTML = data.name;
+                        document.getElementById('mealImage').src = "../img/refeicao/" + data.id + ".jpg";
+                        document.getElementById('MealCategoryColumn').innerHTML = data.category;
+                        document.getElementById('MealDescriptionColumn').innerHTML = data.description;
+                        document.getElementById('MealCaloriesColumn').innerHTML = data.total_Calories;
+                        document.getElementById('MealCarbohydratesColumn').innerHTML = data.total_Carbohydrates;
+                        document.getElementById('MealProteinsColumn').innerHTML = data.total_Proteins;
+                        document.getElementById('MealLipidsColumn').innerHTML = data.total_Lipids;
+
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
+            }
+        });
+
     </script>
     <script type="text/javascript">
         $(document.body).on("click", ".client-link", function (e) {
@@ -730,7 +809,6 @@
             $($(this).attr('href')).addClass("active");
         });
     </script>
-
     <script type="text/javascript">
         $(function () {
             $("#FoodInsert").click(function (e) {
@@ -815,5 +893,5 @@
     </script>
 
 
-    }
+}
 
