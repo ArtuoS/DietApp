@@ -31,7 +31,7 @@ namespace Entities
         public double Vitamin_B12 { get; set; }
         public double Zinc { get; set; }
         public bool Status { get; set; }
-        public ICollection<Meal> Meals { get; set; }
+        public ICollection<FoodAmountPerMeal> Meals { get; set; }
         public ICollection<Restriction> Restrictions { get; set; }
     }
 }

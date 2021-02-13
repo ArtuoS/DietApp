@@ -70,8 +70,15 @@ namespace MVCPresentationLayer.Controllers
             user.SetRole();
 
             Response response = await userService.Insert(user);
+            if (response.Success)
+            {
+                return View("Home/Index");
+            }
+            else
+            {
+                return View();
 
-            return View();
+            }
         }
 
         public IActionResult Update()

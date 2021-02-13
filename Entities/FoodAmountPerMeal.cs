@@ -10,5 +10,6 @@ namespace Entities {
         public Food Food { get; set; }
         public double Quantity { get; set; }
         public Units_Of_Measurement Unit { get; set; }
+        public Meal Meals { get; set; }
     }
 }
