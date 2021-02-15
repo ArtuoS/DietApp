@@ -178,7 +178,7 @@
                                     <strong>Ingredientes</strong>
                                     <ul class="list-group clear-list">
                                         <li id="ingredientes" class="list-group-item fist-item">
-                                            
+
                                         </li>
                                     </ul>
                                     <strong>Receita</strong>
@@ -388,7 +388,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="5">
+                                            <table  class="footable table table-stripped toggle-arrow-tiny" data-page-size="5">
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
@@ -397,7 +397,7 @@
                                                         <th>Un. de medida</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="myTable">
                                                     <tr id="ListaVazia">
                                                     </tr>
                                                 </tbody>
@@ -637,7 +637,20 @@
     </environment>
 
 
+
     <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // code to read selected table row cell data (values).
+            $("#MealInsert").click (function () {
+                var x = document.getElementById("myTable").rows[0].cells;
+                for (var i = 0; i < x.length; i++) {
+                    alert(x[1].innerHTML);
+                }
+            });
+        });
+
         var calories = 0;
         var carbs = 0;
         var proteins = 0;
@@ -733,11 +746,13 @@
                                 dataType: "json",
                                 traditional: true,
                                 success: function (data2) {
-                                        var a = '<span>' + data2.food_Name+' - </span>';
-                                        var b = '<span>' + data[i].quantity +' '+ data2.unit+'</span>';
+                                    document.getElementById('ingredientes').innerHTML = data2.food_Name;
 
-                                        $("#ingredientes").append(a);
-                                        $("#ingredientes").append(b);
+                                    var a = '<span>' + data2.food_Name + ' - </span>';
+                                    var b = '<span>' + data[i].quantity + ' ' + data2.unit + '</span>';
+
+                                    $("#ingredientes").append(a);
+                                    $("#ingredientes").append(b);
                                 },
                                 failure: function (response) {
                                     alert("Falha na comunicação com o servidor.");
@@ -761,14 +776,14 @@
             }
         });
 
-        
+
 
         $("#FoodInsertIntoMeal").click(function () {
             alert(document.getElementById('FoodIdIntoMeal').innerHTML);
-            var a = '<td value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('FoodIdIntoMeal').innerHTML + '</td>';
-            var b = '<td value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('FoodNameIntoMeal').innerHTML + '</td>';
-            var c = '<td value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('qnd').value + '</td>';
-            var d = '<td value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('MealUnMeasurement').innerHTML + '</td>';
+            var a = '<tr><td id="mealidtd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('FoodIdIntoMeal').innerHTML + '</td>';
+            var b = '<td id="mealNametd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('FoodNameIntoMeal').innerHTML + '</td>';
+            var c = '<td id="mealqndtd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('qnd').value + '</td>';
+            var d = '<td id="mealUnittd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('MealUnMeasurement').innerHTML + '</td></tr>';
             $("#ListaVazia").append(a);
             $("#ListaVazia").append(b);
             $("#ListaVazia").append(c);

@@ -79,7 +79,7 @@
                     <div class="row justify-content-md-center">
                         <div class="col-lg-3" id="data_3">
                             <div class="input-group date">
-                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" id="Date_Of_Birthday" value="@DateTime.Today.Date.ToString("dd/MM/yyyy")" class="form-control date">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" id="dietDate" value="@DateTime.Today.Date.ToString("dd/MM/yyyy")" class="form-control date">
                             </div>
                         </div>
                     </div>
@@ -301,6 +301,30 @@
                 fillColor: "transparent"
             });
 
+        });
+    </script>
+
+    <script>
+        $("#dietDate").change(function () {
+            var date = $("#dietDate").val();
+            //alert(date);
+            $.ajax({
+                method: "GET",
+                url: "/User/GetByDate/",
+                contentType: "application/json",
+                dataType: "json",
+                traditional: true,
+                //data: JSON.stringify({ "date": date }),
+                data: { 'date': JSON.stringify(date) },
+                success: function (data) {
+                    alert("FOI!");
+                },
+                failure: function (response) {
+                    alert("Falha na comunicação com o servidor.");
+                },
+                error: function (response) {
+                }
+            });
         });
     </script>
 }

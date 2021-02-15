@@ -71,32 +71,31 @@ namespace MVCPresentationLayer.Controllers
                 return View();
             }
 
-
             //Validar formatos válidos de imagem
             //verifica qual o tipo de arquivo : jpg, gif, png, pdf ou tmp
-            var arquivo = model.Image;
-            string caminhoArquivo = environment.ContentRootPath + "//wwwroot//img//refeicao//";
-            string extensao = "";
+            var archieve = model.Image;
+            string archievePath = environment.ContentRootPath + "//wwwroot//img//refeicao//";
+            string extension = "";
             if (model.Image.FileName.Contains(".jpg"))
-                extensao += ".jpg";
-            else if (arquivo.FileName.Contains(".gif"))
-                extensao += ".gif";
-            else if (arquivo.FileName.Contains(".png"))
-                extensao += ".png";
-            else if (arquivo.FileName.Contains(".pdf"))
-                extensao += ".pdf";
+                extension += ".jpg";
+            else if (archieve.FileName.Contains(".gif"))
+                extension += ".gif";
+            else if (archieve.FileName.Contains(".png"))
+                extension += ".png";
+            else if (archieve.FileName.Contains(".pdf"))
+                extension += ".pdf";
+            else if (archieve.FileName.Contains(".jpeg"))
+                extension += ".jpeg";
             else
-                extensao += ".tmp";
+                extension += ".tmp";
 
-
-
-            string urlFinal = caminhoArquivo + response.Data + extensao;
+            string urlFinal = archievePath + response.Data + extension;
             // monta o caminho onde vamos salvar o arquivo : 
             // ~\wwwroot\Arquivos\Arquivos_Usuario\Recebidos
             //copia o arquivo para o local de destino original
             using (var stream = new FileStream(urlFinal, FileMode.Create))
             {
-                await arquivo.CopyToAsync(stream);
+                await archieve.CopyToAsync(stream);
             }
 
             return await Insert();

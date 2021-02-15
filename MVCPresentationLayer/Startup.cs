@@ -56,19 +56,19 @@ namespace MVCPresentationLayer
                 cfg.CreateMap<UserInsertViewModel, User>();
                 cfg.CreateMap<MealInsertViewModel, Meal>();
                 cfg.CreateMap<FoodInsertViewModel, Food>();
+                cfg.CreateMap<DietInsertViewModel, Diet>();
 
                 cfg.CreateMap<UserUpdateViewModel, User>();
             });
 
             IMapper mapper = config.CreateMapper();
 
-            UserBLL userBLL = new UserBLL();
-
             services.AddSingleton(mapper);
             services.AddTransient<IFood_CategoryService, Food_CategoryBLL>();
             services.AddTransient<IMealService, MealBLL>();
             services.AddTransient<IUserService, UserBLL>();
             services.AddTransient<IFoodService, FoodBLL>();
+            services.AddTransient<IDietService, DietBLL>();
 
         }
 
@@ -85,15 +85,17 @@ namespace MVCPresentationLayer
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            
             app.UseHttpsRedirection();
+            
             app.UseStaticFiles();
-
+            
             app.UseRouting();
-
+            
             app.UseAuthentication();
-
+            
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

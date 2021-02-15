@@ -24,14 +24,15 @@ namespace MVCPresentationLayer.Controllers
         private readonly IUserService userService;
         private readonly IFoodService foodService;
         private readonly IFood_CategoryService foodCategoryService;
+        private readonly IDietService dietService;
 
-
-        public UserController(IMapper mapper, IUserService userService, IFoodService foodService, IFood_CategoryService categoryService)
+        public UserController(IMapper mapper, IUserService userService, IFoodService foodService, IFood_CategoryService categoryService, IDietService dietService)
         {
             this.mapper = mapper;
             this.userService = userService;
             this.foodService = foodService;
             this.foodCategoryService = categoryService;
+            this.dietService = dietService;
         }
 
         public IActionResult Index()
@@ -128,6 +129,21 @@ namespace MVCPresentationLayer.Controllers
         {
             QueryResponse<Food> queryFood = await foodService.GetByCategoryId(id);
             return Json(queryFood.Data.ToList());
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> GetByDate(string date)
+        {
+
+            for (int i = 0; i < date.Length; i++)
+            {
+
+            }
+
+            DateTime formatedDate = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+            SingleResponse<Diet> response = await dietService.GetByDate(formatedDate);
+            return Json(response.Data);
         }
     }
 }

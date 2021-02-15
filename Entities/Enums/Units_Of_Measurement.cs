@@ -9,6 +9,7 @@ namespace Entities.Enums {
         L,
         ml,
         kg,
-        mg
+        mg,
+        µg
     }
 }

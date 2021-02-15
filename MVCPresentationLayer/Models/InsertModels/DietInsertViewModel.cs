@@ -13,6 +13,5 @@ namespace MVCPresentationLayer.Models.InsertModels
         public string Name { get; set; }
         [Display(Name = "Data")]
         public DateTime Date { get; set; }
-
     }
 }

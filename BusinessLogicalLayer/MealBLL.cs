@@ -146,7 +146,5 @@ namespace BusinessLogicalLayer
                 return ResponseFactory.QueryResponseExceptionModel<FoodAmountPerMeal>(ex);
             }
         }
-        
-
     }
 }

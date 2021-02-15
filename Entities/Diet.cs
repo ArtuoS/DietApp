@@ -11,7 +11,6 @@ namespace Entities
         public string Name { get; set; }
         public DateTime Date { get; set; }
         public ICollection<Meal> Meals { get; set; }
-        
         public bool Status { get; set; }
 
         public bool SetStatus(bool status)
