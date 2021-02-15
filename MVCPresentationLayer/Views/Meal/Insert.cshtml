@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="tab-2" class="tab-pane active">
+                        <div id="tab-2" class="tab-pane">
                             <div class="full-height-scroll">
                                 <div class="table-responsive">
                                     <table class="footable table table-stripped toggle-arrow-tiny">
@@ -177,9 +177,8 @@
 
                                     <strong>Ingredientes</strong>
                                     <ul class="list-group clear-list">
-                                        <li class="list-group-item fist-item">
-                                            <span class="float-right">quantidade e unidade de medida</span>
-                                            nome comida
+                                        <li id="ingredientes" class="list-group-item fist-item">
+                                            
                                         </li>
                                     </ul>
                                     <strong>Receita</strong>
@@ -719,46 +718,41 @@
                 document.getElementById('MealCarbohydratesColumn').innerHTML = data.total_Carbohydrates;
                 document.getElementById('MealProteinsColumn').innerHTML = data.total_Proteins;
                 document.getElementById('MealLipidsColumn').innerHTML = data.total_Lipids;
+                $.ajax({
+                    method: "GET",
+                    url: "/Meal/GetMealFoodsById/" + 1,
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            $.ajax({
+                                method: "GET",
+                                url: "/Meal/GetFoodById/" + data[i].foodID,
+                                contentType: "application/json",
+                                dataType: "json",
+                                traditional: true,
+                                success: function (data2) {
+                                        var a = '<span>' + data2.food_Name+' - </span>';
+                                        var b = '<span>' + data[i].quantity +' '+ data2.unit+'</span>';
 
-            },
-            failure: function (response) {
-                alert("Falha na comunicação com o servidor.");
-            },
-            error: function (response) {
-            }
-        });
-
-        $.ajax({
-            method: "GET",
-            url: "/Meal/GetMealFoodsById/" + 1,
-            contentType: "application/json",
-            dataType: "json",
-            traditional: true,
-            success: function (data) {
-                for (var i = 0; i < data.length; i++) {
-                    $.ajax({
-                        method: "GET",
-                        url: "/Meal/GetFoodById/" + data.foodId,
-                        contentType: "application/json",
-                        dataType: "json",
-                        traditional: true,
-                        success: function (data) {
-                            for (var i = 0; i < data.length; i++) {
-                                var s = '<td>' + data[i].food_Name + '(' + data[i].amount + data[i].unit + ')' + '</td>';
-                                $("#foodSelect").append(s);
-                                $("#foodSelect").select2("refresh", true);
-                            }
-                        },
-                        failure: function (response) {
-                            alert("Falha na comunicação com o servidor.");
-                        },
-                        error: function (response) {
+                                        $("#ingredientes").append(a);
+                                        $("#ingredientes").append(b);
+                                },
+                                failure: function (response) {
+                                    alert("Falha na comunicação com o servidor.");
+                                },
+                                error: function (response) {
+                                }
+                            });
                         }
-                    });
-                    var s = '<td>' + data[i].food_Name + '(' + data[i].amount + data[i].unit+ ')'+'</td>';
-                    $("#foodSelect").append(s);
-                    $("#foodSelect").select2("refresh", true);
-                }
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
             },
             failure: function (response) {
                 alert("Falha na comunicação com o servidor.");
@@ -766,6 +760,8 @@
             error: function (response) {
             }
         });
+
+        
 
         $("#FoodInsertIntoMeal").click(function () {
             alert(document.getElementById('FoodIdIntoMeal').innerHTML);

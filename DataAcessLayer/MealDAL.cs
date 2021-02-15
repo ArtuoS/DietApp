@@ -110,7 +110,7 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                List<FoodAmountPerMeal> meal = await db.FoodAmoutPerMeal.Where(w => w.Meals.ID == id).ToListAsync();
+                List<FoodAmountPerMeal> meal = await db.FoodAmoutPerMeal.Where(w => w.Meal.ID == id).ToListAsync();
                 response.Data = meal;
             }
 

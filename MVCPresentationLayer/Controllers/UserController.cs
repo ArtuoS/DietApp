@@ -72,7 +72,7 @@ namespace MVCPresentationLayer.Controllers
             Response response = await userService.Insert(user);
             if (response.Success)
             {
-                return View("Home/Index");
+                return Index();
             }
             else
             {
@@ -122,6 +122,7 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetFoodOfCategory(int id)
         {
