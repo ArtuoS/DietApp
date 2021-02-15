@@ -136,19 +136,33 @@ namespace MVCPresentationLayer.Controllers
             return View(data);
         }
 
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetFoodById(int id)
         {
             SingleResponse<Food> queryFood = await foodService.GetById(id);
             return Json(queryFood.Data);
         }
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetById(int id)
         {
             SingleResponse<Meal> querymeal = await mealService.GetById(id);
             return Json(querymeal.Data);
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> GetFoodOfCategory(int id)
+        {
+            QueryResponse<Food> queryFood = await foodService.GetByCategoryId(id);
+            return Json(queryFood.Data.ToList());
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetMealFoodsById(int id)
+        {
+            QueryResponse<FoodAmountPerMeal> queryFood = await mealService.GetMealFoodsById(id);
+
+            return Json(queryFood.Data.ToList());
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Entities
     {
         public int ID { get; set; }
         public virtual FoodCategory Category { get; set; }
+        public Units_Of_Measurement Unit { get; set; }
         public int CategoryID { get; set; }
         public string Food_Name { get; set; }
         public double Calories { get; set; }

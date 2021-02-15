@@ -104,6 +104,19 @@ namespace DataAcessLayer
             return response;
         }
 
+        public async Task<QueryResponse<FoodAmountPerMeal>> GetMealFoodsById(int id)
+        {
+            QueryResponse<FoodAmountPerMeal> response = new QueryResponse<FoodAmountPerMeal>();
+
+            using (DietDB db = new DietDB())
+            {
+                List<FoodAmountPerMeal> meal = await db.FoodAmoutPerMeal.Where(w => w.Meals.ID == id).ToListAsync();
+                response.Data = meal;
+            }
+
+            return response;
+        }
+
         public async Task<SingleResponse<int>> Insert(Meal item)
         {
             using (DietDB db = new DietDB())

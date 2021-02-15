@@ -135,5 +135,18 @@ namespace BusinessLogicalLayer
             }
         }
 
+        public async Task<QueryResponse<FoodAmountPerMeal>> GetMealFoodsById(int id)
+        {
+            try
+            {
+                return await mealDAL.GetMealFoodsById(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.QueryResponseExceptionModel<FoodAmountPerMeal>(ex);
+            }
+        }
+        
+
     }
 }

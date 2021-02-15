@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,6 +13,7 @@ namespace MVCPresentationLayer.Models.InsertModels
 
         [Display(Name = "Categoria")]
         public FoodCategory Category { get; set; }
+        public Units_Of_Measurement Unit { get; set; }
         public int CategoryID { get; set; }
         [Display(Name = "Nome do Alimento")]
         public string Food_Name { get; set; }

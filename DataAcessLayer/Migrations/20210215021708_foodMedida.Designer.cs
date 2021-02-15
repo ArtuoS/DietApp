@@ -4,14 +4,16 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAcessLayer.Migrations
 {
     [DbContext(typeof(DietDB))]
-    partial class DietDBModelSnapshot : ModelSnapshot
+    [Migration("20210215021708_foodMedida")]
+    partial class foodMedida
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -171,7 +173,7 @@ namespace DataAcessLayer.Migrations
 
                     b.HasIndex("MealsID");
 
-                    b.ToTable("FoodAmoutPerMeal");
+                    b.ToTable("FoodAmountPerMeal");
                 });
 
             modelBuilder.Entity("Entities.FoodCategory", b =>

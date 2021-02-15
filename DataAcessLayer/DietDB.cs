@@ -16,6 +16,7 @@ namespace Entities
         public DbSet<Diet> Diets { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Restriction> Restrictions { get; set; }
+        public DbSet<FoodAmountPerMeal> FoodAmoutPerMeal { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder modelBuilder)
         {

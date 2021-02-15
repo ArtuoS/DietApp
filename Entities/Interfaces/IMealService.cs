@@ -18,5 +18,8 @@ namespace Entities.Interfaces
         Task<SingleResponse<Meal>> GetById(int id);
         Task<SingleResponse<Meal>> GetByName(Meal item);
         Task<QueryResponse<Meal>> GetByCategory(Meal_Category category);
+        Task<QueryResponse<FoodAmountPerMeal>> GetMealFoodsById(int id);
+
+        
     }
 }
