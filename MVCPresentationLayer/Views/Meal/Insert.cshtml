@@ -388,7 +388,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <table  class="footable table table-stripped toggle-arrow-tiny" data-page-size="5">
+                                            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="5">
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
@@ -648,7 +648,7 @@
                     var id = document.getElementById("myTable").rows[i].cells[0].innerHTML;
                     var qnd = document.getElementById("myTable").rows[i].cells[2].innerHTML;
                 }
-            }); 
+            });
         });
 
         var calories = 0;
@@ -781,8 +781,6 @@
         $("#FoodInsertIntoMeal").click(function () {
             var b = '<<tr><td>' + document.getElementById('FoodIdIntoMeal').innerHTML + '</td><td>' + document.getElementById('FoodNameIntoMeal').innerHTML + '</td><td>' + document.getElementById('qnd').value + '</td><td>' + document.getElementById('MealUnMeasurement').innerHTML + '</td></tr>';
             $("#myTable").append(b);
-
-
         });
 
         $(document.body).on("click", ".client-link", function (e) {
@@ -867,7 +865,7 @@
                 var food = new Object();
                 food.Category = foodCategory;
                 food.Food_Name = $("#Food_Name").val();
-                food.unit = $("#Unit").val();
+                food.unit = parseInt(("#Unit").val());
                 food.Calories = parseFloat($("#Calories").val());
                 food.Alcohol = parseFloat($("#Alcohol").val());
                 food.Carbohydrate = parseFloat($("#Carbohydrate").val());
@@ -951,12 +949,12 @@
                     dataType: "json",
                     traditional: true,
                     success: function (data) {
-                        $("#foodSelect").multiselect("refresh");
-
                         for (var i = 0; i < data.length; i++) {
                             var s = '<option id="foodOption" name="' + data[i].id + '">' + data[i].food_Name + '</option>';
                             $("#foodSelect").append(s);
+                            $("#foodSelect").bootstrapDualListbox("refresh", true);
                         }
+                        //$("#foodSelect").multiselect("destroy");
                     },
                     failure: function (response) {
                         alert("Falha na comunicação com o servidor.");
