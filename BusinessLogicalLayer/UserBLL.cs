@@ -151,5 +151,17 @@ namespace BusinessLogicalLayer
 
             return sb.ToString();
         }
+
+        public async Task<QueryResponse<Food>> GetFoodsFromRestrictionByUserID(int id)
+        {
+            try
+            {
+                return await userDAL.GetFoodsFromRestrictionByUserID(id);
+            }
+            catch (Exception ex)
+            {
+                return ResponseFactory.QueryResponseExceptionModel<Food>(ex);
+            }
+        }
     }
 }

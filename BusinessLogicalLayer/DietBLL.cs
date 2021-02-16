@@ -17,9 +17,13 @@ namespace BusinessLogicalLayer
     {
         private readonly IMealService mealService;
         private readonly IUserService userService;
-        public DietBLL()
+
+        public DietBLL(IUserService userService, IMealService mealService)
         {
             RuleFor(a => a.Name).NotNull().Length(3, 50).WithMessage("O nome deve ter entre 3 e 50 caractéres.");
+
+            this.userService = userService;
+            this.mealService = mealService;
         }
         DietDAL dietDAL = new DietDAL();
 
@@ -137,23 +141,23 @@ namespace BusinessLogicalLayer
         }
         public async Task<SingleResponse<Diet>> GenareteDiet(int id)
         {
-            User user = userService.GetById(id).Result.Data;
+            SingleResponse<User> user = await userService.GetById(id);
             try
             {
-                double breakfastCalories = user.Daily_Calories / 0.3;
-                double breakfastCarbohydrates = user.Daily_Carbohydrates / 0.3;
-                double breakfastProteins = user.Daily_Protein / 0.3;
-                double breakfastLipids = user.Daily_Fats / 0.3;
+                double breakfastCalories = user.Data.Daily_Calories * 0.3;
+                double breakfastCarbohydrates = user.Data.Daily_Carbohydrates * 0.3;
+                double breakfastProteins = user.Data.Daily_Protein * 0.3;
+                double breakfastLipids = user.Data.Daily_Fats * 0.3;
 
-                double lunchCalories = user.Daily_Calories / 0.4;
-                double lunchCarbohydrates = user.Daily_Carbohydrates / 0.4;
-                double lunchProteins = user.Daily_Protein / 0.4;
-                double lunchLipids = user.Daily_Fats / 0.4;
+                double lunchCalories = user.Data.Daily_Calories * 0.4;
+                double lunchCarbohydrates = user.Data.Daily_Carbohydrates * 0.4;
+                double lunchProteins = user.Data.Daily_Protein * 0.4;
+                double lunchLipids = user.Data.Daily_Fats * 0.4;
 
-                double dinnerCalories = user.Daily_Calories / 0.3;
-                double dinnerCarbohydrates = user.Daily_Carbohydrates / 0.3;
-                double dinnerProteins = user.Daily_Protein / 0.3;
-                double dinnerLipids = user.Daily_Fats / 0.3;
+                double dinnerCalories = user.Data.Daily_Calories * 0.3;
+                double dinnerCarbohydrates = user.Data.Daily_Carbohydrates * 0.3;
+                double dinnerProteins = user.Data.Daily_Protein * 0.3;
+                double dinnerLipids = user.Data.Daily_Fats * 0.3;
 
                 QueryResponse<Meal> breakfastMeals = await mealService.GetByCategory(Meal_Category.Café_da_manhã);
                 QueryResponse<Meal> lunchMeals = await mealService.GetByCategory(Meal_Category.Almoço);
@@ -167,11 +171,16 @@ namespace BusinessLogicalLayer
                 List<Meal> filteredLunchMeals = new List<Meal>();
                 List<Meal> filteredDinnerMeals = new List<Meal>();
 
+
                 foreach (Meal meal in breakfastMeals.Data)
                 {
-                    foreach (FoodAmountPerMeal foodAmount in meal.Foods)
+                    QueryResponse<FoodAmountPerMeal> foods = await mealService.GetMealFoodsById(meal.ID);
+
+                    foreach (FoodAmountPerMeal foodAmount in foods.Data)
                     {
-                        foreach (Food food in user.Restriction.Foods)
+                        QueryResponse<Food> restrictionFoods = await userService.GetFoodsFromRestrictionByUserID(user.Data.ID);
+
+                        foreach (Food food in restrictionFoods.Data)
                         {
                             if (food == foodAmount.Food)
                             {

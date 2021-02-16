@@ -90,6 +90,26 @@ namespace DataAcessLayer
             }
         }
 
+        public async Task<QueryResponse<Food>> GetFoodsFromRestrictionByUserID(int id)
+        {
+            QueryResponse<Food> response = new QueryResponse<Food>();
+
+            using (DietDB db = new DietDB())
+            {
+                List<Restriction> restrictions = await db.Restrictions.Where(w => w.UserID == id).ToListAsync();
+
+                foreach (Restriction restriction in restrictions)
+                {
+                    foreach (Food food in restriction.Foods)
+                    {
+                        response.Data.Add(food);
+                    }
+                }
+            }
+
+            return response;
+        }
+
         public async Task<Response> Insert(User item)
         {
             using (DietDB db = new DietDB())
