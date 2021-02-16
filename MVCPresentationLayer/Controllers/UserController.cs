@@ -135,13 +135,7 @@ namespace MVCPresentationLayer.Controllers
         [HttpGet]
         public async Task<IActionResult> GetByDate(string date)
         {
-
-            for (int i = 0; i < date.Length; i++)
-            {
-
-            }
-
-            DateTime formatedDate = DateTime.ParseExact(date, "dd/MM/yyyy", null);
+            DateTime formatedDate = DateTime.ParseExact(date.Replace('"', ' ').Replace(" ", ""), "dd/MM/yyyy", null);
             SingleResponse<Diet> response = await dietService.GetByDate(formatedDate);
             return Json(response.Data);
         }

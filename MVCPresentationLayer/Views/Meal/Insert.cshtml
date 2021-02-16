@@ -398,8 +398,6 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody id="myTable">
-                                                    <tr id="ListaVazia">
-                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -412,7 +410,7 @@
                             <textarea asp-for="Description" id="Description" class="form-control border-left m-t" style="height: 100px"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" id="MealInsert" value="Cadastrar refeição" class="btn btn-primary col-sm-12">
+                            <input id="MealInsert" value="Cadastrar refeição" class="btn btn-primary col-sm-12">
                         </div>
                     </form>
                 </div>
@@ -643,12 +641,14 @@
         $(document).ready(function () {
 
             // code to read selected table row cell data (values).
-            $("#MealInsert").click (function () {
-                var x = document.getElementById("myTable").rows[0].cells;
-                for (var i = 0; i < x.length; i++) {
-                    alert(x[1].innerHTML);
+            $("#MealInsert").click(function () {
+
+                for (var i = 0; i < document.getElementById("myTable").rows.length; i++) {
+
+                    var id = document.getElementById("myTable").rows[i].cells[0].innerHTML;
+                    var qnd = document.getElementById("myTable").rows[i].cells[2].innerHTML;
                 }
-            });
+            }); 
         });
 
         var calories = 0;
@@ -779,15 +779,8 @@
 
 
         $("#FoodInsertIntoMeal").click(function () {
-            alert(document.getElementById('FoodIdIntoMeal').innerHTML);
-            var a = '<tr><td id="mealidtd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('FoodIdIntoMeal').innerHTML + '</td>';
-            var b = '<td id="mealNametd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('FoodNameIntoMeal').innerHTML + '</td>';
-            var c = '<td id="mealqndtd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('qnd').value + '</td>';
-            var d = '<td id="mealUnittd" value="' + document.getElementById('FoodIdIntoMeal').innerHTML + '">' + document.getElementById('MealUnMeasurement').innerHTML + '</td></tr>';
-            $("#ListaVazia").append(a);
-            $("#ListaVazia").append(b);
-            $("#ListaVazia").append(c);
-            $("#ListaVazia").append(d);
+            var b = '<<tr><td>' + document.getElementById('FoodIdIntoMeal').innerHTML + '</td><td>' + document.getElementById('FoodNameIntoMeal').innerHTML + '</td><td>' + document.getElementById('qnd').value + '</td><td>' + document.getElementById('MealUnMeasurement').innerHTML + '</td></tr>';
+            $("#myTable").append(b);
 
 
         });
@@ -958,10 +951,11 @@
                     dataType: "json",
                     traditional: true,
                     success: function (data) {
+                        $("#foodSelect").multiselect("refresh");
+
                         for (var i = 0; i < data.length; i++) {
                             var s = '<option id="foodOption" name="' + data[i].id + '">' + data[i].food_Name + '</option>';
                             $("#foodSelect").append(s);
-                            $("#foodSelect").select2("refresh", true);
                         }
                     },
                     failure: function (response) {

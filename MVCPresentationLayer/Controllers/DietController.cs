@@ -22,14 +22,18 @@ namespace MVCPresentationLayer.Controllers
             this.dietService = dietService;
             this.mapper = mapper;
         }
-
-        public async Task<IActionResult> Insert(DietInsertViewModel model)
+        [HttpGet]
+        public async Task<IActionResult> GenareteDiet(int id)
         {
-            Diet diet = mapper.Map<Diet>(model);
+            SingleResponse<Diet> responseGenaration = await dietService.GenareteDiet(id);
+            Response responseInsert = await dietService.Insert(responseGenaration.Data);
+            if (responseInsert.Success)
+            {
+                return Json(responseGenaration.Data);
 
-            Response response = await dietService.Insert(diet);
+            }
+            return Json(null);
 
-            return View();
         }
 
     }

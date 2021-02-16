@@ -143,5 +143,10 @@ namespace DataAcessLayer
                 return ResponseFactory.ResponseNotFoundException();
             }
         }
+
+        public Task<SingleResponse<Diet>> GenareteDiet(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

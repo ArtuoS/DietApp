@@ -307,7 +307,7 @@
     <script>
         $("#dietDate").change(function () {
             var date = $("#dietDate").val();
-            //alert(date);
+            alert(date);
             $.ajax({
                 method: "GET",
                 url: "/User/GetByDate/",
@@ -317,7 +317,23 @@
                 //data: JSON.stringify({ "date": date }),
                 data: { 'date': JSON.stringify(date) },
                 success: function (data) {
-                    alert("FOI!");
+                    alert(@User.FindFirst("ID").Value);
+                    if (data == null) {
+                        $.ajax({
+                            method: "GET",
+                            url: "/Diet/GenareteDiet/"+ @User.FindFirst("ID").Value,
+                            contentType: "application/json",
+                            traditional: true,
+                            success: function () {
+                                alert("diet gerada!");
+                            },
+                            failure: function (response) {
+                                alert("Falha na comunicação com o servidor.");
+                            },
+                            error: function (response) {
+                            }
+                        });
+                    }
                 },
                 failure: function (response) {
                     alert("Falha na comunicação com o servidor.");

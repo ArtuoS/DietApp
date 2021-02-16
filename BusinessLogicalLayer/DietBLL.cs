@@ -16,6 +16,7 @@ namespace BusinessLogicalLayer
     public class DietBLL : AbstractValidator<Diet>, IDietService
     {
         private readonly IMealService mealService;
+        private readonly IUserService userService;
         public DietBLL()
         {
             RuleFor(a => a.Name).NotNull().Length(3, 50).WithMessage("O nome deve ter entre 3 e 50 caractéres.");
@@ -126,15 +127,17 @@ namespace BusinessLogicalLayer
         {
             try
             {
-                return await dietDAL.GetByDate(date);
+                SingleResponse<Diet> result = await dietDAL.GetByDate(date);
+                return result;
             }
             catch (Exception ex)
             {
                 return ResponseFactory.SingleResponseExceptionModel<Diet>(ex);
             }
         }
-        public async Task<SingleResponse<Diet>> GenareteDiet(User user)
+        public async Task<SingleResponse<Diet>> GenareteDiet(int id)
         {
+            User user = userService.GetById(id).Result.Data;
             try
             {
                 double breakfastCalories = user.Daily_Calories / 0.3;
