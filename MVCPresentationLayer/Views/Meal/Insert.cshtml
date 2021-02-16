@@ -305,6 +305,11 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <input type="hidden" id="foods" name="foods" value="" />
+                            <input type="hidden" id="qtds" name="qtds" value="" />
+
+
                             <div class="col-lg-4">
                                 <div class="form-group">
 
@@ -643,11 +648,22 @@
             // code to read selected table row cell data (values).
             $("#MealInsert").click(function () {
 
+                var ids = "";
+                var qtds= "";
+                var separator = "";
                 for (var i = 0; i < document.getElementById("myTable").rows.length; i++) {
 
                     var id = document.getElementById("myTable").rows[i].cells[0].innerHTML;
                     var qnd = document.getElementById("myTable").rows[i].cells[2].innerHTML;
+
+                    ids += separator + id;
+                    qtds += separator + qnd;
+                    separator = ",";
                 }
+
+                $("#foods").val(ids);
+                $("#qtds").val(qtds);
+
             });
         });
 
@@ -952,7 +968,6 @@
                         for (var i = 0; i < data.length; i++) {
                             var s = '<option id="foodOption" name="' + data[i].id + '">' + data[i].food_Name + '</option>';
                             $("#foodSelect").append(s);
-                            $("#foodSelect").bootstrapDualListbox("refresh", true);
                         }
                         //$("#foodSelect").multiselect("destroy");
                     },

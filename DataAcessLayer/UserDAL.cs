@@ -96,7 +96,7 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                List<Restriction> restrictions = await db.Restrictions.Where(w => w.UserID == id).ToListAsync();
+                List<Restriction> restrictions = await db.Restrictions.Include(w => w.Foods).Where(w => w.UserID == id).ToListAsync();
 
                 foreach (Restriction restriction in restrictions)
                 {

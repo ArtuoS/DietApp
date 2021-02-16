@@ -59,8 +59,22 @@ namespace MVCPresentationLayer.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Insert(MealInsertViewModel model)
         {
-
             Meal meal = mapper.Map<Meal>(model);
+
+            string[] qtds = Request.Form["qtds"].ToString().Split(",");
+            string[] foods = Request.Form["foods"].ToString().Split(",");
+            for (int i = 0; i < qtds.Length; i++)
+            {
+                FoodAmountPerMeal foodAmountPerMeal = new FoodAmountPerMeal()
+                {
+                    FoodID = Convert.ToInt32(foods[i]),
+                    Quantity = Convert.ToDouble(qtds[i])
+                };
+                meal.Foods.Add(foodAmountPerMeal);
+            }
+
+
+
             //meal.SetStatus(true);
 
             SingleResponse<int> response = await mealService.Insert(meal);
