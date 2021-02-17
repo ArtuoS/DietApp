@@ -29,11 +29,11 @@ namespace MVCPresentationLayer.Controllers
             SingleResponse<Diet> response = await dietService.GetByDate(formatedDate);
             return Json(response.Data);
         }
-        [HttpPost]
-        public async Task<IActionResult> GenareteDiet(int id, string date)
+        [HttpGet]
+        public async Task<IActionResult> GenareteDiet(string date, string id)
         {
             DateTime data = DateTime.ParseExact(date.Replace('"', ' ').Replace(" ", ""), "dd/MM/yyyy", null);
-            SingleResponse<Diet> responseGenaration = await dietService.GenareteDiet(id, data);
+            SingleResponse<Diet> responseGenaration = await dietService.GenareteDiet(Convert.ToInt32(id), data);
             Response responseInsert = await dietService.Insert(responseGenaration.Data);
             if (responseInsert.Success)
             {
@@ -41,8 +41,15 @@ namespace MVCPresentationLayer.Controllers
 
             }
             return Json(null);
-
         }
 
     }
+    /*
+    public class MyClass
+    {
+        public string date { get; set; }
+        public int id { get; set; }
+
+    }
+    */
 }

@@ -210,7 +210,7 @@ namespace BusinessLogicalLayer
 
                 foreach (Meal item in breakfastMeals.Data)
                 {
-                    if (item.Total_Calories <= (breakfastCalories + breakfastCalories * 0.05) &&  item.Total_Calories >= (breakfastCalories - breakfastCalories * 0.05))
+                    if (item.Total_Calories <= (breakfastCalories + breakfastCalories * 0.05) && item.Total_Calories >= (breakfastCalories - breakfastCalories * 0.05))
                     {
                         if (item.Total_Carbohydrates <= (breakfastCarbohydrates + breakfastCarbohydrates * 0.05) && item.Total_Carbohydrates >= (breakfastCarbohydrates - breakfastCarbohydrates * 0.05))
                         {
@@ -221,7 +221,7 @@ namespace BusinessLogicalLayer
                                     meals.Add(item);
                                 }
                             }
-                        }  
+                        }
                     }
                 }
 
@@ -262,6 +262,7 @@ namespace BusinessLogicalLayer
                 SingleResponse<Diet> dietResponse = new SingleResponse<Diet>();
                 diet.Date = date;
                 diet.Meals = meals;
+                diet.UserID = id;
                 dietResponse.Data = diet;
                 dietResponse.Success = true;
                 return dietResponse;

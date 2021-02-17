@@ -314,22 +314,31 @@
                 dataType: "json",
                 traditional: true,
                 //data: JSON.stringify({ "date": date }),
-                data: { 'date': JSON.stringify(date) },
+                data: {
+                    'date': JSON.stringify(date),
+                    'teste': JSON.stringify("teste")
+                },
                 success: function (data) {
                     if (data == null) {
+                        var id = @User.FindFirst("ID").Value.ToString();
                         $.ajax({
-                            method: "POST",
+                            method: "GET",
                             url: "/Diet/GenareteDiet/",
-                            dataType: "html",
+                            contentType: "application/json",
+                            dataType: "json",
                             traditional: true,
-                            data: 'id='+@User.FindFirst("ID").Value.ToString()+'&date='+date,
-                            success: function () {
-                                alert("diet gerada!");
+                            data: {
+                                'date': JSON.stringify(date),
+                                'id': JSON.stringify(id)
                             },
-                            failure: function (response) {
+                            success: function (data2) {
+                                alert("foooi");
+                            },
+                            failure: function (data2) {
                                 alert("Falha na comunicação com o servidor.");
                             },
-                            error: function (response) {
+                            error: function (data2) {
+                                alert(':(');
                             }
                         });
                     }

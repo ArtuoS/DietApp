@@ -4,14 +4,16 @@ using Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAcessLayer.Migrations
 {
     [DbContext(typeof(DietDB))]
-    partial class DietDBModelSnapshot : ModelSnapshot
+    [Migration("20210217181247_RemoveNameColumnDiet")]
+    partial class RemoveNameColumnDiet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,7 +49,7 @@ namespace DataAcessLayer.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -368,9 +370,7 @@ namespace DataAcessLayer.Migrations
                 {
                     b.HasOne("Entities.User", null)
                         .WithMany("Diets")
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserID");
                 });
 
             modelBuilder.Entity("Entities.Food", b =>

@@ -103,13 +103,23 @@ namespace DataAcessLayer
         {
             using (DietDB db = new DietDB())
             {
-                if (item != null)
+
+                if (item.Meals != null)
                 {
+                    
+                    //Informa o EF para não tentar cadastrar as comidas dentro da restrição
+                    db.Meals.AttachRange(item.Meals);
+                    //cadastra o usuario
+                    foreach (Meal meal in item.Meals)
+                    {
+                        //item.MealsIds.Add(meal.ID);
+                    }
                     db.Diets.Add(item);
                     await db.SaveChangesAsync();
-                    ResponseFactory.ResponseSuccessModel();
+                    return ResponseFactory.ResponseSuccessModel();
                 }
                 return ResponseFactory.SingleResponseNotFoundException<Diet>();
+
             }
         }
 
