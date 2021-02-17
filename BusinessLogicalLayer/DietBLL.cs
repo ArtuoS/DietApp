@@ -20,24 +20,10 @@ namespace BusinessLogicalLayer
 
         public DietBLL(IUserService userService, IMealService mealService)
         {
-            RuleFor(a => a.Name).NotNull().Length(3, 50).WithMessage("O nome deve ter entre 3 e 50 caractéres.");
-
             this.userService = userService;
             this.mealService = mealService;
         }
         DietDAL dietDAL = new DietDAL();
-
-        public async Task<SingleResponse<Diet>> GetByName(Diet name)
-        {
-            try
-            {
-                return await dietDAL.GetByName(name);
-            }
-            catch (Exception ex)
-            {
-                return ResponseFactory.SingleResponseExceptionModel<Diet>(ex);
-            }
-        }
 
         public async Task<Response> Insert(Diet item)
         {
@@ -139,7 +125,7 @@ namespace BusinessLogicalLayer
                 return ResponseFactory.SingleResponseExceptionModel<Diet>(ex);
             }
         }
-        public async Task<SingleResponse<Diet>> GenareteDiet(int id)
+        public async Task<SingleResponse<Diet>> GenareteDiet(int id, DateTime date)
         {
             SingleResponse<User> user = await userService.GetById(id);
             try
@@ -163,76 +149,119 @@ namespace BusinessLogicalLayer
                 QueryResponse<Meal> lunchMeals = await mealService.GetByCategory(Meal_Category.Almoço);
                 QueryResponse<Meal> dinnerMeals = await mealService.GetByCategory(Meal_Category.Jantar);
 
+                QueryResponse<Food> restrictionFoods = await userService.GetFoodsFromRestrictionByUserID(user.Data.ID);
+
+
                 Diet diet = new Diet();
-
-                List<Meal> restrictedMeals = new List<Meal>();
-
-                List<Meal> filteredBreakfastMeals = new List<Meal>();
-                List<Meal> filteredLunchMeals = new List<Meal>();
-                List<Meal> filteredDinnerMeals = new List<Meal>();
+                List<Meal> meals = new List<Meal>();
 
 
-                foreach (Meal meal in breakfastMeals.Data)
+                if (restrictionFoods.Data != null)
                 {
-                    QueryResponse<FoodAmountPerMeal> foods = await mealService.GetMealFoodsById(meal.ID);
+                    List<Meal> restrictedMeals = new List<Meal>();
 
-                    foreach (FoodAmountPerMeal foodAmount in foods.Data)
+                    foreach (Meal meal in breakfastMeals.Data)
                     {
-                        QueryResponse<Food> restrictionFoods = await userService.GetFoodsFromRestrictionByUserID(user.Data.ID);
+                        QueryResponse<FoodAmountPerMeal> foods = await mealService.GetMealFoodsById(meal.ID);
 
-                        foreach (Food food in restrictionFoods.Data)
+                        foreach (FoodAmountPerMeal foodAmount in foods.Data)
                         {
-                            if (food == foodAmount.Food)
+                            foreach (Food food in restrictionFoods.Data)
                             {
-                                restrictedMeals.Add(meal);
+                                if (food == foodAmount.Food)
+                                {
+                                    restrictedMeals.Add(meal);
+                                }
+                            }
+                        }
+
+                    }
+
+                    foreach (Meal meal in restrictedMeals)
+                    {
+                        foreach (Meal breakfastMeal in breakfastMeals.Data)
+                        {
+                            if (meal == breakfastMeal)
+                            {
+                                breakfastMeals.Data.Remove(meal);
+
+                            }
+                        }
+
+                        foreach (Meal lunchMeal in lunchMeals.Data)
+                        {
+                            if (meal == lunchMeal)
+                            {
+                                lunchMeals.Data.Remove(meal);
+
+                            }
+                        }
+
+                        foreach (Meal dinnerMeal in lunchMeals.Data)
+                        {
+                            if (meal == dinnerMeal)
+                            {
+                                dinnerMeals.Data.Remove(meal);
+
                             }
                         }
                     }
                 }
 
-                foreach (Meal meal in restrictedMeals)
+                foreach (Meal item in breakfastMeals.Data)
                 {
-                    foreach (Meal breakfastMeal in breakfastMeals.Data)
+                    if (item.Total_Calories <= (breakfastCalories + breakfastCalories * 0.05) &&  item.Total_Calories >= (breakfastCalories - breakfastCalories * 0.05))
                     {
-                        filteredBreakfastMeals.Remove(breakfastMeal);
-                    }
-
-                    foreach (Meal lunchMeal in lunchMeals.Data)
-                    {
-                        filteredLunchMeals.Remove(lunchMeal);
-                    }
-
-                    foreach (Meal dinnerMeal in lunchMeals.Data)
-                    {
-                        filteredDinnerMeals.Remove(dinnerMeal);
+                        if (item.Total_Carbohydrates <= (breakfastCarbohydrates + breakfastCarbohydrates * 0.05) && item.Total_Carbohydrates >= (breakfastCarbohydrates - breakfastCarbohydrates * 0.05))
+                        {
+                            if (item.Total_Proteins <= (breakfastProteins + breakfastProteins * 0.05) && item.Total_Proteins >= (breakfastProteins - breakfastProteins * 0.05))
+                            {
+                                if (item.Total_Lipids <= (breakfastLipids + breakfastLipids * 0.05) && item.Total_Lipids >= (breakfastLipids - breakfastLipids * 0.05))
+                                {
+                                    meals.Add(item);
+                                }
+                            }
+                        }  
                     }
                 }
 
-                foreach (Meal item in filteredBreakfastMeals)
+                foreach (Meal item in lunchMeals.Data)
                 {
-                    if (item.Total_Calories == breakfastCalories || item.Total_Calories == (breakfastCalories + 200) || item.Total_Calories == (breakfastCalories - 200))
+                    if (item.Total_Calories <= (lunchCalories + lunchCalories * 0.05) && item.Total_Calories >= lunchCalories - lunchCalories * 0.05)
                     {
-                        diet.Meals.Add(item);
+                        if (item.Total_Carbohydrates <= (lunchCarbohydrates + lunchCarbohydrates * 0.05) && item.Total_Carbohydrates >= (lunchCarbohydrates - lunchCarbohydrates * 0.05))
+                        {
+                            if (item.Total_Proteins <= (lunchProteins + lunchProteins * 0.05) && item.Total_Proteins >= (lunchProteins - lunchProteins * 0.05))
+                            {
+                                if (item.Total_Lipids <= (lunchLipids + lunchLipids * 0.05) && item.Total_Lipids >= (lunchLipids - lunchLipids * 0.05))
+                                {
+                                    meals.Add(item);
+                                }
+                            }
+                        }
                     }
                 }
 
-                foreach (Meal item in filteredLunchMeals)
+                foreach (Meal item in dinnerMeals.Data)
                 {
-                    if (item.Total_Calories == breakfastCalories || item.Total_Calories == (breakfastCalories + 200) || item.Total_Calories == (breakfastCalories - 200))
+                    if (item.Total_Calories == (dinnerCalories + dinnerCalories * 0.05) && item.Total_Calories == (dinnerCalories - dinnerCalories * 0.05))
                     {
-                        diet.Meals.Add(item);
-                    }
-                }
-
-                foreach (Meal item in filteredDinnerMeals)
-                {
-                    if (item.Total_Calories == breakfastCalories || item.Total_Calories == (breakfastCalories + 200) || item.Total_Calories == (breakfastCalories - 200))
-                    {
-                        diet.Meals.Add(item);
+                        if (item.Total_Carbohydrates <= (dinnerCarbohydrates + dinnerCarbohydrates * 0.05) && item.Total_Carbohydrates >= (dinnerCarbohydrates - dinnerCarbohydrates * 0.05))
+                        {
+                            if (item.Total_Proteins <= (dinnerProteins + dinnerProteins * 0.05) && item.Total_Proteins >= (dinnerProteins - dinnerProteins * 0.05))
+                            {
+                                if (item.Total_Lipids <= (dinnerLipids + dinnerLipids * 0.05) && item.Total_Lipids >= (dinnerLipids - dinnerLipids * 0.05))
+                                {
+                                    meals.Add(item);
+                                }
+                            }
+                        }
                     }
                 }
 
                 SingleResponse<Diet> dietResponse = new SingleResponse<Diet>();
+                diet.Date = date;
+                diet.Meals = meals;
                 dietResponse.Data = diet;
                 dietResponse.Success = true;
                 return dietResponse;

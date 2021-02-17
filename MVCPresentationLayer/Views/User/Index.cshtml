@@ -307,23 +307,22 @@
     <script>
         $("#dietDate").change(function () {
             var date = $("#dietDate").val();
-            alert(date);
             $.ajax({
                 method: "GET",
-                url: "/User/GetByDate/",
+                url: "/Diet/GetByDate/",
                 contentType: "application/json",
                 dataType: "json",
                 traditional: true,
                 //data: JSON.stringify({ "date": date }),
                 data: { 'date': JSON.stringify(date) },
                 success: function (data) {
-                    alert(@User.FindFirst("ID").Value);
                     if (data == null) {
                         $.ajax({
-                            method: "GET",
-                            url: "/Diet/GenareteDiet/"+ @User.FindFirst("ID").Value,
-                            contentType: "application/json",
+                            method: "POST",
+                            url: "/Diet/GenareteDiet/",
+                            dataType: "html",
                             traditional: true,
+                            data: 'id='+@User.FindFirst("ID").Value.ToString()+'&date='+date,
                             success: function () {
                                 alert("diet gerada!");
                             },

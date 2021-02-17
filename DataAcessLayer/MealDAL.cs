@@ -121,6 +121,7 @@ namespace DataAcessLayer
         {
             using (DietDB db = new DietDB())
             {
+                item.SetStatus(true);
                 db.Meals.Add(item);
                 await db.SaveChangesAsync();
             }

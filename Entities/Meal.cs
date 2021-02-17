@@ -1,4 +1,5 @@
 ﻿using Entities.Enums;
+using Entities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace Entities
 {
-    public class Meal
+    public class Meal : IStatusService
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -20,6 +21,11 @@ namespace Entities
         public double Total_Lipids { get; set; }
         public ICollection<FoodAmountPerMeal> Foods { get; set; }
         public ICollection<Diet> Diets { get; set; }
+
+        public bool SetStatus(bool status)
+        {
+            return this.Status = status;
+        }
 
         public void CalcularTotalCalorias()
         {

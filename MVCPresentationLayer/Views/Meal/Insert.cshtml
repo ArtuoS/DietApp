@@ -76,11 +76,11 @@
 
                                                         <td class="client-avatar"><img alt="image" width="30" src="@Url.Content(urlImagem)"></td>
                                                         <td><a id="meal" name="@item.ID" href="#MealColumn" class="client-link">@item.Name</a></td>
-                                                        <td id="MealCategory">@item.Category</td>
-                                                        <td id="MealCalories">@item.Total_Calories</td>
-                                                        <td id="MealCarbohydrates">@item.Total_Carbohydrates</td>
-                                                        <td id="MealProteins">@item.Total_Proteins</td>
-                                                        <td id="MealLipids">@item.Total_Lipids</td>
+                                                        <td id="MealCategory">@item.Category.ToString().Replace("_"," ")</td>
+                                                        <td id="MealCalories">@item.Total_Calories mg</td>
+                                                        <td id="MealCarbohydrates">@item.Total_Carbohydrates mg</td>
+                                                        <td id="MealProteins">@item.Total_Proteins mg</td>
+                                                        <td id="MealLipids">@item.Total_Lipids mg</td>
 
                                                     </tr>
                                                 }
@@ -112,10 +112,10 @@
                                                 {
                                                     <tr>
                                                         <td><a id="food" name="@item.ID" href="#FoodColumn" class="client-link">@item.Food_Name</a></td>
-                                                        <td>@item.Calories mg/1g</td>
-                                                        <td>@item.Carbohydrate mg/1g</td>
-                                                        <td>@item.Protein mg/1g</td>
-                                                        <td>@item.Lipid mg/1g</td>
+                                                        <td>@item.Calories mg/1 @item.Unit</td>
+                                                        <td>@item.Carbohydrate mg/1 @item.Unit</td>
+                                                        <td>@item.Protein mg/1 @item.Unit</td>
+                                                        <td>@item.Lipid mg/1 @item.Unit</td>
                                                         <td></td>
                                                     </tr>
                                                 }
@@ -741,7 +741,14 @@
             success: function (data) {
                 document.getElementById('MealNameColumn').innerHTML = data.name;
                 document.getElementById('mealImage').src = "../img/refeicao/" + data.id + ".jpg";
-                document.getElementById('MealCategoryColumn').innerHTML = data.category;
+                if (data.category == 0) {
+                    document.getElementById('MealCategoryColumn').innerHTML = "Café da manhã";
+                } else if (data.category == 1){
+                    document.getElementById('MealCategoryColumn').innerHTML = "Almoço";
+                }
+                else {
+                    document.getElementById('MealCategoryColumn').innerHTML = "Jantar";
+                }
                 document.getElementById('MealDescriptionColumn').innerHTML = data.description;
                 document.getElementById('MealCaloriesColumn').innerHTML = data.total_Calories;
                 document.getElementById('MealCarbohydratesColumn').innerHTML = data.total_Carbohydrates;
@@ -881,7 +888,7 @@
                 var food = new Object();
                 food.Category = foodCategory;
                 food.Food_Name = $("#Food_Name").val();
-                food.unit = parseInt(("#Unit").val());
+                food.unit = ("#Unit").innerHTML;
                 food.Calories = parseFloat($("#Calories").val());
                 food.Alcohol = parseFloat($("#Alcohol").val());
                 food.Carbohydrate = parseFloat($("#Carbohydrate").val());
@@ -938,12 +945,15 @@
                     traditional: true,
                     success: function (response) {
                         if (response.success) {
-                            $('#respostaServidor').html("Cadastro efetuado com sucesso!")
-                            $('#respostaServidor').css({ "color": "green" });
+                            swal({
+                                title: "Sucesso!",
+                                text: "Categoria cadastrada!",
+                                type: "success"
+                            });
                         }
                         else {
-                            $('#respostaServidor').html(response.Erro);
-                            $('#respostaServidor').css({ "color": "red" });
+                            alert("Falha na comunicação com o servidor.");
+
                         }
                     },
                     failure: function (response) {

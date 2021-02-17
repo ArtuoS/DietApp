@@ -55,22 +55,32 @@ namespace MVCPresentationLayer.Controllers
         {
             Restriction r = new Restriction();
             List<Food> foodsRestriction = new List<Food>();
+            Response response = new Response();
 
-            model.FoodSelect.ForEach(c => foodsRestriction.Add(
+            if (model.FoodSelect != null)
+            {
+                model.FoodSelect.ForEach(c => foodsRestriction.Add(
                 new Food()
                 {
                     ID = c
                 }));
+                r.Foods = foodsRestriction;
+                User user = mapper.Map<User>(model);
+                user.Restriction = r;
+                user.SetStatus(true);
+                user.SetRole();
+                response = await userService.Insert(user);
 
-            r.Foods = foodsRestriction;
+            }
+            else
+            {
+                User user = mapper.Map<User>(model);
+                user.SetStatus(true);
+                user.SetRole();
+                response = await userService.Insert(user);
 
-            User user = mapper.Map<User>(model);
-            user.Restriction = r;
+            }
 
-            user.SetStatus(true);
-            user.SetRole();
-
-            Response response = await userService.Insert(user);
             if (response.Success)
             {
                 return Index();
@@ -131,13 +141,6 @@ namespace MVCPresentationLayer.Controllers
             return Json(queryFood.Data.ToList());
         }
 
-        [AllowAnonymous]
-        [HttpGet]
-        public async Task<IActionResult> GetByDate(string date)
-        {
-            DateTime formatedDate = DateTime.ParseExact(date.Replace('"', ' ').Replace(" ", ""), "dd/MM/yyyy", null);
-            SingleResponse<Diet> response = await dietService.GetByDate(formatedDate);
-            return Json(response.Data);
-        }
+        
     }
 }

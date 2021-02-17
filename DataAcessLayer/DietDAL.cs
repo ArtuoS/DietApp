@@ -98,23 +98,6 @@ namespace DataAcessLayer
             }
         }
 
-        public async Task<SingleResponse<Diet>> GetByName(Diet item)
-        {
-            SingleResponse<Diet> response = new SingleResponse<Diet>();
-
-            string name = item.Name;
-
-            using (DietDB db = new DietDB())
-            {
-                Diet diet = await db.Diets.FirstOrDefaultAsync(w => w.Name == name);
-                if (diet != null)
-                {
-                    response.Data = diet;
-                    return ResponseFactory.SingleResponseSuccessModel<Diet>(diet);
-                }
-                return ResponseFactory.SingleResponseNotFoundException<Diet>();
-            }
-        }
 
         public async Task<Response> Insert(Diet item)
         {
@@ -144,7 +127,7 @@ namespace DataAcessLayer
             }
         }
 
-        public Task<SingleResponse<Diet>> GenareteDiet(int id)
+        public Task<SingleResponse<Diet>> GenareteDiet(int id, DateTime date)
         {
             throw new NotImplementedException();
         }
