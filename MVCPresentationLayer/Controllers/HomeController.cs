@@ -1,5 +1,6 @@
 ﻿using Common;
 using Entities;
+using Entities.Enums;
 using Entities.Interfaces;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,9 @@ namespace MVCPresentationLayer.Controllers
                     new Claim(type: "BodyFat", value: response.Data.BodyFat.ToString()),
                     new Claim(type: "Height", value: response.Data.Height.ToString()),
                     new Claim(type: "Email", value: response.Data.Email.ToString()),
+                    new Claim(type: "Weight_Objective", value: response.Data.Weight_Objective.ToString()),
+                    new Claim(type: "Objective", value: Enum.GetName(typeof(Objective), response.Data.Objective)),
+                    new Claim(type: "Days_To_Reach_Goal", value: response.Data.Days_To_Reach_Goal.ToString()),
                     new Claim(type: "Last_Name", value: response.Data.Last_Name.ToString())
                 };
 

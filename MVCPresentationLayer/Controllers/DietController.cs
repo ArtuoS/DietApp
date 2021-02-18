@@ -50,12 +50,4 @@ namespace MVCPresentationLayer.Controllers
         }
 
     }
-    /*
-    public class MyClass
-    {
-        public string date { get; set; }
-        public int id { get; set; }
-
-    }
-    */
 }

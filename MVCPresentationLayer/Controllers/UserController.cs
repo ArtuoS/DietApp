@@ -133,7 +133,6 @@ namespace MVCPresentationLayer.Controllers
             return View();
         }
 
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetFoodOfCategory(int id)
         {

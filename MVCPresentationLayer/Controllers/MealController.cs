@@ -162,7 +162,6 @@ namespace MVCPresentationLayer.Controllers
             return Json(querymeal.Data);
         }
 
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetFoodOfCategory(int id)
         {
