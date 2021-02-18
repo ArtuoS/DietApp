@@ -210,13 +210,13 @@ namespace BusinessLogicalLayer
 
                 foreach (Meal item in breakfastMeals.Data)
                 {
-                    if (item.Total_Calories <= (breakfastCalories + breakfastCalories * 0.05) && item.Total_Calories >= (breakfastCalories - breakfastCalories * 0.05))
+                    if (item.Total_Calories <= (breakfastCalories + breakfastCalories * 0.10) && item.Total_Calories >= (breakfastCalories - breakfastCalories * 0.10))
                     {
-                        if (item.Total_Carbohydrates <= (breakfastCarbohydrates + breakfastCarbohydrates * 0.05) && item.Total_Carbohydrates >= (breakfastCarbohydrates - breakfastCarbohydrates * 0.05))
+                        if (item.Total_Carbohydrates <= (breakfastCarbohydrates + breakfastCarbohydrates * 0.10) && item.Total_Carbohydrates >= (breakfastCarbohydrates - breakfastCarbohydrates * 0.10))
                         {
-                            if (item.Total_Proteins <= (breakfastProteins + breakfastProteins * 0.05) && item.Total_Proteins >= (breakfastProteins - breakfastProteins * 0.05))
+                            if (item.Total_Proteins <= (breakfastProteins + breakfastProteins * 0.10) && item.Total_Proteins >= (breakfastProteins - breakfastProteins * 0.10))
                             {
-                                if (item.Total_Lipids <= (breakfastLipids + breakfastLipids * 0.05) && item.Total_Lipids >= (breakfastLipids - breakfastLipids * 0.05))
+                                if (item.Total_Lipids <= (breakfastLipids + breakfastLipids * 0.10) && item.Total_Lipids >= (breakfastLipids - breakfastLipids * 0.10))
                                 {
                                     meals.Add(item);
                                 }
@@ -227,13 +227,13 @@ namespace BusinessLogicalLayer
 
                 foreach (Meal item in lunchMeals.Data)
                 {
-                    if (item.Total_Calories <= (lunchCalories + lunchCalories * 0.05) && item.Total_Calories >= lunchCalories - lunchCalories * 0.05)
+                    if (item.Total_Calories <= (lunchCalories + lunchCalories * 0.10) && item.Total_Calories >= lunchCalories - lunchCalories * 0.10)
                     {
-                        if (item.Total_Carbohydrates <= (lunchCarbohydrates + lunchCarbohydrates * 0.05) && item.Total_Carbohydrates >= (lunchCarbohydrates - lunchCarbohydrates * 0.05))
+                        if (item.Total_Carbohydrates <= (lunchCarbohydrates + lunchCarbohydrates * 0.10) && item.Total_Carbohydrates >= (lunchCarbohydrates - lunchCarbohydrates * 0.10))
                         {
-                            if (item.Total_Proteins <= (lunchProteins + lunchProteins * 0.05) && item.Total_Proteins >= (lunchProteins - lunchProteins * 0.05))
+                            if (item.Total_Proteins <= (lunchProteins + lunchProteins * 0.10) && item.Total_Proteins >= (lunchProteins - lunchProteins * 0.10))
                             {
-                                if (item.Total_Lipids <= (lunchLipids + lunchLipids * 0.05) && item.Total_Lipids >= (lunchLipids - lunchLipids * 0.05))
+                                if (item.Total_Lipids <= (lunchLipids + lunchLipids * 0.10) && item.Total_Lipids >= (lunchLipids - lunchLipids * 0.10))
                                 {
                                     meals.Add(item);
                                 }
@@ -244,13 +244,13 @@ namespace BusinessLogicalLayer
 
                 foreach (Meal item in dinnerMeals.Data)
                 {
-                    if (item.Total_Calories == (dinnerCalories + dinnerCalories * 0.05) && item.Total_Calories == (dinnerCalories - dinnerCalories * 0.05))
+                    if (item.Total_Calories == (dinnerCalories + dinnerCalories * 0.10) && item.Total_Calories == (dinnerCalories - dinnerCalories * 0.10))
                     {
-                        if (item.Total_Carbohydrates <= (dinnerCarbohydrates + dinnerCarbohydrates * 0.05) && item.Total_Carbohydrates >= (dinnerCarbohydrates - dinnerCarbohydrates * 0.05))
+                        if (item.Total_Carbohydrates <= (dinnerCarbohydrates + dinnerCarbohydrates * 0.10) && item.Total_Carbohydrates >= (dinnerCarbohydrates - dinnerCarbohydrates * 0.10))
                         {
-                            if (item.Total_Proteins <= (dinnerProteins + dinnerProteins * 0.05) && item.Total_Proteins >= (dinnerProteins - dinnerProteins * 0.05))
+                            if (item.Total_Proteins <= (dinnerProteins + dinnerProteins * 0.10) && item.Total_Proteins >= (dinnerProteins - dinnerProteins * 0.10))
                             {
-                                if (item.Total_Lipids <= (dinnerLipids + dinnerLipids * 0.05) && item.Total_Lipids >= (dinnerLipids - dinnerLipids * 0.05))
+                                if (item.Total_Lipids <= (dinnerLipids + dinnerLipids * 0.10) && item.Total_Lipids >= (dinnerLipids - dinnerLipids * 0.10))
                                 {
                                     meals.Add(item);
                                 }

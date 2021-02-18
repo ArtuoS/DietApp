@@ -2677,7 +2677,10 @@
         },
         "runtime": {
           "bin/placeholder/BusinessLogicalLayer.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Common/1.0.0": {
         "type": "project",
@@ -2691,7 +2694,10 @@
         },
         "runtime": {
           "bin/placeholder/Common.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "DataAcessLayer/1.0.0": {
         "type": "project",
@@ -2707,7 +2713,10 @@
         },
         "runtime": {
           "bin/placeholder/DataAcessLayer.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Entities/1.0.0": {
         "type": "project",
@@ -2722,7 +2731,10 @@
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -8856,20 +8868,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Joana.DESKTOP-1T5I4G0\\.nuget\\packages\\": {}
+    "C:\\Users\\entra21\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+      "projectUniqueName": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
       "projectName": "MVCPresentationLayer",
-      "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
-      "packagesPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\obj\\",
+      "projectPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+      "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Joana.DESKTOP-1T5I4G0\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -8880,12 +8899,13 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj": {
-              "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj"
+            "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj"
             },
-            "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
-              "projectPath": "C:\\Users\\Joana.DESKTOP-1T5I4G0\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
+            "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
+              "projectPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
             }
           }
         }
@@ -8898,6 +8918,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -8950,7 +8971,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
