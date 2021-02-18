@@ -19,12 +19,17 @@
             <li class="@Html.IsSelected(controller: "Home", action: "Index")">
                 <a href="@Url.Action("Index", "Home")"><i class="fa fa-user"></i> <span class="nav-label"></span>Perfil<span class="label label-primary float-right">Início</span></a>
             </li>
-            <li class="@Html.IsSelected(controller: "Meals", action: "Insert")">
-                <a href="@Url.Action("Inser", "Meals")"><i class="fa fa-clock-o"></i> <span class="nav-label">Refeições</span></a>
-            </li>
-            <li class="@Html.IsSelected(controller: "Diets", action: "Index")">
-                <a href="@Url.Action("Index", "Diets")"><i class="fa fa-calendar"></i> <span class="nav-label">Cronograma</span></a>
-            </li>
+
+            @{if (User.FindFirst("Role").Value == "Admin")
+                {
+                    <li class="@Html.IsSelected(controller: "Meal", action: "Insert")">
+                        <a href="@Url.Action("Insert", "Meal")"><i class="fa fa-user"></i> <span class="nav-label"></span>Refeições<span class="label label-danger float-right">Admin</span></a>
+                    </li>
+                    <li class="@Html.IsSelected(controller: "User", action: "Users")">
+                        <a href="@Url.Action("Users", "User")"><i class="fa fa-user"></i> <span class="nav-label"></span>Usuários<span class="label label-danger float-right">Admin</span></a>
+                    </li>
+                }
+            }
         </ul>
     </div>
 </nav>

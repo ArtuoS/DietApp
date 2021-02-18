@@ -1,4 +1,5 @@
-﻿
+﻿@using Newtonsoft.Json;
+@using Entities.Enums;
 @{ ViewData["Title"] = "Index"; }
 
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -7,7 +8,7 @@
         <div class="col-md-6">
 
             <div class="profile-image">
-                <img src="~/Images/profile_small.png" class="rounded-circle circle-border m-b-md" alt="profile">
+                <img src="~/Images/profile.png" class="rounded-circle circle-border m-b-md" alt="profile">
             </div>
             <div class="profile-info">
                 <div class="">
@@ -98,28 +99,10 @@
                                                     <li class="dd-item" data-id="1">
                                                         <div class="dd-handle">
                                                             <div class="tooltip-demo">
-                                                                <a class="text-info">Nome da refeição</a><button class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional: r/n Calorias: r/n Carboidratos:r/nProteínas: r/n Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                <a class="text-info" id="nameMealBreackfast">Nome da refeição</a><button data-toggle="modal" id="mod" href="#modal-form" class="btn btn-info btn-xs" data-placement="right"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
                                                             </div>
                                                         </div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="2">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (10g) </span>
-                                                                    <span class="label label-info"></span> Comida1
-                                                                </div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="3">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (50g) </span>
-                                                                    <span class="label label-info"></span> Comida2
-                                                                </div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="4">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (100g) </span>
-                                                                    <span class="label label-info"></span> Comida3
-                                                                </div>
-                                                            </li>
+                                                        <ol class="dd-list" id="breackfastmealfoods">
                                                         </ol>
                                                     </li>
                                                 </ol>
@@ -137,28 +120,10 @@
                                                     <li class="dd-item" data-id="1">
                                                         <div class="dd-handle">
                                                             <div class="tooltip-demo">
-                                                                <a class="text-danger">Nome da refeição</a><button class="btn btn-danger btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                <a class="text-danger" id="nameMeallunch">Nome da refeição</a><button data-toggle="modal" id="mod" href="#modal-form2" class="btn btn-danger btn-xs" data-placement="right"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
                                                             </div>
                                                         </div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="2">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (10g) </span>
-                                                                    <span class="label label-danger"></span> Comida1
-                                                                </div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="3">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (50g) </span>
-                                                                    <span class="label label-danger"></span> Comida2
-                                                                </div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="4">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (100g) </span>
-                                                                    <span class="label label-danger"></span> Comida3
-                                                                </div>
-                                                            </li>
+                                                        <ol class="dd-list" id="lunchmealfoods">
                                                         </ol>
                                                     </li>
                                                 </ol>
@@ -176,28 +141,10 @@
                                                     <li class="dd-item" data-id="1">
                                                         <div class="dd-handle">
                                                             <div class="tooltip-demo">
-                                                                <a class="text-warning">Nome da refeição</a><button class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="right" title="Informação nutricional:&#10Calorias:&#10Carboidratos:&#10Proteínas:&#10Gorduras:"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                <a class="text-warning"  id="nameMealdinner">Nome da refeição</a><button data-toggle="modal" id="mod" href="#modal-form3" class="btn btn-warning btn-xs" data-placement="right" ><i class="fa fa-lightbulb-o"></i> Detalhes</button>
                                                             </div>
                                                         </div>
-                                                        <ol class="dd-list">
-                                                            <li class="dd-item" data-id="2">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (10g) </span>
-                                                                    <span class="label label-warning"></span> Comida1
-                                                                </div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="3">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (50g) </span>
-                                                                    <span class="label label-warning"></span> Comida2
-                                                                </div>
-                                                            </li>
-                                                            <li class="dd-item" data-id="4">
-                                                                <div class="dd-handle">
-                                                                    <span class="float-right"> (100g) </span>
-                                                                    <span class="label label-warning"></span> Comida3
-                                                                </div>
-                                                            </li>
+                                                        <ol class="dd-list" id="dinnermealfoods">
                                                         </ol>
                                                     </li>
                                                 </ol>
@@ -206,8 +153,199 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-3" id="sidecolumn">
                                 <div id="pie"></div>
+                                <ol class="dd-list" id="foodsDetails">
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-form" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog  modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img id="mealbreackfastImage" alt="image" class="" src="" style="width: 120px">
+                                </div>
+                                <div class="col-lg-8">
+                                    <h3 id="mealBreackfastName"></h3>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Calorias: </small>
+                                                    <small id="mealbreackfastCalories"></small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Carboidratos: </small>
+                                                    <small id="mealbreackfastCarbs"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Proteínas: </small>
+                                                    <small id="mealbreackfastProteins"></small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Gorduras: </small>
+                                                    <small id="mealbreackfastLipids"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h4>Ingredientes</h4>
+                                    <ul id="mealbrackfastfoods">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>Receita</h4>
+                                    <p id="mealBreackfastDescription"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-form2" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog  modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img id="meallunchImage" alt="image" class="" src="" style="width: 120px">
+                                </div>
+                                <div class="col-lg-8">
+                                    <h3 id="meallunchName"></h3>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Calorias: </small>
+                                                    <small id="meallunchCalories"></small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Carboidratos: </small>
+                                                    <small id="meallunchCarbs"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Proteínas: </small>
+                                                    <small id="meallunchProteins"></small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Gorduras: </small>
+                                                    <small id="meallunchLipids"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h4>Ingredientes</h4>
+                                    <ul id="meallunchfoods">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>Receita</h4>
+                                    <p id="meallunchDescription"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal-form3" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog  modal-md">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <img id="mealdinnerImage" alt="image" class="" src="" style="width: 120px">
+                                </div>
+                                <div class="col-lg-8">
+                                    <h3 id="mealdinnerName"></h3>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Calorias: </small>
+                                                    <small id="mealdinnerCalories"></small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Carboidratos: </small>
+                                                    <small id="mealdinnerCarbs"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Proteínas: </small>
+                                                    <small id="mealdinnerProteins"></small>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <small>Gorduras: </small>
+                                                    <small id="mealdinnerLipids"></small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h4>Ingredientes</h4>
+                                    <ul id="mealdinnerfoods">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h4>Receita</h4>
+                                    <p id="mealdinnerDescription"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -307,6 +445,11 @@
     <script>
         $("#dietDate").change(function () {
             var date = $("#dietDate").val();
+            const myNode = document.getElementById("breackfastmealfoods");
+            myNode.innerHTML = '';
+            const myNodeb = document.getElementById("mealbrackfastfoods");
+            myNodeb.innerHTML = '';
+            var units = ['kcal', 'g', 'L', 'ml', 'kg', 'mg', 'µg'];
             $.ajax({
                 method: "GET",
                 url: "/Diet/GetByDate/",
@@ -331,8 +474,164 @@
                                 'date': JSON.stringify(date),
                                 'id': JSON.stringify(id)
                             },
-                            success: function (data2) {
-                                alert("foooi");
+                            success: function (data1) {
+                                for (var i = 0; i < data1.length; i++) {
+                                    $.ajax({
+                                        method: "GET",
+                                        url: "/Meal/GetById/" + data1[i],
+                                        contentType: "application/json",
+                                        dataType: "json",
+                                        traditional: true,
+                                        success: function (data2) {
+                                            if (data2.category == 0) {
+                                                document.getElementById('nameMealBreackfast').innerHTML = data2.name;
+                                                document.getElementById('mealBreackfastName').innerHTML = data2.name;
+                                                document.getElementById('mealBreackfastDescription').innerHTML = data2.description;
+                                                document.getElementById('mealbreackfastImage').src = "../img/refeicao/" + data2.id + ".jpg";
+                                                document.getElementById('mealbreackfastCalories').innerHTML = data2.total_Calories;
+                                                document.getElementById('mealbreackfastCarbs').innerHTML = data2.total_Carbohydrates;
+                                                document.getElementById('mealbreackfastProteins').innerHTML = data2.total_Proteins;
+                                                document.getElementById('mealbreackfastLipids').innerHTML = data2.total_Lipids;
+                                                $.ajax({
+                                                    method: "GET",
+                                                    url: "/Meal/GetMealFoodsById/" + data2.id,
+                                                    contentType: "application/json",
+                                                    dataType: "json",
+                                                    traditional: true,
+                                                    success: function (data3) {
+                                                        for (var i = 0; i < data3.length; i++) {
+                                                            var food = data3[i];
+                                                            $.ajax({
+                                                                method: "GET",
+                                                                url: "/Meal/GetFoodById/" + data3[i].foodID,
+                                                                contentType: "application/json",
+                                                                dataType: "json",
+                                                                traditional: true,
+                                                                success: function (data4) {
+                                                                    var a = '<li class="dd-item" data-id="2"><div class="dd-handle"><span class="float-right">' + food.quantity + units[data4.unit] + ' </span><span>' + data4.food_Name + '</span></div></li>';
+                                                                    var b = '<li>'+ data4.food_Name +'<span class="float-right">' + food.quantity + units[data4.unit] + ' </span></li>';
+                                                                    $("#breackfastmealfoods").append(a);
+                                                                    $("#mealbrackfastfoods").append(b);
+                                                                },
+                                                                failure: function (response) {
+                                                                    alert("Falha na comunicação com o servidor.");
+                                                                },
+                                                                error: function (response) {
+                                                                }
+                                                            });
+                                                        }
+                                                    },
+                                                    failure: function (response) {
+                                                        alert("Falha na comunicação com o servidor.");
+                                                    },
+                                                    error: function (response) {
+                                                    }
+                                                });
+                                            }
+
+                                            else if (data2.category == 1) {
+                                                document.getElementById('nameMeallunch').innerHTML = data2.name;
+                                                document.getElementById('meallunchName').innerHTML = data2.name;
+                                                document.getElementById('meallunchDescription').innerHTML = data2.description;
+                                                document.getElementById('meallunchImage').src = "../img/refeicao/" + data2.id + ".jpg";
+                                                document.getElementById('meallunchCalories').innerHTML = data2.total_Calories;
+                                                document.getElementById('meallunchCarbs').innerHTML = data2.total_Carbohydrates;
+                                                document.getElementById('meallunchProteins').innerHTML = data2.total_Proteins;
+                                                document.getElementById('meallunchLipids').innerHTML = data2.total_Lipids;
+                                                $.ajax({
+                                                    method: "GET",
+                                                    url: "/Meal/GetMealFoodsById/" + data2.id,
+                                                    contentType: "application/json",
+                                                    dataType: "json",
+                                                    traditional: true,
+                                                    success: function (data3) {
+                                                        for (var i = 0; i < data3.length; i++) {
+                                                            var food = data3[i];
+                                                            $.ajax({
+                                                                method: "GET",
+                                                                url: "/Meal/GetFoodById/" + data3[i].foodID,
+                                                                contentType: "application/json",
+                                                                dataType: "json",
+                                                                traditional: true,
+                                                                success: function (data4) {
+                                                                    var a = '<li class="dd-item" data-id="2"><div class="dd-handle"><span class="float-right">' + food.quantity + units[data4.unit] + ' </span><span>' + data4.food_Name + '</span></div></li>';
+                                                                    var b = '<li>' + data4.food_Name +'<span class="float-right">' + food.quantity + units[data4.unit] + ' </span></li>';
+                                                                    $("#lunchmealfoods").append(a);
+                                                                    $("#meallunchfoods").append(b);
+                                                                },
+                                                                failure: function (response) {
+                                                                    alert("Falha na comunicação com o servidor.");
+                                                                },
+                                                                error: function (response) {
+                                                                }
+                                                            });
+                                                        }
+                                                    },
+                                                    failure: function (response) {
+                                                        alert("Falha na comunicação com o servidor.");
+                                                    },
+                                                    error: function (response) {
+                                                    }
+                                                });
+                                            }
+
+                                            else if (data2.category == 2) {
+                                                document.getElementById('nameMealdinner').innerHTML = data2.name;
+                                                document.getElementById('mealdinnerName').innerHTML = data2.name;
+                                                document.getElementById('mealdinnerDescription').innerHTML = data2.description;
+                                                document.getElementById('mealdinnerImage').src = "../img/refeicao/" + data2.id + ".jpg";
+                                                document.getElementById('mealdinnerCalories').innerHTML = data2.total_Calories;
+                                                document.getElementById('mealdinnerCarbs').innerHTML = data2.total_Carbohydrates;
+                                                document.getElementById('mealdinnerProteins').innerHTML = data2.total_Proteins;
+                                                document.getElementById('mealdinnerLipids').innerHTML = data2.total_Lipids;
+                                                $.ajax({
+                                                    method: "GET",
+                                                    url: "/Meal/GetMealFoodsById/" + data2.id,
+                                                    contentType: "application/json",
+                                                    dataType: "json",
+                                                    traditional: true,
+                                                    success: function (data3) {
+                                                        for (var i = 0; i < data3.length; i++) {
+                                                            var food = data3[i];
+                                                            $.ajax({
+                                                                method: "GET",
+                                                                url: "/Meal/GetFoodById/" + data3[i].foodID,
+                                                                contentType: "application/json",
+                                                                dataType: "json",
+                                                                traditional: true,
+                                                                success: function (data4) {
+                                                                    var a = '<li class="dd-item" data-id="2"><div class="dd-handle"><span class="float-right">' + food.quantity + units[data4.unit] + ' </span><span>' + data4.food_Name + '</span></div></li>';
+                                                                    var b = '<li>' + data4.food_Name + '<span class="float-right">' + food.quantity + units[data4.unit] + ' </span></li>';
+                                                                    $("#dinnermealfoods").append(a);
+                                                                    $("#mealdinnerfoods").append(b);
+                                                                },
+                                                                failure: function (response) {
+                                                                    alert("Falha na comunicação com o servidor.");
+                                                                },
+                                                                error: function (response) {
+                                                                }
+                                                            });
+                                                        }
+                                                    },
+                                                    failure: function (response) {
+                                                        alert("Falha na comunicação com o servidor.");
+                                                    },
+                                                    error: function (response) {
+                                                    }
+                                                });
+
+                                            }
+                                            
+                                        },
+                                        failure: function (response) {
+                                            alert("Falha na comunicação com o servidor.");
+                                        },
+                                        error: function (response) {
+                                        }
+                                    });
+
+                                }
+
                             },
                             failure: function (data2) {
                                 alert("Falha na comunicação com o servidor.");

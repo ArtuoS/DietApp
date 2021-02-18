@@ -47,6 +47,7 @@ namespace MVCPresentationLayer.Controllers
                     new Claim(ClaimTypes.Email, email),
                     new Claim(ClaimTypes.Role, response.Data.Role),
                     new Claim(type: "Daily_Calories", value: response.Data.Daily_Calories.ToString()),
+                    new Claim(type: "Role", value: response.Data.Role.ToString()),
                     new Claim(type: "ID", value: response.Data.ID.ToString()),
                     new Claim(type: "Daily_Carbohydrates", value: response.Data.Daily_Carbohydrates.ToString()),
                     new Claim(type: "Daily_Fats", value: response.Data.Daily_Fats.ToString()),

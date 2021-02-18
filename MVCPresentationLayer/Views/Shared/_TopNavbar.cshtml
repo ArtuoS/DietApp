@@ -4,7 +4,7 @@
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             <form role="search" class="navbar-form-custom" method="post" action="">
                 <div class="form-group">
-                    <input type="text" placeholder="Procura por algo..." class="form-control" name="top-search" id="top-search">
+                    <input type="text" placeholder="Procura por algo..." data-provide="typeahead" data-source='["Usuários","Refeições","Perfil","Alimentos"]' class="form-control" name="top-search" id="top-search">
                 </div>
             </form>
         </div>
@@ -13,12 +13,41 @@
                 <img alt="image" style="resize" class="img-fluid" src="~/Images/logo_small.png" />
             </li>
         </ul>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-sign-out"></i> Sair
-                    </a>
-                </li>
-            </ul>
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+                <a href="#">
+                    <i class="fa fa-sign-out"></i> Sair
+                </a>
+            </li>
+        </ul>
     </nav>
 </div>
+
+@section Scripts {
+    <environment names="Development,Staging,Production">
+
+        <script src="~/lib/typehead/bootstrap3-typeahead.min.js"></script>
+
+    </environment>
+        <script>
+    $(document).ready(function () {
+
+        $('#input').change(function () {
+            if ($('#input').val == 'Usuários') {
+                window.location.replace('@Url.Action("Users", "User")');
+            }
+            if ($('#input').val == 'Refeições') {
+                window.location.replace('@Url.Action("Insert", "Meal")');
+            }
+            if ($('#input').val == 'Perfil') {
+                @Url.Action("Index", "User")
+            }
+            if ($('#input').val == 'Alimentos') {
+                @Url.Action("Insert", "Meal")
+            }
+        });
+
+    });
+
+        </script>
+}

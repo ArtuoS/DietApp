@@ -37,7 +37,13 @@ namespace MVCPresentationLayer.Controllers
             Response responseInsert = await dietService.Insert(responseGenaration.Data);
             if (responseInsert.Success)
             {
-                return Json(responseGenaration.Data);
+                List<int> mealsids = new List<int>();
+                foreach (Meal meal in responseGenaration.Data.Meals)
+                {
+                    mealsids.Add(meal.ID);
+                }
+                
+                return Json(mealsids);
 
             }
             return Json(null);
