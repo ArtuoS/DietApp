@@ -56,7 +56,8 @@ namespace MVCPresentationLayer.Controllers
                     new Claim(type: "Weight", value: response.Data.Weight.ToString()),
                     new Claim(type: "BodyFat", value: response.Data.BodyFat.ToString()),
                     new Claim(type: "Height", value: response.Data.Height.ToString()),
-                    new Claim(type: "Email", value: response.Data.Email.ToString())
+                    new Claim(type: "Email", value: response.Data.Email.ToString()),
+                    new Claim(type: "Last_Name", value: response.Data.Last_Name.ToString())
                 };
 
             var myIdentity = new ClaimsIdentity(userClaims, "Usuario");

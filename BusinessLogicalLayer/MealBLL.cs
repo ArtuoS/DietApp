@@ -15,9 +15,12 @@ namespace BusinessLogicalLayer
 {
     public class MealBLL : AbstractValidator<Meal>, IMealService
     {
-        public MealBLL()
+        private readonly IFoodService foodService;
+
+        public MealBLL(IFoodService foodService)
         {
             RuleFor(a => a.Name).NotNull().Length(3, 50).WithMessage("O nome deve ter entre 3 e 50 caractéres.");
+            this.foodService = foodService;
         }
 
         MealDAL mealDAL = new MealDAL();
@@ -45,6 +48,15 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
+                    foreach (FoodAmountPerMeal food in item.Foods)
+                    {
+                        SingleResponse<Food> foodResponse = await foodService.GetById(food.FoodID);
+                        item.Total_Calories += food.Quantity * foodResponse.Data.Calories;
+                        item.Total_Carbohydrates += food.Quantity * foodResponse.Data.Carbohydrate;
+                        item.Total_Lipids += food.Quantity * foodResponse.Data.Lipid;
+                        item.Total_Proteins += food.Quantity * foodResponse.Data.Protein;
+                    }
+
                     return await mealDAL.Insert(item);
                 }
             }

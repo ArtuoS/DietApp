@@ -1504,11 +1504,8 @@ C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.TagHelpers.input.cache
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.TagHelpers.output.cache
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.RazorCoreGenerate.cache
-C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Food\Insert.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Restriction\Index.cshtml.g.cs
-C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Restriction\Insert.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Footer.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -1517,7 +1514,6 @@ C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Index.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Insert.cshtml.g.cs
-C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Update.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\User\Users.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
@@ -1529,7 +1525,6 @@ C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.pdb
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\MVCPresentationLayer.genruntimeconfig.cache
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Food\Index.cshtml.g.cs
-C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Food\Index.cshtml.g.cs
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Food\Index.cshtml.g.cs
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Restriction\Index.cshtml.g.cs
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Restriction\Insert.cshtml.g.cs
@@ -1538,9 +1533,7 @@ P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Use
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Insert.cshtml.g.cs
 P:\Arthur M\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Index.cshtml.g.cs
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\DietSystem\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Insert.cshtml.g.cs
-C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Index.cshtml.g.cs
 C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Insert.cshtml.g.cs
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Index.cshtml.g.cs
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\Meal\Insert.cshtml.g.cs
 C:\Users\entra21\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\FoodCategory\Insert.cshtml.g.cs
-C:\Users\arthu\source\repos\DietApp\MVCPresentationLayer\obj\Debug\netcoreapp3.1\Razor\Views\FoodCategory\Insert.cshtml.g.cs

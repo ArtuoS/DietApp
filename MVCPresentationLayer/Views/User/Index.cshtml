@@ -13,12 +13,14 @@
             <div class="profile-info">
                 <div class="">
                     <div>
-                        <h1 class="no-margins">
+                        <h1 class="no-margins" id="userIdentityName">
                             @User.Identity.Name
-                            <!--User.FindFirst("Weight").Value;-->
                         </h1>
-                        <p>
+                        <p id="userIdentityEmail">
                             @User.FindFirst("Email").Value
+                        </p>
+                        <p id="userIdentityLastName" class="lastNameIdnt">
+                            @User.FindFirst("Last_Name").Value
                         </p>
                         <table class="table small m-b-xs">
                             <tbody>
@@ -72,6 +74,61 @@
             </table>
         </div>
     </div>
+
+    <!-- AQUI MEU AMIGO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII PORRAAAAAA !-->
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="input-group">
+                <a data-toggle="modal" class="btn btn-primary" id="modalUser" href="#modal-form">Editar Usuário</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- START MODAL START MODAL START MODAL START MODAL START MODAL START MODAL START MODAL START MODAL START MODAL -->
+
+    <div id="modal-form" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form role="form">
+                        <h3>
+                            Editar Usuario ID:
+                            <label name="IDUser" id="IDUser">@User.FindFirst("ID").Value</label>
+                        </h3>
+                        <div class="row">
+                            <div class="col-sm-6 b-r">
+                                <div class="form-group">
+                                    <label name="First_Name" class="col-sm-2 col-form-label">Nome</label> <input name="First_Name" id="First_Name" type="text" value="" class="form-control">
+                                </div>
+                                <span class="text-danger"></span>
+                                <div class="form-group">
+                                    <label name="Last_Name" class="col-sm-2 col-form-label">Sobrenome</label> <input name="Last_Name" id="Last_Name" type="text" value="" class="form-control">
+                                </div>
+                                <span class="text-danger"></span>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label name="Email" class="col-sm-2 col-form-label">Email</label><input name="Email" type="email" id="Email" class="form-control">
+                                </div>
+                                <span class="text-danger"></span>
+                                <div class="form-group">
+                                    <label name="Password" class="col-sm-2 col-form-label">Senha</label><input name="Password" type="password" id="Password" class="form-control">
+                                </div>
+                                <span class="text-danger"></span>
+                                <div class="form-group">
+                                    <button id="btnUpdate" class="btn btn-sm-10 btn-primary" type="submit"><strong>Atualizar</strong></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END MODAL END MODAL END MODAL END MODAL END MODAL END MODAL END MODAL END MODAL END MODAL END MODAL END MODAL  -->
+
     <div class="wrapper wrapper-content">
         <div class="row justify-content-md-center">
             <div class="col-lg-10 col-lg-offset-1">
@@ -141,7 +198,7 @@
                                                     <li class="dd-item" data-id="1">
                                                         <div class="dd-handle">
                                                             <div class="tooltip-demo">
-                                                                <a class="text-warning"  id="nameMealdinner">Nome da refeição</a><button data-toggle="modal" id="mod" href="#modal-form3" class="btn btn-warning btn-xs" data-placement="right" ><i class="fa fa-lightbulb-o"></i> Detalhes</button>
+                                                                <a class="text-warning" id="nameMealdinner">Nome da refeição</a><button data-toggle="modal" id="mod" href="#modal-form3" class="btn btn-warning btn-xs" data-placement="right"><i class="fa fa-lightbulb-o"></i> Detalhes</button>
                                                             </div>
                                                         </div>
                                                         <ol class="dd-list" id="dinnermealfoods">
@@ -430,6 +487,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            $('.lastNameIdnt').css('visibility', 'hidden');
 
             $("#sparkline1").sparkline([34, 43, 43, 35, 44, 32, 44, 48], {
                 type: 'line',
@@ -439,6 +497,48 @@
                 fillColor: "transparent"
             });
 
+        });
+    </script>
+
+    <script>
+        $("#modalUser").click(function (e) {
+            $("#First_Name").val($("#userIdentityName").html().replace(/\s+/, ""));
+            $("#Email").val($("#userIdentityEmail").html().replace(/\s+/, ""));
+            $("#Last_Name").val($("#userIdentityLastName").html().replace(/\s+/, ""));
+            $("#IDUser").val($("#IDUser").html().replace(/\s+/, ""));
+        });
+
+        $("#btnUpdate").click(function (e) {
+            tr = $(this).parent().parent();
+            var user = new Object();
+            user.First_Name = $("#First_Name").val();
+            user.Email = $("#Email").val();
+            user.Last_Name = $("#Last_Name").val();
+            user.ID = $("#IDUser").val();
+            $.ajax({
+                method: "POST",
+                url: "/User/Update/",
+                data: JSON.stringify(user),
+                contentType: "application/json",
+                dataType: "json",
+                traditional: true,
+                success: function (response) {
+                    if (response.DeuBoa) {
+                        $('#respostaServidor').html("Cadastro efetuado com sucesso!")
+                        $('#respostaServidor').css({ "color": "green" });
+                    }
+                    else {
+                        $('#respostaServidor').html(response.Erro);
+                        $('#respostaServidor').css({ "color": "red" });
+                    }
+                },
+                failure: function (response) {
+                    alert("Falha na comunicação com o servidor.");
+                },
+                error: function (response) {
+                }
+            });
+            e.preventDefault();
         });
     </script>
 
@@ -621,7 +721,7 @@
                                                 });
 
                                             }
-                                            
+
                                         },
                                         failure: function (response) {
                                             alert("Falha na comunicação com o servidor.");
