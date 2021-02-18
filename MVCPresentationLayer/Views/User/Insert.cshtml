@@ -462,8 +462,11 @@
                     traditional: true,
                     success: function (response) {
                         if (response.DeuBoa) {
-                            $('#respostaServidor').html("Cadastro efetuado com sucesso!")
-                            $('#respostaServidor').css({ "color": "green" });
+                            swal({
+                                title: "Sucesso!",
+                                text: "Usuário atualizado!",
+                                type: "success"
+                            });
                         }
                         else {
                             $('#respostaServidor').html(response.Erro);
@@ -510,8 +513,11 @@
                     traditional: true,
                     success: function (response) {
                         if (response.DeuBoa) {
-                            $('#respostaServidor').html("Cadastro efetuado com sucesso!")
-                            $('#respostaServidor').css({ "color": "green" });
+                            swal({
+                                title: "Sucesso!",
+                                text: "Usuário atualizado!",
+                                type: "success"
+                            });
                         }
                         else {
                             $('#respostaServidor').html(response.Erro);
@@ -530,9 +536,9 @@
 
 
         $("#Restrictions").change(function () {
-
+            const myNode = document.getElementById("FoodSelect");
+            myNode.innerHTML = '';
             var id = $("#Restrictions").val();
-            alert(id);
             $.ajax({
                 method: "GET",
                 url: "/User/GetFoodOfCategory/" + id,
