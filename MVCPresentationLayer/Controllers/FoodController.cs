@@ -6,6 +6,7 @@ using Entities.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MVCPresentationLayer.Models.InsertModels;
+using MVCPresentationLayer.Models.UpdateModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +54,26 @@ namespace MVCPresentationLayer.Controllers
             return Json(response);
         }
 
-        
+        public IActionResult Update()
+        {
+            return View();
+        }
+
+        //[FromBody] UserUpdateViewModel model
+        [HttpPost]
+        public async Task<IActionResult> Update([FromBody] FoodUpdateViewModel model)
+        {
+            Food food = mapper.Map<Food>(model);
+
+            Response response = await foodService.Update(food);
+
+            if (response.Success)
+            {
+                return Json(new { Sucesso = true });
+            }
+
+            return View("Index");
+        }
 
     }
 }

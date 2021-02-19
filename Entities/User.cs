@@ -138,12 +138,12 @@ namespace Entities
             {
                 switch (this.Objective)
                 {
-                    case Objective.Weight_Loss:
+                    case Objective.Perda_de_peso:
                         this.Daily_Calories -= this.CalculateVENTA();
                         break;
-                    case Objective.Maintenance:
+                    case Objective.Manter_Peso:
                         break;
-                    case Objective.Mass_Gain:
+                    case Objective.Ganho_de_massa:
                         this.Daily_Calories += this.CalculateVENTA();
                         break;
                 }

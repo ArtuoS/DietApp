@@ -433,6 +433,7 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group">
+                                    <input id="Food_Id_Edit" class="form-control">
                                     <label class="form-label"> Nome do alimento</label>
                                     <input id="Food_Name_Edit" class="form-control">
                                 </div>
@@ -913,7 +914,7 @@
                     dataType: "json",
                     traditional: true,
                     success: function (data) {
-                        $("#ingredientes").innerHTML = '';
+                        
                         for (var i = 0; i < data.length; i++) {
                             $.ajax({
                                 method: "GET",
@@ -995,6 +996,8 @@
                 });
                 e.preventDefault();
             } else {
+                $("#ingredientes").innerHTML = '';
+
                 var id = e.target.getAttribute('name');
                 $.ajax({
                     method: "GET",
@@ -1026,7 +1029,6 @@
                             dataType: "json",
                             traditional: true,
                             success: function (data1) {
-                                $("#ingredientes").innerHTML = '';
 
                                 for (var i = 0; i < data1.length; i++) {
                                     $.ajax({
@@ -1073,9 +1075,53 @@
         });
 
         $(function () {
+            $("#foodEditBtn").click(function (e) {
+                var food = new Object();
+
+                food.food_Id = document.getElementById('Food_Id_Edit').innerHTML;
+                food.food_Name = document.getElementById('Food_Name_Edit').innerHTML;
+                food.calories = document.getElementById('Calories_Edit').innerHTML;
+                food.proteins = document.getElementById('Carbs_Edit').innerHTML;
+                food.proteins = document.getElementById('Proteins_Edit').innerHTML;
+                food.lipids = document.getElementById('Lipids_Edit').innerHTML;
+                food.alcohol = document.getElementById('Alcohol_Edit').innerHTML;
+                food.cooper = document.getElementById('Cooper_Edit').innerHTML;
+                food.fiber = document.getElementById('Fiber_Edit').innerHTML;
+                food.magnesium = document.getElementById('Magnesium_Edit').innerHTML;
+                food.phosphor = document.getElementById('Phosphor_Edit').innerHTML;
+                food.potasium  = document.getElementById('Potasium_Edit').innerHTML;
+                food.sodium  = document.getElementById('Sodium_Edit').innerHTML;
+                food.selenium = document.getElementById('Selenium_Edit').innerHTML;
+                food.vitamin_A = document.getElementById('VitaminA_Edit').innerHTML;
+                food.vitamin_C = document.getElementById('VitaminC_Edit').innerHTML;
+                food.vitamin_D = document.getElementById('VitaminD_Edit').innerHTML;
+                food.vitamin_E = document.getElementById('VitaminE_Edit').innerHTML;
+                food.vitamin_B6 = document.getElementById('VitaminB6_Edit').innerHTML;
+                food.vitamin_B12 = document.getElementById('VitaminB12_Edit').innerHTML;
+                $.ajax({
+                    method: "GET",
+                    url: "/Food/Update/" + food,
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (data) {
+                        swal({
+                            title: "Sucesso!",
+                            text: "Alimento atualizado!",
+                            type: "success"
+                        });
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
+                e.preventDefault();
+            });
+
             $("#foodUpdate").click(function (e) {
-                var id = $('#foodUpdate').attr("name");
-                alert(id);
+                var id = e.target.name;
                 $.ajax({
                     method: "GET",
                     url: "/Meal/GetFoodById/" + id,
@@ -1083,6 +1129,7 @@
                     dataType: "json",
                     traditional: true,
                     success: function (data) {
+                        $('#Food_Id_Edit').innerHTML = id;
                         document.getElementById('Food_Name_Edit').innerHTML = data.calories;
                         document.getElementById('Calories_Edit').innerHTML = data.calories;
                         document.getElementById('Carbs_Edit').innerHTML = data.carbohydrate;

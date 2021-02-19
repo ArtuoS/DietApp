@@ -6,8 +6,8 @@ namespace Entities.Enums
 {
     public enum Objective
     {
-        Weight_Loss,
-        Maintenance,
-        Mass_Gain
+        Perda_de_peso,
+        Manter_Peso,
+        Ganho_de_massa
     }
 }
