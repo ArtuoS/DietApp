@@ -6,10 +6,10 @@ namespace Entities.Enums
 {
     public enum Exercise_Activity
     {
-        Sedentary,
-        Light,
-        Moderate,
-        Active,
-        Very_Active
+        Sedentario,
+        Leve,
+        Moderado,
+        Ativo,
+        Atleta
     }
 }

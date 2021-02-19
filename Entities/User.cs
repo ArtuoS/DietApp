@@ -117,19 +117,19 @@ namespace Entities
 
             switch (this.Activity)
             {
-                case Exercise_Activity.Sedentary:
+                case Exercise_Activity.Sedentario:
                     this.Daily_Calories *= 1.2;
                     break;
-                case Exercise_Activity.Light:
+                case Exercise_Activity.Leve:
                     this.Daily_Calories *= 1.375;
                     break;
-                case Exercise_Activity.Moderate:
+                case Exercise_Activity.Moderado:
                     this.Daily_Calories *= 1.55;
                     break;
-                case Exercise_Activity.Active:
+                case Exercise_Activity.Ativo:
                     this.Daily_Calories *= 1.725;
                     break;
-                case Exercise_Activity.Very_Active:
+                case Exercise_Activity.Atleta:
                     this.Daily_Calories *= 1.9;
                     break;
             }
