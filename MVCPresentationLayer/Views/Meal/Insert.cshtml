@@ -117,7 +117,7 @@
                                                         <td>@item.Protein mg/1 @item.Unit</td>
                                                         <td>@item.Lipid mg/1 @item.Unit</td>
                                                         <td>
-                                                            <a id="foodUpdate" class="btn btn-primary col-sm-12 text-white">Atualizar</a>
+                                                            <a data-toggle="modal" id="foodUpdate" class="btn btn-primary col-sm-12 text-white" href="#modal-food-edit">Editar</a>
                                                             <a id="foodDelete" class="btn btn-primary col-sm-12 text-white">Deletar</a>
                                                         </td>
                                                     </tr>
@@ -419,6 +419,150 @@
                         </div>
                         <div class="form-group">
                             <input type="submit" id="MealInsert" value="Cadastrar refeição" class="btn btn-primary col-sm-12">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-food-edit" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog  modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form class="form">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label class="form-label"> Nome do alimento</label>
+                                    <input id="Food_Name_Edit" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Calorias</label>
+                                        <input id="Calories_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Álcool</label>
+                                        <input id="Alcohol_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Carboidrato</label>
+                                        <input id="Carbs_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Cobre</label>
+                                        <input id="Copper_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Fíbra</label>
+                                        <input id="Fiber_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Gorduras</label>
+                                        <input id="Lipid_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Magnesio</label>
+                                        <input id="Magnesium_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Fósforo</label>
+                                        <input id="Phosphor_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Potássio</label>
+                                        <input id="Potassium_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Proteína</label>
+                                        <input id="Protein_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Sódio</label>
+                                        <input id="Sodium_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Selenio</label>
+                                        <input id="Selenium_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Vitamina A</label>
+                                        <input id="Vitamin_A_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Vitamina C</label>
+                                        <input id="Vitamin_C_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Vitamina D</label>
+                                        <input id="Vitamin_D_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Vitamina E</label>
+                                        <input id="Vitamin_E_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Vitamina B6</label>
+                                        <input id="Vitamin_B6_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Vitamina B12</label>
+                                        <input id="Vitamin_B12_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group">
+                                        <label class="orm-label">Zinco</label>
+                                        <input id="Zinc_Edit" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <button class="btn btn-primary btn-sm demo2 col-sm-6" type="submit" id="foodEditBtn">Editar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -886,6 +1030,45 @@
         });
 
         $(function () {
+
+            $("#foodUpdate").click(function (e) {
+                var id = $("#FoodIdIntoMeal").html();
+                $.ajax({
+                    method: "GET",
+                    url: "/Meal/GetFoodById/" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (data) {
+                        document.getElementById('Food_Name_Edit').innerHTML = data.food_Name;
+                        //document.getElementById('Calories_Edit').innerHTML = data.calories;
+                        //document.getElementById('Carbs_Edit').innerHTML = data.carbohydrate;
+                        //document.getElementById('Proteins_Edit').innerHTML = data.protein;
+                        //document.getElementById('Lipids_Edit').innerHTML = data.lipid;
+                        //document.getElementById('Alcohol_Edit').innerHTML = data.alcohol;
+                        //document.getElementById('Cooper_Edit').innerHTML = data.copper;
+                        //document.getElementById('Fiber_Edit').innerHTML = data.fiber;
+                        //document.getElementById('Magnesium_Edit').innerHTML = data.magnesium;
+                        //document.getElementById('Phosphor_Edit').innerHTML = data.phosphor;
+                        //document.getElementById('Potasium_Edit').innerHTML = data.potassium;
+                        //document.getElementById('Sodium_Edit').innerHTML = data.sodium;
+                        //document.getElementById('Selenium_Edit').innerHTML = data.selenium;
+                        //document.getElementById('VitaminA_Edit').innerHTML = data.vitamin_A;
+                        //document.getElementById('VitaminC_Edit').innerHTML = data.vitamin_C;
+                        //document.getElementById('VitaminD_Edit').innerHTML = data.vitamin_D;
+                        //document.getElementById('VitaminE_Edit').innerHTML = data.vitamin_E;
+                        //document.getElementById('VitaminB6_Edit').innerHTML = data.vitamin_B6;
+                        //document.getElementById('VitaminB12_Edit').innerHTML = data.vitamin_B12;
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
+                e.preventDefault();
+            });
+
             $("#FoodInsert").click(function (e) {
                 var foodCategory = new Object();
                 foodCategory.Name = $("#FoodCategory").find('option:selected').text();

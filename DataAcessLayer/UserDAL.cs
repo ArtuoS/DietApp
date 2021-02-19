@@ -93,6 +93,7 @@ namespace DataAcessLayer
         public async Task<QueryResponse<Food>> GetFoodsFromRestrictionByUserID(int id)
         {
             QueryResponse<Food> response = new QueryResponse<Food>();
+            List<Food> foods = new List<Food>();
 
             using (DietDB db = new DietDB())
             {
@@ -102,12 +103,12 @@ namespace DataAcessLayer
                 {
                     foreach (Food food in restriction.Foods)
                     {
-                        response.Data.Add(food);
+                        foods.Add(food);
                     }
                 }
+                response.Data = foods;
+                return ResponseFactory.QueryResponseSuccessModel<Food>(response.Data);
             }
-
-            return response;
         }
 
         public async Task<Response> Insert(User item)
@@ -126,7 +127,7 @@ namespace DataAcessLayer
                     await db.SaveChangesAsync();
                     return ResponseFactory.ResponseSuccessModel();
                 }
-                else if(item.Restriction == null)
+                else if (item.Restriction == null)
                 {
                     db.Users.Add(item);
                     await db.SaveChangesAsync();
