@@ -10,12 +10,12 @@
         </div>
         <ul class="nav navbar-top-links navbar">
             <li>
-                <img alt="image" style="resize" class="img-fluid" src="~/Images/logo_small.png" />
+                <img alt="image" class="img-fluid" src="~/Images/logo_small.png" />
             </li>
         </ul>
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <a href="#">
+                <a href="@Url.Action("Home", "Index")">
                     <i class="fa fa-sign-out"></i> Sair
                 </a>
             </li>
@@ -29,8 +29,13 @@
         <script src="~/lib/typehead/bootstrap3-typeahead.min.js"></script>
 
     </environment>
-        <script>
+    <script>
+        
+
+
     $(document).ready(function () {
+
+
 
         $('#input').change(function () {
             if ($('#input').val == 'Usuários') {
@@ -40,14 +45,14 @@
                 window.location.replace('@Url.Action("Insert", "Meal")');
             }
             if ($('#input').val == 'Perfil') {
-                @Url.Action("Index", "User")
+                window.location.replace('@Url.Action("Index", "User")');
             }
             if ($('#input').val == 'Alimentos') {
-                @Url.Action("Insert", "Meal")
+                window.location.replace('@Url.Action("Insert", "Meal")');
             }
         });
 
     });
 
-        </script>
+    </script>
 }

@@ -60,12 +60,15 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                Food food = db.Foods.First(w => w.ID == id);
-                response.Data = food;
-                await db.SaveChangesAsync();
+                Food food = await db.Foods.FirstOrDefaultAsync(w => w.ID == id);
+                if (food != null)
+                {
+                    response.Data = food;
+                    return ResponseFactory.SingleResponseSuccessModel<Food>(food);
+                }
+                return ResponseFactory.SingleResponseNotFoundException<Food>();
             }
 
-            return response;
         }
 
         public async Task<SingleResponse<Food>> GetByName(Food item)

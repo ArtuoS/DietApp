@@ -536,9 +536,7 @@
 
 
         $("#Restrictions").change(function () {
-
             var id = $("#Restrictions").val();
-            alert(id);
             $.ajax({
                 method: "GET",
                 url: "/User/GetFoodOfCategory/" + id,
