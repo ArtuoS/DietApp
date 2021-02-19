@@ -132,7 +132,7 @@ namespace MVCPresentationLayer.Controllers
             //user.CalculateDailyNeeds();
             return View();
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetFoodOfCategory(int id)
         {

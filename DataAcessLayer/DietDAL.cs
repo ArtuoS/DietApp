@@ -45,7 +45,7 @@ namespace DataAcessLayer
             }
         }
 
-        public Task<SingleResponse<Diet>> GenareteDiet(User user)
+        public Task<SingleResponse<Diet>> GenerateDiet(User user)
         {
             throw new NotImplementedException();
         }
@@ -72,7 +72,7 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                Diet diet = await db.Diets.FirstOrDefaultAsync(w => w.Date == date);
+                Diet diet = await db.Diets.Include(c => c.Meals).FirstOrDefaultAsync(w => w.Date == date);
                 if (diet != null)
                 {
                     response.Data = diet;
@@ -88,7 +88,7 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                Diet diet = await db.Diets.FirstOrDefaultAsync(w => w.ID == id);
+                Diet diet = await db.Diets.Include(c => c.Meals).FirstOrDefaultAsync(w => w.ID == id);
                 if (diet != null)
                 {
                     response.Data = diet;
@@ -137,7 +137,7 @@ namespace DataAcessLayer
             }
         }
 
-        public Task<SingleResponse<Diet>> GenareteDiet(int id, DateTime date)
+        public Task<SingleResponse<Diet>> GenerateDiet(int id, DateTime date)
         {
             throw new NotImplementedException();
         }

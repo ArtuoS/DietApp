@@ -126,7 +126,7 @@ namespace BusinessLogicalLayer
                 return ResponseFactory.SingleResponseExceptionModel<Diet>(ex);
             }
         }
-        public async Task<SingleResponse<Diet>> GenareteDiet(int id, DateTime date)
+        public async Task<SingleResponse<Diet>> GenerateDiet(int id, DateTime date)
         {
             SingleResponse<User> user = await userService.GetById(id);
             try
@@ -209,59 +209,7 @@ namespace BusinessLogicalLayer
                     }
                 }
 
-                /*
-                List<double> mealSubtraction = new List<double>();
-                List<Meal> mealsList = new List<Meal>();
-                Meal correctMeal = new Meal();
-                double value = 0.0;
 
-                foreach (Meal meal in breakfastMeals.Data)
-                {
-                    value = breakfastCalories - meal.Total_Calories;
-                    mealSubtraction.Add(value);
-                    mealsList.Add(meal);
-                    for (int i = 0; i < mealSubtraction.Count; i++)
-                    {
-                        if (value < mealSubtraction[i])
-                        {
-                            correctMeal = mealsList[i];
-                        }
-                    }
-                }
-                meals.Add(correctMeal);
-                mealSubtraction.RemoveAll(c => c > 0);
-
-
-                foreach (Meal meal in lunchMeals.Data)
-                {
-                    value = lunchCalories - meal.Total_Calories;
-                    mealSubtraction.Add(value);
-                    for (int i = 0; i < mealSubtraction.Count; i++)
-                    {
-                        if (value < mealSubtraction[i])
-                        {
-                            correctMeal = meal;
-                        }
-                    }
-                }
-                meals.Add(correctMeal);
-                mealSubtraction.RemoveAll(c => c > 0);
-
-                foreach (Meal meal in dinnerMeals.Data)
-                {
-                    value = dinnerCalories - meal.Total_Calories;
-                    mealSubtraction.Add(value);
-                    for (int i = 0; i < mealSubtraction.Count; i++)
-                    {
-                        if (value < mealSubtraction[i])
-                        {
-                            correctMeal = meal;
-                        }
-                    }
-                }
-                meals.Add(correctMeal);
-                mealSubtraction.RemoveAll(c => c > 0);
-                */
 
                 foreach (Meal item in breakfastMeals.Data)
                 {
@@ -278,17 +226,18 @@ namespace BusinessLogicalLayer
                             }
                         }
                     }
+                    meals.Add(item);
                 }
 
                 foreach (Meal item in lunchMeals.Data)
                 {
-                    if (item.Total_Calories <= (lunchCalories + lunchCalories * 0.50) && item.Total_Calories >= lunchCalories - lunchCalories * 0.50)
+                    if (item.Total_Calories <= (lunchCalories + lunchCalories * 0.30) && item.Total_Calories >= lunchCalories - lunchCalories * 0.30)
                     {
-                        if (item.Total_Carbohydrates <= (lunchCarbohydrates + lunchCarbohydrates * 0.50) && item.Total_Carbohydrates >= (lunchCarbohydrates - lunchCarbohydrates * 0.50))
+                        if (item.Total_Carbohydrates <= (lunchCarbohydrates + lunchCarbohydrates * 0.70) && item.Total_Carbohydrates >= (lunchCarbohydrates - lunchCarbohydrates * 0.70))
                         {
-                            if (item.Total_Proteins <= (lunchProteins + lunchProteins * 0.50) && item.Total_Proteins >= (lunchProteins - lunchProteins * 0.50))
+                            if (item.Total_Proteins <= (lunchProteins + lunchProteins * 0.95) && item.Total_Proteins >= (lunchProteins - lunchProteins * 0.95))
                             {
-                                if (item.Total_Lipids <= (lunchLipids + lunchLipids * 0.50) && item.Total_Lipids >= (lunchLipids - lunchLipids * 0.50))
+                                if (item.Total_Lipids <= (lunchLipids + lunchLipids * 0.95) && item.Total_Lipids >= (lunchLipids - lunchLipids * 0.95))
                                 {
                                     meals.Add(item);
                                 }
@@ -299,13 +248,13 @@ namespace BusinessLogicalLayer
 
                 foreach (Meal item in dinnerMeals.Data)
                 {
-                    if (item.Total_Calories == (dinnerCalories + dinnerCalories * 0.50) && item.Total_Calories == (dinnerCalories - dinnerCalories * 0.50))
+                    if (item.Total_Calories == (dinnerCalories + dinnerCalories * 0.30) && item.Total_Calories == (dinnerCalories - dinnerCalories * 0.30))
                     {
-                        if (item.Total_Carbohydrates <= (dinnerCarbohydrates + dinnerCarbohydrates * 0.50) && item.Total_Carbohydrates >= (dinnerCarbohydrates - dinnerCarbohydrates * 0.50))
+                        if (item.Total_Carbohydrates <= (dinnerCarbohydrates + dinnerCarbohydrates * 0.70) && item.Total_Carbohydrates >= (dinnerCarbohydrates - dinnerCarbohydrates * 0.70))
                         {
-                            if (item.Total_Proteins <= (dinnerProteins + dinnerProteins * 0.50) && item.Total_Proteins >= (dinnerProteins - dinnerProteins * 0.50))
+                            if (item.Total_Proteins <= (dinnerProteins + dinnerProteins * 0.95) && item.Total_Proteins >= (dinnerProteins - dinnerProteins * 0.95))
                             {
-                                if (item.Total_Lipids <= (dinnerLipids + dinnerLipids * 0.50) && item.Total_Lipids >= (dinnerLipids - dinnerLipids * 0.50))
+                                if (item.Total_Lipids <= (dinnerLipids + dinnerLipids * 0.95) && item.Total_Lipids >= (dinnerLipids - dinnerLipids * 0.95))
                                 {
                                     meals.Add(item);
                                 }
@@ -314,13 +263,68 @@ namespace BusinessLogicalLayer
                     }
                 }
 
+                if (meals.Count != 3)
+                {
+                    meals.RemoveAll(c => c.ID > 0);
+                    List<double> mealSubtraction = new List<double>();
+                    List<Meal> mealsList = new List<Meal>();
+                    Meal correctMeal = new Meal();
+                    double value = 0.0;
+
+                    foreach (Meal meal in breakfastMeals.Data)
+                    {
+                        value = breakfastCalories - meal.Total_Calories;
+                        mealSubtraction.Add(value);
+                        mealsList.Add(meal);
+                        for (int i = 0; i < mealSubtraction.Count; i++)
+                        {
+                            if (value < mealSubtraction[i])
+                            {
+                                correctMeal = mealsList[i];
+                            }
+                        }
+                    }
+                    meals.Add(correctMeal);
+                    mealSubtraction.RemoveAll(c => c > 0);
+
+
+                    foreach (Meal meal in lunchMeals.Data)
+                    {
+                        value = lunchCalories - meal.Total_Calories;
+                        mealSubtraction.Add(value);
+                        for (int i = 0; i < mealSubtraction.Count; i++)
+                        {
+                            if (value < mealSubtraction[i])
+                            {
+                                correctMeal = meal;
+                            }
+                        }
+                    }
+                    meals.Add(correctMeal);
+                    mealSubtraction.RemoveAll(c => c > 0);
+
+                    foreach (Meal meal in dinnerMeals.Data)
+                    {
+                        value = dinnerCalories - meal.Total_Calories;
+                        mealSubtraction.Add(value);
+                        for (int i = 0; i < mealSubtraction.Count; i++)
+                        {
+                            if (value < mealSubtraction[i])
+                            {
+                                correctMeal = meal;
+                            }
+                        }
+                    }
+                    meals.Add(correctMeal);
+                    mealSubtraction.RemoveAll(c => c > 0);
+                }
+
                 SingleResponse<Diet> dietResponse = new SingleResponse<Diet>();
                 diet.Date = date;
                 diet.Meals = meals;
                 diet.UserID = id;
-                dietResponse.Data = diet;
-                dietResponse.Success = true;
-                return dietResponse;
+                return ResponseFactory.SingleResponseSuccessModel<Diet>(diet);
+                //return dietResponse;
             }
             catch (Exception ex)
             {
