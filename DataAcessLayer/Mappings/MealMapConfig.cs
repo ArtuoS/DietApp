@@ -11,7 +11,7 @@ namespace DataAcessLayer.Mappings
     {
         public void Configure(EntityTypeBuilder<Meal> builder)
 		{
-            builder.Property(a => a.Name).HasMaxLength(40).IsRequired().IsUnicode();
+            builder.Property(a => a.Name).HasMaxLength(300).IsRequired().IsUnicode();
         }
     }
 }
