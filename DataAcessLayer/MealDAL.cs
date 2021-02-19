@@ -97,7 +97,7 @@ namespace DataAcessLayer
 
             using (DietDB db = new DietDB())
             {
-                List<Meal> meal = await db.Meals.Where(w => w.Category == category).ToListAsync();
+                List<Meal> meal = await db.Meals.Include(c => c.Foods).Where(w => w.Category == category).ToListAsync();
                 response.Data = meal;
             }
 

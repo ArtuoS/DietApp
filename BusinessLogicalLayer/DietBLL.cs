@@ -169,41 +169,37 @@ namespace BusinessLogicalLayer
                         {
                             foreach (Food food in restrictionFoods.Data)
                             {
-                                if (food == foodAmount.Food)
+                                if (food.ID == foodAmount.FoodID)
                                 {
                                     restrictedMeals.Add(meal);
                                 }
                             }
                         }
-
                     }
 
                     foreach (Meal meal in restrictedMeals)
                     {
-                        foreach (Meal breakfastMeal in breakfastMeals.Data)
+                        foreach (Meal breakfastMeal in breakfastMeals.Data.ToList())
                         {
-                            if (meal == breakfastMeal)
+                            if (meal.ID == breakfastMeal.ID)
                             {
                                 breakfastMeals.Data.Remove(meal);
-
                             }
                         }
 
-                        foreach (Meal lunchMeal in lunchMeals.Data)
+                        foreach (Meal lunchMeal in lunchMeals.Data.ToList())
                         {
-                            if (meal == lunchMeal)
+                            if (meal.ID == lunchMeal.ID)
                             {
                                 lunchMeals.Data.Remove(meal);
-
                             }
                         }
 
-                        foreach (Meal dinnerMeal in lunchMeals.Data)
+                        foreach (Meal dinnerMeal in lunchMeals.Data.ToList())
                         {
-                            if (meal == dinnerMeal)
+                            if (meal.ID == dinnerMeal.ID)
                             {
                                 dinnerMeals.Data.Remove(meal);
-
                             }
                         }
                     }
