@@ -12,7 +12,7 @@
         defaults = {
             bootstrap2Compatible: false,
             filterTextClear: 'Mostrar Tudo',
-            filterPlaceHolder: 'Buscar por um aliemento',
+            filterPlaceHolder: 'Buscar por um alimento',
             moveSelectedLabel: 'Mover item selecionado',
             moveAllLabel: 'Mover todos',
             removeSelectedLabel: 'Remover item selecionado',

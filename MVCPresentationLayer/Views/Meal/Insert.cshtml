@@ -117,8 +117,9 @@
                                                         <td>@item.Protein mg/1 @item.Unit</td>
                                                         <td>@item.Lipid mg/1 @item.Unit</td>
                                                         <td>
-                                                            <a data-toggle="modal" id="foodUpdate" class="btn btn-primary col-sm-12 text-white" href="#modal-food-edit">Editar</a>
-                                                            <a id="foodDelete" class="btn btn-primary col-sm-12 text-white">Deletar</a>
+                                                            <div class="row">
+                                                                    <a data-toggle="modal" id="foodUpdate" name="@item.ID" class="btn btn-info text-white" href="#modal-food-edit">Editar</a>
+                                                             </div>
                                                         </td>
                                                     </tr>
                                                 }
@@ -179,10 +180,8 @@
                                     </ul>
 
                                     <strong>Ingredientes</strong>
-                                    <ul class="list-group clear-list">
-                                        <li id="ingredientes" class="list-group-item fist-item">
-
-                                        </li>
+                                    <ul class="list-group clear-list" id="ingredientes">
+                                        
                                     </ul>
                                     <strong>Receita</strong>
                                     <p id="MealDescriptionColumn">
@@ -558,6 +557,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
+                                    <label class="control-label">Editar alimento</label>
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-sm demo2 col-sm-6" type="submit" id="foodEditBtn">Editar</button>
                                     </div>
@@ -742,6 +742,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
+                                    <label class="form-label">Cadastrar novo alimento</label>
                                     <div class="form-group">
                                         <button class="btn btn-primary btn-sm demo2 col-sm-6" type="submit" id="FoodInsert">Cadastrar</button>
                                     </div>
@@ -791,6 +792,8 @@
 
 
     <script type="text/javascript">
+
+        var units = ['kcal', 'g', 'L', 'ml', 'kg', 'mg', 'µg'];
 
         $(document).ready(function () {
 
@@ -856,7 +859,7 @@
                         document.getElementById('FoodCarbsIntoMeal').innerHTML = data.carbohydrate;
                         document.getElementById('FoodProteinsIntoMeal').innerHTML = data.protein;
                         document.getElementById('FoodLipidsIntoMeal').innerHTML = data.lipid;
-                        document.getElementById('MealUnMeasurement').innerHTML = data.unit;
+                        document.getElementById('MealUnMeasurement').innerHTML = units[data.unit];
                         calories = data.calories;
                         carbs = data.carbohydrate;
                         proteins = data.protein;
@@ -910,6 +913,7 @@
                     dataType: "json",
                     traditional: true,
                     success: function (data) {
+                        $("#ingredientes").innerHTML = '';
                         for (var i = 0; i < data.length; i++) {
                             $.ajax({
                                 method: "GET",
@@ -918,13 +922,9 @@
                                 dataType: "json",
                                 traditional: true,
                                 success: function (data2) {
-                                    document.getElementById('ingredientes').innerHTML = data2.food_Name;
-
-                                    var a = '<span>' + data2.food_Name + ' - </span>';
-                                    var b = '<span>' + data[i].quantity + ' ' + data2.unit + '</span>';
+                                    var a = '<li>' + data2.food_Name + '</li>';
 
                                     $("#ingredientes").append(a);
-                                    $("#ingredientes").append(b);
                                 },
                                 failure: function (response) {
                                     alert("Falha na comunicação com o servidor.");
@@ -947,8 +947,6 @@
             error: function (response) {
             }
         });
-
-
 
         $("#FoodInsertIntoMeal").click(function () {
             var b = '<<tr><td>' + document.getElementById('FoodIdIntoMeal').innerHTML + '</td><td>' + document.getElementById('FoodNameIntoMeal').innerHTML + '</td><td>' + document.getElementById('qnd').value + '</td><td>' + document.getElementById('MealUnMeasurement').innerHTML + '</td></tr>';
@@ -1008,11 +1006,55 @@
                         document.getElementById('MealNameColumn').innerHTML = data.name;
                         document.getElementById('mealImage').src = "../img/refeicao/" + data.id + ".jpg";
                         document.getElementById('MealCategoryColumn').innerHTML = data.category;
+                        if (data.category == 0) {
+                            document.getElementById('MealCategoryColumn').innerHTML = "Café da manhã";
+                        } else if (data.category == 1) {
+                            document.getElementById('MealCategoryColumn').innerHTML = "Almoço";
+                        }
+                        else {
+                            document.getElementById('MealCategoryColumn').innerHTML = "Jantar";
+                        }
                         document.getElementById('MealDescriptionColumn').innerHTML = data.description;
                         document.getElementById('MealCaloriesColumn').innerHTML = data.total_Calories;
                         document.getElementById('MealCarbohydratesColumn').innerHTML = data.total_Carbohydrates;
                         document.getElementById('MealProteinsColumn').innerHTML = data.total_Proteins;
                         document.getElementById('MealLipidsColumn').innerHTML = data.total_Lipids;
+                        $.ajax({
+                            method: "GET",
+                            url: "/Meal/GetMealFoodsById/" + id,
+                            contentType: "application/json",
+                            dataType: "json",
+                            traditional: true,
+                            success: function (data1) {
+                                $("#ingredientes").innerHTML = '';
+
+                                for (var i = 0; i < data1.length; i++) {
+                                    $.ajax({
+                                        method: "GET",
+                                        url: "/Meal/GetFoodById/" + data1[i].foodID,
+                                        contentType: "application/json",
+                                        dataType: "json",
+                                        traditional: true,
+                                        success: function (data2) {
+
+                                            var a = '<li>' + data2.food_Name + '</li>';
+
+                                            $("#ingredientes").append(a);
+                                        },
+                                        failure: function (response) {
+                                            alert("Falha na comunicação com o servidor.");
+                                        },
+                                        error: function (response) {
+                                        }
+                                    });
+                                }
+                            },
+                            failure: function (response) {
+                                alert("Falha na comunicação com o servidor.");
+                            },
+                            error: function (response) {
+                            }
+                        });
 
                     },
                     failure: function (response) {
@@ -1031,9 +1073,9 @@
         });
 
         $(function () {
-
             $("#foodUpdate").click(function (e) {
-                var id = $("#FoodIdIntoMeal").html();
+                var id = $('#foodUpdate').attr("name");
+                alert(id);
                 $.ajax({
                     method: "GET",
                     url: "/Meal/GetFoodById/" + id,
@@ -1041,25 +1083,25 @@
                     dataType: "json",
                     traditional: true,
                     success: function (data) {
-                        document.getElementById('Food_Name_Edit').innerHTML = data.food_Name;
-                        //document.getElementById('Calories_Edit').innerHTML = data.calories;
-                        //document.getElementById('Carbs_Edit').innerHTML = data.carbohydrate;
-                        //document.getElementById('Proteins_Edit').innerHTML = data.protein;
-                        //document.getElementById('Lipids_Edit').innerHTML = data.lipid;
-                        //document.getElementById('Alcohol_Edit').innerHTML = data.alcohol;
-                        //document.getElementById('Cooper_Edit').innerHTML = data.copper;
-                        //document.getElementById('Fiber_Edit').innerHTML = data.fiber;
-                        //document.getElementById('Magnesium_Edit').innerHTML = data.magnesium;
-                        //document.getElementById('Phosphor_Edit').innerHTML = data.phosphor;
-                        //document.getElementById('Potasium_Edit').innerHTML = data.potassium;
-                        //document.getElementById('Sodium_Edit').innerHTML = data.sodium;
-                        //document.getElementById('Selenium_Edit').innerHTML = data.selenium;
-                        //document.getElementById('VitaminA_Edit').innerHTML = data.vitamin_A;
-                        //document.getElementById('VitaminC_Edit').innerHTML = data.vitamin_C;
-                        //document.getElementById('VitaminD_Edit').innerHTML = data.vitamin_D;
-                        //document.getElementById('VitaminE_Edit').innerHTML = data.vitamin_E;
-                        //document.getElementById('VitaminB6_Edit').innerHTML = data.vitamin_B6;
-                        //document.getElementById('VitaminB12_Edit').innerHTML = data.vitamin_B12;
+                        document.getElementById('Food_Name_Edit').innerHTML = data.calories;
+                        document.getElementById('Calories_Edit').innerHTML = data.calories;
+                        document.getElementById('Carbs_Edit').innerHTML = data.carbohydrate;
+                        document.getElementById('Proteins_Edit').innerHTML = data.protein;
+                        document.getElementById('Lipids_Edit').innerHTML = data.lipid;
+                        document.getElementById('Alcohol_Edit').innerHTML = data.alcohol;
+                        document.getElementById('Cooper_Edit').innerHTML = data.copper;
+                        document.getElementById('Fiber_Edit').innerHTML = data.fiber;
+                        document.getElementById('Magnesium_Edit').innerHTML = data.magnesium;
+                        document.getElementById('Phosphor_Edit').innerHTML = data.phosphor;
+                        document.getElementById('Potasium_Edit').innerHTML = data.potassium;
+                        document.getElementById('Sodium_Edit').innerHTML = data.sodium;
+                        document.getElementById('Selenium_Edit').innerHTML = data.selenium;
+                        document.getElementById('VitaminA_Edit').innerHTML = data.vitamin_A;
+                        document.getElementById('VitaminC_Edit').innerHTML = data.vitamin_C;
+                        document.getElementById('VitaminD_Edit').innerHTML = data.vitamin_D;
+                        document.getElementById('VitaminE_Edit').innerHTML = data.vitamin_E;
+                        document.getElementById('VitaminB6_Edit').innerHTML = data.vitamin_B6;
+                        document.getElementById('VitaminB12_Edit').innerHTML = data.vitamin_B12;
                     },
                     failure: function (response) {
                         alert("Falha na comunicação com o servidor.");
