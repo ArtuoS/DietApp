@@ -8868,25 +8868,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\entra21\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\arthu\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+      "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
       "projectName": "MVCPresentationLayer",
-      "projectPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
-      "packagesPath": "C:\\Users\\entra21\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\MVCPresentationLayer\\obj\\",
+      "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\MVCPresentationLayer\\MVCPresentationLayer.csproj",
+      "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\MVCPresentationLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\entra21\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\arthu\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -8901,11 +8899,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj": {
-              "projectPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj"
+            "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj": {
+              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj"
             },
-            "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
-              "projectPath": "C:\\Users\\entra21\\Desktop\\DietSystem\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
+            "C:\\Users\\arthu\\source\\repos\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
+              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
             }
           }
         }
@@ -8971,7 +8969,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

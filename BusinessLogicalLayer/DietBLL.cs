@@ -164,10 +164,9 @@ namespace BusinessLogicalLayer
                     foreach (Meal meal in breakfastMeals.Data)
                     {
                         QueryResponse<FoodAmountPerMeal> foods = await mealService.GetMealFoodsById(meal.ID);
-
-                        foreach (FoodAmountPerMeal foodAmount in foods.Data)
+                        foreach (Food food in restrictionFoods.Data)
                         {
-                            foreach (Food food in restrictionFoods.Data)
+                            foreach (FoodAmountPerMeal foodAmount in foods.Data)
                             {
                                 if (food.ID == foodAmount.FoodID)
                                 {
@@ -177,35 +176,46 @@ namespace BusinessLogicalLayer
                         }
                     }
 
-                    foreach (Meal meal in restrictedMeals)
+                    foreach (Meal meal in lunchMeals.Data)
                     {
-                        foreach (Meal breakfastMeal in breakfastMeals.Data.ToList())
+                        QueryResponse<FoodAmountPerMeal> foods = await mealService.GetMealFoodsById(meal.ID);
+                        foreach (Food food in restrictionFoods.Data)
                         {
-                            if (meal.ID == breakfastMeal.ID)
+                            foreach (FoodAmountPerMeal foodAmount in foods.Data)
                             {
-                                breakfastMeals.Data.Remove(meal);
-                            }
-                        }
-
-                        foreach (Meal lunchMeal in lunchMeals.Data.ToList())
-                        {
-                            if (meal.ID == lunchMeal.ID)
-                            {
-                                lunchMeals.Data.Remove(meal);
-                            }
-                        }
-
-                        foreach (Meal dinnerMeal in lunchMeals.Data.ToList())
-                        {
-                            if (meal.ID == dinnerMeal.ID)
-                            {
-                                dinnerMeals.Data.Remove(meal);
+                                if (food.ID == foodAmount.FoodID)
+                                {
+                                    restrictedMeals.Add(meal);
+                                }
                             }
                         }
                     }
+
+                    foreach (Meal meal in dinnerMeals.Data)
+                    {
+                        QueryResponse<FoodAmountPerMeal> foods = await mealService.GetMealFoodsById(meal.ID);
+                        foreach (Food food in restrictionFoods.Data)
+                        {
+                            foreach (FoodAmountPerMeal foodAmount in foods.Data)
+                            {
+                                if (food.ID == foodAmount.FoodID)
+                                {
+                                    restrictedMeals.Add(meal);
+                                }
+                            }
+                        }
+                    }
+
+                    if (restrictedMeals.Count != 0)
+                    {
+                        foreach (Meal meal in restrictedMeals)
+                        {
+                            breakfastMeals.Data.Remove(meal);
+                            lunchMeals.Data.Remove(meal);
+                            dinnerMeals.Data.Remove(meal);
+                        }
+                    }
                 }
-
-
 
                 foreach (Meal item in breakfastMeals.Data)
                 {
@@ -222,7 +232,6 @@ namespace BusinessLogicalLayer
                             }
                         }
                     }
-                    meals.Add(item);
                 }
 
                 foreach (Meal item in lunchMeals.Data)
@@ -261,58 +270,10 @@ namespace BusinessLogicalLayer
 
                 if (meals.Count != 3)
                 {
-                    meals.RemoveAll(c => c.ID > 0);
-                    List<double> mealSubtraction = new List<double>();
-                    List<Meal> mealsList = new List<Meal>();
-                    Meal correctMeal = new Meal();
-                    double value = 0.0;
-
-                    foreach (Meal meal in breakfastMeals.Data)
-                    {
-                        value = breakfastCalories - meal.Total_Calories;
-                        mealSubtraction.Add(value);
-                        mealsList.Add(meal);
-                        for (int i = 0; i < mealSubtraction.Count; i++)
-                        {
-                            if (value < mealSubtraction[i])
-                            {
-                                correctMeal = mealsList[i];
-                            }
-                        }
-                    }
-                    meals.Add(correctMeal);
-                    mealSubtraction.RemoveAll(c => c > 0);
-
-
-                    foreach (Meal meal in lunchMeals.Data)
-                    {
-                        value = lunchCalories - meal.Total_Calories;
-                        mealSubtraction.Add(value);
-                        for (int i = 0; i < mealSubtraction.Count; i++)
-                        {
-                            if (value < mealSubtraction[i])
-                            {
-                                correctMeal = meal;
-                            }
-                        }
-                    }
-                    meals.Add(correctMeal);
-                    mealSubtraction.RemoveAll(c => c > 0);
-
-                    foreach (Meal meal in dinnerMeals.Data)
-                    {
-                        value = dinnerCalories - meal.Total_Calories;
-                        mealSubtraction.Add(value);
-                        for (int i = 0; i < mealSubtraction.Count; i++)
-                        {
-                            if (value < mealSubtraction[i])
-                            {
-                                correctMeal = meal;
-                            }
-                        }
-                    }
-                    meals.Add(correctMeal);
-                    mealSubtraction.RemoveAll(c => c > 0);
+                    Random rand = new Random();
+                    meals.Add(breakfastMeals.Data.ElementAt(rand.Next(breakfastMeals.Data.Count())));
+                    meals.Add(lunchMeals.Data.ElementAt(rand.Next(lunchMeals.Data.Count())));
+                    meals.Add(dinnerMeals.Data.ElementAt(rand.Next(dinnerMeals.Data.Count())));
                 }
 
                 SingleResponse<Diet> dietResponse = new SingleResponse<Diet>();
@@ -320,7 +281,6 @@ namespace BusinessLogicalLayer
                 diet.Meals = meals;
                 diet.UserID = id;
                 return ResponseFactory.SingleResponseSuccessModel<Diet>(diet);
-                //return dietResponse;
             }
             catch (Exception ex)
             {
