@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {}
+    "D:\\C#\\DietApp\\Common\\Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {
+    "D:\\C#\\DietApp\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj",
+        "projectUniqueName": "D:\\C#\\DietApp\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj",
+        "projectPath": "D:\\C#\\DietApp\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\obj\\",
+        "outputPath": "D:\\C#\\DietApp\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

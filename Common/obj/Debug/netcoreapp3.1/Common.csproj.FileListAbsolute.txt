@@ -147,3 +147,15 @@ C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\dyet+\DietApp\Common\obj\Debug\netcoreapp
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\dyet+\DietApp\Common\obj\Debug\netcoreapp3.1\Common.dll
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\dyet+\DietApp\Common\obj\Debug\netcoreapp3.1\Common.pdb
 C:\Users\Joana.DESKTOP-1T5I4G0\Desktop\dyet+\DietApp\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache
+D:\C#\DietApp\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+D:\C#\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.json
+D:\C#\DietApp\Common\bin\Debug\netcoreapp3.1\Common.runtimeconfig.dev.json
+D:\C#\DietApp\Common\bin\Debug\netcoreapp3.1\Common.dll
+D:\C#\DietApp\Common\bin\Debug\netcoreapp3.1\Common.pdb
+D:\C#\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
+D:\C#\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+D:\C#\DietApp\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+D:\C#\DietApp\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+D:\C#\DietApp\Common\obj\Debug\netcoreapp3.1\Common.dll
+D:\C#\DietApp\Common\obj\Debug\netcoreapp3.1\Common.pdb
+D:\C#\DietApp\Common\obj\Debug\netcoreapp3.1\Common.genruntimeconfig.cache

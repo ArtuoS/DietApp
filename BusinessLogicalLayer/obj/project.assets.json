@@ -5965,11 +5965,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
+      "projectUniqueName": "D:\\C#\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
       "projectName": "BusinessLogicalLayer",
-      "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
+      "projectPath": "D:\\C#\\DietApp\\BusinessLogicalLayer\\BusinessLogicalLayer.csproj",
       "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\BusinessLogicalLayer\\obj\\",
+      "outputPath": "D:\\C#\\DietApp\\BusinessLogicalLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -5990,14 +5990,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {
-              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj"
+            "D:\\C#\\DietApp\\Common\\Common.csproj": {
+              "projectPath": "D:\\C#\\DietApp\\Common\\Common.csproj"
             },
-            "C:\\Users\\arthu\\source\\repos\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
-              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
+            "D:\\C#\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj": {
+              "projectPath": "D:\\C#\\DietApp\\DataAcessLayer\\DataAcessLayer.csproj"
             },
-            "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj"
+            "D:\\C#\\DietApp\\Entities\\Entities.csproj": {
+              "projectPath": "D:\\C#\\DietApp\\Entities\\Entities.csproj"
             }
           }
         }

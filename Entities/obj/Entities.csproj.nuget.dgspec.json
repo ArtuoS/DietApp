@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj": {}
+    "D:\\C#\\DietApp\\Entities\\Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {
+    "D:\\C#\\DietApp\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj",
+        "projectUniqueName": "D:\\C#\\DietApp\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj",
+        "projectPath": "D:\\C#\\DietApp\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\obj\\",
+        "outputPath": "D:\\C#\\DietApp\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -87,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj": {
+    "D:\\C#\\DietApp\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj",
+        "projectUniqueName": "D:\\C#\\DietApp\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\Entities.csproj",
+        "projectPath": "D:\\C#\\DietApp\\Entities\\Entities.csproj",
         "packagesPath": "C:\\Users\\arthu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Entities\\obj\\",
+        "outputPath": "D:\\C#\\DietApp\\Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -115,8 +115,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\arthu\\source\\repos\\DietApp\\Common\\Common.csproj"
+              "D:\\C#\\DietApp\\Common\\Common.csproj": {
+                "projectPath": "D:\\C#\\DietApp\\Common\\Common.csproj"
               }
             }
           }
