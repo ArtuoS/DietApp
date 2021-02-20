@@ -118,8 +118,8 @@
                                                         <td>@item.Lipid mg/1 @item.Unit</td>
                                                         <td>
                                                             <div class="row">
-                                                                    <a data-toggle="modal" id="foodUpdate" name="@item.ID" class="btn btn-info text-white" href="#modal-food-edit">Editar</a>
-                                                             </div>
+                                                                <a data-toggle="modal" id="foodUpdate" name="@item.ID" class="btn btn-info text-white" href="#modal-food-edit">Editar</a>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 }
@@ -181,7 +181,6 @@
 
                                     <strong>Ingredientes</strong>
                                     <ul class="list-group clear-list" id="ingredientes">
-                                        
                                     </ul>
                                     <strong>Receita</strong>
                                     <p id="MealDescriptionColumn">
@@ -914,7 +913,9 @@
                     dataType: "json",
                     traditional: true,
                     success: function (data) {
-                        
+
+                        $('#ingredientes').empty();
+
                         for (var i = 0; i < data.length; i++) {
                             $.ajax({
                                 method: "GET",
@@ -923,6 +924,7 @@
                                 dataType: "json",
                                 traditional: true,
                                 success: function (data2) {
+
                                     var a = '<li>' + data2.food_Name + '</li>';
 
                                     $("#ingredientes").append(a);
@@ -1029,6 +1031,7 @@
                             dataType: "json",
                             traditional: true,
                             success: function (data1) {
+                                $('#ingredientes').empty();
 
                                 for (var i = 0; i < data1.length; i++) {
                                     $.ajax({
@@ -1040,7 +1043,6 @@
                                         success: function (data2) {
 
                                             var a = '<li>' + data2.food_Name + '</li>';
-
                                             $("#ingredientes").append(a);
                                         },
                                         failure: function (response) {
@@ -1089,8 +1091,8 @@
                 food.fiber = document.getElementById('Fiber_Edit').innerHTML;
                 food.magnesium = document.getElementById('Magnesium_Edit').innerHTML;
                 food.phosphor = document.getElementById('Phosphor_Edit').innerHTML;
-                food.potasium  = document.getElementById('Potasium_Edit').innerHTML;
-                food.sodium  = document.getElementById('Sodium_Edit').innerHTML;
+                food.potasium = document.getElementById('Potasium_Edit').innerHTML;
+                food.sodium = document.getElementById('Sodium_Edit').innerHTML;
                 food.selenium = document.getElementById('Selenium_Edit').innerHTML;
                 food.vitamin_A = document.getElementById('VitaminA_Edit').innerHTML;
                 food.vitamin_C = document.getElementById('VitaminC_Edit').innerHTML;
