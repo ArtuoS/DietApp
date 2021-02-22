@@ -101,7 +101,6 @@
                                                 <th>Carboidratos</th>
                                                 <th>Proteínas</th>
                                                 <th>Gorduras</th>
-                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -116,11 +115,6 @@
                                                         <td>@item.Carbohydrate mg/1 @item.Unit</td>
                                                         <td>@item.Protein mg/1 @item.Unit</td>
                                                         <td>@item.Lipid mg/1 @item.Unit</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <a data-toggle="modal" id="foodUpdate" name="@item.ID" class="btn btn-info text-white" href="#modal-food-edit">Editar</a>
-                                                            </div>
-                                                        </td>
                                                     </tr>
                                                 }
                                             }
@@ -1122,8 +1116,11 @@
                 e.preventDefault();
             });
 
+            /// IMPLEMENTAR
+            /*
             $("#foodUpdate").click(function (e) {
                 var id = e.target.name;
+                console.log(id);
                 $.ajax({
                     method: "GET",
                     url: "/Meal/GetFoodById/" + id,
@@ -1160,6 +1157,7 @@
                 });
                 e.preventDefault();
             });
+            */
 
             $("#FoodInsert").click(function (e) {
                 var foodCategory = new Object();

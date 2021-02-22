@@ -40,6 +40,7 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
+                    item.CalculateIMC();
                     item.CalculateGET();
                     item.ReplaceGenderWithNumber(item.Gender);
                     return await userDAL.Insert(item);
@@ -55,7 +56,16 @@ namespace BusinessLogicalLayer
         {
             try
             {
-                ValidationResult results = this.Validate(item);
+                SingleResponse<User> user = await this.GetById(item.ID);
+                user.Data.First_Name = item.First_Name;
+                user.Data.Last_Name = item.Last_Name;
+                user.Data.Gender = item.Gender;
+                user.Data.Email = item.Email;
+                user.Data.Weight = item.Weight;
+                user.Data.Height = item.Height;
+                user.Data.BodyFat = item.BodyFat;
+
+                ValidationResult results = this.Validate(user.Data);
 
                 if (!results.IsValid)
                 {
@@ -63,7 +73,7 @@ namespace BusinessLogicalLayer
                 }
                 else
                 {
-                    return await userDAL.Update(item);
+                    return await userDAL.Update(user.Data);
                 }
             }
             catch (Exception ex)

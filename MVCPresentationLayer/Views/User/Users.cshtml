@@ -114,7 +114,7 @@
                             <div class="modal-content">
                                 <div class="modal-body">
                                     <form role="form">
-                                        <h3>Deletar Usuário ID:<small>  </small></h3>
+                                        <h3>Deletar Usuário ID:<label id="idToDelete">  </label></h3>
                                         <div class="row">
                                             <div class="col-sm-6 b-r">
                                                 <div class="form-group"><button id="btnAccept" class="btn btn-sm-10 btn-warning" type="submit"><strong>Deletar</strong></button></div>
@@ -171,6 +171,7 @@
                 $("#First_Name").val($(tr).find("td:eq( 1 )").html());
                 $("#Last_Name").val($(tr).find("td:eq( 2 )").html());
                 $("#IDUser").val($(tr).find("td:eq( 3 )").html());
+                $("#IDUser").text($(tr).find("td:eq( 3 )").html());
                 $("#Email").val($(tr).find("td:eq( 4 )").html());
                 $("#Date_Of_Birthday").val($(tr).find("td:eq( 5 )").html());
                 $("#Gender").val($(tr).find("td:eq( 6 )").html());
@@ -194,7 +195,7 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "/User/GetDailyNeeds/",
+                    url: "/User/Update/",
                     data: JSON.stringify(user),
                     contentType: "application/json",
                     dataType: "json",
@@ -219,7 +220,45 @@
             });
         });
 
+    </script>
 
+    <script>
+
+        $(function () {
+            $(".btn btn-danger, #moddel").click(function (e) {
+                tr = $(this).parent().parent();
+                $("#idToDelete").val($(tr).find("td:eq( 3 )").html());
+                $("#idToDelete").text($(tr).find("td:eq( 3 )").html());
+            });
+
+            $("#btnAccept").click(function (e) {
+                var id = $("#idToDelete").val();
+
+                $.ajax({
+                    method: "GET",
+                    url: "/User/Delete/" + id,
+                    contentType: "application/json",
+                    dataType: "json",
+                    traditional: true,
+                    success: function (response) {
+                        if (response.DeuBoa) {
+                            $('#respostaServidor').html("Cadastro efetuado com sucesso!")
+                            $('#respostaServidor').css({ "color": "green" });
+                        }
+                        else {
+                            $('#respostaServidor').html(response.Erro);
+                            $('#respostaServidor').css({ "color": "red" });
+                        }
+                    },
+                    failure: function (response) {
+                        alert("Falha na comunicação com o servidor.");
+                    },
+                    error: function (response) {
+                    }
+                });
+                e.preventDefault();
+            });
+        });
 
     </script>
 

@@ -545,6 +545,7 @@
                 dataType: "json",
                 traditional: true,
                 success: function (data) {
+                    $("#bootstrap-duallistbox-nonselected-list_FoodSelect").empty();
                     for (var i = 0; i < data.length; i++) {
                         var s = '<option value="' + data[i].id + '">' + data[i].food_Name + '</option>';
                         $("#FoodSelect").append(s);

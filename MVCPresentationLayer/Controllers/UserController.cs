@@ -113,6 +113,19 @@ namespace MVCPresentationLayer.Controllers
             return View("Index");
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Response response = await userService.Delete(id);
+
+            if (response.Success)
+            {
+                return Json(new { Sucesso = true });
+            }
+
+            return View("Index");
+        }
+
         public async Task<IActionResult> Users()
         {
             QueryResponse<User> response = await userService.GetAll();
@@ -140,6 +153,6 @@ namespace MVCPresentationLayer.Controllers
             return Json(queryFood.Data.ToList());
         }
 
-        
+
     }
 }
